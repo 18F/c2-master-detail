@@ -3,4 +3,22 @@
 
 .control-message-bar{
   background: #eee;
+  margin-bottom: 30px;
+}
+
+.control-current-status{
+  margin-bottom: 30px;
+}
+
+.control-current-status.card{
+  padding-top: 20px;
+}
+
+.tab-content-card{
+  padding-top: 40px;
+}
+
+.activity-item{
+  padding-bottom: 10px;
+  border-bottom: 1px solid $gray-light;
 }

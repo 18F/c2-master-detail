@@ -1,0 +1,70 @@
+---
+name: inbox
+url: /inbox
+---
+
+<div class="small-12 medium-12 messages grid-content">
+  <a class="button secondary expand hide-for-medium" zf-open="sub-nav">This</a>
+  <section class="block-list">
+    <li>
+      <input type="text" placeholder="Search">
+    </l1>
+    <li>
+      <a zf-toggle="message">
+        <h5>Thunerbolt Monitor for SF new hire</h5>
+        <p>Submitted by <b>Hillary Hartley</b></p>
+      </a>
+    </li>
+    <li>
+      <a zf-toggle="message">
+        <h5>Training request for UX Week Conference in San Francisco</h5>
+        <p>Submitted by <b>Amber Reed</b></p>
+      </a>
+    </li>
+    <li>
+      <a zf-toggle="message">
+        <h5>Office Supplies</h5>
+        <p>Submitted by <b>Erica Deahl</b></p>
+      </a>
+    </li>
+     <li>
+      <a zf-toggle="message">
+        <h5>Thunerbolt Monitor for SF new hire</h5>
+        <p>Submitted by <b>Hillary Hartley</b></p>
+      </a>
+    </li>
+    <li>
+      <a zf-toggle="message">
+        <h5>Training request for UX Week Conference in San Francisco</h5>
+        <p>Submitted by <b>Amber Reed</b></p>
+      </a>
+    </li>
+    <li>
+      <a zf-toggle="message">
+        <h5>Office Supplies</h5>
+        <p>Submitted by <b>Erica Deahl</b></p>
+      </a>
+    </li>
+  </section>
+</div>
+
+<!-- Start Compose Message -->
+<zf-modal overlay="true" id="compose">
+  <div class="grid-block vertical">
+    <div class="primary title-bar">
+      <div class="center title">Compose Message</div>
+      <span class="left"><a zf-close="compose" href="#">Cancel</a></span>
+      <span class="right"><a href="#">Send</a></span>
+    </div>
+    <div class="grid-content">
+      <label>Email
+        <input type="text" placeholder="email@zmail.com" />
+      </label>
+      <label>Message
+        <textarea placeholder="hello..."></textarea>
+      </label>
+    </div>
+    </div>
+  </div>
+</zf-modal>
+<!-- End Compose Message -->

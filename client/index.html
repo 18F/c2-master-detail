@@ -13,10 +13,37 @@
   <body>
     <div class="grid-frame vertical">
       <div class="primary title-bar">
-        <div class="center title"><a ui-sref="home">zMail</a></div>
+        <div class="center title"><a ui-sref="home">C2</a></div>
         <span class="right"><a ui-sref="settings">Settings</a></span>
       </div>
-      <div ui-view class="grid-block">
+      <div class="grid-block">
+
+        <div zf-panel position="left" id="sub-nav" class="fast bounceInOut medium-2 medium-grid-content">
+          <a class="button expand" zf-open="compose">Compose</a>
+          <section class="block-list with-icons">
+            <ul>
+              <li class="hide-for-medium">
+                <img src="http://placehold.it/1x1" alt="">
+                <a zf-close="sub-nav">Close</a>
+              </li>
+              <li>
+                <img src="http://placehold.it/1x1" alt="">
+                <a ui-sref="inbox">Inbox</a>
+              </li>
+              <!-- With an icon -->
+              <li>
+                <img src="http://placehold.it/1x1" alt="">
+                <a href="#">Sent Messages</a>
+              </li>
+              <li>
+                <img src="http://placehold.it/1x1" alt="">
+                <a href="#">Favorited</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div ui-view ></div>
 
       </div>
     </div>

@@ -22,3 +22,38 @@
   padding-bottom: 10px;
   border-bottom: 1px solid $gray-light;
 }
+
+.inbox-list{
+  &.active{
+    li{
+      background: #eee;
+    }
+  }
+  li{
+    border-left: 5px solid $secondary-color;
+    &.active{
+      background: #fff;
+    }
+    &.primary{ 
+      border-left-color: $primary-color;
+    }
+    &.secondary{ 
+      border-left-color: $secondary-color;
+    }
+    &.alert{ 
+      border-left-color: $alert-color;
+    }
+    &.info{ 
+      border-left-color: $info-color;
+    }
+    &.success{ 
+      border-left-color: $success-color;
+    }
+    &.warning{ 
+      border-left-color: $warning-color;
+    }
+    &.dark{ 
+      border-left-color: $dark-color;
+    }
+  }
+}

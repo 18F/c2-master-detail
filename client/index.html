@@ -44,6 +44,30 @@
 
         <div ui-view class="grid-block"></div>
 
+
+        <!-- Start Compose Message -->
+        <zf-modal overlay="true" id="compose">
+          <div class="grid-block vertical">
+            <div class="primary title-bar">
+              <div class="center title">Compose Request</div>
+              <span class="left"><a zf-close="compose" href="#">Cancel</a></span>
+              <span class="right"><a href="#">Send</a></span>
+            </div>
+            <div class="grid-content">
+            <br>
+            <br>
+              <label>Email
+                <input type="text" placeholder="email@zmail.com" />
+              </label>
+              <label>Message
+                <textarea placeholder="hello..."></textarea>
+              </label>
+            </div>
+            </div>
+          </div>
+        </zf-modal>
+        <!-- End Compose Message -->
+
       </div>
     </div>
   </body>

@@ -40,19 +40,34 @@
   }
 }
 
+
 .activity-item{
   padding-bottom: 10px;
   border-bottom: 1px solid $gray-light;
 }
 
 .inbox-list{
+  margin-bottom: 0px;
+  
   &.active{
     li{
       background: #eee;
     }
   }
-  li{
+  &>li{
     border-left: 5px solid $secondary-color;
+    position: relative;
+    .action-items{
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      opacity: 0;
+    }
+    &:hover{
+      .action-items{
+        opacity: 1;
+      }
+    }
     &.active{
       background: #fff;
       a:hover{

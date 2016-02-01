@@ -1,6 +1,10 @@
 @import "settings";
 @import "foundation";
 
+.report-wrapper{
+  margin-top: 2em;
+}
+
 .control-message-bar{
   background: #eee;
   margin-bottom: 30px;
@@ -47,6 +51,9 @@ aside.modal{
       color: white;
     }
     // background: $secondary-color;
+  }
+  .block-list{
+    margin-right: -.5rem;
   }
 }
 

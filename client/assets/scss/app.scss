@@ -14,6 +14,19 @@
   padding-top: 20px;
 }
 
+.card-section.no-top{
+  padding-top: 0px;
+}
+
+.card-section.no-bottom{
+  padding-bottom: 0px;
+}
+
+.card-divider{
+  background: #fff;
+  border-bottom: 1px solid #ededed;
+}
+
 .tab-content-card{
   padding-top: 40px;
 }

@@ -3,12 +3,14 @@ name: inbox
 url: /inbox
 ---
 
-<div class="small-12 medium-12 messages grid-content">
-  <a class="button secondary expand hide-for-medium" zf-open="sub-nav">This</a>
-  <section class="block-list inbox-list">
-    <li>
-      <input type="text" placeholder="Search">
-    </l1>
-    <div ng-include="'partials/inbox/list.html'"></div> 
-  </section>
+<div class="grid-block medium-12 vertical">
+  <div class="collapse shrink">
+    <input type="text" placeholder="Search">
+  </div>
+  <div class="small-12 medium-12 messages grid-content">
+    <a class="button secondary expand hide-for-medium" zf-open="sub-nav">This</a>
+    <section class="block-list inbox-list">
+      <div ng-include="'partials/inbox/list.html'"></div> 
+    </section>
+  </div>
 </div>

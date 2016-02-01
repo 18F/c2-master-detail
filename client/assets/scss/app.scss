@@ -31,6 +31,22 @@
   padding-top: 40px;
 }
 
+.sidebar{
+  background: $primary-color;
+  .title{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .menu-items{
+    a{
+      color: white;
+    }
+    // background: $secondary-color;
+  }
+}
+
+
 .tabs .tab-item{
   &.is-active.is-active{ 
     background: #fff;

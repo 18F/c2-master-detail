@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation for Apps</title>
+    <title>Communicart</title>
     <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
     
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="grid-frame">
-      <div class="sidebar medium-grid-block collapse medium-2 large-2 vertical" style="">
+      <div class="sidebar shrink medium-2 large-2 vertical" style="">
         <div class="shrink text-center">
           <div class="center title">
             <a ui-sref="home"><img src="assets/img/img-logo-c2-portal.png" alt=""></a>
@@ -50,31 +50,10 @@
         </section>
       </div>
 
-      <div ui-view class="grid-block  medium-10 large-10 vertical"></div>
+      <div ui-view class="grid-block  medium-10 large-10"></div>
 
-
-      <!-- Start Compose Message -->
-      <zf-modal overlay="true" id="compose">
-        <div class="grid-block vertical">
-          <div class="primary title-bar">
-            <div class="center title">Compose Request</div>
-            <span class="left"><a zf-close="compose" href="#">Cancel</a></span>
-            <span class="right"><a href="#">Send</a></span>
-          </div>
-          <div class="grid-content">
-          <br>
-          <br>
-            <label>Email
-              <input type="text" placeholder="email@zmail.com" />
-            </label>
-            <label>Message
-              <textarea placeholder="hello..."></textarea>
-            </label>
-          </div>
-          </div>
-        </div>
-      </zf-modal>
-      <!-- End Compose Message -->
+      <div ng-include="'partials/new-request.html'"></div>
+      
 
     </div>
   </body>

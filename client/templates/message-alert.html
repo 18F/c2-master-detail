@@ -4,52 +4,64 @@ url: /inbox/ea95bd8a-02a5-435d-8627-c35476d7476b
 ---
 
 <div class="small-12 medium-3 messages grid-content">
-  <a class="button secondary expand hide-for-medium" zf-open="sub-nav">This</a>
   <section class="block-list inbox-list active">
     <li>
       <input type="text" placeholder="Search">
     </l1>
-    <div ng-include="'partials/inbox/list-alert.html'"></div> 
+    <div class="medium-12">
+      <zf-accordion auto-open="false" collapsible="true" multi-open="true">
+        <zf-accordion-item title="Filters">
+          <div ng-include="'partials/inbox/filter.html'"></div>  
+        </zf-accordion-item>
+      </zf-accordion>
+    </div>
+    <div ng-include="'partials/inbox/list.html'"></div> 
   </section>
 </div>
 
 
-<div zf-panel id="message" position="right" class="fast bounceInOut small-12 medium-9 medium-grid-content">
+<div id="message" position="right" class="small-12 medium-9 grid-content">
   <div class="grid-block wrap">
-    <div class="small-12 grid-block control-message-bar medium-grid-content">
-      <p><b>ID</b> 01954-B</p>
+    <div class="small-12 grid-content control-message-bar">
+        <h4>
+          <a ui-sref="inbox" class="button tiny secondary" style="margin-bottom: 2px;">
+            <img zf-iconic="" icon="chevron" data-direction="left" size="small"> Back</a>
+          <b>ID</b> 00654-D
+        </h4>
     </div>
   </div>
-
+  
   <div class="grid-block wrap">
-    <div class="small-12 medium-grid-content">
+    <div class="small-12 grid-content">
       <a class="hide-for-medium button tiny" zf-close="message">Back</a>
       <h3>Training request for UX Week Conference in San Francisco</h3>
       <p>Requester <b>Amber Reed</b>. Submitted <b>1/7/16</b></p>
     </div>
   </div>
 
-  <div class="grid-block wrap control-current-status card">
-    <div class="small-12 medium-grid-content">
-      <h4>Status</h4>
-      <meter min="0" max="100" low="50" high="80" optimum="100" value="40"></meter>
-    </div>
-    <div class="small-12 medium-1 medium-grid-content">
-      <img zf-iconic="" icon="flag" size="medium" class="iconic-color-alert">
-    </div>
-    <div class="small-12 medium-4 medium-grid-content">
-      <p>
-        Requires action. File missing. 
-      </p>
-    </div>
-    <div class="small-12 medium-7 medium-grid-content">
-      <p>
-        <img zf-iconic="" icon="chevron" data-direction="right" size="medium" class="iconic-color-secondary">
-        Next step
-      </p>
-      <p class="text-right">
-        <a class="button success large" href="#">Validate</a>
-      </p>
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Status</h4>
+        <meter min="0" max="100" low="50" high="80" optimum="100" value="40"></meter>
+      </div>
+      <div class="small-12 medium-1 medium-grid-content">
+        <img zf-iconic="" icon="flag" size="medium" class="iconic-color-alert">
+      </div>
+      <div class="small-12 medium-4 medium-grid-content">
+        <p>
+          Requires action. File missing. 
+        </p>
+      </div>
+      <div class="small-12 medium-7 medium-grid-content">
+        <p>
+          <img zf-iconic="" icon="chevron" data-direction="right" size="medium" class="iconic-color-secondary">
+          Next step
+        </p>
+        <p class="text-right">
+          <a class="button success large" href="#">Validate</a>
+        </p>
+      </div>
     </div>
   </div>
 

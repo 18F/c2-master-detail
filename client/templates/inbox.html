@@ -5,11 +5,18 @@ url: /inbox
 
 <div class="grid-block medium-12 vertical">
   <div class="collapse shrink">
-    <input type="text" placeholder="Search">
+    <input type="text" placeholder="Search" style="    margin-bottom: 0px;">
   </div>
   <div class="small-12 medium-12 messages grid-content">
-    <a class="button secondary expand hide-for-medium" zf-open="sub-nav">This</a>
     <section class="block-list inbox-list">
+      <div class="medium-12">
+        <zf-accordion auto-open="false" collapsible="true" multi-open="true">
+          <zf-accordion-item title="Filters">
+            <div ng-include="'partials/inbox/filter.html'"></div>  
+          </zf-accordion-item>
+        </zf-accordion>
+      </div>
+
       <div ng-include="'partials/inbox/list.html'"></div> 
     </section>
   </div>

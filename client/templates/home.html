@@ -3,11 +3,13 @@ name: home
 url: /
 ---
 
+
+
 <div class="grid-frame">
   <div class="grid-block vertical">
     <h1>Dashboard</h1>
     <div class="grid-block medium-horizontal">
-      <div class="grid-block medium-up-1 medium-9">
+      <div class="grid-block medium-up-1 medium-8">
         <div class="card">
           <h3>Recent Request</h3>
           <section class="block-list inbox-list active">
@@ -36,23 +38,57 @@ url: /
                 </a>
               </li>
           </section>
+          <div class="grid-block medium-up-4">
+            <div class="grid-content">
+              <div class="card primary">
+                <div class="card-section">
+                  <h4>Requested</h4>
+                  <h1>873</h1>
+                </div>
+              </div>
+            </div>
+            <div class="grid-content">
+              <div class="card alert">
+                <div class="card-section">
+                  <h4>Incomplete</h4>
+                  <h1>328</h1>
+                </div>
+              </div>
+            </div>
+            <div class="grid-content">
+              <div class="card warning">
+                <div class="card-section">
+                  <h4>Processed</h4>
+                  <h1>521</h1>
+                </div>
+              </div>
+            </div>
+            <div class="grid-content">
+              <div class="card success">
+                <div class="card-section">
+                  <h4>Completed</h4>
+                  <h1>129</h1>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="grid-block medium-3">
+      <div class="grid-block medium-4">
         <div class="grid-block medium-up-1">
           <div class="grid-block">
-            <div class="card">
-              <img src="assets/img/pie-chart.png" alt="">
-              <div class="card-section">
-                <p>Lorem ipsum dolor sit amet ratione.</p>
+            <div class="card medium-12">
+              <div class="grid-content">
+                <br>
+                <div id="chart_div"></div>
               </div>
             </div>
           </div>
           <div class="grid-block">
-            <div class="card">
-              <img src="assets/img/vline-chart.png" alt="">
-              <div class="card-section">
-                <p>Lorem ipsum dolor sit amete placeat. Asperiores.</p>
+            <div class="card medium-12">
+              <div class="grid-content">
+                <br>
+                <div id="columnchart_material"></div>
               </div>
             </div>
           </div>

@@ -1,0 +1,289 @@
+
+<div class="small-12 medium-3 messages grid-content">
+  <section class="block-list inbox-list active">
+    <li>
+      <input type="text" placeholder="Search">
+    </l1>
+    <div class="medium-12">
+      <zf-accordion auto-open="false" collapsible="true" multi-open="true">
+        <zf-accordion-item title="Filters">
+          <div ng-include="'partials/inbox/filter.html'"></div>  
+        </zf-accordion-item>
+      </zf-accordion>
+    </div>
+    <div ng-include="'partials/inbox/list.html'"></div> 
+    <div ng-include="'partials/detail-modal.html'"></div> 
+  </section>
+</div>
+
+<div id="message" position="right" class="small-12 medium-9 grid-content">
+  <div ng-include="'partials/utility-bar.html'"></div> 
+
+  <div class="grid-block wrap">
+    <div class="small-12 grid-content">
+      <a class="hide-for-medium button tiny" zf-close="message">Back</a>
+      <h3>Training request for UX Week Conference in San Francisco</h3>
+      <p>Requester <b>Amber Reed</b>. Submitted <b>1/7/16</b></p>
+    </div>
+  </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="medium-10 grid-content">
+        <h4>Status</h4>
+        <meter min="0" max="100" low="50" high="80" optimum="100" value="40"></meter>
+        <p>
+          <img zf-iconic="" icon="flag" size="medium" class="iconic-color-alert">
+          File missing. 
+        </p>
+        <p>
+          <img zf-iconic="" icon="chevron" data-direction="right" size="medium" class="iconic-color-secondary">
+          Next step: Upload price reference
+        </p>
+      </div>
+      <div class="medium-2 grid-content" style="padding-top: 4em;">
+        <a class="button success large" href="#">Validate</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Details</h4>
+        <div class="grid-block wrap">
+          <div class="small-12 medium-grid-content">
+            <div  title="Details">
+              <b>Description</b>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
+
+              <div class="grid-content">
+                <div class="grid-block medium-up-2 heading-row">
+                  <div class="medium-3 grid-block">
+                      <b>Expense Type</b><br>
+                  </div> 
+                  <div class="medium-7 grid-block medium-up-2">
+                    <div class="grid-block">
+                      <b>Amount</b><br>
+                    </div>
+                  </div>
+                  <div class="medium-2 grid-block">
+                  </div>
+                </div>
+                <div class="grid-block medium-up-2">
+                  <div class="medium-4 grid-block">
+                    <p>
+                    <select name="" id="">
+                      <option value="">Equiptment</option>
+                    </select>
+                    </p>
+                  </div> 
+                  <div class="medium-8 grid-block medium-up-2">
+                    <div class="grid-block">
+                      <p><input type="text" value="$430"></p>
+                    </div>
+                    <div class="grid-content">
+                      <label>
+                        <input type="radio" checked="true"> Not to exceed
+                      </label>
+                      <label>
+                        <input type="radio"> Exactly
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Attachments</h4>
+        <div class="grid-block wrap">
+          <div class="small-12 medium-grid-content">
+            <div  title="Details">                
+              <div class="grid-content">
+                <div class="grid-block medium-up-2">
+                  <div class="medium-6 grid-block">
+                    <p>
+                      <a href="#">Attach Document</a><br>
+                      <a zf-open="delete-modal">Cancel Request</a>
+                    </p>
+                  </div> 
+                  <div class="medium-6 grid-block text-right">
+                    <a class="button disabled" href="#" zf-open="modal-add-vendor">
+                      <span class="plus-button">+</span> 
+                      Mark as Purchased
+                    </a>
+                  </div> 
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Vendors</h4>
+        <div class="grid-block wrap">
+          <div class="small-12 medium-grid-content">
+            <div  title="Details">
+              <div class="grid-content">
+                <div class="grid-block medium-up-3 heading-row">
+                  <div class="medium-3 grid-block">
+                      <b>Vendor</b><br>
+                  </div> 
+                  <div class="medium-7 grid-block medium-up-2">
+                    <div class="grid-block">
+                        <b>Link</b><br>
+                    </div>
+                  </div>
+                  <div class="medium-2 grid-block">
+                  </div>
+                </div>
+              </div>
+              <div class="grid-content">
+                <div class="grid-block medium-up-3">
+                  <div class="medium-3 grid-block">
+                      Cleanly
+                  </div> 
+                  <div class="medium-7 grid-block medium-up-2">
+                    <div class="grid-block">
+                      <p>
+                        <a href="#">http://clean.ly</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="medium-2 grid-block">
+                    <a href="#" style=""><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="grid-content">
+              <div class="grid-block medium-up-2">
+                <div class="medium-4 grid-block">
+                  <p>
+                    <a class="button" href="#" zf-open="modal-add-vendor">
+                      <span class="plus-button">+</span> 
+                      Add Vendor
+                    </a>
+                  </p>
+                </div> 
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Activity</h4>
+        <div class="grid-block wrap">
+          <div class="small-12  medium-grid-content">
+            <div ng-include="'partials/comment-box.html'"></div> 
+          </div>
+          <div class="small-12  medium-grid-content status-comment">
+            <div class="grid-block wrap activity-item">
+              <div class="small-2 text-center  medium-grid-content">
+                <img zf-iconic="" icon="comment-square" size="medium" class="iconic-color-warning">
+              </div>
+              <div class="small-10  medium-grid-content">
+                <p><b>Comment added</b> by <u>Ethan Heppner</u>. 1/8/2016 at 8:43pm<br>
+                Please upload a reference link for conference sign up. If possible, we would like to request a government discount.</p>
+              </div>
+            </div>
+            <div class="grid-block wrap activity-item">
+              <div class="small-2 text-center  medium-grid-content">
+                <img zf-iconic="" icon="envelope"size="medium" class="iconic-color-secondary">
+              </div>
+              <div class="small-10  medium-grid-content">
+                <p><b>Email Opened</b> by <u>Ethan Heppner</u>. 1/8/2016 at 2:09pm</p>
+              </div>
+            </div>
+            <div class="grid-block wrap activity-item">
+              <div class="small-2 text-center  medium-grid-content">
+                <img zf-iconic="" icon="share-boxed"size="medium" class="iconic-color-secondary">
+              </div>
+              <div class="small-10  medium-grid-content">
+                <p><b>Email Sent</b> to <u>Ethan Heppner</u>. 1/8/2016 at 2:06pm</p>
+              </div>
+            </div>
+            <div class="grid-block wrap activity-item last">
+              <div class="small-2 text-center  medium-grid-content">
+                <img zf-iconic="" icon="document"size="medium" class="iconic-color-secondary">
+              </div>
+              <div class="small-10  medium-grid-content">
+                <p><b>Request Created</b> by <u>Amber Reed</u>. 1/8/2016 at 1:18pm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="grid-block">
+      <div class="small-12 grid-content">
+        <div class="grid-block wrap medium-up-2">
+          <div class="medium-6 left-column-fix">
+            <div class="grid-content card">
+              <h4>Approval Chain</h4>
+              <div class="grid-content">
+                <section class="block-list">
+                  <ul>
+                    <li>
+                      <input type="radio" id="role1" value="Francene Dearborn">
+                      <label for="role1"><b>Role:</b> Francene Dearborn</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="role2" value="Veronique Donati" checked="">
+                      <label for="role2"><b>Role:</b> Veronique Donati</label>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="medium-6 right-column-fix">
+            <div class="grid-content card">
+              <h4>Subscriber</h4>
+              <label>
+                <span class="inline-label">
+                  <input type="search" placeholder="name@domain.com">
+                  <a href="#" class="button">Add Email</a>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'partials/utility-bar.html'" class="footer-utility"></div> 
+
+</div>
+

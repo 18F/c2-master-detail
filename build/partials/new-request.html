@@ -1,0 +1,49 @@
+<zf-modal overlay="true" id="compose" >
+  <div class="grid-block vertical">
+    <div class="primary title-bar">
+      <div class="center title">Create a new request</div>
+      <span class="left"><a zf-close="compose" href="#">Cancel</a></span>
+      <span class="right"><a href="#">Submit</a></span>
+    </div>
+    <div class="grid-content">
+      <br>
+      <br>
+      <label>Request Name
+        <input type="text" placeholder="" />
+      </label>
+      <label>Description
+        <textarea placeholder=""></textarea>
+      </label>
+      <label>Expense Type
+        <input type="text" placeholder="" />
+      </label>
+      <div class="grid-block">
+        
+      <div class="medium-4 grid-block">
+        <label>Amount
+          <input type="text" placeholder="" />
+        </label>
+      </div>
+      <div class="medium-1 grid-block"></div>
+      <div class="medium-6 grid-block" style="padding-top: 1em">
+        <div class="medium-6 grid-block"><label><input type="radio"> Not to exceed</label></div>
+        <div class="medium-6 grid-block"><label><input type="radio"> Exactly</label></div>
+        </div>
+      </div>
+      <label>Vendor / Link to Purchase
+        <input type="text" placeholder="" />
+      </label>
+      <label>Subscriber(s)
+        <input type="text" placeholder="" />
+      </label>
+      <p>
+        <a href="#">Attach document(s)</a>
+      </p>
+      <p class="text-right">
+        <input type="submit" value="Submit" class="button expand">
+      </p>
+    </div>
+    </div>
+  </div>
+</zf-modal>
+<!-- End Compose Message -->

@@ -21,15 +21,8 @@ url: /inbox/5da1d59-83c9-42bb-8e51-b39f0924349d
 
 
 <div id="message" position="right" class="small-12 medium-9 grid-content">
-  <div class="grid-block wrap">
-    <div class="small-12 grid-content control-message-bar">
-        <h4>
-          <a ui-sref="inbox" class="button tiny secondary"style="margin-bottom: 2px;">
-            <img zf-iconic="" icon="chevron" data-direction="left" size="small"> Back</a>
-          <b>ID</b> 00654-D
-        </h4>
-    </div>
-  </div>
+  <div ng-include="'partials/utility-bar.html'"></div>  
+  
 
   <div class="grid-block wrap">
     <div class="small-12 grid-content">
@@ -38,6 +31,7 @@ url: /inbox/5da1d59-83c9-42bb-8e51-b39f0924349d
       <p>Requester <b>Hillary Hartley</b>. Submitted <b>12/15/15</b></p>
     </div>
   </div>
+
 
   <div class="grid-content wrap control-current-status">
     <div class="card grid-block">

@@ -15,6 +15,13 @@
   border-right: none;
 }
 
+.active-menu-item{
+  background: $success-color;
+  &:hover{
+    background: lighten($success-color, 20%);
+  }
+}
+
 .advanced-search .button{
   &:hover, &:focus{
     background: #07519B;

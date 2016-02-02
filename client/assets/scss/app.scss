@@ -9,6 +9,11 @@
   }
 }
 
+.heading-row .grid-block{
+  margin-bottom: 0em;
+  padding-bottom: .5em;
+}
+
 .footer-utility .control-message-bar{
   margin-bottom: 0px;
 }
@@ -93,6 +98,30 @@ aside.modal{
 .activity-item{
   padding-bottom: 10px;
   border-bottom: 1px solid $gray-light;
+  margin-bottom: 1em;
+  p{
+    margin-bottom: 0px;
+  }
+  &.last{
+    margin-bottom: 0px;
+    border-bottom: none;
+  }
+}
+
+.card h4{
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.medium-up-2{
+  .left-column-fix{
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+  .right-column-fix{
+    padding-right: 0px;
+    margin-right: 0px;
+  }
 }
 
 .inbox-list{

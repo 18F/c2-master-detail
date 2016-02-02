@@ -57,87 +57,43 @@ url: /inbox/ea95bd8a-02a5-435d-8627-c35476d7476b
         <h4>Details</h4>
         <div class="grid-block wrap">
           <div class="small-12 medium-grid-content">
-            <div id="displaced-tabs" displaced="true">
-              <div  title="Details">
-                <b>Description</b>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
+            <div  title="Details">
+              <b>Description</b>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
 
-                <div class="grid-content">
-                  <div class="grid-block medium-up-2">
-                    <div class="medium-4 grid-block">
-                      <p>
-                        <b>Expense Type</b><br>
-                        Equiptment
-                      </p>
-                    </div> 
-                    <div class="medium-8 grid-block medium-up-2">
-                      <div class="grid-block">
-                        <p>
-                          <b>Amount</b><br>
-                          <input type="text" value="$430">
-                        </p>
-                      </div>
-                      <div class="grid-content">
-                        <label>
-                          <input type="radio" checked="true"> Not to exceed
-                        </label>
-                        <label>
-                          <input type="radio"> Exactly
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class="medium-4 grid-block">
-                      <p>
-                        <b>Vendor</b><br>
-                        Cleanly
-                      </p>
-                    </div> 
-                    <div class="medium-8 grid-block medium-up-2">
-                      <div class="grid-block">
-                        <p>
-                          <b>Link</b><br>
-                          <a href="#">http://clean.ly</a>
-                        </p>
-                      </div>
+              <div class="grid-content">
+                <div class="grid-block medium-up-2 heading-row">
+                  <div class="medium-3 grid-block">
+                      <b>Expense Type</b><br>
+                  </div> 
+                  <div class="medium-7 grid-block medium-up-2">
+                    <div class="grid-block">
+                      <b>Amount</b><br>
                     </div>
                   </div>
-                </div> 
-
-                <div class="grid-content">
-                  <div class="grid-block medium-up-2">
-                    <div class="medium-4 grid-block">
-                      <p>
-                        <a class="button" href="#" zf-open="modal-add-vendor">
-                          <span class="plus-button">+</span> 
-                          Add Vendor
-                        </a>
-                      </p>
-                    </div> 
+                  <div class="medium-2 grid-block">
                   </div>
-                </div> 
-
-                <div class="grid-content">
-                  <div class="grid-block medium-up-2">
-                    <div class="medium-6 grid-block">
-                      <p>
-                        <a href="#">Attach Document</a><br>
-                        <a zf-open="delete-modal">Cancel Request</a>
-                      </p>
-                    </div> 
-                    <div class="medium-6 grid-block">
-                      <p>
-                        <a class="button disabled" href="#" zf-open="modal-add-vendor">
-                          <span class="plus-button">+</span> 
-                          Mark as Purchased
-                        </a><br>
-                      </p>
-                    </div> 
+                </div>
+                <div class="grid-block medium-up-2">
+                  <div class="medium-4 grid-block">
+                    <p>Equiptment</p>
+                  </div> 
+                  <div class="medium-8 grid-block medium-up-2">
+                    <div class="grid-block">
+                      <p><input type="text" value="$430"></p>
+                    </div>
+                    <div class="grid-content">
+                      <label>
+                        <input type="radio" checked="true"> Not to exceed
+                      </label>
+                      <label>
+                        <input type="radio"> Exactly
+                      </label>
+                    </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -146,6 +102,97 @@ url: /inbox/ea95bd8a-02a5-435d-8627-c35476d7476b
       </div>
     </div>
   </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Attachments</h4>
+        <div class="grid-block wrap">
+          <div class="small-12 medium-grid-content">
+            <div  title="Details">                
+              <div class="grid-content">
+                <div class="grid-block medium-up-2">
+                  <div class="medium-6 grid-block">
+                    <p>
+                      <a href="#">Attach Document</a><br>
+                      <a zf-open="delete-modal">Cancel Request</a>
+                    </p>
+                  </div> 
+                  <div class="medium-6 grid-block text-right">
+                    <a class="button disabled" href="#" zf-open="modal-add-vendor">
+                      <span class="plus-button">+</span> 
+                      Mark as Purchased
+                    </a>
+                  </div> 
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-content wrap control-current-status">
+    <div class="card grid-block">
+      <div class="small-12 grid-content">
+        <h4>Vendors</h4>
+        <div class="grid-block wrap">
+          <div class="small-12 medium-grid-content">
+            <div  title="Details">
+              <div class="grid-content">
+                <div class="grid-block medium-up-3 heading-row">
+                  <div class="medium-3 grid-block">
+                      <b>Vendor</b><br>
+                  </div> 
+                  <div class="medium-7 grid-block medium-up-2">
+                    <div class="grid-block">
+                        <b>Link</b><br>
+                    </div>
+                  </div>
+                  <div class="medium-2 grid-block">
+                  </div>
+                </div>
+              </div>
+              <div class="grid-content">
+                <div class="grid-block medium-up-3">
+                  <div class="medium-3 grid-block">
+                      Cleanly
+                  </div> 
+                  <div class="medium-7 grid-block medium-up-2">
+                    <div class="grid-block">
+                      <p>
+                        <a href="#">http://clean.ly</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="medium-2 grid-block">
+                    <a href="#" style=""><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="grid-content">
+              <div class="grid-block medium-up-2">
+                <div class="medium-4 grid-block">
+                  <p>
+                    <a class="button" href="#" zf-open="modal-add-vendor">
+                      <span class="plus-button">+</span> 
+                      Add Vendor
+                    </a>
+                  </p>
+                </div> 
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 
 
@@ -157,7 +204,7 @@ url: /inbox/ea95bd8a-02a5-435d-8627-c35476d7476b
           <div class="small-12  medium-grid-content">
             <div ng-include="'partials/comment-box.html'"></div> 
           </div>
-          <div class="small-12  medium-grid-content">
+          <div class="small-12  medium-grid-content status-comment">
             <div class="grid-block wrap activity-item">
               <div class="small-2 text-center  medium-grid-content">
                 <img zf-iconic="" icon="comment-square" size="medium" class="iconic-color-warning">
@@ -183,7 +230,7 @@ url: /inbox/ea95bd8a-02a5-435d-8627-c35476d7476b
                 <p><b>Email Sent</b> to <u>Ethan Heppner</u>. 1/8/2016 at 2:06pm</p>
               </div>
             </div>
-            <div class="grid-block wrap activity-item">
+            <div class="grid-block wrap activity-item last">
               <div class="small-2 text-center  medium-grid-content">
                 <img zf-iconic="" icon="document"size="medium" class="iconic-color-secondary">
               </div>
@@ -198,34 +245,38 @@ url: /inbox/ea95bd8a-02a5-435d-8627-c35476d7476b
   </div>
 
   <div class="grid-content wrap control-current-status">
-    <div class="card grid-block">
+    <div class="grid-block">
       <div class="small-12 grid-content">
-        <div class="grid-block wrap">
-          <div class="medium-6 grid-content">
-            <h4>Approval Chain</h4>
-            <div class="grid-content">
-              <section class="block-list">
-                <ul>
-                  <li>
-                    <input type="radio" id="role1" value="Francene Dearborn">
-                    <label for="role1"><b>Role:</b> Francene Dearborn</label>
-                  </li>
-                  <li>
-                    <input type="radio" id="role2" value="Veronique Donati" checked="">
-                    <label for="role2"><b>Role:</b> Veronique Donati</label>
-                  </li>
-                </ul>
-              </section>
+        <div class="grid-block wrap medium-up-2">
+          <div class="medium-6 left-column-fix">
+            <div class="grid-content card">
+              <h4>Approval Chain</h4>
+              <div class="grid-content">
+                <section class="block-list">
+                  <ul>
+                    <li>
+                      <input type="radio" id="role1" value="Francene Dearborn">
+                      <label for="role1"><b>Role:</b> Francene Dearborn</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="role2" value="Veronique Donati" checked="">
+                      <label for="role2"><b>Role:</b> Veronique Donati</label>
+                    </li>
+                  </ul>
+                </section>
+              </div>
             </div>
           </div>
-          <div class="medium-6 grid-content">
-            <h4>Subscriber</h4>
-            <label>
-              <span class="inline-label">
-                <input type="search" placeholder="name@domain.com">
-                <a href="#" class="button">Add Email</a>
-              </span>
-            </label>
+          <div class="medium-6 right-column-fix">
+            <div class="grid-content card">
+              <h4>Subscriber</h4>
+              <label>
+                <span class="inline-label">
+                  <input type="search" placeholder="name@domain.com">
+                  <a href="#" class="button">Add Email</a>
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>

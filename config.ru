@@ -1,5 +1,5 @@
 use Rack::Static,
-  :urls => ["/assets/img", "/assets/js", "/assets/css", "/templates", "/partials"],
+  :urls => ["/assets/img", "/assets/js", "/assets/css", "/templates", "/partials", "/partials/inbox"],
   :root => "build",
   :index => 'index.html',
   :header_rules => [[:all, {'Cache-Control' => 'public, max-age=3600'}]]

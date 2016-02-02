@@ -3,20 +3,60 @@ name: inbox
 url: /inbox
 ---
 
-<div class="grid-block medium-12 vertical">
-  <div class="collapse shrink">
-    <input type="text" placeholder="Search" style="    margin-bottom: 0px;">
+<div class="grid-block medium-12 vertical inbox-feed">
+  <div class="collapse shrink grid-block" style="overflow: visible; padding-top: 10px;">
+    <div class="medium-5 grid-block" style="border-left: 5px solid #eee; padding-left: 10px;">
+      <input type="text" placeholder="Search" style="    margin-bottom: 0px;">
+    </div>
+    <div class="medium-7 grid-block" style="overflow: visible;">
+      <a href="#" class="button">
+        Search 
+          <div zf-action-sheet="" class="advanced-search">
+            <div zf-as-button="" title="▼" class="filter-button"></div>
+            <div zf-as-content="" position="bottom">
+              <ul class="text-left">
+                <div ng-include="'partials/inbox/search.html'"></div>  
+              </ul>
+            </div>
+          </div>
+      </a>
+      <ul class="icon-left secondary menu-bar medium-condense"  style="overflow: visible;">
+
+        <li>
+          <a href="#">
+            <img zf-iconic="" icon="Reload" size="small" class="iconic-color-primary">
+            Pending
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img zf-iconic="" icon="circle-x" size="small" class="iconic-color-primary">
+            Completed
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img zf-iconic="" icon="star" size="small" class="iconic-color-primary">
+            Pinned
+          </a>
+        </li>
+
+        <li>
+          <div zf-action-sheet="">
+            <div zf-as-button="" title="Filters" class="filter-button"></div>
+            <div zf-as-content="" position="bottom">
+            <ul class="text-left">
+              <div ng-include="'partials/inbox/filter.html'"></div>  
+            </ul>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
   </div>
   <div class="small-12 medium-12 messages grid-content">
     <section class="block-list inbox-list">
-      <div class="medium-12">
-        <zf-accordion auto-open="false" collapsible="true" multi-open="true">
-          <zf-accordion-item title="Filters">
-            <div ng-include="'partials/inbox/filter.html'"></div>  
-          </zf-accordion-item>
-        </zf-accordion>
-      </div>
-
       <div ng-include="'partials/inbox/list.html'"></div> 
     </section>
   </div>

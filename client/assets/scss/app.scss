@@ -9,6 +9,34 @@
   }
 }
 
+.inbox-feed .menu-bar li{
+  height: 39px;
+  border: 1px solid #eee;
+  border-right: none;
+}
+
+.advanced-search .button{
+  &:hover, &:focus{
+    background: #07519B;
+  }
+  width: 13px;
+  height: 14px;
+  padding: 0px 11px 0px 10px;
+  line-height: 14px;
+}
+
+.action-sheet-container{
+  .button{
+    margin-bottom: 0px;
+  }
+}
+
+.inbox-feed{
+  .action-sheet{
+    width: auto
+  }
+}
+
 .heading-row .grid-block{
   margin-bottom: 0em;
   padding-bottom: .5em;

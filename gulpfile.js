@@ -23,6 +23,7 @@ var paths = {
   assets: [
     './client/**/*.*',
     '!./client/templates/**/*.*',
+    '!./client/partials/**/*.*',
     '!./client/assets/{scss,js}/**/*.*'
   ],
   // Sass will check these folders for files when you use @import.

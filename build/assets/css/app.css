@@ -3687,9 +3687,9 @@ meter {
 .label {
   font-size: 0.8rem;
   padding: 0.33333rem 0.5rem;
-  background: #07519B;
+  background: transparent;
   border-radius: 0;
-  color: #fff; }
+  color: #07519B; }
   .label.primary {
     background: #07519B;
     border-radius: 0;
@@ -6504,6 +6504,9 @@ blockquote p {
 .float-none {
   float: none; }
 
+.label {
+  border: 1px solid #07519B; }
+
 .utility-box {
   padding-top: 6px;
   text-align: right; }
@@ -6650,3 +6653,5 @@ aside.modal {
       border-left-color: #F08A24; }
     .inbox-list .inbox-item.dark {
       border-left-color: #232323; }
+    .inbox-list .inbox-item p {
+      margin-bottom: 0px; }

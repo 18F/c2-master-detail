@@ -1,6 +1,10 @@
 @import "settings";
 @import "foundation";
 
+.label {
+  border: 1px solid $primary-color;
+}
+
 .utility-box{
   padding-top: 6px;
   text-align: right;
@@ -121,7 +125,7 @@ aside.modal{
 
 
 .tabs .tab-item{
-  &.is-active.is-active{ 
+  &.is-active.is-active{
     background: #fff;
     border: 1px solid #e7e7e7;
     margin-bottom: -3px;
@@ -161,7 +165,7 @@ aside.modal{
 
 .inbox-list{
   margin-bottom: 0px;
-  
+
   &.active{
     li{
       background: #eee;
@@ -189,26 +193,29 @@ aside.modal{
         background: #f2f2f2;
       }
     }
-    &.primary{ 
+    &.primary{
       border-left-color: $primary-color;
     }
-    &.secondary{ 
+    &.secondary{
       border-left-color: $secondary-color;
     }
-    &.alert{ 
+    &.alert{
       border-left-color: $alert-color;
     }
-    &.info{ 
+    &.info{
       border-left-color: $info-color;
     }
-    &.success{ 
+    &.success{
       border-left-color: $success-color;
     }
-    &.warning{ 
+    &.warning{
       border-left-color: $warning-color;
     }
-    &.dark{ 
+    &.dark{
       border-left-color: $dark-color;
+    }
+    p {
+      margin-bottom: 0px;
     }
   }
 }

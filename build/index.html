@@ -17,40 +17,29 @@
   </head>
   <body>
     <div class="grid-frame">
-      <div class="sidebar shrink medium-2 large-2 vertical" style="">
+      <div class="sidebar shrink medium-2 large-1 vertical" style="">
         <div class="shrink text-center">
           <div class="center title">
             <a ui-sref="home"><img src="assets/img/img-logo-c2-portal.png" alt=""></a>
           </div>
-          <a class="button expand success" zf-open="compose">New Request</a>
         </div>
-        <section class="block-list with-icons">
+        <section class="block-list">
           <ul class="block-list menu-items grid-content">
-            <li class="hide-for-medium">
-              <a zf-close="sub-nav">Close</a>
+            <li>
+              <a zf-open="compose"><b>Create Request</b></a>
             </li>
             <li>
-              <img zf-iconic="" class="iconic-color-secondary" icon="dashboard" size="medium">
-              <a ui-sref="home">Dashboard</a>
-            </li>
-            <li>
-              <img zf-iconic="" class="iconic-color-secondary" icon="envelope" size="medium">
-              <a ui-sref="inbox">Inbox</a>
+              <a ui-sref="inbox"><b>My Requests</b></a>
             </li>
             <!-- With an icon -->
             <li>
-              <img zf-iconic="" class="iconic-color-secondary" icon="document" size="medium">
-              <a ui-sref="reports">Reports</a>
-            </li>
-            <li>
-              <img zf-iconic="" class="iconic-color-secondary" icon="cog" size="medium">
-              <a ui-sref="settings">Settings</a>
+              <a ui-sref="reports"><b>Dashboard</b></a>
             </li>
           </ul>
         </section>
       </div>
 
-      <div ui-view class="grid-block  medium-10 large-10"></div>
+      <div ui-view class="grid-block  medium-10 large-11"></div>
 
       <div ng-include="'partials/new-request.html'"></div>
       

@@ -1,0 +1,7 @@
+---
+applications:
+- name: c2-frontend-prototype
+  memory: 64M
+  instances: 1
+  host: c2-frontend-prototype
+  domain: 18f.gov

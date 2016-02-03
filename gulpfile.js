@@ -11,7 +11,6 @@ var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var router   = require('front-router');
 var sequence = require('run-sequence');
-var panini = require('panini');
 
 // Check for --production flag
 var isProduction = !!(argv.production);

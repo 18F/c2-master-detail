@@ -1,10 +1,8 @@
-# Foundation for Apps Template
+# C2 Front-end Prototype: Master-Detail
 
-[![devDependency Status](https://david-dm.org/zurb/foundation-apps-template/dev-status.svg)](https://david-dm.org/zurb/foundation-apps-template#info=devDependencies)
+This repo is a Foundation-Apps framework based frontend prototype for the "Master-Detail" layout.
 
-This is the default template project for Foundation for Apps, powered by Gulp, Angular, and libsass. It provides you with a basic template to get started with Foundation for Apps and Angular.
-
-If you're already an Angular developer, you may instead want to install the components into your own stack using Bower: `bower install foundation-apps`
+![](https://github.com/18F/c2-master-detail/blob/master/master-detail.png)
 
 ## Requirements
 
@@ -16,12 +14,18 @@ You'll need the following software installed to get started.
   - [Gulp](http://gulpjs.com/) and [Bower](http://bower.io): Run `npm install -g gulp bower`
     - Depending on how Node is configured on your machine, you may need to run `sudo npm install -g gulp bower` instead, if you get an error with the first command.
 
+## Starting Back Up
+
+Once requirements are setup, run application with:
+
+```foundation watch```
+
 ## Get Started
 
 Clone this repository, where `app` is the name of your app.
 
 ```bash
-git clone https://github.com/zurb/foundation-apps-template.git app
+git clone git@github.com:18F/c2-master-detail.git app
 ```
 
 Change into the directory.

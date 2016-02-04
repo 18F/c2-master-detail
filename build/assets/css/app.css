@@ -6650,7 +6650,7 @@ aside.modal {
     padding-left: 10px;
     overflow: visible; }
     .top-bar .search-container .action-sheet::before,
-    .top-bar .search-container .action-sheet::after {
+    .top-bar .search-container .action-sheet::aftere {
       display: none; }
     .top-bar .search-container .action-sheet.is-active {
       -webkit-transform: translateX(-83%) translateY(118%);

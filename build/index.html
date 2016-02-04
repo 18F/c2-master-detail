@@ -17,6 +17,7 @@
   </head>
   <body>
     <div class="grid-frame">
+
       <div class="sidebar shrink medium-2 large-1 vertical" style="">
         <div class="shrink text-center">
           <div class="center title logo">
@@ -42,10 +43,9 @@
       </div>
 
       <div ui-view class="grid-block  medium-10 large-11"></div>
-
-      <div ng-include="'partials/new-request.html'"></div>
       
-
+      <div ng-include="'partials/master-detail/new-request.html'"></div>
+      
     </div>
   </body>
 </html>

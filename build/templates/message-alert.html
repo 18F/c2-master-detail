@@ -7,17 +7,17 @@
     <div class="medium-12">
       <zf-accordion auto-open="false" collapsible="true" multi-open="true">
         <zf-accordion-item title="Filters">
-          <div ng-include="'partials/inbox/filter.html'"></div>  
+          <div ng-include="'partials/master-detail/inbox/filter.html'"></div>  
         </zf-accordion-item>
       </zf-accordion>
     </div>
-    <div ng-include="'partials/inbox/list.html'"></div> 
-    <div ng-include="'partials/detail-modal.html'"></div> 
+    <div ng-include="'partials/master-detail/inbox/list.html'"></div> 
+    <div ng-include="'partials/master-detail/detail-modal.html'"></div> 
   </section>
 </div>
 
 <div id="message" position="right" class="small-12 medium-9 grid-content">
-  <div ng-include="'partials/utility-bar.html'"></div> 
+  <div ng-include="'partials/master-detail/utility-bar.html'"></div> 
 
   <div class="grid-block wrap">
     <div class="small-12 grid-content">
@@ -183,7 +183,7 @@
         <h4>Activity</h4>
         <div class="grid-block wrap">
           <div class="small-12  medium-grid-content">
-            <div ng-include="'partials/comment-box.html'"></div> 
+            <div ng-include="'partials/master-detail/comment-box.html'"></div> 
           </div>
           <div class="small-12  medium-grid-content status-comment">
             <div class="grid-block wrap activity-item">
@@ -264,7 +264,7 @@
     </div>
   </div>
 
-  <div ng-include="'partials/utility-bar.html'" class="footer-utility"></div> 
+  <div ng-include="'partials/master-detail/utility-bar.html'" class="footer-utility"></div> 
 
 </div>
 

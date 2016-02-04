@@ -123,15 +123,37 @@ aside.modal{
   padding-top: 40px;
 }
 
+
+
+@media only screen and (min-width: 75em){
+  .sidebar{
+      -webkit-flex: 0 0 11.33333%;
+      -ms-flex: 0 0 11.33333%;
+      flex: 0 0 11.33333%;
+      max-width: 11.33333%;
+    }
+}
 .sidebar{
   background: $primary-color;
+  padding-top: 30px;
+  .logo {
+    img{
+      max-width: 80%;
+    }
+    margin-bottom: 20px;
+  }
   .title{
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
   }
   .menu-items{
+    li{
+      border-bottom: none;
+    }
     a{
+      text-transform: uppercase;
+      font-size: 14px;
       color: white;
     }
     // background: $secondary-color;

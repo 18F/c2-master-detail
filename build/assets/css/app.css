@@ -6632,9 +6632,33 @@ aside.modal {
   .sidebar .menu-items a {
     text-transform: uppercase;
     font-size: 14px;
-    color: white; }
+    color: white;
+    line-height: 2; }
   .sidebar .block-list {
     margin-right: -.5rem; }
+
+.top-bar {
+  overflow: visible;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .top-bar .containers {
+    overflow: visible; }
+  .top-bar .search-container {
+    margin-left: auto;
+    margin-right: 50px;
+    padding-left: 10px;
+    overflow: visible; }
+    .top-bar .search-container .action-sheet::before,
+    .top-bar .search-container .action-sheet::after {
+      display: none; }
+    .top-bar .search-container .action-sheet.is-active {
+      -webkit-transform: translateX(-83%) translateY(118%);
+      transform: translateX(-83%) translateY(118%); }
+  .top-bar .search-wrap {
+    width: 100%; }
+  .top-bar .search-input {
+    margin-bottom: 0px; }
 
 .tabs .tab-item.is-active.is-active {
   background: #fff;

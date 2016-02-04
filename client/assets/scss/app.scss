@@ -1,8 +1,26 @@
 @import "settings";
 @import "foundation";
 
+strong, b {
+  font-weight: 500;
+}
+
 .label {
   border: 1px solid $primary-color;
+}
+
+#message{
+  background: #FBFBFB;
+  .card{
+    border-top: 5px solid #07519B;
+    h4{
+      font-weight: 500;
+    }
+    b{
+      padding-bottom: 10px;
+      display: block;
+    }
+  }
 }
 
 .utility-box{

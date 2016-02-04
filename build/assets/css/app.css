@@ -6504,8 +6504,21 @@ blockquote p {
 .float-none {
   float: none; }
 
+strong, b {
+  font-weight: 500; }
+
 .label {
   border: 1px solid #07519B; }
+
+#message {
+  background: #FBFBFB; }
+  #message .card {
+    border-top: 5px solid #07519B; }
+    #message .card h4 {
+      font-weight: 500; }
+    #message .card b {
+      padding-bottom: 10px;
+      display: block; }
 
 .utility-box {
   padding-top: 6px;

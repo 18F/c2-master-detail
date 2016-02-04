@@ -34,21 +34,20 @@
 
     </ul>
 
-  <div class="medium-4 grid-block" style="padding-left: 10px;">
-    <input type="text" placeholder="Search" style="    margin-bottom: 0px;">
-  </div>
-  <div class="medium-4 grid-block" style="overflow: visible;">
-
-    <a href="#" class="button">
-      Search
-        <div zf-action-sheet="" class="advanced-search">
-          <div zf-as-button="" title="▼" class="filter-button"></div>
-          <div zf-as-content="" position="bottom">
-            <ul class="text-left">
-              <div ng-include="'partials/inbox/search.html'"></div>
-            </ul>
-          </div>
+  <div class="medium-4 grid-block" style="    margin-left: auto;
+    margin-right: 50px; padding-left: 10px;     overflow: visible;">
+    <div class="search-wrap" style="width: 100%;">
+      <input type="text" placeholder="Search" style="    margin-bottom: 0px;">
+      <img zf-iconic="" icon="magnifying-glass" size="small" class="iconic-color-secondary" class="search-icon">
+      <div zf-action-sheet="" class="advanced-search">
+        <div zf-as-button="" title="▼" class="filter-button"></div>
+        <div zf-as-content="" position="bottom">
+          <ul class="text-left">
+            <div ng-include="'partials/inbox/search.html'"></div>
+          </ul>
         </div>
-    </a>
+      </div>
+    </div>
+
   </div>
 </div>

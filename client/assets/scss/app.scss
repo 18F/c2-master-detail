@@ -9,6 +9,18 @@ strong, b {
   border: 1px solid $primary-color;
 }
 
+.search-wrap{
+  position: relative;
+  svg{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+  }
+  input{
+    padding-left: 30px;
+  }
+}
+
 #message{
   background: #FBFBFB;
   .card{
@@ -44,14 +56,21 @@ strong, b {
   }
 }
 
-.advanced-search .button{
-  &:hover, &:focus{
-    background: #07519B;
+.advanced-search{
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  .button{
+    background: none;
+    color: $secondary-color;
+    &:hover, &:focus{
+      background: none;
+    }
+    width: 13px;
+    height: 14px;
+    padding: 0px 11px 0px 10px;
+    line-height: 14px;
   }
-  width: 13px;
-  height: 14px;
-  padding: 0px 11px 0px 10px;
-  line-height: 14px;
 }
 
 .action-sheet-container{

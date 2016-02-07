@@ -1,5 +1,6 @@
 @import "settings";
 @import "foundation";
+@import "xc";
 
 strong, b {
   font-weight: 500;
@@ -184,19 +185,19 @@ aside.modal{
 }
 
 .top-bar{
-  overflow: visible; 
-  padding-bottom: 10px; 
-  padding-top: 10px; 
+  overflow: visible;
+  padding-bottom: 10px;
+  padding-top: 10px;
   padding-left: 10px;
   .containers{
     overflow: visible;
   }
   .search-container{
     margin-left: auto;
-    margin-right: 50px; 
-    padding-left: 10px;     
+    margin-right: 50px;
+    padding-left: 10px;
     overflow: visible;
-    .action-sheet::before, 
+    .action-sheet::before,
     .action-sheet::aftere
     {
       display: none;

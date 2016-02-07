@@ -1,0 +1,68 @@
+<div class="grid-block horizontal">
+  <div class="grid-content">
+    <a zf-open="createRequestModal">
+      <span class="xc-button-badge">+</span>
+    </a>
+  </div>
+  <div class="grid-content xc-button-text">
+    <a zf-open="createRequestModal">
+      Create<br>new request
+    </a>
+  </div>
+</div>
+
+<div zf-modal="" id="createRequestModal">
+  <a zf-close="" class="close-button">×</a>
+  <h3>Create a request</h3>
+  <form>
+    <div>
+      <label>
+        Request name
+        <input type="text">
+      </label>
+    </div>
+    <div>
+      <label>
+        Description
+        <textarea rows="2"></textarea>
+      </label>
+    </div>
+    <div>
+      <label>
+        Expense Type
+        <input type="text">
+      </label>
+    </div>
+    <div class="grid-block horizontal">
+      <div class="grid-content small-12 medium-6" style="padding-left:0">
+        <label>
+          Amount
+          <input type="text">
+        </label>
+      </div>
+      <div class="grid-content small-12 medium-6">
+        <div style="position: absolute; bottom: 0; padding-bottom: 1rem">
+          <input type="radio" id="radio-notToExceed"><label for="radio-notToExceed">Not to exceed</label>
+          <input type="radio" id="radio-exactly"><label for="radio-exactly">Exactly</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label>
+        Vendor
+        <input type="text">
+      </label>
+    </div>
+    <div>
+      <label>
+        Subscriber
+        <input type="text">
+      </label>
+    </div>
+    <div class="grid-block align-right">
+      <div class="grid-content small-2 medium-2">
+        <a class="button">Submit</a>
+      </div>
+    </div>
+  </form>
+</div>

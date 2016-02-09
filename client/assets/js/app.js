@@ -18,20 +18,11 @@
       });
     })
     .controller('MessageCtrl', function($scope, $state, $http){
+      console.log(data);
+      
       $scope.$on('$viewContentLoaded', function(event) {
-        $('[selectize]').selectize({
-          plugins: ['remove_button'],
-          persist: false,
-          create: true,
-          render: {
-            item: function(data, escape) {
-              return '<div>"' + escape(data.text) + '"</div>';
-            }
-          },
-          onDelete: function(values) {
-            console.log('Deleted: ', values)
-          }
-        });
+        setup_list();
+        setup_selectize();
       });
     })
     .config(config)
@@ -57,7 +48,81 @@
   }
 
   function setup_charts(){
-    google.charts.load('current', {'packages':['bar']});
+    if (loaded == false){
+      loaded = true;
+      google.charts.load('current', {'packages':['bar']});
+    }
+  }
+
+  function setup_list(){
+    var options = {
+      valueNames: [ 
+        'id',
+        'product_company',
+        'product_name',
+        'person_name',
+        'date',
+        'message_status',
+        'description',
+        'comment_1',
+        'comment_2',
+        'comment_3',
+        'approver',
+        'purchaser',
+        'reconciler',
+        'subscriber_1',
+        'subscriber_2',
+        'subscriber_3',
+        'vendor',
+        'amount',
+        'amount_type',
+        'org_code',
+        'comment_1_date',
+        'comment_1_time',
+        'comment_2_date',
+        'comment_2_time',
+        'comment_3_date',
+        'comment_3_time',
+        'building_number',
+        'inbox_status'
+      ],
+      item: '<li class="inbox-item success active">' + 
+              '<a ui-sref="message">' + 
+                '<p>Requester: <b class="person_name"></b><br>' + 
+                  '<span class="date"></span>'+
+                '</p>'+
+                '<h5 class="product_name"></h5>' +
+                '<div class="fr">'+
+                  '<span class="label">'+
+                    '<img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached'+
+                  '</span>'+
+                '</div>'+
+              '</a>'+
+            '</li>'
+    };
+
+    var userList = new List('messages', options, data);
+
+    userList.add({
+      name: "Gustaf Lindqvist",
+      born: 1983
+    });
+  }
+
+  function setup_selectize(){
+    $('[selectize]').selectize({
+      plugins: ['remove_button'],
+      persist: false,
+      create: true,
+      render: {
+        item: function(data, escape) {
+          return '<div>"' + escape(data.text) + '"</div>';
+        }
+      },
+      onDelete: function(values) {
+        console.log('Deleted: ', values)
+      }
+    });
   }
 
   function overview_requests(){
@@ -110,8 +175,7 @@
     }
   }
 
- 
-
-
-
 })();
+
+var mock_data = data;
+var loaded = false;

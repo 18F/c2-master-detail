@@ -1,20 +1,22 @@
 
 
-<div class=" grid-block">
+<div class="vertical grid-block"  id="messages">
   <div class="grid-block">
-    <div class="grid-block inbox-top-bar">
-      <div class="grid-content">
-        <input type="text" placeholder="Search">
-        <label>
-          Add Filter
-          <input type="text" selectize="config" options="suggestions" ng-model="selected" ng-disabled="disabled"/>
-        </label>
-      </div>
+    <div class="grid-content inbox-top-bar">
+      <input class="search" placeholder="Search" />
+      <button class="sort" data-sort="name">
+        Sort by name
+      </button>
     </div>
   </div>
   <div class="grid-block main-content-wrapper">
-    <div class="grid-block inbox-list"></div>
-    <div ng-include="'partials/master-detail/message/content.html'" id="message" position="right" class="grid-block message-content large-up-2 medium-up-1"></div>  
+    <div class="grid-block inbox-list">
+      <!-- <div class="grid-content"> -->
+        <section class="block-list inbox-list active list"></section>
+      <!-- </div> -->
+    </div>
+    
+    <!-- <div ng-include="'partials/master-detail/message/content.html'" id="message" position="right" class="grid-block message-content large-up-2 medium-up-1"></div>   -->
   </div>
 </div>
 

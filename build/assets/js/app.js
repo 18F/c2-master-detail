@@ -217,7 +217,7 @@ var search_params = [
                       'building_number',
                       'inbox_status'
                     ];
-var item_template = '<li class="inbox-item success">' + 
+var item_template = '<li class="inbox-item">' + 
                       '<a ui-sref="message">' + 
                         '<p>Requester: <b class="person_name"></b><br>' + 
                           '<span class="date"></span>'+

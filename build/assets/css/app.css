@@ -6935,6 +6935,14 @@ aside.modal {
     width: 50%;
     transition: .8s opacity; } }
 
+@supports not (flex-wrap: wrap) {
+  @media only screen and (min-width: 75em) {
+    .message-content {
+      display: block; }
+    .card-parent {
+      display: inline-block;
+      vertical-align: top; } } }
+
 @media only screen and (min-width: 75em) {
   .sidebar {
     -webkit-flex: 0 0 11.33333%;

@@ -10,8 +10,6 @@ strong, b {
   border: 1px solid $primary-color;
 }
 
-
-
 .search-wrap{
   position: relative;
   svg{
@@ -156,6 +154,14 @@ aside.modal{
   }
   input, button{
     margin: 0px;
+  }
+}
+
+@media only screen and (min-width: 40em){
+  .message-content{
+    .direct-pay-field{
+      min-width: 100%  
+    }
   }
 }
 

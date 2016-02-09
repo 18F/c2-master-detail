@@ -50,10 +50,13 @@
             <section class="block-list">
               <ul class="block-list menu-items grid-content">
                 <li>
-                  <a ui-sref="inbox"><b>My Requests</b></a>
+                  <a zf-open="compose"><b>New Request</b></a>
                 </li>
                 <li>
-                  <a zf-open="compose"><b>New Request</b></a>
+                  <a ui-sref="inbox"><b>Active Requests</b></a>
+                </li>
+                <li>
+                  <a zf-open="completed"><b>Completed Request</b></a>
                 </li>
                 <!-- With an icon -->
                 <li>

@@ -65,6 +65,10 @@
   }
 
   function activate_list_item(){
+    if(loaded_active == false){
+      loaded_active = true;
+      $('.inbox-list .inbox-item').first().addClass('active');
+    }
   }
 
   function setup_list(){
@@ -167,6 +171,7 @@
 
 var mock_data = data;
 var loaded = false;
+var loaded_active = false;
 var search_params = [ 
                       'id',
                       'product_company',
@@ -197,7 +202,7 @@ var search_params = [
                       'building_number',
                       'inbox_status'
                     ];
-var item_template = '<li class="inbox-item success active">' + 
+var item_template = '<li class="inbox-item success">' + 
                       '<a ui-sref="message">' + 
                         '<p>Requester: <b class="person_name"></b><br>' + 
                           '<span class="date"></span>'+

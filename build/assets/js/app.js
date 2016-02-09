@@ -24,13 +24,15 @@
         activate_list_item();
       });
     })
-    .controller('CompletedMessageCtrl', function($scope, $state, $http){
-      $scope.$on('$viewContentLoaded', function(event) {
-        setup_completed_list();
-        setup_selectize();
-        activate_list_item();
-      });
-    })
+    .controller('CompletedMessageCtrl', 
+      ["$scope", "$state", "$http", function($scope, $state, $http){
+        $scope['inbox'] = data;
+        $scope.$on('$viewContentLoaded', function(event) {
+          setup_completed_list();
+          setup_selectize();
+          activate_list_item();
+        });
+    }])
     .config(config)
     .run(run)
 

@@ -23,6 +23,7 @@
       $scope.$on('$viewContentLoaded', function(event) {
         setup_list();
         setup_selectize();
+        activate_list_item();
       });
     })
     .controller('CompletedMessageCtrl', function($scope, $state, $http){
@@ -31,6 +32,7 @@
       $scope.$on('$viewContentLoaded', function(event) {
         setup_completed_list();
         setup_selectize();
+        activate_list_item();
       });
     })
     .config(config)
@@ -60,6 +62,9 @@
       loaded = true;
       google.charts.load('current', {'packages':['bar']});
     }
+  }
+
+  function activate_list_item(){
   }
 
   function setup_list(){

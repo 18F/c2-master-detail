@@ -38,6 +38,9 @@
                   <button class="sort button" data-sort="date">
                     Sort by date
                   </button>
+                  <button class="sort button" data-sort="inbox_status">
+                    Sort by status
+                  </button>
                 </div>
               </div>
             </div>
@@ -56,7 +59,7 @@
                   <a ui-sref="inbox"><b>Active Requests</b></a>
                 </li>
                 <li>
-                  <a zf-open="completed"><b>Completed Request</b></a>
+                  <a ui-sref="completed"><b>Completed Request</b></a>
                 </li>
                 <!-- With an icon -->
                 <li>

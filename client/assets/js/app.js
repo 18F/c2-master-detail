@@ -25,6 +25,14 @@
         setup_selectize();
       });
     })
+    .controller('CompletedMessageCtrl', function($scope, $state, $http){
+      console.log(data);
+      
+      $scope.$on('$viewContentLoaded', function(event) {
+        setup_completed_list();
+        setup_selectize();
+      });
+    })
     .config(config)
     .run(run)
 
@@ -56,52 +64,32 @@
 
   function setup_list(){
     var options = {
-      valueNames: [ 
-        'id',
-        'product_company',
-        'product_name',
-        'person_name',
-        'date',
-        'message_status',
-        'description',
-        'comment_1',
-        'comment_2',
-        'comment_3',
-        'approver',
-        'purchaser',
-        'reconciler',
-        'subscriber_1',
-        'subscriber_2',
-        'subscriber_3',
-        'vendor',
-        'amount',
-        'amount_type',
-        'org_code',
-        'comment_1_date',
-        'comment_1_time',
-        'comment_2_date',
-        'comment_2_time',
-        'comment_3_date',
-        'comment_3_time',
-        'building_number',
-        'inbox_status'
-      ],
-      item: '<li class="inbox-item success active">' + 
-              '<a ui-sref="message">' + 
-                '<p>Requester: <b class="person_name"></b><br>' + 
-                  '<span class="date"></span>'+
-                '</p>'+
-                '<h5 class="product_name"></h5>' +
-                '<div class="fr">'+
-                  '<span class="label">'+
-                    '<img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached'+
-                  '</span>'+
-                '</div>'+
-              '</a>'+
-            '</li>'
+      valueNames: search_params,
+      item: item_template
     };
 
     var userList = new List('messages', options, data);
+    console.log(userList);
+    userList.remove("inbox_status", "Approved");
+  }
+
+  function setup_completed_list(){
+    var options = {
+      valueNames: search_params,
+      item: item_template
+    };
+
+    var userList = new List('messages', options, data);
+    
+    userList.filter(function(item) {
+       if (item.values().inbox_status != "Needs Attention" &&
+                              item.values().inbox_status != "Pending" &&
+                              item.values().inbox_status != "New") {
+           return true;
+       } else {
+           return false;
+       }
+    });
   }
 
   function setup_selectize(){
@@ -174,3 +162,48 @@
 
 var mock_data = data;
 var loaded = false;
+var search_params = [ 
+                      'id',
+                      'product_company',
+                      'product_name',
+                      'person_name',
+                      'date',
+                      'message_status',
+                      'description',
+                      'comment_1',
+                      'comment_2',
+                      'comment_3',
+                      'approver',
+                      'purchaser',
+                      'reconciler',
+                      'subscriber_1',
+                      'subscriber_2',
+                      'subscriber_3',
+                      'vendor',
+                      'amount',
+                      'amount_type',
+                      'org_code',
+                      'comment_1_date',
+                      'comment_1_time',
+                      'comment_2_date',
+                      'comment_2_time',
+                      'comment_3_date',
+                      'comment_3_time',
+                      'building_number',
+                      'inbox_status'
+                    ];
+var item_template = '<li class="inbox-item success active">' + 
+                      '<a ui-sref="message">' + 
+                        '<p>Requester: <b class="person_name"></b><br>' + 
+                          '<span class="date"></span>'+
+                        '</p>'+
+                        '<h5 class="product_name"></h5>' +
+                        '<div class="fr">'+
+                          '<span class="inbox_status">'+
+                          '</span>'+
+                          '<span class="label">'+
+                            '<img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached'+
+                          '</span>'+
+                        '</div>'+
+                      '</a>'+
+                    '</li>';

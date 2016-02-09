@@ -201,7 +201,7 @@ var item_template = '<li class="inbox-item success active">' +
                         '<div class="fr">'+
                           '<span class="inbox_status">'+
                           '</span>'+
-                          '<span class="label">'+
+                          '<span class="label" style="float: right;">'+
                             '<img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached'+
                           '</span>'+
                         '</div>'+

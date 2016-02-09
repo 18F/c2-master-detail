@@ -102,11 +102,6 @@
     };
 
     var userList = new List('messages', options, data);
-
-    userList.add({
-      name: "Gustaf Lindqvist",
-      born: 1983
-    });
   }
 
   function setup_selectize(){

@@ -154,6 +154,9 @@ aside.modal{
     width: 30%;
     float: left;
   }
+  input, button{
+    margin: 0px;
+  }
 }
 
 @media only screen and (min-width: 75em){

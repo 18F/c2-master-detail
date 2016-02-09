@@ -6908,6 +6908,9 @@ aside.modal {
   width: 30%;
   float: left; }
 
+.search-container input, .search-container button {
+  margin: 0px; }
+
 @media only screen and (min-width: 75em) {
   .title-bar.dark {
     padding: 0px; } }

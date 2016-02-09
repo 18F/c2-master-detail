@@ -3809,7 +3809,7 @@ meter {
           -ms-flex-align: center;
               align-items: center;
       padding: 1rem;
-      font-size: 1rem;
+      font-size: 0.8rem;
       line-height: 1; }
 
 /*
@@ -6899,6 +6899,18 @@ aside.modal {
 
 .tab-content-card {
   padding-top: 40px; }
+
+.search-container .input-group-field {
+  width: 70%;
+  float: left; }
+
+.search-container .input-group-button {
+  width: 30%;
+  float: left; }
+
+@media only screen and (min-width: 75em) {
+  .title-bar.dark {
+    padding: 0px; } }
 
 @media only screen and (min-width: 75em) {
   .sidebar {

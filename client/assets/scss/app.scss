@@ -10,6 +10,8 @@ strong, b {
   border: 1px solid $primary-color;
 }
 
+
+
 .search-wrap{
   position: relative;
   svg{
@@ -143,8 +145,22 @@ aside.modal{
   padding-top: 40px;
 }
 
+.search-container{
+  .input-group-field{
+    width: 70%;
+    float: left;
+  }
+  .input-group-button{
+    width: 30%;
+    float: left;
+  }
+}
 
-
+@media only screen and (min-width: 75em){
+  .title-bar.dark{
+    padding: 0px;
+  }
+}
 @media only screen and (min-width: 75em){
   .sidebar{
       -webkit-flex: 0 0 11.33333%;

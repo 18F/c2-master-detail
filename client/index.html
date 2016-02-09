@@ -24,34 +24,51 @@
 
   </head>
   <body>
-    <div class="grid-frame">
-
-      <div class="sidebar shrink medium-2 large-1 vertical" style="">
-        <div class="shrink text-center">
-          <div class="center title logo">
-            <a ui-sref="home"><img src="assets/img/carticon.png" alt="" style="max-width: 50px;"></a>
-            <br>
-            <a ui-sref="home"><img src="assets/img/img-logo-c2-portal.png" alt=""></a>
+    <div class="grid-frame vertical" id="messages">
+      <div class="dark title-bar">
+        <span class="left">
+          <div class="grid-block">
+            <div class="grid-block medium-2">
+              <a ui-sref="home"><img src="assets/img/img-logo-c2-portal.png" alt=""></a>
+            </div>
+            <div class="grid-block medium-10">
+              <div class="input-group search-container">
+                <input class="search input-group-field" type="search" placeholder="Search" />
+                <div class="input-group-button">
+                  <button class="sort button" data-sort="name">
+                    Sort by name
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <section class="block-list">
-          <ul class="block-list menu-items grid-content">
-            <li>
-              <a ui-sref="inbox"><b>My Requests</b></a>
-            </li>
-            <li>
-              <a zf-open="compose"><b>New Request</b></a>
-            </li>
-            <!-- With an icon -->
-            <li>
-              <a ui-sref="reports"><b>Reports</b></a>
-            </li>
-          </ul>
-        </section>
+        </span>
+        <span class="right hide-for-medium">
+          <a zf-toggle="sub-nav">Menu</a>
+        </span>
       </div>
+      <div class="grid-block vertical">
+        <div class="grid-block">
+          <div class="sidebar shrink medium-2 large-1" style="">
+            <section class="block-list">
+              <ul class="block-list menu-items grid-content">
+                <li>
+                  <a ui-sref="inbox"><b>My Requests</b></a>
+                </li>
+                <li>
+                  <a zf-open="compose"><b>New Request</b></a>
+                </li>
+                <!-- With an icon -->
+                <li>
+                  <a ui-sref="reports"><b>Reports</b></a>
+                </li>
+              </ul>
+            </section>
+          </div>
 
-      <div ui-view class="grid-block  medium-10 large-11"></div>
-      
+          <div ui-view class="grid-block  medium-10 large-11"></div>
+        </div>
+      </div>
       <div ng-include="'partials/master-detail/new-request.html'"></div>
       
     </div>

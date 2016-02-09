@@ -6912,8 +6912,28 @@ aside.modal {
   margin: 0px; }
 
 @media only screen and (min-width: 75em) {
+  .message-content {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-wrap: wrap;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    height: 100vw;
+    font-size: 0; }
   .title-bar.dark {
-    padding: 5px 0px; } }
+    padding: 5px 0px; }
+  .card-parent {
+    -webkit-flex: none !important;
+        -ms-flex: none !important;
+            flex: none !important;
+    width: 50%;
+    transition: .8s opacity; } }
 
 @media only screen and (min-width: 75em) {
   .sidebar {

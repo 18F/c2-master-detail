@@ -18,8 +18,6 @@
       });
     })
     .controller('MessageCtrl', function($scope, $state, $http){
-      console.log(data);
-      
       $scope.$on('$viewContentLoaded', function(event) {
         setup_list();
         setup_selectize();
@@ -27,8 +25,6 @@
       });
     })
     .controller('CompletedMessageCtrl', function($scope, $state, $http){
-      console.log(data);
-      
       $scope.$on('$viewContentLoaded', function(event) {
         setup_completed_list();
         setup_selectize();
@@ -65,10 +61,8 @@
   }
 
   function activate_list_item(){
-    if(loaded_active == false){
-      loaded_active = true;
+      // alert('working');
       $('.inbox-list .inbox-item').first().addClass('active');
-    }
   }
 
   function setup_list(){
@@ -78,8 +72,13 @@
     };
 
     var userList = new List('messages', options, data);
-    console.log(userList);
-    userList.remove("inbox_status", "Approved");
+    userList.filter(function(item) {
+       if (item.values().inbox_status != "Approved") {
+           return true;
+       } else {
+           return false;
+       }
+    });
   }
 
   function setup_completed_list(){

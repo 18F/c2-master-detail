@@ -60,9 +60,21 @@
     }
   }
 
+  function remove_active_list_item(){
+    $('.inbox-item.active').removeClass('active');
+  }
+
   function activate_list_item(){
       // alert('working');
       $('.inbox-list .inbox-item').first().addClass('active');
+      $('.inbox-item').on('click', function(d){
+        set_list_item_active(this);
+      });
+  }
+
+  function set_list_item_active(el){
+    remove_active_list_item();
+    $(el).addClass('active');
   }
 
   function setup_list(){

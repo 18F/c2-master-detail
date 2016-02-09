@@ -72,6 +72,10 @@
       });
   }
 
+  function load_active_message(el){
+
+  }
+
   function set_list_item_active(el){
     remove_active_list_item();
     $(el).addClass('active');

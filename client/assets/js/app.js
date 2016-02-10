@@ -41,6 +41,10 @@
           $scope.add_new_subscriber = function(){
             $('.new-subscriber').before('<label><input type="email" placeholder="name@domain.com"></label>');
           }
+          $scope.view_all_activity = function(){
+            $('.activity-item').removeClass('single').addClass('visible');
+            $('.activity-visible-button').remove();
+          }
         });
     }])
     .config(config)

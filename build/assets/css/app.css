@@ -6837,8 +6837,7 @@ strong, b {
     #message .card h4 {
       font-weight: 500; }
     #message .card b {
-      padding-bottom: 10px;
-      display: block; }
+      padding-bottom: 10px; }
 
 .utility-box {
   padding-top: 6px;
@@ -7025,7 +7024,12 @@ aside.modal {
 .activity-item {
   padding-bottom: 10px;
   border-bottom: 1px solid #f3f3f3;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  display: none; }
+  .activity-item.visible {
+    display: block; }
+  .activity-item.single {
+    border-bottom: none; }
   .activity-item p {
     margin-bottom: 0px; }
   .activity-item.last {

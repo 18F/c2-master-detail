@@ -44,6 +44,8 @@ strong, b {
   }
 }
 
+
+
 #message{
   background: #FBFBFB;
   .card{
@@ -53,7 +55,6 @@ strong, b {
     }
     b{
       padding-bottom: 10px;
-      display: block;
     }
   }
 }
@@ -304,6 +305,13 @@ aside.modal{
   padding-bottom: 10px;
   border-bottom: 1px solid $gray-light;
   margin-bottom: 1em;
+  display: none;
+  &.visible{
+    display: block;
+  }
+  &.single{
+    border-bottom: none;
+  }
   p{
     margin-bottom: 0px;
   }

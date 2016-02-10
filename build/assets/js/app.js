@@ -21,30 +21,14 @@
       ["$scope", "$state", "$http", function($scope, $state, $http){
         $scope.$on('$viewContentLoaded', function(event) {
           setup_list();
-          activate_list_item();
-          $scope.add_new_vendor = function(){
-            $('.new-vendor').before(new_vendor);
-          }
-          $scope.add_new_subscriber = function(){
-            $('.new-subscriber').before(new_subcribe);
-          }
+          blast_off_messages($scope);
         });
     }])
     .controller('CompletedMessageCtrl', 
       ["$scope", "$state", "$http", function($scope, $state, $http){
         $scope.$on('$viewContentLoaded', function(event) {
           setup_completed_list();
-          activate_list_item();
-          $scope.add_new_vendor = function(){
-            $('.new-vendor').before(new_vendor);
-          }
-          $scope.add_new_subscriber = function(){
-            $('.new-subscriber').before(new_subcribe);
-          }
-          $scope.view_all_activity = function(){
-            $('.activity-item').removeClass('single').addClass('visible');
-            $('.activity-visible-button').remove();
-          }
+          blast_off_messages($scope);
         });
     }])
     .config(config)
@@ -53,6 +37,20 @@
   ;
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
+
+  function blast_off_messages($scope){
+    activate_list_item();
+    $scope.add_new_vendor = function(){
+      $('.new-vendor').before(new_vendor);
+    }
+    $scope.add_new_subscriber = function(){
+      $('.new-subscriber').before(new_subcribe);
+    }
+    $scope.view_all_activity = function(){
+      $('.activity-item').removeClass('single').addClass('visible');
+      $('.activity-visible-button').remove();
+    }
+  }
 
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');

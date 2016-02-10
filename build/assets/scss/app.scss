@@ -74,6 +74,49 @@ strong, b {
     font-size: .85rem;
 }
 
+.inbox-item{
+  p{
+    line-height: 15px;
+  }
+  h5.product_name{
+    margin-top: 10px;
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+  span.date{
+    float: right;
+  }
+  span.person_name::before {
+    float: left;
+    content: '';
+    pointer-events: none;
+    background-image: none;
+    background: $primary-color;
+    border-radius: 40px;
+    width: 14px;
+    padding: 0px;
+    display: block;
+    height: 14px;
+    margin-right: .6em;
+  }
+  &.approved{ 
+    span.person_name::before {
+      float: left;
+      content: '';
+      pointer-events: none;
+      background-image: none;
+      background: white;
+      border-radius: 40px;
+      width: 14px;
+      padding: 0px;
+      display: block;
+      height: 14px;
+      margin-right: .6em;
+      border: 1px solid $primary-color;
+    }
+  }
+}
+
 .control-current-status{
   .block-list.approval-list li, 
   .block-list.approval-list li{

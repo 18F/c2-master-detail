@@ -6851,6 +6851,44 @@ strong, b {
 .block-list.approval-list li > input[type="radio"]:checked + label::before {
   font-size: .85rem; }
 
+.inbox-item p {
+  line-height: 15px; }
+
+.inbox-item h5.product_name {
+  margin-top: 10px;
+  font-size: 1em;
+  margin-bottom: 15px; }
+
+.inbox-item span.date {
+  float: right; }
+
+.inbox-item span.person_name::before {
+  float: left;
+  content: '';
+  pointer-events: none;
+  background-image: none;
+  background: #1b2b7a;
+  border-radius: 40px;
+  width: 14px;
+  padding: 0px;
+  display: block;
+  height: 14px;
+  margin-right: .6em; }
+
+.inbox-item.approved span.person_name::before {
+  float: left;
+  content: '';
+  pointer-events: none;
+  background-image: none;
+  background: white;
+  border-radius: 40px;
+  width: 14px;
+  padding: 0px;
+  display: block;
+  height: 14px;
+  margin-right: .6em;
+  border: 1px solid #1b2b7a; }
+
 .control-current-status .block-list.approval-list li,
 .control-current-status .block-list.approval-list li {
   border-top: 0px;

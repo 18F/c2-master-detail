@@ -246,14 +246,12 @@ var search_params = [
                     ];
 var item_template = '<li class="inbox-item">' + 
                       '<a ui-sref="message">' + 
-                        '<p>Requester: <b class="person_name"></b><br>' + 
-                          '<span class="date"></span>'+
+                        '<p><span class="person_name"></span> ' + 
+                          '<span class="date_wrapper">Submitted <span class="date"></span></span>'+
                         '</p>'+
                         '<h5 class="product_name"></h5>' +
-                        '<div class="fr">'+
-                          '<span class="inbox_status">'+
-                          '</span>'+
-                          '<span class="label" style="float: right;">'+
+                        '<div class="align-right text-right">'+
+                          '<span class="label">'+
                             '<img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached'+
                           '</span>'+
                         '</div>'+

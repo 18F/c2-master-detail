@@ -7062,7 +7062,7 @@ aside.modal {
   margin-bottom: 2em; }
 
 .file-wrapper {
-  font-weight: normal;
+  font-weight: normal !important;
   color: #1b2b7a;
   text-decoration: none;
   line-height: inherit;

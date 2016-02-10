@@ -6853,6 +6853,7 @@ strong, b {
 
 .control-current-status .block-list.approval-list li,
 .control-current-status .block-list.approval-list li {
+  border-top: 0px;
   border-bottom: 0px; }
 
 .control-current-status .block-list li > input[type="checkbox"]:checked + label::before,

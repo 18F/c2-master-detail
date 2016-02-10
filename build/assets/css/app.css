@@ -7045,6 +7045,18 @@ aside.modal {
   top: auto;
   right: auto; }
 
+.file-wrapper {
+  color: #1b2b7a;
+  text-decoration: none;
+  line-height: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-rendering: optimizeLegibility; }
+
 .activity-visible-button {
   margin-left: 8.9%;
   padding-left: 7.7%;
@@ -7054,7 +7066,7 @@ aside.modal {
   display: none; }
   .activity-item .small-10 {
     margin-left: 7.9%;
-    border-left: 3px solid #4b4b4b;
+    border-left: 3px solid #827F7F;
     padding-left: 7%; }
   .activity-item.visible {
     display: block; }

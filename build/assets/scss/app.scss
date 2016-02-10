@@ -75,7 +75,9 @@ strong, b {
 }
 
 .inbox-item{
-  padding-left: 1em;
+  a{
+    padding-left: 2em !important;
+  }
   p{
     line-height: 15px;
   }

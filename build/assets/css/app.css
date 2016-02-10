@@ -6810,6 +6810,9 @@ strong, b {
 .subscribe-delete {
   margin-top: 15px; }
 
+.card {
+  position: relative; }
+
 .footer-menu-wrapper {
   width: 100%; }
   .footer-menu-wrapper .menu-bar {
@@ -6832,6 +6835,9 @@ strong, b {
 
 .label {
   border: 1px solid #1b2b7a; }
+
+.status-comment {
+  padding-bottom: 1em; }
 
 .control-current-status label {
   width: 100%; }
@@ -7039,11 +7045,17 @@ aside.modal {
   top: auto;
   right: auto; }
 
+.activity-visible-button {
+  margin-left: 8.9%;
+  padding-left: 7.7%;
+  padding-top: 1em; }
+
 .activity-item {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #f3f3f3;
-  margin-bottom: 1em;
   display: none; }
+  .activity-item .small-10 {
+    margin-left: 7.9%;
+    border-left: 3px solid #4b4b4b;
+    padding-left: 7%; }
   .activity-item.visible {
     display: block; }
   .activity-item.single {

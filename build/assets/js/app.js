@@ -33,6 +33,9 @@
         $scope.add_new_vendor = function(){
           $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
         }
+        $scope.add_new_subscriber = function(){
+          $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
+        }
     }])
     .config(config)
     .run(run)

@@ -63,10 +63,33 @@ strong, b {
   padding-bottom: 1em;
 }
 
-.control-current-status label{
-  width: 100%;
-  input[type="text"]{
+.control-current-status{
+  .block-list li > input[type="checkbox"]:checked + label::before, .block-list li > input[type="radio"]:checked + label::before{
+    background-image: none;
+    float: left;
+    content: '';
+    background-size: 100% 100%;
+    color: #1b2b7a;
+    pointer-events: none;
+    background-image: none;
+    background: white;
+    border-radius: 40px;
+    width: 21px;
+    padding: 0px;
+    display: block;
+    height: 21px;
+    margin-right: 1em;
+    border: 2px solid $primary-color;
+  }
+  .block-list li.done > input[type="checkbox"]:checked + label::before, 
+  .block-list li.done > input[type="radio"]:checked + label::before{
+    background: $primary-color !important;
+  }
+  label{ 
     width: 100%;
+    input[type="text"]{
+      width: 100%;
+    }
   }
 }
   

@@ -6844,6 +6844,27 @@ strong, b {
 .status-comment {
   padding-bottom: 1em; }
 
+.control-current-status .block-list li > input[type="checkbox"]:checked + label::before, .control-current-status .block-list li > input[type="radio"]:checked + label::before {
+  background-image: none;
+  float: left;
+  content: '';
+  background-size: 100% 100%;
+  color: #1b2b7a;
+  pointer-events: none;
+  background-image: none;
+  background: white;
+  border-radius: 40px;
+  width: 21px;
+  padding: 0px;
+  display: block;
+  height: 21px;
+  margin-right: 1em;
+  border: 2px solid #1b2b7a; }
+
+.control-current-status .block-list li.done > input[type="checkbox"]:checked + label::before,
+.control-current-status .block-list li.done > input[type="radio"]:checked + label::before {
+  background: #1b2b7a !important; }
+
 .control-current-status label {
   width: 100%; }
   .control-current-status label input[type="text"] {

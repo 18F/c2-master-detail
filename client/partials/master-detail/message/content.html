@@ -184,7 +184,7 @@
         </div>
         <div class="grid-block inline-notification">
           <div class="grid-content">
-            <zf-notification-static id="my-notify" zf-advise="" title="My static notification">
+            <zf-notification-static id="my-notify" zf-advise="" title="Using Direct Pay">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt rerum modi culpa reiciendis atque, maiores minima necessitatibu.</p>
             </zf-notification-static>
           </div>
@@ -202,12 +202,25 @@
           </div>
         </div>
         <div class="grid-block">
-          <div class="grid-content" style="padding-bottom:0px;">
+          <div class="grid-content small-5 vendor-field">
             <label>
-              Vendor / Link
+              Vendor
               <input type="text">
             </label>
-            <p class="new-vendor">
+          </div>
+          <div class="grid-content small-6 vendor-field">
+            <label>
+              Link
+              <input type="text">
+            </label>
+          </div>
+          <div class="grid-content small-1 vendor-field vendor-delete">
+            <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+          </div>
+        </div>
+        <div class="grid-block new-vendor">
+          <div class="grid-content" style="padding-bottom:0px;">
+            <p class="">
               <a ng-click="add_new_vendor()" class="vendor-button">
                 <span class="plus-button">+</span> 
                 Add Vendor

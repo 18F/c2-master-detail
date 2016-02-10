@@ -23,7 +23,7 @@
           setup_list();
           activate_list_item();
           $scope.add_new_vendor = function(){
-            $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
+            $('.new-vendor').before(new_vendor);
           }
           $scope.add_new_subscriber = function(){
             $('.new-subscriber').before('<label><input type="email" placeholder="name@domain.com"></label>');
@@ -201,6 +201,7 @@
 
 })();
 
+var new_vendor = '<div class="grid-block"><div class="grid-content" style="padding-bottom:0px;"><label>Vendor<input type="text"></label></div><div class="grid-content" style="padding-bottom:0px;"><label>Link<input type="text"></label></div></div>';
 var mock_data = data;
 var loaded = false;
 var loaded_active = false;

@@ -17,20 +17,17 @@
         request_tracking();
       });
     })
-    .controller('MessageCtrl', function($scope, $state, $http){
-      $scope.$on('$viewContentLoaded', function(event) {
-        setup_list();
-        setup_selectize();
-        activate_list_item();
-        vendor_click_handler();
-      });
-    })
+    .controller('MessageCtrl', 
+      ["$scope", "$state", "$http", function($scope, $state, $http){
+        $scope.$on('$viewContentLoaded', function(event) {
+          setup_list();
+          activate_list_item();
+        });
+    }])
     .controller('CompletedMessageCtrl', 
       ["$scope", "$state", "$http", function($scope, $state, $http){
-        $scope['inbox'] = data;
         $scope.$on('$viewContentLoaded', function(event) {
           setup_completed_list();
-          setup_selectize();
           activate_list_item();
         });
         $scope.add_new_vendor = function(){

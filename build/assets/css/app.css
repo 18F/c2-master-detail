@@ -6841,6 +6841,9 @@ strong, b {
 .label {
   border: 1px solid #1b2b7a; }
 
+.approval-list label {
+  font-weight: 200; }
+
 .status-comment {
   padding-bottom: 1em; }
 
@@ -6859,7 +6862,8 @@ strong, b {
   display: block;
   height: 21px;
   margin-right: 1em;
-  border: 2px solid #1b2b7a; }
+  border: 2px solid #1b2b7a;
+  font-size: .85rem; }
 
 .control-current-status .block-list li.done > input[type="checkbox"]:checked + label::before,
 .control-current-status .block-list li.done > input[type="radio"]:checked + label::before {

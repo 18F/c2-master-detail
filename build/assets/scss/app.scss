@@ -59,6 +59,12 @@ strong, b {
   border: 1px solid $primary-color;
 }
 
+.approval-list{
+  label{
+    font-weight: 200;
+  }
+}
+
 .status-comment{
   padding-bottom: 1em;
 }
@@ -80,6 +86,7 @@ strong, b {
     height: 21px;
     margin-right: 1em;
     border: 2px solid $primary-color;
+    font-size: .85rem;
   }
   .block-list li.done > input[type="checkbox"]:checked + label::before, 
   .block-list li.done > input[type="radio"]:checked + label::before{

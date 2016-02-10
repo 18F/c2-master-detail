@@ -133,7 +133,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nulla ipsam vel recusandae in rem vitae officiis a aspernatur, officia eos, similique commodi rerum quae inventore animi excepturi ducimus qui.</p>
           </div>
         </div>
-        <div class="grid-block medium-up-3 large-up-2">
+        <div class="grid-block medium-up-3">
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label style="width: 100%;">
                 Expense Type
@@ -156,10 +156,18 @@
                 <input type="text">
               </label>
           </div>
-          <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
-              <label>
-                CL#
-                <input type="text">
+          <div class="large-12 medium-4 grid-block">
+              <label style="padding-bottom: 1em;">
+                Direct Pay <br>
+                <div class="grid-block" style="padding-top: 15px;">
+                  <div class="small-2 grid-block" >
+                    <input type="checkbox" name="radAnswer">
+                  </div>
+                  <div class="small-10 grid-block" >
+                    <p>I am going to use <a href="">Direct Pay</a> for this transaction</p>
+                  </div>
+                </div>
+
               </label>
           </div>
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
@@ -172,12 +180,6 @@
               <label style="margin-top: .8em;">
                 <input type="radio" name="radAnswer"> Not to exceed <br>
                 <input type="radio" name="radAnswer"> Exactly
-              </label>
-          </div>
-          <div class="large-12 medium-4 grid-block direct-pay-field">
-              <label style="padding-bottom: 1em;">
-                Direct Pay <br>
-                <input type="checkbox" name="radAnswer"> I am going to use Direct Pay for this transaction
               </label>
           </div>
         </div>

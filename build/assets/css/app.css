@@ -6911,6 +6911,9 @@ aside.modal {
 .search-container input, .search-container button {
   margin: 0px; }
 
+.card-parent.last {
+  margin-bottom: 50px; }
+
 @media only screen and (min-width: 40em) {
   .message-content .direct-pay-field {
     min-width: 100%; } }

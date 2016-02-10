@@ -1,4 +1,4 @@
-<div class="grid-block wrap">
+<div class="grid-block">
   <div class="grid-block medium-11">
     <div class="small-12 grid-block medium-8">
       <div class="grid-content">
@@ -18,7 +18,7 @@
 </div>
 
 <div class="grid-block message-content large-up-2 medium-up-1">
-  <div class="grid-block wrap control-current-status card-parent">
+  <div class="grid-block control-current-status card-parent">
     <div class="card grid-block vertical">
       <div class="grid-block">
         <div class="small-12 grid-content">
@@ -32,6 +32,7 @@
               <b>Comment</b>
               <textarea name="" id="" cols="30" class="" rows="1" placeholder="Comments go here"></textarea>
             </label>
+            <input type="file" value="Attach Document">
             <p class="text-right">
               <input type="submit" value="Add comment" class="button">
             </p>
@@ -174,7 +175,7 @@
     </div>
   </div>
 
-  <div class="grid-block wrap control-current-status card-parent">
+  <div class="grid-block control-current-status card-parent">
     <div class="card grid-block">
       <div class="small-12 grid-block vertical">
         <div class="grid-block">
@@ -195,110 +196,71 @@
               </button>
             </p>
           </div>
-                </div>
-              </div>
-              <div class="grid-block">
-                <div class="grid-block medium-up-3">
-                  <div class="medium-3 grid-block">
-                      Design Conference Inc
-                  </div> 
-                  <div class="medium-7 grid-block medium-up-2">
-                    <div class="grid-block">
-                      <p>
-                        <a href="#">http://designconference.ink</a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="medium-2 grid-block">
-                    <a href="#" style=""><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
-                  </div>
-                </div>
-              </div>
-            </div> 
-            <div class="grid-block">
-              <div class="grid-block medium-up-2">
-                <div class="medium-4 grid-block">
-                </div> 
-              </div>
-            </div> 
-          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="grid-block wrap control-current-status card-parent">
+
+
+  <div class="grid-block control-current-status card-parent">
     <div class="card grid-block">
-      <div class="small-12 grid-block">
-        <h4>Attachments</h4>
-        <div class="grid-block wrap">
-          <div class="small-12 medium-grid-block">
-            <div  title="Details">                
-                <p>
-                  <a href="#">Attach Document</a><br>
-                  <a zf-open="delete-modal">Cancel Request</a>
-                </p>
-                <p class="text-right">
-                  <a class="button disabled" href="#" zf-open="modal-add-vendor">
-                    <span class="plus-button">+</span> 
-                    Mark as Purchased
-                  </a>
-                </p>
-            </div>
+      <div class="small-12 grid-block vertical">
+        <div class="grid-block">
+          <div class="grid-content">
+            <h4>Approval Chain</h4>
+          </div>
+        </div>
+        <div class="grid-block">
+          <div class="grid-content">
+            <section class="block-list">
+              <ul>
+                <li>
+                  <input type="radio" id="role1" value="Francene Dearborn">
+                  <label for="role1"><b>Approver 1:</b> <span></span></label>
+                </li>
+                <li>
+                  <input type="radio" id="role2" value="Veronique Donati" checked="">
+                  <label for="role2"><b>Purchaser:</b> <span></span></label>
+                </li>
+                <li>
+                  <input type="radio" id="role2" value="Veronique Donati" checked="">
+                  <label for="role2"><b>Reconciler:</b> <span></span></label>
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   
-
-  <div class="grid-block wrap control-current-status card-parent">
+  <div class="grid-block control-current-subscriber card-parent">
     <div class="card grid-block">
-      <div class="small-12 grid-block">
-        <h4>Activity</h4>
-        
-      </div>
-    </div>
-  </div>
-
-
-  <div class="grid-block wrap control-current-status card-parent">
-    <div class="grid-block">
-      <div class="small-12 grid-block">
-        <div class="grid-block wrap medium-up-2">
-          <div class="medium-6 left-column-fix">
-            <div class="grid-block card">
-              <h4>Approval Chain</h4>
-              <div class="grid-block">
-                <section class="block-list">
-                  <ul>
-                    <li>
-                      <input type="radio" id="role1" value="Francene Dearborn">
-                      <label for="role1"><b>Role:</b> Francene Dearborn</label>
-                    </li>
-                    <li>
-                      <input type="radio" id="role2" value="Veronique Donati" checked="">
-                      <label for="role2"><b>Role:</b> Veronique Donati</label>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-            </div>
+      <div class="small-12 grid-block vertical">
+        <div class="grid-block">
+          <div class="grid-content">
+            <h4>Subscribers</h4>
           </div>
-          <div class="medium-6 right-column-fix">
-            <div class="grid-block card">
-              <h4>Subscriber</h4>
-              <label>
-                <span class="inline-label">
-                  <input type="search" placeholder="name@domain.com">
-                  <a href="#" class="button">Add Email</a>
-                </span>
-              </label>
-            </div>
+        </div>
+        <div class="grid-block">
+          <div class="grid-content" style="padding-bottom:0px;">
+            <label>
+              <input type="email" placeholder="name@domain.com">
+            </label>
+            <p class="new-vendor">
+              <button ng-click="add_new_vendor()" class="vendor-button">
+                <span class="plus-button">+</span> 
+                Add Subscriber
+              </button>
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  
+  <div class="grid-block control-current-subscriber card-parent last">
   </div>
 </div>
+

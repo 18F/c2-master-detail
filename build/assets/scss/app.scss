@@ -125,10 +125,6 @@ strong, b {
   border: 1px solid #333;
 }
 
-.control-current-status{
-  margin-bottom: 30px;
-}
-
 .control-current-status.card{
   padding-top: 20px;
 }
@@ -180,34 +176,36 @@ aside.modal{
   }
 }
 
-@media only screen and (min-width: 75em){
-  .message-content{
-    display: -ms-flexbox;
-    -ms-flex-direction: column;
-    -ms-flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 100vw;
-    font-size: 0; 
-  }
-  .title-bar.dark{
-    padding: 5px 0px;
-  }
-  .card-parent{
-    flex: none !important;
-    width: 50%;
-    transition: .8s opacity;
-  }
-}
-@supports not (flex-wrap: wrap) {
+.two-column-layout{
   @media only screen and (min-width: 75em){
     .message-content{
-      display: block;
+      display: -ms-flexbox;
+      -ms-flex-direction: column;
+      -ms-flex-wrap: wrap;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 100vw;
+      font-size: 0; 
     }
-    .card-parent { 
-      display: inline-block;
-      vertical-align: top;
+    .title-bar.dark{
+      padding: 5px 0px;
+    }
+    .card-parent{
+      flex: none !important;
+      width: 50%;
+      transition: .8s opacity;
+    }
+  }
+  @supports not (flex-wrap: wrap) {
+    @media only screen and (min-width: 75em){
+      .message-content{
+        display: block;
+      }
+      .card-parent { 
+        display: inline-block;
+        vertical-align: top;
+      }
     }
   }
 }

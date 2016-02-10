@@ -6886,9 +6886,6 @@ strong, b {
 .modal.is-active {
   border: 1px solid #333; }
 
-.control-current-status {
-  margin-bottom: 30px; }
-
 .control-current-status.card {
   padding-top: 20px; }
 
@@ -6927,7 +6924,7 @@ aside.modal {
     min-width: 100%; } }
 
 @media only screen and (min-width: 75em) {
-  .message-content {
+  .two-column-layout .message-content {
     display: -ms-flexbox;
     -ms-flex-direction: column;
     -ms-flex-wrap: wrap;
@@ -6941,9 +6938,9 @@ aside.modal {
             flex-wrap: wrap;
     height: 100vw;
     font-size: 0; }
-  .title-bar.dark {
+  .two-column-layout .title-bar.dark {
     padding: 5px 0px; }
-  .card-parent {
+  .two-column-layout .card-parent {
     -webkit-flex: none !important;
         -ms-flex: none !important;
             flex: none !important;
@@ -6952,9 +6949,9 @@ aside.modal {
 
 @supports not (flex-wrap: wrap) {
   @media only screen and (min-width: 75em) {
-    .message-content {
+    .two-column-layout .message-content {
       display: block; }
-    .card-parent {
+    .two-column-layout .card-parent {
       display: inline-block;
       vertical-align: top; } } }
 

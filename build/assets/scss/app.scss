@@ -23,6 +23,9 @@ strong, b {
 }
  
 .card{
+  label{
+    font-weight: bold;
+  }
   position: relative;
 }
 
@@ -337,6 +340,7 @@ aside.modal{
 }
 
 .file-wrapper{
+  font-weight: normal;
   color: #1b2b7a;
   text-decoration: none;
   line-height: inherit;

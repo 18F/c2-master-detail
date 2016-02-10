@@ -6812,6 +6812,8 @@ strong, b {
 
 .card {
   position: relative; }
+  .card label {
+    font-weight: bold; }
 
 .footer-menu-wrapper {
   width: 100%; }
@@ -7050,6 +7052,7 @@ aside.modal {
   margin-bottom: 2em; }
 
 .file-wrapper {
+  font-weight: normal;
   color: #1b2b7a;
   text-decoration: none;
   line-height: inherit;

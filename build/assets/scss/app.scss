@@ -69,8 +69,18 @@ strong, b {
   padding-bottom: 1em;
 }
 
+.block-list.approval-list li > input[type="checkbox"]:checked + label::before, 
+.block-list.approval-list li > input[type="radio"]:checked + label::before{
+    font-size: .85rem;
+}
+
 .control-current-status{
-  .block-list li > input[type="checkbox"]:checked + label::before, .block-list li > input[type="radio"]:checked + label::before{
+  .block-list.approval-list li, 
+  .block-list.approval-list li{
+    border-bottom: 0px;
+  }
+  .block-list li > input[type="checkbox"]:checked + label::before, 
+  .block-list li > input[type="radio"]:checked + label::before{
     background-image: none;
     float: left;
     content: '';
@@ -86,7 +96,6 @@ strong, b {
     height: 21px;
     margin-right: 1em;
     border: 2px solid $primary-color;
-    font-size: .85rem;
   }
   .block-list li.done > input[type="checkbox"]:checked + label::before, 
   .block-list li.done > input[type="radio"]:checked + label::before{

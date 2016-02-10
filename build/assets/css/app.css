@@ -6847,7 +6847,16 @@ strong, b {
 .status-comment {
   padding-bottom: 1em; }
 
-.control-current-status .block-list li > input[type="checkbox"]:checked + label::before, .control-current-status .block-list li > input[type="radio"]:checked + label::before {
+.block-list.approval-list li > input[type="checkbox"]:checked + label::before,
+.block-list.approval-list li > input[type="radio"]:checked + label::before {
+  font-size: .85rem; }
+
+.control-current-status .block-list.approval-list li,
+.control-current-status .block-list.approval-list li {
+  border-bottom: 0px; }
+
+.control-current-status .block-list li > input[type="checkbox"]:checked + label::before,
+.control-current-status .block-list li > input[type="radio"]:checked + label::before {
   background-image: none;
   float: left;
   content: '';
@@ -6862,8 +6871,7 @@ strong, b {
   display: block;
   height: 21px;
   margin-right: 1em;
-  border: 2px solid #1b2b7a;
-  font-size: .85rem; }
+  border: 2px solid #1b2b7a; }
 
 .control-current-status .block-list li.done > input[type="checkbox"]:checked + label::before,
 .control-current-status .block-list li.done > input[type="radio"]:checked + label::before {

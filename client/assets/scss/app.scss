@@ -32,6 +32,13 @@ strong, b {
   border: 1px solid $primary-color;
 }
 
+.control-current-status label{
+  width: 100%;
+  input[type="text"]{
+    width: 100%;
+  }
+}
+  
 .search-wrap{
   position: relative;
   svg{
@@ -300,6 +307,12 @@ aside.modal{
   }
 }
 
+.inline-notification .static-notification{
+  position: relative!important;
+  width: 100%;
+  top: auto;
+  right: auto;
+}
 
 .activity-item{
   padding-bottom: 10px;

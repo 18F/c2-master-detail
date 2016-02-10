@@ -6821,6 +6821,11 @@ strong, b {
 .label {
   border: 1px solid #1b2b7a; }
 
+.control-current-status label {
+  width: 100%; }
+  .control-current-status label input[type="text"] {
+    width: 100%; }
+
 .search-wrap {
   position: relative; }
   .search-wrap svg {
@@ -7020,6 +7025,12 @@ aside.modal {
   border: 1px solid #e7e7e7;
   margin-bottom: -3px;
   border-bottom: 4px solid #fff; }
+
+.inline-notification .static-notification {
+  position: relative !important;
+  width: 100%;
+  top: auto;
+  right: auto; }
 
 .activity-item {
   padding-bottom: 10px;

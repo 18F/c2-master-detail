@@ -164,10 +164,9 @@
                     <input type="checkbox" name="radAnswer">
                   </div>
                   <div class="small-10 grid-block" >
-                    <p>I am going to use <a href="">Direct Pay</a> for this transaction</p>
+                    <p style="margin-bottom: 0px;">I am going to use <a href="#" zf-open="my-notify">Direct Pay</a> for this transaction</p>
                   </div>
                 </div>
-
               </label>
           </div>
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
@@ -181,6 +180,13 @@
                 <input type="radio" name="radAnswer"> Not to exceed <br>
                 <input type="radio" name="radAnswer"> Exactly
               </label>
+          </div>
+        </div>
+        <div class="grid-block inline-notification">
+          <div class="grid-content">
+            <zf-notification-static id="my-notify" zf-advise="" title="My static notification">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt rerum modi culpa reiciendis atque, maiores minima necessitatibu.</p>
+            </zf-notification-static>
           </div>
         </div>
       </div>

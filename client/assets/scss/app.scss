@@ -2,6 +2,10 @@
 @import "foundation";
 @import "selectize";
 
+p{
+  font-size: .9rem;
+}
+
 strong, b {
   font-weight: 500;
 }
@@ -85,7 +89,7 @@ strong, b {
   .card{
     border-top: 5px solid #07519B;
     h4{
-      font-weight: 500;
+      font-weight: 300;
     }
     b{
       padding-bottom: 10px;
@@ -324,6 +328,16 @@ aside.modal{
     border: 1px solid #e7e7e7;
     margin-bottom: -3px;
     border-bottom: 4px solid #fff;
+  }
+}
+
+.message-header{
+  padding-bottom: 15px;
+  padding-top: 10px;
+  @media only screen and (min-width: 40em){ 
+    h3 {
+        font-size: 1.8875rem;
+    }
   }
 }
 

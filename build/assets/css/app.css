@@ -6804,6 +6804,12 @@ strong, b {
 .vendor-delete {
   padding-top: 30px; }
 
+.subscribe-field {
+  padding-bottom: 0px; }
+
+.subscribe-delete {
+  padding-top: 17px; }
+
 .footer-menu-wrapper {
   width: 100%; }
   .footer-menu-wrapper .menu-bar {

@@ -231,9 +231,9 @@
       </div>
     </div>
   </div>
+</div>
 
-
-
+<div class="grid-block message-content medium-up-2">
   <div class="grid-block control-current-status card-parent">
     <div class="card grid-block">
       <div class="small-12 grid-block vertical">
@@ -269,22 +269,25 @@
   <div class="grid-block control-current-subscriber card-parent">
     <div class="card grid-block">
       <div class="small-12 grid-block vertical">
-        <div class="grid-block">
+        <div class="grid-block shrink">
           <div class="grid-content">
-            <h4>Subscribers</h4>
+            <h4 style=" margin-bottom: 0px; padding-bottom: 0px;">Subscribers</h4>
           </div>
         </div>
-        <div class="grid-block">
-          <div class="grid-content" style="padding-bottom:0px;">
+        <div class="grid-block" style="padding-bottom:0px;">
+          <div class="grid-content small-10 subscribe-field subscribe-delete">
             <label>
               <input type="email" placeholder="name@domain.com">
             </label>
             <p class="new-subscriber">
-              <a ng-click="add_new_subscriber()" class="vendor-button">
+              <a ng-click="add_new_subscriber()" class="subscribe-button">
                 <span class="plus-button">+</span> 
                 Add Subscriber
               </a>
             </p>
+          </div>
+          <div class="grid-content small-2 subscribe-field subscribe-delete">
+            <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
           </div>
         </div>
       </div>

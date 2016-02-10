@@ -6805,6 +6805,8 @@ strong, b {
     .footer-menu-wrapper .menu-bar li {
       padding-top: 15px;
       padding-bottom: 15px; }
+      .footer-menu-wrapper .menu-bar li a {
+        margin-bottom: 0px; }
 
 .label {
   border: 1px solid #1b2b7a; }

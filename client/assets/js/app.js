@@ -47,8 +47,17 @@
       $('.new-subscriber').before(new_subcribe);
     }
     $scope.view_all_activity = function(){
-      $('.activity-item').removeClass('single').addClass('visible');
-      $('.activity-visible-button').remove();
+      if(!$('.status-comment').hasClass('open')){
+        $('.status-comment').addClass('open');
+        $('.activity-item.single').addClass('first');
+        $('.activity-item').removeClass('single').addClass('visible');
+        $('.activity-visible-button span').text('Hide All');
+      } else {
+        $('.status-comment').removeClass('open');
+        $('.activity-item').removeClass('visible');
+        $('.activity-item.first').addClass('visible');
+        $('.activity-visible-button span').text('View All');
+      }
     }
   }
 

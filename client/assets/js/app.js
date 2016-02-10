@@ -22,6 +22,7 @@
         setup_list();
         setup_selectize();
         activate_list_item();
+        vendor_click_handler();
       });
     })
     .controller('CompletedMessageCtrl', 
@@ -32,6 +33,9 @@
           setup_selectize();
           activate_list_item();
         });
+        $scope.add_new_vendor = function(){
+          $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
+        }
     }])
     .config(config)
     .run(run)
@@ -61,6 +65,7 @@
       google.charts.load('current', {'packages':['bar']});
     }
   }
+
 
   function remove_active_list_item(){
     $('.inbox-item.active').removeClass('active');

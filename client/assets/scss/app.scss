@@ -17,6 +17,14 @@ strong, b {
         margin-bottom: 0px;
       }
     }
+    .first{
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row; 
+      flex-direction: row;
+      -webkit-justify-content: flex-start;
+      justify-content: flex-start;
+    }
   }
 }
 

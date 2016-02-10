@@ -6807,6 +6807,16 @@ strong, b {
       padding-bottom: 15px; }
       .footer-menu-wrapper .menu-bar li a {
         margin-bottom: 0px; }
+    .footer-menu-wrapper .menu-bar .first {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
 
 .label {
   border: 1px solid #1b2b7a; }

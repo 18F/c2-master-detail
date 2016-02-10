@@ -6798,6 +6798,14 @@ blockquote p {
 strong, b {
   font-weight: 500; }
 
+.footer-menu-wrapper {
+  width: 100%; }
+  .footer-menu-wrapper .menu-bar {
+    width: 100%; }
+    .footer-menu-wrapper .menu-bar li {
+      padding-top: 15px;
+      padding-bottom: 15px; }
+
 .label {
   border: 1px solid #1b2b7a; }
 
@@ -6912,7 +6920,7 @@ aside.modal {
   margin: 0px; }
 
 .card-parent.last {
-  margin-bottom: 50px; }
+  margin-bottom: 10px; }
 
 @media only screen and (min-width: 40em) {
   .message-content .direct-pay-field {

@@ -19,7 +19,7 @@ strong, b {
 }
 
 .subscribe-delete{
-  padding-top: 17px;
+  margin-top: 15px;
 }
 
 .footer-menu-wrapper{
@@ -212,35 +212,28 @@ aside.modal{
 }
 
 .two-column-layout{
-  @media only screen and (min-width: 75em){
-    .message-content{
-      display: -ms-flexbox;
-      -ms-flex-direction: column;
-      -ms-flex-wrap: wrap;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      height: 100vw;
-      font-size: 0; 
-    }
-    .title-bar.dark{
-      padding: 5px 0px;
-    }
-    .card-parent{
-      flex: none !important;
-      width: 50%;
-      transition: .8s opacity;
-    }
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  -ms-flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vw;
+  font-size: 0; 
+  .title-bar.dark{
+    padding: 5px 0px;
   }
-  @supports not (flex-wrap: wrap) {
-    @media only screen and (min-width: 75em){
-      .message-content{
-        display: block;
-      }
-      .card-parent { 
-        display: inline-block;
-        vertical-align: top;
-      }
+  .card-parent{
+    width: 50%;
+    transition: .8s opacity;
+  }
+}
+@supports not (flex-wrap: wrap) {
+  .two-column-layout{
+    display: block;
+    .card-parent { 
+      display: inline-block;
+      vertical-align: top;
     }
   }
 }

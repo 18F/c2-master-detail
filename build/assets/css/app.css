@@ -6808,7 +6808,7 @@ strong, b {
   padding-bottom: 0px; }
 
 .subscribe-delete {
-  padding-top: 17px; }
+  margin-top: 15px; }
 
 .footer-menu-wrapper {
   width: 100%; }
@@ -6951,37 +6951,32 @@ aside.modal {
   .message-content .direct-pay-field {
     min-width: 100%; } }
 
-@media only screen and (min-width: 75em) {
-  .two-column-layout .message-content {
-    display: -ms-flexbox;
-    -ms-flex-direction: column;
-    -ms-flex-wrap: wrap;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    height: 100vw;
-    font-size: 0; }
+.two-column-layout {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  -ms-flex-wrap: wrap;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  height: 100vw;
+  font-size: 0; }
   .two-column-layout .title-bar.dark {
     padding: 5px 0px; }
   .two-column-layout .card-parent {
-    -webkit-flex: none !important;
-        -ms-flex: none !important;
-            flex: none !important;
     width: 50%;
-    transition: .8s opacity; } }
+    transition: .8s opacity; }
 
 @supports not (flex-wrap: wrap) {
-  @media only screen and (min-width: 75em) {
-    .two-column-layout .message-content {
-      display: block; }
+  .two-column-layout {
+    display: block; }
     .two-column-layout .card-parent {
       display: inline-block;
-      vertical-align: top; } } }
+      vertical-align: top; } }
 
 @media only screen and (min-width: 75em) {
   .sidebar {

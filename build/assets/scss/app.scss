@@ -81,13 +81,17 @@ strong, b {
   p{
     line-height: 15px;
   }
+  span.person_name{
+    font-weight: bold;
+  }
   h5.product_name{
     margin-top: 10px;
     font-size: 1em;
     margin-bottom: 15px;
   }
-  span.date{
+  span.date_wrapper{
     float: right;
+    font-size: .9em;
   }
   .meta-wrap::before {
     content: '';

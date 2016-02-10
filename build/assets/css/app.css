@@ -6857,13 +6857,17 @@ strong, b {
 .inbox-item p {
   line-height: 15px; }
 
+.inbox-item span.person_name {
+  font-weight: bold; }
+
 .inbox-item h5.product_name {
   margin-top: 10px;
   font-size: 1em;
   margin-bottom: 15px; }
 
-.inbox-item span.date {
-  float: right; }
+.inbox-item span.date_wrapper {
+  float: right;
+  font-size: .9em; }
 
 .inbox-item .meta-wrap::before {
   content: '';

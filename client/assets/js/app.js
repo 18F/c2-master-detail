@@ -246,7 +246,7 @@ var search_params = [
                     ];
 var item_template = '<li class="inbox-item">' + 
                       '<a ui-sref="message">' + 
-                        '<p><span class="person_name"></span> ' + 
+                        '<p class="meta-wrap"><span class="person_name"></span> ' + 
                           '<span class="date_wrapper">Submitted <span class="date"></span></span>'+
                         '</p>'+
                         '<h5 class="product_name"></h5>' +

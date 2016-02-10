@@ -75,6 +75,7 @@ strong, b {
 }
 
 .inbox-item{
+  padding-left: 1em;
   p{
     line-height: 15px;
   }
@@ -86,8 +87,7 @@ strong, b {
   span.date{
     float: right;
   }
-  span.person_name::before {
-    float: left;
+  .meta-wrap::before {
     content: '';
     pointer-events: none;
     background-image: none;
@@ -98,6 +98,8 @@ strong, b {
     display: block;
     height: 14px;
     margin-right: .6em;
+    margin-left: -22px;
+    position: absolute;
   }
   &.approved{ 
     span.person_name::before {

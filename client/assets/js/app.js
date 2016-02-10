@@ -22,6 +22,12 @@
         $scope.$on('$viewContentLoaded', function(event) {
           setup_list();
           activate_list_item();
+          $scope.add_new_vendor = function(){
+            $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
+          }
+          $scope.add_new_subscriber = function(){
+            $('.new-subscriber').before('<label><input type="email" placeholder="name@domain.com"></label>');
+          }
         });
     }])
     .controller('CompletedMessageCtrl', 
@@ -29,13 +35,13 @@
         $scope.$on('$viewContentLoaded', function(event) {
           setup_completed_list();
           activate_list_item();
+          $scope.add_new_vendor = function(){
+            $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
+          }
+          $scope.add_new_subscriber = function(){
+            $('.new-subscriber').before('<label><input type="email" placeholder="name@domain.com"></label>');
+          }
         });
-        $scope.add_new_vendor = function(){
-          $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
-        }
-        $scope.add_new_subscriber = function(){
-          $('.new-vendor').before('<label>Vendor / Link<input type="text"></label>');
-        }
     }])
     .config(config)
     .run(run)

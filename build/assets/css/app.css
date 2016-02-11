@@ -7125,7 +7125,8 @@ aside.modal {
     padding-top: 5px;
     padding-bottom: 5px; }
   .sidebar .menu-items li {
-    border-bottom: none; }
+    border-bottom: none;
+    border-top: none; }
     .sidebar .menu-items li a {
       color: #fafafa; }
   .sidebar .menu-items .lead-drop a {

@@ -32,14 +32,14 @@
         </div>
       </div>
       <div class="grid-block">
-        <div class="grid-block  small-6 vertical status-comment">
-          <div class="grid-block activity-item visible single">
+        <div class="grid-block small-6 vertical status-comment">
+          <div class="grid-block activity-item">
             <div class="small-2 text-center grid-content">
               <img zf-iconic="" icon="comment-square" size="medium" class="iconic-color-warning">
             </div>
             <div class="small-10  grid-content">
-              <p><b>Comment added</b> by <u>Ethan Heppner</u>. 2/13/2015 at 3:29pm<br>
-              Please remind the Victor from the purchasing department to use our Apple discount.</p>
+              <p><b>Comment added</b> by <u>{{single.reconciler}}</u>. {{comment_3_date}} at {{comment_3_time}}<br>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -47,7 +47,7 @@
               <img zf-iconic="" icon="envelope"size="medium" class="iconic-color-secondary">
             </div>
             <div class="small-10 grid-content">
-              <p><b>Email Opened</b> by <u>Ethan Heppner</u>. 2/13/2015 at 3:28pm</p>
+              <p><b>Email Opened</b> by <u>{{single.reconciler}}</u>. {{comment_3_date}} at {{comment_3_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -55,7 +55,7 @@
               <img zf-iconic="" icon="share-boxed"size="medium" class="iconic-color-secondary">
             </div>
             <div class="small-10 grid-content">
-              <p><b>Email Sent</b> to <u>Ethan Heppner</u>. 2/13/2015 at 1:19pm</p>
+              <p><b>Email Sent</b> to <u>{{single.approver}}</u>. {{comment_2_date}} at {{comment_2_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -63,7 +63,7 @@
               <img zf-iconic="" icon="circle-check"size="medium" class="iconic-color-success">
             </div>
             <div class="small-10 grid-content">
-              <p><b>Approved</b> by <u>Cady Heron</u>. 2/13/2015 at 1:18pm</p>
+              <p><b>Approved</b> by <u>{{single.approver}}</u>. {{comment_2_date}} at {{comment_2_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -71,7 +71,7 @@
               <img zf-iconic="" icon="envelope"size="medium" class="iconic-color-secondary">
             </div>
             <div class="small-10 grid-content">
-              <p><b>Email Opened</b> by <u>Cady Heron</u>. 2/13/2015 at 1:18pm</p>
+              <p><b>Email Opened</b> by <u>{{single.approver}}</u>. {{comment_2_date}} at {{comment_2_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -79,7 +79,7 @@
               <img zf-iconic="" icon="share-boxed"size="medium" class="iconic-color-secondary">
             </div>
             <div class="small-10 grid-content">
-              <p><b>Email Sent</b> to <u>Cady Heron</u>. 2/13/2015 at 1:13pm</p>
+              <p><b>Email Sent</b> to <u>{{single.purchaser}}</u>. {{comment_1_date}} at {{comment_1_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -87,7 +87,7 @@
               <img zf-iconic="" icon="account"size="medium" class="iconic-color-secondary">
             </div>
             <div class="small-10 grid-content">
-              <p><b>File Uploaded</b> by <u>Kevin Gnapoor</u>. 2/13/2015 at 11:01am</p>
+              <p><b>File Uploaded</b> by <u>{{single.purchaser}}</u>. {{comment_1_date}} at {{comment_1_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-item">
@@ -95,7 +95,7 @@
               <img zf-iconic="" icon="document"size="medium" class="iconic-color-secondary">
             </div>
             <div class="small-10 grid-content">
-              <p><b>Request Created</b> by <u>Kevin Gnapoor</u>. 2/13/2015 at 11:01am</p>
+              <p><b>Request Created</b> by <u>{{single.purchaser}}</u>. {{comment_1_date}} at {{comment_1_time}}</p>
             </div>
           </div>
           <div class="grid-block activity-visible-button">
@@ -248,16 +248,16 @@
             <section class="block-list approval-list" style="margin-bottom: 0px">
               <ul>
                 <li class="done">
-                  <input type="radio" id="role1" value="Francene Dearborn" checked="">
-                  <label for="role1">Approver 1 <b><span>Ethan Heppner</span></b></label>
+                  <input type="radio" id="role1" value="Francene Dearborn">
+                  <label for="role1"><b>Approver:</b> {{single.approver}}</label>
+                </li>
+                <li class="done">
+                  <input type="radio" id="role2" value="Veronique Donati" checked="">
+                  <label for="role2"><b>Purchaser:</b> {{single.person_name}}</label>
                 </li>
                 <li>
                   <input type="radio" id="role2" value="Veronique Donati" checked="">
-                  <label for="role2">Purchaser <b><span>Victor V.</span></b></label>
-                </li>
-                <li>
-                  <input type="radio" id="role2" value="Veronique Donati" checked="">
-                  <label for="role2">Reconciler <b><span>Corrine Cockreham</span></b></label>
+                  <label for="role2"><b>Reconciler:</b> {{single.reconciler}}</label>
                 </li>
               </ul>
             </section>

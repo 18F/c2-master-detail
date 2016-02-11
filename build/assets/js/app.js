@@ -20,23 +20,37 @@
     .controller('MessageCtrl', 
       ["$scope", "$state", "$http", function($scope, $state, $http){
         $scope.$on('$viewContentLoaded', function(event) {
-          blast_off_messages($scope);
+          blast_off_messages($scope, $state);
         });
     }])
     .controller('CompletedMessageCtrl', 
-      ["$scope", "$state", "$http", function($scope, $state, $http){
+      ["$scope", "$state", "$http", function($scope, $state, $http){s
         $scope.$on('$viewContentLoaded', function(event) {
-          blast_off_messages($scope);
+          blast_off_messages($scope, $state);
         });
     }])
     .config(config)
     .run(run)
-
   ;
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-  function blast_off_messages($scope){
+  function search(nameKey, arr){
+    for (var i = 0; i < arr.length; i++) {
+      if(arr[i]["id"] == nameKey){
+        return arr[i];
+      }
+    }
+  }
+
+  function blast_off_messages($scope, $state){
+    if($state.params.id != undefined){
+      $scope['single'] = search($state.params.id, mock_data);
+    }
+    if($scope['single'] == undefined){
+      $scope['single'] = mock_data[0];
+    }
+    console.log($scope['single']);
     activate_list_item();
     $scope.items = mock_data;
     $scope.add_new_vendor = function(){
@@ -45,6 +59,9 @@
     $scope.add_new_subscriber = function(){
       $('.new-subscriber').before(new_subcribe);
     }
+    window.setTimeout(function(){
+      $('.activity-item').first().addClass("visible single");
+    }, 500);
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
         $('.status-comment').addClass('open');

@@ -2,15 +2,12 @@
 @import "foundation";
 @import "selectize";
 
-.selectize-input, .title input{
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-
 .drop-container{
   padding-bottom: 10px;
   background: #2c4d93;
+  a:hover{
+    background: lighten(#2c4d93, 20%) !important;
+  }
 }
 
 p{

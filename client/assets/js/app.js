@@ -53,7 +53,6 @@
     }
     console.log($scope['single']);
     activate_list_item();
-    setup_selectize();
     $scope.items = mock_data;
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);

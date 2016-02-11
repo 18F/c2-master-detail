@@ -6798,6 +6798,15 @@ blockquote p {
 p {
   font-size: .9rem; }
 
+.search-bar {
+  position: relative; }
+  .search-bar input {
+    padding-left: 33px; }
+  .search-bar .iconic {
+    position: absolute;
+    top: 12px;
+    left: 10px; }
+
 strong, b {
   font-weight: 500; }
 
@@ -7039,8 +7048,15 @@ aside.modal {
   margin-bottom: 10px; }
 
 @media only screen and (min-width: 40em) {
+  .large-correct {
+    padding-right: 40px; }
   .message-content .direct-pay-field {
     min-width: 100%; } }
+
+.title-bar {
+  width: 100%;
+  margin: 0px;
+  padding: 0px 15px; }
 
 .two-column-layout {
   display: -ms-flexbox;

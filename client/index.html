@@ -24,29 +24,7 @@
 
   </head>
   <body>
-    <div class="grid-frame vertical" id="messages">
-      <div class="dark title-bar">
-        <span class="left">
-          <div class="grid-block">
-            <div class="grid-block medium-2">
-              <a ui-sref="home"><img src="assets/img/img-logo-c2-portal.png" alt=""></a>
-            </div>
-            <div class="grid-block medium-10">
-              <div class="input-group search-container">
-                <input class="search input-group-field" type="search" placeholder="Search" />
-                <div class="input-group-button">
-                  <button class="sort button secondary" data-sort="date">
-                    Sort by date
-                  </button>
-                  <button class="sort button secondary" data-sort="inbox_status">
-                    Sort by status
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </span>
-      </div>
+    <div class="grid-frame" id="messages">
       <div class="grid-block vertical">
         <div class="grid-block">
           <div class="sidebar shrink medium-2 large-1" style="">
@@ -58,9 +36,6 @@
                 <li>
                   <a ui-sref="inbox"><b>Active Requests</b></a>
                 </li>
-                <li>
-                  <a ui-sref="completed"><b>Completed Request</b></a>
-                </li>
                 <!-- With an icon -->
                 <li>
                   <a ui-sref="reports"><b>Reports</b></a>
@@ -68,8 +43,29 @@
               </ul>
             </section>
           </div>
-
-          <div ui-view class="grid-block  medium-10 large-11"></div>
+          
+          <div class="grid-block medium-10 large-11">
+            <div class="grid-block vertical">
+              <div class="shrink grid-block large-correct">
+                <div class="title-bar grid-content grid-justify" style="width: 100%">
+                  <span class="title left">
+                    <div>
+                      <a href="" class="button tiny" style="margin: auto;">Add Filter</a>
+                    </div>
+                  </span>
+                  <span class="right medium-3">
+                    <div>
+                      <label class="search-bar">
+                        <input type="text" style="margin-bottom: 0px;">
+                        <img zf-iconic="" icon="magnifying-glass" size="small">
+                      </label>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div ui-view class="grid-block"></div>
+            </div>
+          </div>
         </div>
       </div>
       <div ng-include="'partials/master-detail/new-request.html'"></div>

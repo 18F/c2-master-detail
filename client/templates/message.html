@@ -1,6 +1,6 @@
 ---
 name: inbox
-url: /inbox/5da1d59-83c9-42bb-8e51-b39f0924349d
+url: /inbox/:id
 controller: MessageCtrl
 ---
 
@@ -8,9 +8,10 @@ controller: MessageCtrl
   <div class="grid-block main-content-wrapper">
     <div class="grid-block inbox-list medium-4">
       <div class="grid-content">
+        <!-- start repeat -->
         <section class="block-list inbox-list active" ng-repeat="item in items">
-          <li class="inbox-item">
-            <a ui-sref="message">
+          <li class="inbox-item" data-itemid="{{item.id}}">
+            <a ui-href='inbox({id: "{{item.id}}"})'>
               <p class="meta-wrap"><span class="person_name">{{item.person_name}}</span>
                 <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
               </p>
@@ -28,6 +29,7 @@ controller: MessageCtrl
             </a>
           </li>
         </section>
+        <!-- end repeat -->
       </div>
     </div>
     <div class="grid-block medium-8">

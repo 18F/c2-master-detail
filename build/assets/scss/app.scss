@@ -6,6 +6,10 @@ p{
   font-size: .9rem;
 }
 
+.single .iconic-color-secondary *{
+  fill: $primary-color;
+}
+
 .search-bar{
   position: relative;
   input{

@@ -6798,6 +6798,9 @@ blockquote p {
 p {
   font-size: .9rem; }
 
+.single .iconic-color-secondary * {
+  fill: #1b2b7a; }
+
 .search-bar {
   position: relative; }
   .search-bar input {

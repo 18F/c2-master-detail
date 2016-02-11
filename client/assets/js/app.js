@@ -63,7 +63,7 @@
       $('.activity-item').first().addClass("visible single");
     }, 500);
     $scope.set_message = function(id){
-      $scope['single'] = search(item.id, mock_data); 
+      
     }
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){

@@ -23,7 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-apps": "~1.2.0",
+    "foundation-apps": "^1.2.0",
     "ng-selectize": "^0.0.6",
     "angular-masonry": "^0.15.0"
   }

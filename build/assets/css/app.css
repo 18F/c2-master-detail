@@ -6795,6 +6795,15 @@ blockquote p {
   opacity: 0.5;
   background-color: #fafafa; }
 
+.selectize-input, .title input {
+  background: none;
+  border: none;
+  box-shadow: none; }
+
+.drop-container {
+  padding-bottom: 10px;
+  background: #2c4d93; }
+
 p {
   font-size: .9rem; }
 
@@ -6881,11 +6890,23 @@ strong, b {
   float: right;
   font-size: .9em; }
 
+.inbox-item .status-Pending.meta-wrap::before,
+.inbox-item .status-New.meta-wrap::before {
+  background: white;
+  border: 2px solid #1b2b7a; }
+
+.inbox-item .status-Approved.meta-wrap::before {
+  background: #1b2b7a;
+  border: 2px solid #1b2b7a; }
+
+.inbox-item .status-Completed.meta-wrap::before {
+  background: #ccc;
+  border: 2px solid #ccc; }
+
 .inbox-item .meta-wrap::before {
   content: '';
   pointer-events: none;
   background-image: none;
-  background: #1b2b7a;
   border-radius: 40px;
   width: 14px;
   padding: 0px;

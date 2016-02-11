@@ -35,10 +35,10 @@
                     <li class="lead-drop">
                       <a ui-sref="inbox"><b>My Request</b></a>
                     </li>
-                    <li class="dropdown-item"><a ng-click="filter_by()">Recent</a></li>
-                    <li class="dropdown-item"><a ng-click="filter_by()">Pending</a></li>
-                    <li class="dropdown-item"><a ng-click="filter_by()">Approved</a></li>
-                    <li class="dropdown-item"><a ng-click="filter_by()">Completed</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by('all')">All</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by('pending')">Pending</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by('approved')">Approved</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by('completed')">Completed</a></li>
                   </ul>
                 </li>
                 <li>
@@ -57,7 +57,10 @@
                 <div class="title-bar grid-content grid-justify" style="width: 100%">
                   <span class="title left">
                     <div>
-                      <a href="" class="button tiny" style="margin: auto;">Add Filter</a>
+                      <label>
+                        <a href="" class="button tiny" style="margin: auto;">Add Filter</a>
+                        <!-- <input type="text" ng-model="query"> -->
+                      </label>
                     </div>
                   </span>
                   <span class="right medium-3">

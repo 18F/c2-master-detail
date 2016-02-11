@@ -44,6 +44,7 @@
   }
 
   function blast_off_messages($scope, $state){
+
     if($state.params.id != undefined){
       $scope['single'] = search($state.params.id, mock_data);
     }
@@ -52,6 +53,7 @@
     }
     console.log($scope['single']);
     activate_list_item();
+    setup_selectize();
     $scope.items = mock_data;
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
@@ -152,7 +154,7 @@
   }
 
   function setup_selectize(){
-    $('[selectize]').selectize({
+    $('.title input').selectize({
       plugins: ['remove_button'],
       persist: false,
       create: true,

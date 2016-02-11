@@ -167,7 +167,7 @@ var data = [{
     "comment_3_date": "11/13/2015",
     "comment_3_time": "3:24 PM",
     "building_number": "#9b4",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "444850140-X",
     "product_company": "Plajo",
@@ -249,7 +249,7 @@ var data = [{
     "comment_3_date": "10/18/2015",
     "comment_3_time": "11:40 PM",
     "building_number": "#cb2",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "067239463-4",
     "product_company": "Voolith",
@@ -328,7 +328,7 @@ var data = [{
     "comment_3_date": "12/4/2015",
     "comment_3_time": "4:58 PM",
     "building_number": "#ba9",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "140943428-1",
     "product_company": "Topicstorm",
@@ -496,7 +496,7 @@ var data = [{
     "comment_3_date": "11/4/2015",
     "comment_3_time": "8:03 AM",
     "building_number": "#893",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "104254889-7",
     "product_company": "Realpoint",
@@ -521,7 +521,7 @@ var data = [{
     "comment_3_date": "12/24/2015",
     "comment_3_time": "6:28 PM",
     "building_number": "#dcd",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "772667450-4",
     "product_company": "Oyope",
@@ -802,7 +802,7 @@ var data = [{
     "comment_3_date": "10/15/2015",
     "comment_3_time": "5:10 PM",
     "building_number": "#fc0",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "173919777-1",
     "product_company": "Yotz",
@@ -856,7 +856,7 @@ var data = [{
     "comment_3_date": "12/31/2015",
     "comment_3_time": "12:39 AM",
     "building_number": "#c82",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "579443675-1",
     "product_company": "Skyvu",
@@ -973,7 +973,7 @@ var data = [{
     "comment_3_date": "10/18/2015",
     "comment_3_time": "7:08 PM",
     "building_number": "#a45",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "133374269-X",
     "product_company": "Rooxo",
@@ -1272,7 +1272,7 @@ var data = [{
     "comment_3_date": "1/13/2016",
     "comment_3_time": "4:42 AM",
     "building_number": "#b09",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "889619655-8",
     "product_company": "Yakitri",
@@ -1971,7 +1971,7 @@ var data = [{
     "comment_3_date": "12/10/2015",
     "comment_3_time": "1:07 PM",
     "building_number": "#9e7",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "684924196-6",
     "product_company": "Rhynoodle",
@@ -2185,7 +2185,7 @@ var data = [{
     "comment_3_date": "10/22/2015",
     "comment_3_time": "4:50 PM",
     "building_number": "#eab",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "531739866-5",
     "product_company": "Skiptube",
@@ -2387,7 +2387,7 @@ var data = [{
     "comment_3_date": "11/26/2015",
     "comment_3_time": "4:49 PM",
     "building_number": "#50f",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "266019070-4",
     "product_company": "Mydo",
@@ -2795,7 +2795,7 @@ var data = [{
     "comment_3_date": "1/19/2016",
     "comment_3_time": "7:06 PM",
     "building_number": "#c27",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "546932320-X",
     "product_company": "Meevee",
@@ -2884,7 +2884,7 @@ var data = [{
     "comment_3_date": "1/3/2016",
     "comment_3_time": "11:24 AM",
     "building_number": "#52d",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "140820748-6",
     "product_company": "Demivee",
@@ -2910,7 +2910,7 @@ var data = [{
     "comment_3_date": "1/6/2016",
     "comment_3_time": "4:00 AM",
     "building_number": "#338",
-    "inbox_status": "Needs Attention"
+    "inbox_status": "Completed"
 }, {
     "id": "588046259-5",
     "product_company": "Yata",

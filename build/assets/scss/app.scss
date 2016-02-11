@@ -2,6 +2,17 @@
 @import "foundation";
 @import "selectize";
 
+.selectize-input, .title input{
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.drop-container{
+  padding-bottom: 10px;
+  background: #2c4d93;
+}
+
 p{
   font-size: .9rem;
 }
@@ -109,11 +120,23 @@ strong, b {
     float: right;
     font-size: .9em;
   }
+  .status-Pending.meta-wrap::before,
+  .status-New.meta-wrap::before {
+    background: white;
+    border: 2px solid $primary-color;
+  }
+  .status-Approved.meta-wrap::before {
+    background: $primary-color;
+    border: 2px solid $primary-color;
+  }
+  .status-Completed.meta-wrap::before {
+    background: #ccc;
+    border: 2px solid #ccc;
+  }
   .meta-wrap::before {
     content: '';
     pointer-events: none;
     background-image: none;
-    background: $primary-color;
     border-radius: 40px;
     width: 14px;
     padding: 0px;

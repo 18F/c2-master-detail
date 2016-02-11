@@ -31,12 +31,19 @@
             <section class="block-list">
               <ul class="block-list menu-items grid-content">
                 <li>
-                  <a zf-open="compose"><b>New Request</b></a>
+                  <ul class="drop-container">
+                    <li class="lead-drop">
+                      <a ui-sref="inbox"><b>My Request</b></a>
+                    </li>
+                    <li class="dropdown-item"><a ng-click="filter_by()">Recent</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by()">Pending</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by()">Approved</a></li>
+                    <li class="dropdown-item"><a ng-click="filter_by()">Completed</a></li>
+                  </ul>
                 </li>
                 <li>
-                  <a ui-sref="inbox"><b>Active Requests</b></a>
+                  <a zf-open="compose"><b>New Request</b></a>
                 </li>
-                <!-- With an icon -->
                 <li>
                   <a ui-sref="reports"><b>Reports</b></a>
                 </li>

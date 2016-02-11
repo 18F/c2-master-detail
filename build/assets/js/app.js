@@ -20,14 +20,12 @@
     .controller('MessageCtrl', 
       ["$scope", "$state", "$http", function($scope, $state, $http){
         $scope.$on('$viewContentLoaded', function(event) {
-          setup_list();
           blast_off_messages($scope);
         });
     }])
     .controller('CompletedMessageCtrl', 
       ["$scope", "$state", "$http", function($scope, $state, $http){
         $scope.$on('$viewContentLoaded', function(event) {
-          setup_completed_list();
           blast_off_messages($scope);
         });
     }])
@@ -40,6 +38,7 @@
 
   function blast_off_messages($scope){
     activate_list_item();
+    $scope.items = mock_data;
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
     }
@@ -106,10 +105,6 @@
   }
 
   function setup_list(){
-    var options = {
-      valueNames: search_params,
-      item: item_template
-    };
 
     var userList = new List('messages', options, data);
     userList.filter(function(item) {
@@ -122,10 +117,6 @@
   }
 
   function setup_completed_list(){
-    var options = {
-      valueNames: search_params,
-      item: item_template
-    };
 
     var userList = new List('messages', options, data);
     
@@ -244,16 +235,3 @@ var search_params = [
                       'building_number',
                       'inbox_status'
                     ];
-var item_template = '<li class="inbox-item">' + 
-                      '<a ui-sref="message">' + 
-                        '<p class="meta-wrap"><span class="person_name"></span> ' + 
-                          '<span class="date_wrapper">Submitted <span class="date"></span></span>'+
-                        '</p>'+
-                        '<h5 class="product_name"></h5>' +
-                        '<div class="align-right text-right">'+
-                          '<span class="label">'+
-                            '<img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached'+
-                          '</span>'+
-                        '</div>'+
-                      '</a>'+
-                    '</li>';

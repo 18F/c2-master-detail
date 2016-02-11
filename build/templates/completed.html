@@ -3,13 +3,28 @@
   <div class="grid-block main-content-wrapper">
     <div class="grid-block inbox-list medium-4">
       <div class="grid-content">
-        <section class="block-list inbox-list active list"></section>
+        <section class="block-list inbox-list active">
+          <li class="inbox-item" ng-repeat="item in items">
+            <a ui-sref="message">
+              <p class="meta-wrap">
+                <span class="person_name">{{item.person_name}}</span>
+                <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
+              </p>
+              <h5 class="product_name">{{item.product_name}}</h5>
+              <div class="align-right text-right">
+                <span class="label">
+                  <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> File Attached
+                </span>
+              </div>
+            </a>
+          </li>
+        </section>
       </div>
     </div>
     <div class="grid-block medium-8">
       <div class="grid-block vertical">
         <div class="grid-block" style="padding-right: 40px;">
-          <div ng-include="'partials/master-detail/message/content.html'" id="message" position="right" class=""></div>  
+          <div ng-include="'partials/master-detail/message/content.html'" id="message" position="right" class=""></div> 
         </div>
         <div class="grid-block footer-menu-wrapper shrink wrap" style="padding-right: 40px;">
           <ul class="menu-bar" style="background: #ccc;">

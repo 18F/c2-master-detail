@@ -4,7 +4,7 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
-
+    // 'angular-advanced-searchbox',
     //foundation
     'foundation',
     'foundation.dynamicRouting',
@@ -18,15 +18,9 @@
       });
     })
     .controller('MessageCtrl',
-      ["$scope", "$state", "$http", function($scope, $state, $http){
+      ["$scope", "$state", "$http", "$filter", function($scope, $state, $http, $filter){
         $scope.$on('$viewContentLoaded', function(event) {
-          blast_off_messages($scope, $state);
-        });
-    }])
-    .controller('CompletedMessageCtrl',
-      ["$scope", "$state", "$http", function($scope, $state, $http){s
-        $scope.$on('$viewContentLoaded', function(event) {
-          blast_off_messages($scope, $state);
+          blast_off_messages($scope, $state, $http, $filter);
         });
     }])
     .config(config)
@@ -43,9 +37,9 @@
     }
   }
 
-  function blast_off_messages($scope, $state){
-
-    if($state.params.id != undefined){
+  function blast_off_messages($scope, $state, $http, $filter){
+    $scope.filter = "";
+    if($state.params && $state.params.id != undefined){
       $scope['single'] = search($state.params.id, mock_data);
     }
     if($scope['single'] == undefined){
@@ -54,6 +48,7 @@
     console.log($scope['single']);
     activate_list_item();
     $scope.items = mock_data;
+    $scope.items2 = $scope.items;
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
     }
@@ -63,8 +58,15 @@
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
     }, 500);
-    $scope.filter_by = filter_by(params);
-    $scope.advanced_search = advanced_search(params);
+    $scope.filter_by = function(param){
+      alert('blah');
+      $('.search-bar input').val(param);
+    }
+    $scope.$watch('query.$', function(newValue, oldValue) {
+      console.log(newValue);
+      $scope.items = $filter('filter')($scope.items2, $scope.query);
+      console.log('x: ', $scope.items);
+    });
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
         $('.status-comment').addClass('open');
@@ -126,10 +128,6 @@
   function set_list_item_active(el){
     remove_active_list_item();
     $(el).addClass('active');
-  }
-
-  function filter_by(param){
-    $('.search-bar input').val(param);
   }
 
   function setup_list(){

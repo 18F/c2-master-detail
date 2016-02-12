@@ -1,13 +1,12 @@
-$('[selectize]').selectize({
-  plugins: ['remove_button'],
-  persist: false,
-  create: true,
-  render: {
-    item: function(data, escape) {
-      return '<div>"' + escape(data.text) + '"</div>';
+(function(angular) {
+
+'use strict';
+
+angular.module('appModule')
+  .filter('hello', function() {
+    return function(input) {
+      return 'hello ' + input;
     }
-  },
-  onDelete: function(values) {
-    console.log('Deleted ', values)
-  }
-});
+  });
+
+})(window.angular);

@@ -212,6 +212,16 @@ strong, b {
   .block-list li.next,
   .block-list li.done{
     opacity: 1;
+    input[type="checkbox"]:checked + label::before,
+    input[type="radio"]:checked + label::before{
+      opacity: 1;
+    }
+  }
+  .block-list li.next{
+    input[type="checkbox"]:checked + label::before,
+    input[type="radio"]:checked + label::before{
+      background-image: none;
+    }
   }
   .block-list li > input[type="checkbox"]:checked + label::before,
   .block-list li > input[type="radio"]:checked + label::before{

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Communicart</title>
     <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
-    
+
     <link rel="stylesheet" href="./assets/selectize.css">
     <link rel="stylesheet" href="./assets/selectize.bootstrap3.css">
 
@@ -50,7 +50,7 @@
               </ul>
             </section>
           </div>
-          
+
           <div class="grid-block medium-10 large-11">
             <div class="grid-block vertical">
               <div class="shrink grid-block large-correct">
@@ -58,7 +58,7 @@
                   <span class="title left medium-3">
                     <div>
                       <label class="search-bar">
-                        <input type="text" style="margin-bottom: 0px;">
+                        <input type="text" style="margin-bottom: 0px;" ng-model="query">
                         <img zf-iconic="" icon="magnifying-glass" size="small">
                       </label>
                     </div>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div ng-include="'partials/master-detail/new-request.html'"></div>
-      
+
     </div>
   </body>
 </html>

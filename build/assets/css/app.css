@@ -6812,9 +6812,13 @@ p {
   .search-bar input {
     padding-left: 33px; }
   .search-bar .iconic {
-    position: absolute;
+    position: absolute; }
+  .search-bar .iconic-magnifying-glass {
     top: 12px;
     left: 10px; }
+  .search-bar .iconic-chevron {
+    top: 12px;
+    right: 10px; }
 
 strong, b {
   font-weight: 500; }

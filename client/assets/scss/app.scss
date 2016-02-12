@@ -25,8 +25,14 @@ p{
   }
   .iconic{
     position: absolute;
+  }
+  .iconic-magnifying-glass {
     top: 12px;
     left: 10px;
+  }
+  .iconic-chevron {
+    top: 12px;
+    right: 10px;
   }
 }
 
@@ -49,7 +55,7 @@ strong, b {
 .subscribe-delete{
   margin-top: 15px;
 }
- 
+
 .card{
   label{
     font-weight: bold;
@@ -71,7 +77,7 @@ strong, b {
     .first{
       display: -webkit-flex;
       display: flex;
-      -webkit-flex-direction: row; 
+      -webkit-flex-direction: row;
       flex-direction: row;
       -webkit-justify-content: flex-start;
       justify-content: flex-start;
@@ -93,7 +99,7 @@ strong, b {
   padding-bottom: 1em;
 }
 
-.block-list.approval-list li > input[type="checkbox"]:checked + label::before, 
+.block-list.approval-list li > input[type="checkbox"]:checked + label::before,
 .block-list.approval-list li > input[type="radio"]:checked + label::before{
     font-size: .85rem;
 }
@@ -143,7 +149,7 @@ strong, b {
     margin-left: -22px;
     position: absolute;
   }
-  &.approved{ 
+  &.approved{
     span.person_name::before {
       float: left;
       content: '';
@@ -162,12 +168,12 @@ strong, b {
 }
 
 .control-current-status{
-  .block-list.approval-list li, 
+  .block-list.approval-list li,
   .block-list.approval-list li{
     border-top: 0px;
     border-bottom: 0px;
   }
-  .block-list li > input[type="checkbox"]:checked + label::before, 
+  .block-list li > input[type="checkbox"]:checked + label::before,
   .block-list li > input[type="radio"]:checked + label::before{
     background-image: none;
     float: left;
@@ -185,18 +191,18 @@ strong, b {
     margin-right: 1em;
     border: 2px solid $primary-color;
   }
-  .block-list li.done > input[type="checkbox"]:checked + label::before, 
+  .block-list li.done > input[type="checkbox"]:checked + label::before,
   .block-list li.done > input[type="radio"]:checked + label::before{
     background: $primary-color !important;
   }
-  label{ 
+  label{
     width: 100%;
     input[type="text"]{
       width: 100%;
     }
   }
 }
-  
+
 .search-wrap{
   position: relative;
   svg{
@@ -351,7 +357,7 @@ aside.modal{
   }
   .message-content{
     .direct-pay-field{
-      min-width: 100%  
+      min-width: 100%
     }
   }
 }
@@ -373,7 +379,7 @@ aside.modal{
   flex-direction: column;
   flex-wrap: wrap;
   height: 100vw;
-  font-size: 0; 
+  font-size: 0;
   .title-bar.dark{
     padding: 5px 0px;
   }
@@ -385,7 +391,7 @@ aside.modal{
 @supports not (flex-wrap: wrap) {
   .two-column-layout{
     display: block;
-    .card-parent { 
+    .card-parent {
       display: inline-block;
       vertical-align: top;
     }
@@ -412,7 +418,7 @@ aside.modal{
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
-  } 
+  }
   .menu-items{
     li{
       a{
@@ -449,19 +455,19 @@ aside.modal{
 }
 
 .top-bar{
-  overflow: visible; 
-  padding-bottom: 10px; 
-  padding-top: 10px; 
+  overflow: visible;
+  padding-bottom: 10px;
+  padding-top: 10px;
   padding-left: 10px;
   .containers{
     overflow: visible;
   }
   .search-container{
     margin-left: auto;
-    margin-right: 50px; 
-    padding-left: 10px;     
+    margin-right: 50px;
+    padding-left: 10px;
     overflow: visible;
-    .action-sheet::before, 
+    .action-sheet::before,
     .action-sheet::aftere
     {
       display: none;
@@ -491,7 +497,7 @@ aside.modal{
 .message-header{
   padding-bottom: 15px;
   padding-top: 10px;
-  @media only screen and (min-width: 40em){ 
+  @media only screen and (min-width: 40em){
     h3 {
         font-size: 1.8875rem;
     }

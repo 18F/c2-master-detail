@@ -1,14 +1,68 @@
+.xc-page {
+  background-color: #f3f3f3;
+}
+
+.xc-top-bar {
+  @include grid-block(
+    $size: expand, // Can be expand, shrink, or a number of columns
+    $orientation: horizontal, // Set to vertical for a vertical grid
+    $align: left // Can be left, right, center, justify, or spaced
+  )
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #192b7c;
+}
+
+
 .xc-header-block {
   @include grid-block(
     $size: expand, // Can be expand, shrink, or a number of columns
     $orientation: horizontal, // Set to vertical for a vertical grid
     $align: spaced // Can be left, right, center, justify, or spaced
   )
-  padding-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 3rem;
+
+  h2 {
+    font-weight: light;
+  }
 }
 
 .xc-search {
   vertical-align: baseline;
+
+  input, input:hover, input:focus {
+    color: #8dbbf0;
+    background-color: #354694;
+    border: none;
+  }
+
+  .Chevron{
+    position:relative;
+    display:block;
+    height:20px;/*height should be double border*/
+  }
+  .Chevron:before,
+  .Chevron:after{
+      position:absolute;
+      display:block;
+      content:"";
+      border:15px solid transparent;/*adjust size*/
+  }
+  /*Change four 'top' values below to rotate (top/right/bottom/left)*/
+  .Chevron:before{
+      top:0;
+      border-top-color:#b00;/*Chevron Color*/
+  }
+  .Chevron:after{
+      top:-5px;/*adjust thickness*/
+      border-top-color:#fff;/*Match background colour*/
+  }
+}
+
+.xc-chevron-down {
+  transform: rotate(90deg);
+  color: #8dbbf0;
 }
 
 .xc-button-badge {
@@ -26,41 +80,110 @@
   transform: rotate(90deg);
 }
 
-.xc-button-text {
-  padding-left: 0px;
-  font-weight: bold;
+.xc-button {
+  @extend %button;
+  @include button-size(
+    $size: medium, // tiny, small, medium, or large
+    $expand: false
+  );
+  @include button-style(
+    $background: #e2e8ee, // Background color
+    $background-hover: #fff, // Background color on hover. Use "auto" to generate automatically
+    $color: #192b7c, // Text color
+    $style: solid // Can be solid or hollow
+  );
+  border-radius: 5px;
+  display: table;
 
-  a {
-    color: $dark-color;
+  .xc-create-request-icon {
+    font-size: 160%;
+    font-weight: bold;
+    padding-right: 0.5rem;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .xc-download-csv-icon {
+    display: table-cell;
+    font-size: 160%;
+    transform: rotate(90deg);
+  }
+
+  .xc-button-text {
+    font-size: 110%;
+    display: table-cell;
+    white-space: nowrap;
+    padding-left: 0;
+    vertical-align: baseline;
   }
 }
 
 .xc-inbox {
   table {
-    width: auto;
-    padding: 40px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 7px;
+  }
+
+  th, td {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    font-size: 95%;
+  }
+
+  thead {
+    background-color: #192b7c;
+    color: white;
+
+    .sorted {
+      background-color: #354694;
+    }
+
+    th {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      text-align: left;
+      padding-right: 1rem;
+      font-weight: normal;
+    }
+
+    th.status {
+      text-align: center;
+    }
+  }
+
+  tbody tr {
     line-height: 130%;
-  }
+    height: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
-  thead, tbody {
-    border-bottom: 2px solid black;
-  }
+    td {
+      text-align: left;
+      background-color: white;
+      border-bottom: 1px solid #e2e8ee;
+      border-top: 1px solid #e2e8ee;
+    }
 
-  th {
-    text-align: left;
-    padding-right: 3rem;
-  }
-
-  tr {
-    height: 80px;
-  }
-
-  td {
-    text-align: left;
-    padding-right: 2rem;
+    td:last-child {
+      border: 1px solid #e2e8ee;
+    }
   }
 }
 
 .menu-bar li a {
   padding: 10px;
+}
+
+.xc-filter-bar {
+  background: none;
+  text-transform: uppercase;
+  font-size: 80%;
+  font-weight: bolder;
+
+  .selected {
+    padding-bottom: 3px;
+    border-bottom: 3px solid black;
+  }
+
 }

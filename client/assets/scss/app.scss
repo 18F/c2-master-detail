@@ -1,6 +1,7 @@
 @import "settings";
 @import "foundation";
 @import "selectize";
+@import "angular-advanced-searchbox.min";
 
 .drop-container{
   padding-bottom: 10px;
@@ -184,25 +185,42 @@ strong, b {
   }
   .block-list li > input[type="checkbox"]:checked + label::before,
   .block-list li > input[type="radio"]:checked + label::before{
-    background-image: none;
+    // background-image: none;
+    // background: white;
     float: left;
     content: '';
     background-size: 100% 100%;
     color: #1b2b7a;
     pointer-events: none;
-    background-image: none;
-    background: white;
     border-radius: 40px;
     width: 21px;
     padding: 0px;
     display: block;
     height: 21px;
     margin-right: 1em;
-    border: 2px solid $primary-color;
+  }
+  .block-list li{
+    opacity: .5;
+    input[type="checkbox"]:checked + label::before,
+    input[type="radio"]:checked + label::before{
+      border: 2px solid $primary-color;
+    }
+    &.done > input[type="radio"]:checked + label::before{
+      border: none;
+    }
+  }
+  .block-list li.next,
+  .block-list li.done{
+    opacity: 1;
+  }
+  .block-list li > input[type="checkbox"]:checked + label::before,
+  .block-list li > input[type="radio"]:checked + label::before{
+    opacity: 0;
   }
   .block-list li.done > input[type="checkbox"]:checked + label::before,
   .block-list li.done > input[type="radio"]:checked + label::before{
-    background: $primary-color !important;
+    opacity: 1;
+    background-color: white !important;
   }
   label{
     width: 100%;

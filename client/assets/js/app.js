@@ -63,9 +63,8 @@
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
     }, 500);
-    $scope.set_message = function(id){
-
-    }
+    $scope.filter_by = filter_by(params);
+    $scope.advanced_search = advanced_search(params);
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
         $('.status-comment').addClass('open');
@@ -90,6 +89,10 @@
     });
 
     $locationProvider.hashPrefix('!');
+  }
+
+  function advanced_search(params){
+
   }
 
   function run() {

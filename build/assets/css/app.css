@@ -6795,6 +6795,102 @@ blockquote p {
   opacity: 0.5;
   background-color: #fafafa; }
 
+/*! 
+ * angular-advanced-searchbox v2.1.0
+ * https://github.com/dnauck/angular-advanced-searchbox
+ * Copyright (c) 2016 Nauck IT KG http://www.nauck-it.de/
+ * License: MIT
+ */
+.advancedSearchBox {
+  display: block;
+  position: relative;
+  margin: 5px 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  min-height: 40px;
+  padding: 0 9px;
+  background-color: #fff;
+  cursor: text;
+  line-height: 38px; }
+
+.advancedSearchBox.active {
+  border-color: #66afe9; }
+
+.advancedSearchBox .search-icon {
+  float: right;
+  padding: 10px 0 0 10px; }
+
+.advancedSearchBox .remove-all-icon {
+  float: right;
+  padding: 10px 0 0 10px;
+  cursor: pointer; }
+
+.advancedSearchBox .search-parameter {
+  display: inline-block;
+  height: 24px;
+  margin: 0 7px 0 0;
+  background-color: #5bc0de;
+  padding: 0 5px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  line-height: 24px;
+  cursor: default;
+  transition: box-shadow 100ms linear; }
+
+.advancedSearchBox .search-parameter:hover {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); }
+
+.advancedSearchBox .search-parameter div {
+  float: left;
+  margin: 0 2px; }
+
+.advancedSearchBox .search-parameter .remove {
+  color: #fff;
+  margin-left: 5px;
+  cursor: pointer; }
+
+.advancedSearchBox .search-parameter .key, .advancedSearchBox .search-parameter .value span {
+  color: #fff; }
+
+.advancedSearchBox .search-parameter .value input {
+  height: 24px; }
+
+.advancedSearchBox .search-parameter-input {
+  display: inline-block;
+  width: auto;
+  height: 24px;
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+.advancedSearchBox .search-parameter-input:focus {
+  box-shadow: none;
+  outline: 0; }
+
+.advancedSearchBox .search-parameter-suggestions {
+  cursor: auto;
+  display: block; }
+
+.advancedSearchBox .search-parameter-suggestions .title {
+  display: block;
+  float: left;
+  height: 25px;
+  margin: 7px 7px 0 0;
+  background-color: transparent;
+  color: #888;
+  font-weight: 700;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 25px; }
+
+.advancedSearchBox .search-parameter-suggestions .search-parameter {
+  cursor: pointer;
+  background-color: #bdbdbd;
+  color: #fff; }
+
 .drop-container {
   padding-bottom: 10px;
   background: #2c4d93; }
@@ -6945,14 +7041,11 @@ strong, b {
 
 .control-current-status .block-list li > input[type="checkbox"]:checked + label::before,
 .control-current-status .block-list li > input[type="radio"]:checked + label::before {
-  background-image: none;
   float: left;
   content: '';
   background-size: 100% 100%;
   color: #1b2b7a;
   pointer-events: none;
-  background-image: none;
-  background: white;
   border-radius: 40px;
   width: 21px;
   padding: 0px;
@@ -6961,9 +7054,24 @@ strong, b {
   margin-right: 1em;
   border: 2px solid #1b2b7a; }
 
+.control-current-status .block-list li,
+.control-current-status .block-list li {
+  opacity: .7; }
+
+.control-current-status .block-list li.next,
+.control-current-status .block-list li.next,
+.control-current-status .block-list li.done,
+.control-current-status .block-list li.done {
+  opacity: 1; }
+
+.control-current-status .block-list li > input[type="checkbox"]:checked + label::before,
+.control-current-status .block-list li > input[type="radio"]:checked + label::before {
+  opacity: 0; }
+
 .control-current-status .block-list li.done > input[type="checkbox"]:checked + label::before,
 .control-current-status .block-list li.done > input[type="radio"]:checked + label::before {
-  background: #1b2b7a !important; }
+  opacity: 1;
+  background-color: white !important; }
 
 .control-current-status label {
   width: 100%; }

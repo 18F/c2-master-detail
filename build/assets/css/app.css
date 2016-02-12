@@ -6807,6 +6807,9 @@ p {
 .single .iconic-color-secondary * {
   fill: #1b2b7a; }
 
+.icon-box {
+  display: inline-block; }
+
 .search-bar {
   position: relative; }
   .search-bar input {
@@ -6816,9 +6819,13 @@ p {
   .search-bar .iconic-magnifying-glass {
     top: 12px;
     left: 10px; }
-  .search-bar .iconic-chevron {
-    top: 12px;
-    right: 10px; }
+  .search-bar a.iconic-chevron {
+    position: absolute;
+    top: 15px;
+    right: 28px; }
+    .search-bar a.iconic-chevron .iconic * {
+      fill: #e1e1e1;
+      stroke: #e1e1e1; }
 
 strong, b {
   font-weight: 500; }

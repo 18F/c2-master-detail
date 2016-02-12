@@ -17,13 +17,13 @@
         request_tracking();
       });
     })
-    .controller('MessageCtrl', 
+    .controller('MessageCtrl',
       ["$scope", "$state", "$http", function($scope, $state, $http){
         $scope.$on('$viewContentLoaded', function(event) {
           blast_off_messages($scope, $state);
         });
     }])
-    .controller('CompletedMessageCtrl', 
+    .controller('CompletedMessageCtrl',
       ["$scope", "$state", "$http", function($scope, $state, $http){s
         $scope.$on('$viewContentLoaded', function(event) {
           blast_off_messages($scope, $state);
@@ -64,7 +64,7 @@
       $('.activity-item').first().addClass("visible single");
     }, 500);
     $scope.set_message = function(id){
-      
+
     }
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
@@ -125,6 +125,10 @@
     $(el).addClass('active');
   }
 
+  function filter_by(param){
+    $('.search-bar input').val(param);
+  }
+
   function setup_list(){
 
     var userList = new List('messages', options, data);
@@ -140,7 +144,7 @@
   function setup_completed_list(){
 
     var userList = new List('messages', options, data);
-    
+
     userList.filter(function(item) {
        if (item.values().inbox_status != "Needs Attention" &&
                               item.values().inbox_status != "Pending" &&
@@ -226,7 +230,7 @@ var new_subcribe = '<div class="grid-block" style="padding-bottom:0px;"><div cla
 var mock_data = data;
 var loaded = false;
 var loaded_active = false;
-var search_params = [ 
+var search_params = [
                       'id',
                       'product_company',
                       'product_name',

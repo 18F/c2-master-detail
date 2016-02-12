@@ -18,6 +18,10 @@ p{
   fill: $primary-color;
 }
 
+.icon-box {
+  display: inline-block;
+}
+
 .search-bar{
   position: relative;
   input{
@@ -30,9 +34,14 @@ p{
     top: 12px;
     left: 10px;
   }
-  .iconic-chevron {
-    top: 12px;
-    right: 10px;
+  a.iconic-chevron {
+    position: absolute;
+    top: 15px;
+    right: 28px;
+    .iconic *{
+      fill: $secondary-color;
+      stroke: $secondary-color;
+    }
   }
 }
 

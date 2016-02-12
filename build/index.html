@@ -60,7 +60,9 @@
                       <label class="search-bar">
                         <input type="text" style="margin-bottom: 0px;" ng-model="query">
                         <img zf-iconic="" icon="magnifying-glass" size="small">
-                        <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
+                        <a ng-click="advanced_search()" class="iconic-chevron">
+                          <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
+                        </a>
                       </label>
                     </div>
                   </span>

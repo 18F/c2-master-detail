@@ -59,8 +59,8 @@
       $('.activity-item').first().addClass("visible single");
     }, 500);
     $scope.filter_by = function(param){
-      alert('blah');
-      $('.search-bar input').val(param);
+      $scope.query = param;
+      $scope.items = $filter('filter')($scope.items2, $scope.query);
     }
     $scope.$watch('query.$', function(newValue, oldValue) {
       console.log(newValue);

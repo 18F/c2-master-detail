@@ -30,12 +30,18 @@
 
 .xc-search {
   vertical-align: baseline;
+  background-color: #354694;
 
-  input, input:hover, input:focus {
+  input, input:hover, input:focus, a {
     color: #8dbbf0;
     background-color: #354694;
     border: none;
   }
+
+  input:placeholder {
+    color: #4b63cf
+  }
+
 
   .Chevron{
     position:relative;
@@ -52,11 +58,11 @@
   /*Change four 'top' values below to rotate (top/right/bottom/left)*/
   .Chevron:before{
       top:0;
-      border-top-color:#b00;/*Chevron Color*/
+      border-top-color:#8dbbf0;/*Chevron Color*/
   }
   .Chevron:after{
-      top:-5px;/*adjust thickness*/
-      border-top-color:#fff;/*Match background colour*/
+      top:-3px;/*adjust thickness*/
+      border-top-color:#354694;/*Match background colour*/
   }
 }
 
@@ -145,6 +151,7 @@
       text-align: left;
       padding-right: 1rem;
       font-weight: normal;
+      font-size: 80%;
     }
 
     th.status {
@@ -165,9 +172,43 @@
       border-top: 1px solid #e2e8ee;
     }
 
+    td:first-child {
+      background-color: #e2e8ee;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0px;
+    }
+
     td:last-child {
       border: 1px solid #e2e8ee;
     }
+  }
+
+  .xc-status-indicator {
+    content: '';
+    pointer-events: none;
+    background-image: none;
+    border-radius: 25px;
+    width: 25px;
+    padding: 0px;
+    display: block;
+    height: 25px;
+    margin: 0 auto;
+  }
+
+  .accepted {
+    background: #1b2b7a;
+    border: 2px solid #1b2b7a;
+  }
+
+  .waiting {
+    background: white;
+    border: 2px solid #1b2b7a;
+  }
+
+  .rejected {
+    background-color: #c1c0c0;
+    border: 2px solid #c1c0c0;
   }
 }
 

@@ -6578,11 +6578,14 @@ blockquote p {
 
 .xc-search {
   vertical-align: baseline;
+  background-color: #354694;
   /*Change four 'top' values below to rotate (top/right/bottom/left)*/ }
-  .xc-search input, .xc-search input:hover, .xc-search input:focus {
+  .xc-search input, .xc-search input:hover, .xc-search input:focus, .xc-search a {
     color: #8dbbf0;
     background-color: #354694;
     border: none; }
+  .xc-search input:placeholder {
+    color: #4b63cf; }
   .xc-search .Chevron {
     position: relative;
     display: block;
@@ -6597,12 +6600,12 @@ blockquote p {
     /*adjust size*/ }
   .xc-search .Chevron:before {
     top: 0;
-    border-top-color: #b00;
+    border-top-color: #8dbbf0;
     /*Chevron Color*/ }
   .xc-search .Chevron:after {
-    top: -5px;
+    top: -3px;
     /*adjust thickness*/
-    border-top-color: #fff;
+    border-top-color: #354694;
     /*Match background colour*/ }
 
 .xc-chevron-down {
@@ -6680,7 +6683,8 @@ blockquote p {
     padding-bottom: 1rem;
     text-align: left;
     padding-right: 1rem;
-    font-weight: normal; }
+    font-weight: normal;
+    font-size: 80%; }
   .xc-inbox thead th.status {
     text-align: center; }
 
@@ -6694,8 +6698,36 @@ blockquote p {
     background-color: white;
     border-bottom: 1px solid #e2e8ee;
     border-top: 1px solid #e2e8ee; }
+  .xc-inbox tbody tr td:first-child {
+    background-color: #e2e8ee;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0px; }
   .xc-inbox tbody tr td:last-child {
     border: 1px solid #e2e8ee; }
+
+.xc-inbox .xc-status-indicator {
+  content: '';
+  pointer-events: none;
+  background-image: none;
+  border-radius: 25px;
+  width: 25px;
+  padding: 0px;
+  display: block;
+  height: 25px;
+  margin: 0 auto; }
+
+.xc-inbox .accepted {
+  background: #1b2b7a;
+  border: 2px solid #1b2b7a; }
+
+.xc-inbox .waiting {
+  background: white;
+  border: 2px solid #1b2b7a; }
+
+.xc-inbox .rejected {
+  background-color: #c1c0c0;
+  border: 2px solid #c1c0c0; }
 
 .menu-bar li a {
   padding: 10px; }

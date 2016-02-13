@@ -10,22 +10,15 @@
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
   ])
-    .controller('DashCtrl', function($scope, $state, $http){
+  .controller('MessageCtrl',
+    ["$scope", "$state", "$http", "$filter", function($scope, $state, $http, $filter){
       $scope.$on('$viewContentLoaded', function(event) {
-        setup_charts();
-        overview_requests();
-        request_tracking();
+        blast_off_messages($scope, $state, $http, $filter);
       });
-    })
-    .controller('MessageCtrl',
-      ["$scope", "$state", "$http", "$filter", function($scope, $state, $http, $filter){
-        $scope.$on('$viewContentLoaded', function(event) {
-          blast_off_messages($scope, $state, $http, $filter);
-        });
-    }])
-    .config(config)
-    .run(run)
-  ;
+  }])
+  .config(config)
+  .run(run)
+;
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 

@@ -5,28 +5,21 @@
     'ui.router',
     'ngAnimate',
     // 'angular-advanced-searchbox',
-    //foundation
+    'cfp.hotkeys',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
   ])
   .controller('MessageCtrl',
-    ["$scope", "$state", "$http", "$filter", function($scope, $state, $http, $filter){
+    ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
         $scope.focusIndex = 0;
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
-        blast_off_messages($scope, $state, $http, $filter);
+        blast_off_messages($scope, $state, $http, $filter, hotkeys);
       });
   }])
-  .directive('keyTrap', function() {
-    return function( scope, elem ) {
-      elem.bind('keydown', function( event ) {
-        scope.$broadcast('keydown', event.keyCode );
-      });
-    };
-  })
   .config(config)
   .run(run)
 ;
@@ -41,7 +34,8 @@
     }
   }
 
-  function blast_off_messages($scope, $state, $http, $filter){
+  function blast_off_messages($scope, $state, $http, $filter, hotkeys){
+
     $scope.setIndex = function(new_list){
       for (var i = new_list.length - 1; i >= 0; i--) {
         new_list[i]["navIndex"] = i;
@@ -60,8 +54,6 @@
     console.log('focusIndex: ', $scope.focusIndex);
     $scope.update_detail = function(selectedIndex){
       $scope.focusIndex = selectedIndex;
-      console.log($scope.focusIndex);
-      $scope.single = $scope.items[$scope.focusIndex];
     }
     $scope.filter_by = function(param){
       $scope.query = param;
@@ -73,6 +65,9 @@
       var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
       $scope.setIndex(new_list);
       console.log('x: ', $scope.items);
+    });
+    $scope.$watch('focusIndex', function(newValue, oldValue) {
+      $scope.single = $scope.items[newValue];
     });
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
@@ -106,17 +101,25 @@
     console.log($scope['single']);
 
     $scope.keys = [];
-    $scope.keys.push({ code: 13, action: function() { $scope.open( $scope.focusIndex ); }});
-    $scope.keys.push({ code: 38, action: function() { $scope.focusIndex--; }});
-    $scope.keys.push({ code: 40, action: function() { $scope.focusIndex++; }});
+    // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
+    $scope.focusIndexDown = function() { $scope.focusIndex--; };
+    $scope.focusIndexUp = function() { $scope.focusIndex++; };
 
-    $scope.$on('keydown', function( msg, code ) {
-      $scope.keys.forEach(function(o) {
-        if ( o.code !== code ) { return; }
-        o.action();
-        $scope.$apply();
-      });
+    hotkeys.add({
+      combo: 'up',
+      description: 'This one goes to 11',
+      callback: function() {
+        $scope.focusIndexDown();
+      }
     });
+    hotkeys.add({
+      combo: 'down',
+      description: 'This one goes to 11',
+      callback: function() {
+        $scope.focusIndexUp();
+      }
+    });
+
   }
 
   function config($urlProvider, $locationProvider) {

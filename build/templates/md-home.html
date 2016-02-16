@@ -53,7 +53,7 @@
           <div class="grid-block inbox-list medium-4">
             <div class="grid-content">
               <!-- start repeat -->
-              <section class="block-list inbox-list active">
+              <section class="block-list inbox-list active" key-trap>
                 <li class="inbox-item {{focusIndex}}" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
                   <a ng-click="update_detail(item.navIndex)">
                     <p class="meta-wrap status-{{item.inbox_status}}"><span class="person_name">{{item.person_name}}</span>

@@ -22,7 +22,7 @@ var paths = {
   assets: [
     './client/**/*.*',
     '!./client/templates/**/*.*',
-    '!./client/assets/{scss,js}/**/*.*'
+    './client/assets/{scss,js}/**/*.*'
   ],
   // Sass will check these folders for files when you use @import.
   sass: [
@@ -173,7 +173,7 @@ gulp.task('default', ['server'], function () {
   gulp.watch(['./client/assets/js/**/*', './js/**/*'], ['uglify:app']);
 
   // Watch static files
-  gulp.watch(['./client/**/*.*', '!./client/templates/**/*.*', '!./client/assets/{scss,js}/**/*.*'], ['copy']);
+  gulp.watch(['./client/**/*.*', '!./client/templates/**/*.*', './client/assets/{scss,js}/**/*.*'], ['copy']);
 
   // Watch app templates
   gulp.watch(['./client/templates/**/*.html'], ['copy:templates']);

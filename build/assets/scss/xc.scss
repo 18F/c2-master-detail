@@ -114,6 +114,8 @@
 }
 
 .xc-inbox {
+
+
   table {
     width: 100%;
     border-collapse: separate;
@@ -185,17 +187,17 @@
     margin: 0 auto;
   }
 
-  .accepted {
+  .Approved {
     background: #1b2b7a;
     border: 2px solid #1b2b7a;
   }
 
-  .waiting {
+  .Pending {
     background: white;
     border: 2px solid #1b2b7a;
   }
 
-  .rejected {
+  .Completed {
     background-color: #c1c0c0;
     border: 2px solid #c1c0c0;
   }

@@ -7005,15 +7005,15 @@ blockquote p {
   height: 25px;
   margin: 0 auto; }
 
-.xc-inbox .accepted {
+.xc-inbox .Approved {
   background: #1b2b7a;
   border: 2px solid #1b2b7a; }
 
-.xc-inbox .waiting {
+.xc-inbox .Pending {
   background: white;
   border: 2px solid #1b2b7a; }
 
-.xc-inbox .rejected {
+.xc-inbox .Completed {
   background-color: #c1c0c0;
   border: 2px solid #c1c0c0; }
 

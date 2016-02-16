@@ -644,9 +644,12 @@ aside.modal{
     }
   }
   .inbox-item{
-    border-left: 5px solid $secondary-color;
+    a{
+      height: 115px;
+    }
+    // border-left: 5px solid $secondary-color;
     &.active{
-      border-left: 5px solid $primary-color;
+      // border-left: 5px solid $primary-color;
       background: #fff;
     }
     &:hover{

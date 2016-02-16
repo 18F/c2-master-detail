@@ -14,7 +14,7 @@ controller: MessageCtrl
               <li class="lead-drop">
                 <a ui-sref="inbox" ng-click="filter_by('all')"><b>My Request</b></a>
               </li>
-              <li class="dropdown-item"><a ng-click="filter_by('all')">All</a></li>
+              <li class="dropdown-item"><a ng-click="filter_by('')">All</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('pending')">Pending</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('approved')">Approved</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('completed')">Completed</a></li>
@@ -43,7 +43,7 @@ controller: MessageCtrl
                     <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                   </a>
                 </label>
-                <div class="advanced-search">
+                <div class="advanced-search" ng-class="{'active': show_advanced_search == true}">
                   <label>
                       Card Holder Name
                       <input type="text" class="small-12" ng-model="query.person_name">
@@ -63,10 +63,10 @@ controller: MessageCtrl
                           <label>Expense Type</label>
                           <select name="" id="" ng-model="query.product_type">
                             <option value=""></option>
-                            <option value="">Equiptment</option>
-                            <option value="">Services</option>
-                            <option value="">Software</option>
-                            <option value="">Etc</option>
+                            <option value="widget">Equiptment</option>
+                            <option value="service">Services</option>
+                            <option value="product">Software</option>
+                            <option value="*">Other</option>
                           </select>
                       </div>
                   </div>

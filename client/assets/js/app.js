@@ -15,6 +15,21 @@
     ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
+        $scope.query = {
+          $: "",
+          id: "",
+          product_company: "",
+          product_type: "",
+          product_name: "",
+          person_name: "",
+          date: "",
+          description: "",
+          vendor: "",
+          amount: "",
+          org_code: "",
+          inbox_status: ""
+        };
+        $scope.show_advanced_search = false;
         $scope.focusIndex = 0;
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
@@ -57,20 +72,25 @@
       $scope.focusIndex = selectedIndex;
     }
     $scope.filter_by = function(param){
-      $scope.query = param;
+      console.log(param);
+      $scope.query.inbox_status = param;
       $scope.processFilter();
     }
     $scope.processFilter = function(){
+      console.log("$scope.query: ", $scope.query);
       var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
       $scope.focusIndex = 0;
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
     }
-    $scope.$watch('query.$', function(newValue, oldValue) {
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('Running');
       $scope.processFilter();
-    });
+    }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
+      console.log(newValue);
       $scope.single = $scope.items[newValue];
+      return newValue;
     });
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
@@ -122,7 +142,9 @@
         $scope.correctScroll();
       }
     };
-
+    $scope.advanced_search = function(){
+      $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
+    }
     hotkeys.add({
       combo: 'up',
       description: 'Select the inbox item above',
@@ -149,10 +171,6 @@
     });
 
     $locationProvider.hashPrefix('!');
-  }
-
-  function advanced_search(params){
-
   }
 
   function run() {

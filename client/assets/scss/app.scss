@@ -291,6 +291,7 @@ strong, b {
 }
 
 .advanced-search{
+  display: none;
   background: white;
   position: absolute;
   border: 1px solid #ccc;
@@ -309,6 +310,9 @@ strong, b {
     height: 14px;
     padding: 0px 11px 0px 10px;
     line-height: 14px;
+  }
+  &.active{
+    display: block;
   }
 }
 

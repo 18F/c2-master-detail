@@ -7431,6 +7431,7 @@ strong, b {
     background: #85d0a1; }
 
 .advanced-search {
+  display: none;
   background: white;
   position: absolute;
   border: 1px solid #ccc;
@@ -7448,6 +7449,8 @@ strong, b {
     line-height: 14px; }
     .advanced-search .search-field .button:hover, .advanced-search .search-field .button:focus {
       background: none; }
+  .advanced-search.active {
+    display: block; }
 
 .action-sheet-container .button {
   margin-bottom: 0px; }

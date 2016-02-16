@@ -7,9 +7,9 @@
           <li>
             <ul class="drop-container">
               <li class="lead-drop">
-                <a ui-sref="inbox"><b>My Request</b></a>
+                <a ui-sref="inbox" ng-click="filter_by('all')"><b>My Request</b></a>
               </li>
-              <li class="dropdown-item"><a ng-click="filter_by('all')">All</a></li>
+              <li class="dropdown-item"><a ng-click="filter_by('')">All</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('pending')">Pending</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('approved')">Approved</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('completed')">Completed</a></li>
@@ -30,14 +30,59 @@
         <div class="shrink grid-block large-correct">
           <div class="title-bar grid-content grid-justify" style="width: 100%">
             <span class="title left medium-4">
-              <div>
-                <label class="search-bar">
-                  <input type="text" style="margin-bottom: 0px;" ng-model="query.$">
-                  <img zf-iconic="" icon="magnifying-glass" size="small">
+              <div class="search-bar">
+                <form ng-submit="processFilter()">
+                <label class="search-field">
+                  <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
+                  <a ng-click="processFilter()" class="">
+                    <img zf-iconic="" icon="magnifying-glass" size="small">
+                  </a>
                   <a ng-click="advanced_search()" class="iconic-chevron">
                     <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                   </a>
                 </label>
+                </form>
+                <div class="advanced-search" ng-class="{'active': show_advanced_search == true}">
+                  <label>
+                      Card Holder Name
+                      <input type="text" class="small-12" ng-model="query.person_name">
+                  </label>
+                  <label>
+                      Vendor Name
+                      <input type="text" class="small-12" ng-model="query.product_name">
+                  </label>
+                  <div class="grid-block">
+                      <div class="small-12 medium-6 grid-content">
+                          <label>
+                            Amount
+                            <input type="text" ng-model="query.amount">
+                          </label>
+                      </div>
+                      <div class="small-12 medium-6 grid-content">
+                          <label>Expense Type</label>
+                          <select name="" id="" ng-model="query.product_type">
+                            <option value=""></option>
+                            <option value="widget">Equiptment</option>
+                            <option value="service">Services</option>
+                            <option value="product">Software</option>
+                            <option value="*">Other</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="grid-block">
+                      <div class="small-12 medium-12 grid-content">
+                          <label>
+                              Date Within
+                              <input date-range-picker class="form-control date-picker" type="text" ng-model="date" />
+                          </label>
+                      </div>
+                  </div>
+                  <div class="grid-block">
+                      <div class="small-12 medium-12 text-right">
+                          <button ng-click="processFilter()" class="button">Search</button>
+                      </div>
+                  </div>
+                </div>
               </div>
             </span>
             <span class="right">
@@ -53,9 +98,9 @@
           <div class="grid-block inbox-list medium-4">
             <div class="grid-content">
               <!-- start repeat -->
-              <section class="block-list inbox-list active" ng-repeat="item in items">
-                <li class="inbox-item" data-itemid="{{item.id}}">
-                  <a ui-sref="inbox({ id: '{{item.id}}'})">
+              <section class="block-list inbox-list active" key-trap>
+                <li class="inbox-item" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
+                  <a ng-click="update_detail(item.navIndex)">
                     <p class="meta-wrap status-{{item.inbox_status}}"><span class="person_name">{{item.person_name}}</span>
                       <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
                     </p>

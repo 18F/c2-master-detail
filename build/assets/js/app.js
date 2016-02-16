@@ -165,13 +165,9 @@
     }
   }
 
-
-
-
   function load_active_message(el){
 
   }
-
 
   function setup_list(){
 

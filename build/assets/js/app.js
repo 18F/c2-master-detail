@@ -51,6 +51,9 @@
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
     }, 500);
+    $scope.update_detail = function(post_id){
+      $scope.single = search(post_id, mock_data);
+    }
     $scope.filter_by = function(param){
       $scope.query = param;
       $scope.items = $filter('filter')($scope.items2, $scope.query);

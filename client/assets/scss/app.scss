@@ -635,10 +635,11 @@ aside.modal{
   .inbox-item{
     border-left: 5px solid $secondary-color;
     &.active{
+      border-left: 5px solid $primary-color;
       background: #fff;
-      a:hover{
-        background: #f2f2f2;
-      }
+    }
+    &:hover{
+      background: #ccc;
     }
     &.primary{
       border-left-color: $primary-color;

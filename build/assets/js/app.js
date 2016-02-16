@@ -13,9 +13,20 @@
   .controller('MessageCtrl',
     ["$scope", "$state", "$http", "$filter", function($scope, $state, $http, $filter){
       $scope.$on('$viewContentLoaded', function(event) {
+        $scope.filter = "";
+        $scope.focusIndex = 0;
+        $scope.items = mock_data;
+        $scope.itemsDisplayed = $scope.items;
         blast_off_messages($scope, $state, $http, $filter);
       });
   }])
+  .directive('keyTrap', function() {
+    return function( scope, elem ) {
+      elem.bind('keydown', function( event ) {
+        scope.$broadcast('keydown', event.keyCode );
+      });
+    };
+  })
   .config(config)
   .run(run)
 ;
@@ -31,17 +42,12 @@
   }
 
   function blast_off_messages($scope, $state, $http, $filter){
-    $scope.filter = "";
-    if($state.params && $state.params.id != undefined){
-      $scope['single'] = search($state.params.id, mock_data);
+    $scope.setIndex = function(new_list){
+      for (var i = new_list.length - 1; i >= 0; i--) {
+        new_list[i]["navIndex"] = i;
+      }
+      $scope.items = new_list;
     }
-    if($scope['single'] == undefined){
-      $scope['single'] = mock_data[0];
-    }
-    console.log($scope['single']);
-    activate_list_item();
-    $scope.items = mock_data;
-    $scope.items2 = $scope.items;
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
     }
@@ -51,16 +57,21 @@
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
     }, 500);
-    $scope.update_detail = function(post_id){
-      $scope.single = search(post_id, mock_data);
+    console.log('focusIndex: ', $scope.focusIndex);
+    $scope.update_detail = function(selectedIndex){
+      $scope.focusIndex = selectedIndex;
+      console.log($scope.focusIndex);
+      $scope.single = $scope.items[$scope.focusIndex];
     }
     $scope.filter_by = function(param){
       $scope.query = param;
-      $scope.items = $filter('filter')($scope.items2, $scope.query);
+      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.setIndex(new_list);
+      console.log('x: ', $scope.items);
     }
     $scope.$watch('query.$', function(newValue, oldValue) {
-      console.log(newValue);
-      $scope.items = $filter('filter')($scope.items2, $scope.query);
+      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.setIndex(new_list);
       console.log('x: ', $scope.items);
     });
     $scope.view_all_activity = function(){
@@ -76,6 +87,36 @@
         $('.activity-visible-button span').text('View All');
       }
     }
+
+    $scope.open = function ( index ) {
+      var items;
+      for ( var i = 0; i < $scope.itemsDisplayed.length; i++ ) {
+        if ( $scope.itemsDisplayed[ i ].navIndex !== index ) { continue; }
+        items = $scope.itemsDisplayed[ i ];
+      }
+      console.log('opening : ', items );
+    };
+
+    if($state.params && $state.params.id != undefined){
+      $scope['single'] = search($state.params.id, mock_data);
+    }
+    if($scope['single'] == undefined){
+      $scope['single'] = mock_data[0];
+    }
+    console.log($scope['single']);
+
+    $scope.keys = [];
+    $scope.keys.push({ code: 13, action: function() { $scope.open( $scope.focusIndex ); }});
+    $scope.keys.push({ code: 38, action: function() { $scope.focusIndex--; }});
+    $scope.keys.push({ code: 40, action: function() { $scope.focusIndex++; }});
+
+    $scope.$on('keydown', function( msg, code ) {
+      $scope.keys.forEach(function(o) {
+        if ( o.code !== code ) { return; }
+        o.action();
+        $scope.$apply();
+      });
+    });
   }
 
   function config($urlProvider, $locationProvider) {
@@ -105,26 +146,12 @@
   }
 
 
-  function remove_active_list_item(){
-    $('.inbox-item.active').removeClass('active');
-  }
 
-  function activate_list_item(){
-      // alert('working');
-      $('.inbox-list .inbox-item').first().addClass('active');
-      $('.inbox-item').on('click', function(d){
-        set_list_item_active(this);
-      });
-  }
 
   function load_active_message(el){
 
   }
 
-  function set_list_item_active(el){
-    remove_active_list_item();
-    $(el).addClass('active');
-  }
 
   function setup_list(){
 

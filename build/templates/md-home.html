@@ -53,9 +53,9 @@
           <div class="grid-block inbox-list medium-4">
             <div class="grid-content">
               <!-- start repeat -->
-              <section class="block-list inbox-list active" ng-repeat="item in items">
-                <li class="inbox-item" data-itemid="{{item.id}}">
-                  <a ng-click="update_detail(item.id)">
+              <section class="block-list inbox-list active">
+                <li class="inbox-item {{focusIndex}}" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
+                  <a ng-click="update_detail(item.navIndex)">
                     <p class="meta-wrap status-{{item.inbox_status}}"><span class="person_name">{{item.person_name}}</span>
                       <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
                     </p>

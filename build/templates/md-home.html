@@ -31,6 +31,7 @@
           <div class="title-bar grid-content grid-justify" style="width: 100%">
             <span class="title left medium-4">
               <div class="search-bar">
+                <form ng-submit="processFilter()">
                 <label class="search-field">
                   <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
                   <a ng-click="processFilter()" class="">
@@ -40,6 +41,7 @@
                     <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                   </a>
                 </label>
+                </form>
                 <div class="advanced-search" ng-class="{'active': show_advanced_search == true}">
                   <label>
                       Card Holder Name

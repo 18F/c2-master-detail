@@ -146,6 +146,14 @@
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
     }
     hotkeys.add({
+      combo: 's',
+      description: 'Select the search field',
+      callback: function() {
+        $('.search-field-input').focus();
+        return false;
+      }
+    });
+    hotkeys.add({
       combo: 'up',
       description: 'Select the inbox item above',
       callback: function() {

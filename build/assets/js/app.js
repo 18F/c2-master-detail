@@ -61,6 +61,7 @@
     }
     $scope.processFilter = function(){
       var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.focusIndex = 0;
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
     }

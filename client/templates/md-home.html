@@ -35,14 +35,50 @@ controller: MessageCtrl
         <div class="shrink grid-block large-correct">
           <div class="title-bar grid-content grid-justify" style="width: 100%">
             <span class="title left medium-4">
-              <div>
-                <label class="search-bar">
-                  <input type="text" style="margin-bottom: 0px;" ng-model="query.$">
+              <div class="search-bar">
+                <label>
+                  <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
                   <img zf-iconic="" icon="magnifying-glass" size="small">
                   <a ng-click="advanced_search()" class="iconic-chevron">
                     <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                   </a>
                 </label>
+                <div class="advanced-search">
+                  <label>
+                      Card Holder Name
+                      <input type="text" class="small-12">
+                  </label>
+                  <label>
+                      Vendor Name
+                      <input type="text" class="small-12">
+                  </label>
+                  <div class="grid-block">
+                      <div class="small-12 medium-6 grid-content">
+                          <label>
+                            Amount
+                            <input type="text">
+                          </label>
+                      </div>
+                      <div class="small-12 medium-6 grid-content">
+                          <label>Expense Type</label>
+                          <select name="" id="">
+                            <option value=""></option>
+                            <option value="">Equiptment</option>
+                            <option value="">Services</option>
+                            <option value="">Software</option>
+                            <option value="">Etc</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="grid-block">
+                      <div class="small-12 medium-12 grid-content">
+                          <label>
+                              Date Within
+                              <input date-range-picker class="form-control date-picker" type="text" ng-model="date" />
+                          </label>
+                      </div>
+                  </div>
+                </div>
               </div>
             </span>
             <span class="right">

@@ -4,6 +4,7 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
+    'daterangepicker',
     // 'angular-advanced-searchbox',
     'cfp.hotkeys',
     'foundation',
@@ -35,7 +36,7 @@
   }
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys){
-
+    $scope.date = {startDate: null, endDate: null};
     $scope.setIndex = function(new_list){
       for (var i = new_list.length - 1; i >= 0; i--) {
         new_list[i]["navIndex"] = i;

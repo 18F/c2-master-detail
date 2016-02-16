@@ -7205,6 +7205,23 @@ blockquote p {
   .drop-container a:hover {
     background: #587dcd !important; }
 
+.search-results:hover {
+  background: #ededed; }
+
+.search-results .search-wrapper {
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #ededed; }
+  .search-results .search-wrapper h5 {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px; }
+  .search-results .search-wrapper .filter-case {
+    float: right; }
+
 p {
   font-size: .9rem; }
 
@@ -7513,7 +7530,14 @@ aside.modal {
 .card-parent.last {
   margin-bottom: 10px; }
 
-@media only screen and (min-width: 40em) {
+.reset-link {
+  float: right;
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: underline;
+  line-height: 22px; }
+
+@media only screen and (min-width: 1200px) {
   .large-correct {
     padding-right: 40px; }
   .message-content .direct-pay-field {

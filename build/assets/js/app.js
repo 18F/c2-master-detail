@@ -64,6 +64,14 @@
     $scope.add_new_subscriber = function(){
       $('.new-subscriber').before(new_subcribe);
     }
+    $scope.resetLink = function(){
+      $scope.reset_filter();
+      $scope.processFilter();
+    }
+    $scope.processFilterButton = function(){
+      $scope.show_advanced_search = false;
+      $scope.processFilter();
+    }
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
     }, 500);
@@ -73,6 +81,7 @@
     }
     $scope.filter_by = function(param){
       console.log(param);
+      $scope.reset_filter();
       $scope.query.inbox_status = param;
       $scope.processFilter();
     }
@@ -128,6 +137,22 @@
     }
     console.log($scope['single']);
 
+    $scope.reset_filter = function(){
+      $scope.query = {
+        $: "",
+        id: "",
+        product_company: "",
+        product_type: "",
+        product_name: "",
+        person_name: "",
+        date: "",
+        description: "",
+        vendor: "",
+        amount: "",
+        org_code: "",
+        inbox_status: ""
+      };
+    }
     $scope.keys = [];
     // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
     $scope.focusIndexDown = function() {
@@ -169,6 +194,7 @@
     });
 
   }
+
 
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');

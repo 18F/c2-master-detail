@@ -38,7 +38,9 @@ controller: MessageCtrl
               <div class="search-bar">
                 <label class="search-field">
                   <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
-                  <img zf-iconic="" icon="magnifying-glass" size="small">
+                  <a ng-click="processFilter()" class="">
+                    <img zf-iconic="" icon="magnifying-glass" size="small">
+                  </a>
                   <a ng-click="advanced_search()" class="iconic-chevron">
                     <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                   </a>
@@ -80,7 +82,7 @@ controller: MessageCtrl
                   </div>
                   <div class="grid-block">
                       <div class="small-12 medium-12 text-right">
-                          <button ng-click="advanced_filter()" class="button">Search</button>
+                          <button ng-click="processFilter()" class="button">Search</button>
                       </div>
                   </div>
                 </div>

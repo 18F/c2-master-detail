@@ -2,6 +2,8 @@
 @import "foundation";
 @import "selectize";
 @import "xc";
+@import "hotkeys";
+@import "daterangepicker";
 
 .drop-container{
   padding-bottom: 10px;
@@ -25,7 +27,7 @@ p{
 
 .search-bar{
   position: relative;
-  input{
+  input.search-field-input{
     padding-left: 33px;
   }
   .iconic{
@@ -289,10 +291,16 @@ strong, b {
 }
 
 .advanced-search{
+  display: none;
+  background: white;
   position: absolute;
-  top: 9px;
-  right: 9px;
-  .button{
+  border: 1px solid #ccc;
+  padding: 15px;
+  z-index: 1;
+  top: 39px;
+  left: 0px;
+  width: 150%;
+  .search-field .button{
     background: none;
     color: $secondary-color;
     &:hover, &:focus{
@@ -302,6 +310,9 @@ strong, b {
     height: 14px;
     padding: 0px 11px 0px 10px;
     line-height: 14px;
+  }
+  &.active{
+    display: block;
   }
 }
 
@@ -635,10 +646,11 @@ aside.modal{
   .inbox-item{
     border-left: 5px solid $secondary-color;
     &.active{
+      border-left: 5px solid $primary-color;
       background: #fff;
-      a:hover{
-        background: #f2f2f2;
-      }
+    }
+    &:hover{
+      background: #ccc;
     }
     &.primary{
       border-left-color: $primary-color;

@@ -4,16 +4,36 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
+    'daterangepicker',
     // 'angular-advanced-searchbox',
-    //foundation
+    'cfp.hotkeys',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
   ])
   .controller('MessageCtrl',
-    ["$scope", "$state", "$http", "$filter", function($scope, $state, $http, $filter){
+    ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
       $scope.$on('$viewContentLoaded', function(event) {
-        blast_off_messages($scope, $state, $http, $filter);
+        $scope.filter = "";
+        $scope.query = {
+          $: "",
+          id: "",
+          product_company: "",
+          product_type: "",
+          product_name: "",
+          person_name: "",
+          date: "",
+          description: "",
+          vendor: "",
+          amount: "",
+          org_code: "",
+          inbox_status: ""
+        };
+        $scope.show_advanced_search = false;
+        $scope.focusIndex = 0;
+        $scope.items = mock_data;
+        $scope.itemsDisplayed = $scope.items;
+        blast_off_messages($scope, $state, $http, $filter, hotkeys);
       });
   }])
   .config(config)
@@ -30,18 +50,14 @@
     }
   }
 
-  function blast_off_messages($scope, $state, $http, $filter){
-    $scope.filter = "";
-    if($state.params && $state.params.id != undefined){
-      $scope['single'] = search($state.params.id, mock_data);
+  function blast_off_messages($scope, $state, $http, $filter, hotkeys){
+    $scope.date = {startDate: null, endDate: null};
+    $scope.setIndex = function(new_list){
+      for (var i = new_list.length - 1; i >= 0; i--) {
+        new_list[i]["navIndex"] = i;
+      }
+      $scope.items = new_list;
     }
-    if($scope['single'] == undefined){
-      $scope['single'] = mock_data[0];
-    }
-    console.log($scope['single']);
-    activate_list_item();
-    $scope.items = mock_data;
-    $scope.items2 = $scope.items;
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
     }
@@ -51,14 +67,30 @@
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
     }, 500);
-    $scope.filter_by = function(param){
-      $scope.query = param;
-      $scope.items = $filter('filter')($scope.items2, $scope.query);
+    console.log('focusIndex: ', $scope.focusIndex);
+    $scope.update_detail = function(selectedIndex){
+      $scope.focusIndex = selectedIndex;
     }
-    $scope.$watch('query.$', function(newValue, oldValue) {
+    $scope.filter_by = function(param){
+      console.log(param);
+      $scope.query.inbox_status = param;
+      $scope.processFilter();
+    }
+    $scope.processFilter = function(){
+      console.log("$scope.query: ", $scope.query);
+      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.focusIndex = 0;
+      $scope.setIndex(new_list);
+      console.log('In feed: ', $scope.items.length);
+    }
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('Running');
+      $scope.processFilter();
+    }, true);
+    $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log(newValue);
-      $scope.items = $filter('filter')($scope.items2, $scope.query);
-      console.log('x: ', $scope.items);
+      $scope.single = $scope.items[newValue];
+      return newValue;
     });
     $scope.view_all_activity = function(){
       if(!$('.status-comment').hasClass('open')){
@@ -73,6 +105,69 @@
         $('.activity-visible-button span').text('View All');
       }
     }
+
+    $scope.correctScroll = function () {
+      $scope.items[$scope.focusIndex];
+      console.log('focus: ', $scope.focusIndex);
+    }
+
+    $scope.open = function ( index ) {
+      var items;
+      for ( var i = 0; i < $scope.itemsDisplayed.length; i++ ) {
+        if ( $scope.itemsDisplayed[ i ].navIndex !== index ) { continue; }
+        items = $scope.itemsDisplayed[ i ];
+      }
+      console.log('opening : ', items );
+    };
+
+    if($state.params && $state.params.id != undefined){
+      $scope['single'] = search($state.params.id, mock_data);
+    }
+    if($scope['single'] == undefined){
+      $scope['single'] = mock_data[0];
+    }
+    console.log($scope['single']);
+
+    $scope.keys = [];
+    // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
+    $scope.focusIndexDown = function() {
+      if($scope.items.length >= $scope.focusIndex && $scope.focusIndex > 0){
+        $scope.focusIndex--;
+        $scope.correctScroll();
+      }
+    };
+    $scope.focusIndexUp = function() {
+      if($scope.items.length > $scope.focusIndex+1 && $scope.focusIndex >= 0){
+        $scope.focusIndex++;
+        $scope.correctScroll();
+      }
+    };
+    $scope.advanced_search = function(){
+      $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
+    }
+    hotkeys.add({
+      combo: 's',
+      description: 'Select the search field',
+      callback: function() {
+        $('.search-field-input').focus();
+        return false;
+      }
+    });
+    hotkeys.add({
+      combo: 'up',
+      description: 'Select the inbox item above',
+      callback: function() {
+        $scope.focusIndexDown();
+      }
+    });
+    hotkeys.add({
+      combo: 'down',
+      description: 'Select the inbox item below',
+      callback: function() {
+        $scope.focusIndexUp();
+      }
+    });
+
   }
 
   function config($urlProvider, $locationProvider) {
@@ -86,10 +181,6 @@
     $locationProvider.hashPrefix('!');
   }
 
-  function advanced_search(params){
-
-  }
-
   function run() {
     FastClick.attach(document.body);
   }
@@ -101,26 +192,8 @@
     }
   }
 
-
-  function remove_active_list_item(){
-    $('.inbox-item.active').removeClass('active');
-  }
-
-  function activate_list_item(){
-      // alert('working');
-      $('.inbox-list .inbox-item').first().addClass('active');
-      $('.inbox-item').on('click', function(d){
-        set_list_item_active(this);
-      });
-  }
-
   function load_active_message(el){
 
-  }
-
-  function set_list_item_active(el){
-    remove_active_list_item();
-    $(el).addClass('active');
   }
 
   function setup_list(){

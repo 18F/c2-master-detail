@@ -57,14 +57,15 @@
     }
     $scope.filter_by = function(param){
       $scope.query = param;
+      $scope.processFilter();
+    }
+    $scope.processFilter = function(){
       var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
       $scope.setIndex(new_list);
-      console.log('x: ', $scope.items);
+      console.log('In feed: ', $scope.items.length);
     }
     $scope.$watch('query.$', function(newValue, oldValue) {
-      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-      $scope.setIndex(new_list);
-      console.log('x: ', $scope.items);
+      $scope.processFilter();
     });
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       $scope.single = $scope.items[newValue];
@@ -81,6 +82,11 @@
         $('.activity-item.first').addClass('visible');
         $('.activity-visible-button span').text('View All');
       }
+    }
+
+    $scope.correctScroll = function () {
+      $scope.items[$scope.focusIndex];
+      console.log('focus: ', $scope.focusIndex);
     }
 
     $scope.open = function ( index ) {
@@ -102,19 +108,29 @@
 
     $scope.keys = [];
     // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
-    $scope.focusIndexDown = function() { $scope.focusIndex--; };
-    $scope.focusIndexUp = function() { $scope.focusIndex++; };
+    $scope.focusIndexDown = function() {
+      if($scope.items.length >= $scope.focusIndex && $scope.focusIndex > 0){
+        $scope.focusIndex--;
+        $scope.correctScroll();
+      }
+    };
+    $scope.focusIndexUp = function() {
+      if($scope.items.length > $scope.focusIndex+1 && $scope.focusIndex >= 0){
+        $scope.focusIndex++;
+        $scope.correctScroll();
+      }
+    };
 
     hotkeys.add({
       combo: 'up',
-      description: 'This one goes to 11',
+      description: 'Select the inbox item above',
       callback: function() {
         $scope.focusIndexDown();
       }
     });
     hotkeys.add({
       combo: 'down',
-      description: 'This one goes to 11',
+      description: 'Select the inbox item below',
       callback: function() {
         $scope.focusIndexUp();
       }

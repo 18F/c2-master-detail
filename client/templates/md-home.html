@@ -12,7 +12,7 @@ controller: MessageCtrl
           <li>
             <ul class="drop-container">
               <li class="lead-drop">
-                <a ui-sref="inbox"><b>My Request</b></a>
+                <a ui-sref="inbox" ng-click="filter_by('all')"><b>My Request</b></a>
               </li>
               <li class="dropdown-item"><a ng-click="filter_by('all')">All</a></li>
               <li class="dropdown-item"><a ng-click="filter_by('pending')">Pending</a></li>
@@ -59,7 +59,7 @@ controller: MessageCtrl
             <div class="grid-content">
               <!-- start repeat -->
               <section class="block-list inbox-list active" key-trap>
-                <li class="inbox-item {{focusIndex}}" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
+                <li class="inbox-item" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
                   <a ng-click="update_detail(item.navIndex)">
                     <p class="meta-wrap status-{{item.inbox_status}}"><span class="person_name">{{item.person_name}}</span>
                       <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>

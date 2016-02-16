@@ -3714,7 +3714,7 @@ meter {
 /*
   Badge
 */
-.badge, .xc-button-badge {
+.badge {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -6583,7 +6583,8 @@ blockquote p {
   .xc-search input, .xc-search input:hover, .xc-search input:focus, .xc-search a {
     color: #8dbbf0;
     background-color: #354694;
-    border: none; }
+    border: none;
+    margin-bottom: 0px; }
   .xc-search input:placeholder {
     color: #4b63cf; }
   .xc-search .Chevron {
@@ -6613,19 +6614,12 @@ blockquote p {
           transform: rotate(90deg);
   color: #8dbbf0; }
 
-.xc-button-badge {
-  font-size: 2rem;
-  width: 40px;
-  height: 40px;
-  background: #e1e1e1;
-  color: #000;
-  padding-left: 1px;
-  padding-bottom: 5px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg); }
-
 .xc-button {
   font-size: 0.9rem;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   background: #e2e8ee;
   color: #192b7c;
   border-radius: 5px;
@@ -6650,17 +6644,20 @@ blockquote p {
     font-weight: bold;
     padding-right: 0.5rem;
     display: table-cell;
-    vertical-align: middle; }
+    vertical-align: middle;
+    position: absolute;
+    bottom: 1.6rem; }
   .xc-button .xc-download-csv-icon {
     display: table-cell;
     font-size: 160%;
     -webkit-transform: rotate(90deg);
-            transform: rotate(90deg); }
+            transform: rotate(90deg);
+    position: absolute; }
   .xc-button .xc-button-text {
     font-size: 110%;
     display: table-cell;
     white-space: nowrap;
-    padding-left: 0;
+    padding-left: 2rem;
     vertical-align: baseline; }
 
 .xc-inbox table {

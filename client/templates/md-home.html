@@ -36,7 +36,7 @@ controller: MessageCtrl
           <div class="title-bar grid-content grid-justify" style="width: 100%">
             <span class="title left medium-4">
               <div class="search-bar">
-                <label>
+                <label class="search-field">
                   <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
                   <img zf-iconic="" icon="magnifying-glass" size="small">
                   <a ng-click="advanced_search()" class="iconic-chevron">
@@ -46,22 +46,22 @@ controller: MessageCtrl
                 <div class="advanced-search">
                   <label>
                       Card Holder Name
-                      <input type="text" class="small-12">
+                      <input type="text" class="small-12" ng-model="query.person_name">
                   </label>
                   <label>
                       Vendor Name
-                      <input type="text" class="small-12">
+                      <input type="text" class="small-12" ng-model="query.product_name">
                   </label>
                   <div class="grid-block">
                       <div class="small-12 medium-6 grid-content">
                           <label>
                             Amount
-                            <input type="text">
+                            <input type="text" ng-model="query.amount">
                           </label>
                       </div>
                       <div class="small-12 medium-6 grid-content">
                           <label>Expense Type</label>
-                          <select name="" id="">
+                          <select name="" id="" ng-model="query.product_type">
                             <option value=""></option>
                             <option value="">Equiptment</option>
                             <option value="">Services</option>
@@ -76,6 +76,11 @@ controller: MessageCtrl
                               Date Within
                               <input date-range-picker class="form-control date-picker" type="text" ng-model="date" />
                           </label>
+                      </div>
+                  </div>
+                  <div class="grid-block">
+                      <div class="small-12 medium-12 text-right">
+                          <button ng-click="advanced_filter()" class="button">Search</button>
                       </div>
                   </div>
                 </div>

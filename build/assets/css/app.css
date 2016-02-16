@@ -7431,7 +7431,7 @@ strong, b {
     background: #85d0a1; }
 
 .advanced-search {
-  background: yellow;
+  background: white;
   position: absolute;
   border: 1px solid #ccc;
   padding: 15px;
@@ -7439,14 +7439,14 @@ strong, b {
   top: 39px;
   left: 0px;
   width: 150%; }
-  .advanced-search .button {
+  .advanced-search .search-field .button {
     background: none;
     color: #e1e1e1;
     width: 13px;
     height: 14px;
     padding: 0px 11px 0px 10px;
     line-height: 14px; }
-    .advanced-search .button:hover, .advanced-search .button:focus {
+    .advanced-search .search-field .button:hover, .advanced-search .search-field .button:focus {
       background: none; }
 
 .action-sheet-container .button {

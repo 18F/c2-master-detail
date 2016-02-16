@@ -291,7 +291,7 @@ strong, b {
 }
 
 .advanced-search{
-  background: yellow;
+  background: white;
   position: absolute;
   border: 1px solid #ccc;
   padding: 15px;
@@ -299,7 +299,7 @@ strong, b {
   top: 39px;
   left: 0px;
   width: 150%;
-  .button{
+  .search-field .button{
     background: none;
     color: $secondary-color;
     &:hover, &:focus{

@@ -21,7 +21,7 @@
           product_type: "",
           product_name: "",
           person_name: "",
-          date_range: "",
+          date: "",
           description: "",
           vendor: "",
           amount: "",
@@ -103,10 +103,6 @@
       }
       $scope.processFilter = function(){
         console.log("$scope.query: ", $scope.query);
-        if ($scope.query.date_range != ""){ 
-          $scope.dateRangeFilter('date', '', '')
-          $scope.query.date_range = "";
-        }
         var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
         $scope.focusIndex = 0;
         $scope.setIndex(new_list);

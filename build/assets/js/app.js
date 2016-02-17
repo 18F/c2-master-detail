@@ -91,6 +91,7 @@
       $scope.remove_date_filter = function(){
         $scope.dateFilter = "";
         $scope.processFilter();
+        $scope.processDateFilter();
       }
       $scope.processFilter = function(){
         console.log("$scope.query: ", $scope.query);
@@ -99,12 +100,26 @@
         $scope.setIndex(new_list);
         console.log('In feed: ', $scope.items.length);
       }
-      $scope.processFilter = function(){
-        console.log("$scope.query: ", $scope.query);
-        var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-        $scope.focusIndex = 0;
-        $scope.setIndex(new_list);
-        console.log('In feed: ', $scope.items.length);
+      $scope.processDateFilter = function(){
+        if(!angular.equals("", $scope.dateFilter)){
+          console.log("$scope.dateFilter: ", $scope.dateFilter);
+          var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
+          var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
+          var range = moment.range(startDate, endDate);
+          console.log('startDate: ', startDate);
+          console.log('endDate: ', endDate);
+          var newItems = []
+          for (var i = $scope.itemsDisplayed.length - 1; i >= 0; i--) {
+            if( range.contains(moment($scope.itemsDisplayed[i]["date"], 'MM/DD/YYYY')) ){
+              newItems.push($scope.itemsDisplayed[i]);
+            }
+          }
+          console.log('newItems: ', newItems);
+          $scope.itemsDisplayed = newItems;
+          $scope.focusIndex = 0;
+          $scope.setIndex(newItems);
+          console.log('In feed: ', $scope.items.length);
+        }
       }
       $scope.$watch('query', function(newValue, oldValue) {
         console.log('Running');
@@ -112,6 +127,7 @@
       }, true);
       $scope.$watch('dateFilter', function(newValue, oldValue) {
         console.log('Running');
+        $scope.processDateFilter();
       }, true);
       $scope.filter_by = function(param){
         console.log(param);

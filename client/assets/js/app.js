@@ -4,6 +4,7 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
+    'daterangepicker',
     'cfp.hotkeys',
     'foundation',
     'foundation.dynamicRouting',
@@ -13,7 +14,7 @@
     ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
-        $scope.setQuery = {};
+        $scope.dateFilter = "";
         $scope.query = {
           $: "",
           id: "",
@@ -50,7 +51,6 @@
   }
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys){
-    $scope.date = {startDate: null, endDate: null};
     $scope.setIndex = function(new_list){
       for (var i = new_list.length - 1; i >= 0; i--) {
         new_list[i]["navIndex"] = i;
@@ -67,19 +67,6 @@
     $scope.add_new_subscriber = function(){
       $('.new-subscriber').before(new_subcribe);
     }
-    /* Filter related*/
-      $scope.dateRangeFilter = function (property, startDate, endDate) {
-        return function (item) {
-          if (item[property] === null) return false;
-   
-          var itemDate = moment(item[property]);
-          var s = moment(startDate, "DD/MM/YYYY");
-          var e = moment(endDate, "DD/MM/YYYY");
-   
-          if (itemDate >= s && itemDate <= e) return true;
-          return false;
-        }
-      }
       $scope.isEmptyObject = function(obj) {
         return angular.equals("", obj);
       }
@@ -101,6 +88,17 @@
         $scope.query.$ = "";
         $scope.processFilter();
       }
+      $scope.remove_date_filter = function(){
+        $scope.dateFilter = "";
+        $scope.processFilter();
+      }
+      $scope.processFilter = function(){
+        console.log("$scope.query: ", $scope.query);
+        var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+        $scope.focusIndex = 0;
+        $scope.setIndex(new_list);
+        console.log('In feed: ', $scope.items.length);
+      }
       $scope.processFilter = function(){
         console.log("$scope.query: ", $scope.query);
         var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
@@ -111,6 +109,9 @@
       $scope.$watch('query', function(newValue, oldValue) {
         console.log('Running');
         $scope.processFilter();
+      }, true);
+      $scope.$watch('dateFilter', function(newValue, oldValue) {
+        console.log('Running');
       }, true);
       $scope.filter_by = function(param){
         console.log(param);
@@ -124,11 +125,14 @@
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
       
-      $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
+          var dateValue = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY')
+          $(this).val(dateValue);
+          $scope.dateFilter = dateValue;
+        
       });
 
-      $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+      $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
           $(this).val('');
       });
 
@@ -246,7 +250,7 @@
           "applyClass": "button success",
           "cancelClass": "button alert"
       }, function(start, end, label) {
-        console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
       });
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
     }

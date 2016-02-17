@@ -123,7 +123,7 @@
                 '<div class="ranges">' +
                     '<div class="range_inputs">' +
                         '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
-                        '<button class="cancelBtn" type="button"></button>' +
+                        '<button ng-click="clear_date()" class="cancelBtn" type="button"></button>' +
                     '</div>' +
                 '</div>' +
             '</div>';

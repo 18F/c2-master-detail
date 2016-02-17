@@ -15,6 +15,7 @@
     ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
+        $scope.setQuery = {};
         $scope.query = {
           $: "",
           id: "",
@@ -68,8 +69,16 @@
       $scope.reset_filter();
       $scope.processFilter();
     }
+    $scope.isEmptyObject = function(obj) {
+      return angular.equals("", obj);
+    }
     $scope.processFilterButton = function(){
       $scope.show_advanced_search = false;
+      $scope.setQuery = $scope.query;
+      $scope.processFilter();
+    }
+    $scope.remove_filter_key = function(key){
+      $scope.query[key] = "";
       $scope.processFilter();
     }
     window.setTimeout(function(){
@@ -83,6 +92,7 @@
       console.log(param);
       $scope.reset_filter();
       $scope.query.inbox_status = param;
+      $scope.setQuery = $scope.query;
       $scope.processFilter();
     }
     $scope.processFilter = function(){

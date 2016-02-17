@@ -35,6 +35,13 @@ controller: MessageCtrl
         <div class="shrink grid-block large-correct">
           <div class="title-bar grid-content grid-justify" style="width: 100%">
             <span class="title align-right medium-12 grid-block ">
+              <div class="search-fields-result medium-8" >
+                <span ng-repeat="(key, value) in setQuery">
+                  <div class="item"  ng-hide="isEmptyObject(value)">
+                      {{key}}: {{value}}  <a ng-click="remove_filter_key(key)" class="remove" tabindex="-1" title="Remove">×</a>
+                  </div>
+                </span>
+              </div>
               <div class="search-bar medium-4">
                 <form ng-submit="processFilter()">
                   <label class="search-field">
@@ -88,7 +95,7 @@ controller: MessageCtrl
                     </div>
                     <div class="grid-block">
                         <div class="small-12 medium-12 text-right">
-                            <button ng-click="processFilterButton()" class="button">Search</button>
+                            <button ng-click="processFilterButton()" class="button">New Search</button>
                         </div>
                     </div>
                   </form>
@@ -106,15 +113,13 @@ controller: MessageCtrl
         </div>
         <div class="grid-block main-content-wrapper">
           <div class="vertical grid-block inbox-list medium-4">
-            <div class="grid-block shrink search-results" ng-if="items.length < itemsDisplayed.length">
-              <div class="search-wrapper">
-                <h5>Listed Requests: {{items.length}} <a ng-click="resetLink()" class="reset-link">Reset Search</a></h5>
-              </div>
-            </div>
             <div class="grid-block">
               <div class="grid-content">
                 <!-- start repeat -->
                 <section class="block-list inbox-list active">
+                  <li class="inbox-item" ng-show="!items.length">
+                    <a>No Requests</a>
+                  </li>
                   <li class="inbox-item" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
                     <a ng-click="update_detail(item.navIndex)">
                       <p class="meta-wrap status-{{item.inbox_status}}"><span class="person_name">{{item.person_name}}</span>

@@ -7359,6 +7359,61 @@ blockquote p {
 .daterangepicker th.month {
   width: auto; }
 
+.search-fields-result {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 100%;
+  padding: 8px 8px;
+  overflow: hidden;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 13px 8px 2px;
+  font-family: inherit;
+  font-size: 13px;
+  -webkit-font-smoothing: inherit;
+  line-height: 18px;
+  color: #303030; }
+  .search-fields-result span .hidden {
+    display: none; }
+  .search-fields-result .item {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    position: relative;
+    padding-right: 24px !important;
+    padding: 2px 6px;
+    margin: 0 3px 3px 0;
+    color: #ffffff;
+    cursor: pointer;
+    background: #1da7ee;
+    border: 1px solid #0073bb;
+    text-shadow: 0 1px 0 rgba(0, 51, 83, 0.3);
+    background-color: #1b9dec;
+    background-image: linear-gradient(to bottom, #1da7ee, #178ee9);
+    background-repeat: repeat-x;
+    border-radius: 3px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1da7ee', endColorstr='#ff178ee9', GradientType=0);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03); }
+  .search-fields-result span .remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 17px;
+    padding: 2px 0 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    border-left: 1px solid #0073bb;
+    border-radius: 0 2px 2px 0;
+    box-sizing: border-box; }
+
 .drop-container {
   padding-bottom: 10px;
   background: #2c4d93; }

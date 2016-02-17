@@ -7205,6 +7205,14 @@ blockquote p {
   .drop-container a:hover {
     background: #587dcd !important; }
 
+@media only screen and (max-width: 75em) {
+  .show-for-large-inline:not(.ng-hide) {
+    display: none !important; } }
+
+@media only screen and (min-width: 75em) {
+  .show-for-large-inline:not(.ng-hide) {
+    display: inline-block !important; } }
+
 .search-results:hover {
   background: #ededed; }
 
@@ -7216,7 +7224,8 @@ blockquote p {
   background: #ededed; }
   .search-results .search-wrapper h5 {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 22px;
     margin: 0px;
     padding: 0px; }
   .search-results .search-wrapper .filter-case {
@@ -7720,7 +7729,7 @@ aside.modal {
     .inbox-list > li:hover .action-items {
       opacity: 1; }
   .inbox-list .inbox-item a {
-    height: 115px; }
+    height: 135px; }
   .inbox-list .inbox-item.active {
     background: #fff; }
   .inbox-list .inbox-item:hover {

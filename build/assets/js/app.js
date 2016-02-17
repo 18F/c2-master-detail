@@ -4,7 +4,6 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
-    // 'angular-advanced-searchbox',
     'cfp.hotkeys',
     'foundation',
     'foundation.dynamicRouting',
@@ -22,7 +21,7 @@
           product_type: "",
           product_name: "",
           person_name: "",
-          date: "",
+          date_range: "",
           description: "",
           vendor: "",
           amount: "",
@@ -60,7 +59,6 @@
     }
     $scope.issetQuery = function(){
       if(true){
-
       }
     }
     $scope.add_new_vendor = function(){
@@ -69,52 +67,82 @@
     $scope.add_new_subscriber = function(){
       $('.new-subscriber').before(new_subcribe);
     }
-    $scope.resetLink = function(){
-      $scope.reset_filter();
-      $scope.setQuery = $scope.query;
-      $scope.processFilter();
-    }
-    $scope.isEmptyObject = function(obj) {
-      return angular.equals("", obj);
-    }
-    $scope.processFilterButton = function(){
-      $scope.show_advanced_search = false;
-      $scope.setQuery = $scope.query;
-      $scope.processFilter();
-    }
-    $scope.remove_filter_key = function(key){
-      $scope.query[key] = "";
-      $scope.processFilter();
-    }
-    $scope.remove_filter_query = function(){
-      $scope.query.$ = "";
-      $scope.processFilter();
-    }
+    /* Filter related*/
+      $scope.dateRangeFilter = function (property, startDate, endDate) {
+        return function (item) {
+          if (item[property] === null) return false;
+   
+          var itemDate = moment(item[property]);
+          var s = moment(startDate, "DD/MM/YYYY");
+          var e = moment(endDate, "DD/MM/YYYY");
+   
+          if (itemDate >= s && itemDate <= e) return true;
+          return false;
+        }
+      }
+      $scope.isEmptyObject = function(obj) {
+        return angular.equals("", obj);
+      }
+      $scope.resetLink = function(){
+        $scope.reset_filter();
+        $scope.setQuery = $scope.query;
+        $scope.processFilter();
+      }
+      $scope.processFilterButton = function(){
+        $scope.show_advanced_search = false;
+        $scope.setQuery = $scope.query;
+        $scope.processFilter();
+      }
+      $scope.remove_filter_key = function(key){
+        $scope.query[key] = "";
+        $scope.processFilter();
+      }
+      $scope.remove_filter_query = function(){
+        $scope.query.$ = "";
+        $scope.processFilter();
+      }
+      $scope.processFilter = function(){
+        console.log("$scope.query: ", $scope.query);
+        if ($scope.query.date_range != ""){ 
+          $scope.dateRangeFilter('date', '', '')
+          $scope.query.date_range = "";
+        }
+        var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+        $scope.focusIndex = 0;
+        $scope.setIndex(new_list);
+        console.log('In feed: ', $scope.items.length);
+      }
+      $scope.$watch('query', function(newValue, oldValue) {
+        console.log('Running');
+        $scope.processFilter();
+      }, true);
+      $scope.filter_by = function(param){
+        console.log(param);
+        $scope.reset_filter();
+        $scope.query.inbox_status = param;
+        $scope.setQuery = $scope.query;
+        $scope.processFilter();
+      }
+
+    /* Onload */
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
+
+      $('.date-picker').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      });
+
+      $('.date-picker').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+      });
+
     }, 500);
+    
     console.log('focusIndex: ', $scope.focusIndex);
+    
     $scope.update_detail = function(selectedIndex){
       $scope.focusIndex = selectedIndex;
     }
-    $scope.filter_by = function(param){
-      console.log(param);
-      $scope.reset_filter();
-      $scope.query.inbox_status = param;
-      $scope.setQuery = $scope.query;
-      $scope.processFilter();
-    }
-    $scope.processFilter = function(){
-      console.log("$scope.query: ", $scope.query);
-      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-      $scope.focusIndex = 0;
-      $scope.setIndex(new_list);
-      console.log('In feed: ', $scope.items.length);
-    }
-    $scope.$watch('query', function(newValue, oldValue) {
-      console.log('Running');
-      $scope.processFilter();
-    }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log(newValue);
       $scope.single = $scope.items[newValue];
@@ -215,9 +243,7 @@
               ]
           },
           "linkedCalendars": true,
-          // "parentEl": ".date-picker-container",
-          "startDate": "02/11/2016",
-          "endDate": "02/17/2016",
+          "autoUpdateInput": false,
           "opens": "left",
           "drops": "up",
           "buttonClasses": "button small",

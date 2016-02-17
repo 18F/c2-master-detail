@@ -1,0 +1,44 @@
+
+
+<div class="vertical grid-frame xc-page">
+
+  <div ng-include="'partials/xc/top-bar.html'"></div>
+
+  <div class="vertical grid-block shrink">
+
+    <div class="horizontal grid-block">
+      <div class="grid-block small-1 medium-1">
+      </div>
+
+      <div class="grid-block vertical">
+        <div class="xc-header-block">
+          <div class="grid-content">
+            <h2>My Requests</h2>
+          </div>
+        </div>
+
+        <div class="grid-block">
+          <div class="grid-content">
+            <div ng-include="'partials/xc/filter.html'"></div>
+          </div>
+
+          <div class="grid-content small-3 align-right">
+            <div ng-include="'partials/xc/create-request.html'"></div>
+          </div>
+
+          <div class="grid-content small-3 align-right">
+            <div ng-include="'partials/xc/download-csv.html'"></div>
+          </div>
+        </div>
+
+        <div class="grid-content xc-inbox">
+          <div ng-include="'partials/xc/inbox-table.html'"></div>
+        </div>
+      </div>
+
+      <div class="grid-block small-1 medium-1">
+      </div>
+    </div>
+
+  </div>
+</div>

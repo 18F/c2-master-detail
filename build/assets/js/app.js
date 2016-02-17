@@ -4,7 +4,6 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
-    'daterangepicker',
     // 'angular-advanced-searchbox',
     'cfp.hotkeys',
     'foundation',
@@ -188,6 +187,45 @@
       }
     };
     $scope.advanced_search = function(){
+      $('.date-picker').daterangepicker({
+          "ranges": {
+              "Today": [
+                  "2016-02-17",
+                  "2016-02-17"
+              ],
+              "Yesterday": [
+                  "2016-02-16",
+                  "2016-02-16"
+              ],
+              "Last 7 Days": [
+                  "2016-02-11",
+                  "2016-02-17"
+              ],
+              "Last 30 Days": [
+                  "2016-01-19",
+                  "2016-02-17"
+              ],
+              "This Month": [
+                  "2016-02-01",
+                  "2016-03-01"
+              ],
+              "Last Month": [
+                  "2016-01-01",
+                  "2016-02-01"
+              ]
+          },
+          "linkedCalendars": true,
+          // "parentEl": ".date-picker-container",
+          "startDate": "02/11/2016",
+          "endDate": "02/17/2016",
+          "opens": "left",
+          "drops": "up",
+          "buttonClasses": "button small",
+          "applyClass": "button success",
+          "cancelClass": "button alert"
+      }, function(start, end, label) {
+        console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+      });
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
     }
     hotkeys.add({

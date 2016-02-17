@@ -59,6 +59,11 @@
       }
       $scope.items = new_list;
     }
+    $scope.issetQuery = function(){
+      if(true){
+
+      }
+    }
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
     }
@@ -67,6 +72,7 @@
     }
     $scope.resetLink = function(){
       $scope.reset_filter();
+      $scope.setQuery = $scope.query;
       $scope.processFilter();
     }
     $scope.isEmptyObject = function(obj) {
@@ -79,6 +85,10 @@
     }
     $scope.remove_filter_key = function(key){
       $scope.query[key] = "";
+      $scope.processFilter();
+    }
+    $scope.remove_filter_query = function(){
+      $scope.query.$ = "";
       $scope.processFilter();
     }
     window.setTimeout(function(){
@@ -102,10 +112,10 @@
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
     }
-    // $scope.$watch('query', function(newValue, oldValue) {
-    //   console.log('Running');
-    //   $scope.processFilter();
-    // }, true);
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('Running');
+      $scope.processFilter();
+    }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log(newValue);
       $scope.single = $scope.items[newValue];

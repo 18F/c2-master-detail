@@ -31,11 +31,17 @@
           <div class="title-bar grid-content grid-justify" style="width: 100%">
             <span class="title align-right medium-12 grid-block ">
               <div class="search-fields-result medium-8" >
+                <span ng-hide="isEmptyObject(query.$)">
+                  <div class="item">
+                      Search: {{query.$}}  <a ng-click="remove_filter_query()" class="remove" tabindex="-1" title="Remove">×</a>
+                  </div>
+                </span>
                 <span ng-repeat="(key, value) in setQuery">
                   <div class="item"  ng-hide="isEmptyObject(value)">
                       {{key}}: {{value}}  <a ng-click="remove_filter_key(key)" class="remove" tabindex="-1" title="Remove">×</a>
                   </div>
                 </span>
+                <span class="secondary badge" style="float:left; margin-right: 5px;">{{items.length}}</span> <a ng-click="resetLink()" class="reset-link" style="margin-right: 5px; line-height: 25px;">Reset Search</a>
               </div>
               <div class="search-bar medium-4">
                 <form ng-submit="processFilter()">

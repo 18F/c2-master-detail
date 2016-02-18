@@ -38734,7 +38734,7 @@ angular.module('ngAnimate', [])
 
 /**
  * State-based routing for AngularJS
- * @version v0.2.17
+ * @version v0.2.18
  * @link http://angular-ui.github.com/
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -39257,7 +39257,7 @@ function $Resolve(  $q,    $injector) {
    * propagated immediately. Once the `$resolve` promise has been rejected, no 
    * further invocables will be called.
    * 
-   * Cyclic dependencies between invocables are not permitted and will caues `$resolve`
+   * Cyclic dependencies between invocables are not permitted and will cause `$resolve`
    * to throw an error. As a special case, an injectable can depend on a parameter 
    * with the same name as the injectable, which will be fulfilled from the `parent` 
    * injectable of the same name. This allows inherited values to be decorated. 
@@ -40004,7 +40004,7 @@ function $UrlMatcherFactory() {
   function valFromString(val) { return val != null ? val.toString().replace(/~2F/g, "/").replace(/~~/g, "~") : val; }
 
   var $types = {}, enqueue = true, typeQueue = [], injector, defaultTypes = {
-    string: {
+    "string": {
       encode: valToString,
       decode: valFromString,
       // TODO: in 1.0, make string .is() return false if value is undefined/null by default.
@@ -40012,19 +40012,19 @@ function $UrlMatcherFactory() {
       is: function(val) { return val == null || !isDefined(val) || typeof val === "string"; },
       pattern: /[^/]*/
     },
-    int: {
+    "int": {
       encode: valToString,
       decode: function(val) { return parseInt(val, 10); },
       is: function(val) { return isDefined(val) && this.decode(val.toString()) === val; },
       pattern: /\d+/
     },
-    bool: {
+    "bool": {
       encode: function(val) { return val ? 1 : 0; },
       decode: function(val) { return parseInt(val, 10) !== 0; },
       is: function(val) { return val === true || val === false; },
       pattern: /0|1/
     },
-    date: {
+    "date": {
       encode: function (val) {
         if (!this.is(val))
           return undefined;
@@ -40043,14 +40043,14 @@ function $UrlMatcherFactory() {
       pattern: /[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2][0-9]|3[0-1])/,
       capture: /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/
     },
-    json: {
+    "json": {
       encode: angular.toJson,
       decode: angular.fromJson,
       is: angular.isObject,
       equals: angular.equals,
       pattern: /[^/]*/
     },
-    any: { // does not encode/decode
+    "any": { // does not encode/decode
       encode: angular.identity,
       decode: angular.identity,
       equals: angular.equals,
@@ -40792,12 +40792,6 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
       return listener;
     }
 
-    rules.sort(function(ruleA, ruleB) {
-      var aLength = ruleA.prefix ? ruleA.prefix.length : 0;
-      var bLength = ruleB.prefix ? ruleB.prefix.length : 0;
-      return bLength - aLength;
-    });
-
     if (!interceptDeferred) listen();
 
     return {
@@ -41000,7 +40994,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
 
     // Derive parameters for this state and ensure they're a super-set of parent's parameters
     params: function(state) {
-      return state.parent && state.parent.params ? extend(state.parent.params.$$new(), state.ownParams) : new $$UMFP.ParamSet();
+      var ownParams = pick(state.ownParams, state.ownParams.$$keys());
+      return state.parent && state.parent.params ? extend(state.parent.params.$$new(), ownParams) : new $$UMFP.ParamSet();
     },
 
     // If there is no explicit multi-view configuration, make one up so we don't have
@@ -42492,6 +42487,8 @@ function $ViewScrollProvider() {
 
 angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider);
 
+var ngMajorVer = angular.version.major;
+var ngMinorVer = angular.version.minor;
 /**
  * @ngdoc directive
  * @name ui.router.state.directive:ui-view
@@ -42515,6 +42512,9 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * when a view is populated. By default, $anchorScroll is overridden by ui-router's custom scroll
  * service, {@link ui.router.state.$uiViewScroll}. This custom service let's you
  * scroll ui-view elements into view when they are populated during a state activation.
+ *
+ * @param {string=} noanimation If truthy, the non-animated renderer will be selected (no animations
+ * will be applied to the ui-view)
  *
  * *Note: To revert back to old [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll)
  * functionality, call `$uiViewScrollProvider.useAnchorScroll()`.*
@@ -42627,24 +42627,35 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
   // Returns a set of DOM manipulation functions based on which Angular version
   // it should use
   function getRenderer(attrs, scope) {
-    var statics = function() {
-      return {
-        enter: function (element, target, cb) { target.after(element); cb(); },
-        leave: function (element, cb) { element.remove(); cb(); }
-      };
+    var statics = {
+      enter: function (element, target, cb) { target.after(element); cb(); },
+      leave: function (element, cb) { element.remove(); cb(); }
     };
 
+    if (!!attrs.noanimation) return statics;
+
+    function animEnabled(element) {
+      if (ngMajorVer === 1 && ngMinorVer >= 4) return !!$animate.enabled(element);
+      if (ngMajorVer === 1 && ngMinorVer >= 2) return !!$animate.enabled();
+      return (!!$animator);
+    }
+
+    // ng 1.2+
     if ($animate) {
       return {
         enter: function(element, target, cb) {
-          if (angular.version.minor > 2) {
+          if (!animEnabled(element)) {
+            statics.enter(element, target, cb);
+          } else if (angular.version.minor > 2) {
             $animate.enter(element, null, target).then(cb);
           } else {
             $animate.enter(element, null, target, cb);
           }
         },
         leave: function(element, cb) {
-          if (angular.version.minor > 2) {
+          if (!animEnabled(element)) {
+            statics.leave(element, cb);
+          } else if (angular.version.minor > 2) {
             $animate.leave(element).then(cb);
           } else {
             $animate.leave(element, cb);
@@ -42653,6 +42664,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       };
     }
 
+    // ng 1.1.5
     if ($animator) {
       var animate = $animator && $animator(scope, attrs);
 
@@ -42662,7 +42674,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
       };
     }
 
-    return statics();
+    return statics;
   }
 
   var directive = {
@@ -43007,7 +43019,7 @@ function $StateRefDynamicDirective($state, $timeout) {
         def.state = group[0]; def.params = group[1]; def.options = group[2];
         def.href = $state.href(def.state, def.params, def.options);
 
-        if (active) active.$$addStateInfo(ref.state, def.params);
+        if (active) active.$$addStateInfo(def.state, def.params);
         if (def.href) attrs.$set(type.attr, def.href);
       }
 
@@ -44308,114 +44320,6 @@ angular.module('markdown', [])
 (function() {
   'use strict';
 
-  angular.module('foundation.accordion', [])
-    .controller('ZfAccordionController', zfAccordionController)
-    .directive('zfAccordion', zfAccordion)
-    .directive('zfAccordionItem', zfAccordionItem)
-  ;
-
-  zfAccordionController.$inject = ['$scope'];
-
-  function zfAccordionController($scope) {
-    var controller = this;
-    var sections = controller.sections = $scope.sections = [];
-    var multiOpen = controller.multiOpen = $scope.multiOpen = $scope.multiOpen || false;
-    var collapsible = controller.collapsible = $scope.collapsible = $scope.multiOpen || $scope.collapsible || true; //multi open infers a collapsible true
-    var autoOpen = controller.autoOpen = $scope.autoOpen = $scope.autoOpen || true; //auto open opens first tab on render
-
-    controller.select = function(selectSection) {
-      sections.forEach(function(section) {
-        //if multi open is allowed, toggle a tab
-        if(controller.multiOpen) {
-          if(section.scope === selectSection) {
-            section.scope.active = !section.scope.active;
-          }
-        } else {
-          //non  multi open will close all tabs and open one
-          if(section.scope === selectSection) {
-            //if collapsible is allowed, a tab will toggle
-            section.scope.active = collapsible ? !section.scope.active : true;
-          } else {
-            section.scope.active = false;
-          }
-        }
-
-      });
-    };
-
-    controller.addSection = function addsection(sectionScope) {
-      sections.push({ scope: sectionScope });
-
-      if(sections.length === 1 && autoOpen === true) {
-        sections[0].active = true;
-        sections[0].scope.active = true;
-      }
-    };
-
-    controller.closeAll = function() {
-      sections.forEach(function(section) {
-        section.scope.active = false;
-      });
-    };
-  }
-
-  function zfAccordion() {
-    var directive = {
-      restrict: 'EA',
-      transclude: 'true',
-      replace: true,
-      templateUrl: 'components/accordion/accordion.html',
-      controller: 'ZfAccordionController',
-      scope: {
-        multiOpen: '@?',
-        collapsible: '@?',
-        autoOpen: '@?'
-      },
-      link: link
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, controller) {
-      scope.multiOpen = controller.multiOpen = scope.multiOpen === "true" ? true : false;
-      scope.collapsible = controller.collapsible = scope.collapsible === "true" ? true : false;
-      scope.autoOpen = controller.autoOpen = scope.autoOpen === "true" ? true : false;
-    }
-  }
-
-  //accordion item
-  function zfAccordionItem() {
-    var directive = {
-        restrict: 'EA',
-        templateUrl: 'components/accordion/accordion-item.html',
-        transclude: true,
-        scope: {
-          title: '@'
-        },
-        require: '^zfAccordion',
-        replace: true,
-        controller: function() {},
-        link: link
-    };
-
-    return directive;
-
-    function link(scope, element, attrs, controller, transclude) {
-      scope.active = false;
-      controller.addSection(scope);
-
-      scope.activate = function() {
-        controller.select(scope);
-      };
-
-    }
-  }
-
-})();
-
-(function() {
-  'use strict';
-
   angular.module('foundation.actionsheet', ['foundation.core'])
     .controller('ZfActionSheetController', zfActionSheetController)
     .directive('zfActionSheet', zfActionSheet)
@@ -44886,262 +44790,109 @@ angular.module('markdown', [])
   }
 })();
 
-(function () {
+(function() {
   'use strict';
 
-  angular.module('foundation.iconic', [])
-    .provider('Iconic', Iconic)
-    .directive('zfIconic', zfIconic)
+  angular.module('foundation.accordion', [])
+    .controller('ZfAccordionController', zfAccordionController)
+    .directive('zfAccordion', zfAccordion)
+    .directive('zfAccordionItem', zfAccordionItem)
   ;
 
-  // iconic wrapper
-  function Iconic() {
-    // default path
-    var assetPath = 'assets/img/iconic/';
+  zfAccordionController.$inject = ['$scope'];
 
-    /**
-     * Sets the path used to locate the iconic SVG files
-     * @param {string} path - the base path used to locate the iconic SVG files
-     */
-    this.setAssetPath = function (path) {
-      assetPath = angular.isString(path) ? path : assetPath;
+  function zfAccordionController($scope) {
+    var controller = this;
+    var sections = controller.sections = $scope.sections = [];
+    var multiOpen = controller.multiOpen = $scope.multiOpen = $scope.multiOpen || false;
+    var collapsible = controller.collapsible = $scope.collapsible = $scope.multiOpen || $scope.collapsible || true; //multi open infers a collapsible true
+    var autoOpen = controller.autoOpen = $scope.autoOpen = $scope.autoOpen || true; //auto open opens first tab on render
+
+    controller.select = function(selectSection) {
+      sections.forEach(function(section) {
+        //if multi open is allowed, toggle a tab
+        if(controller.multiOpen) {
+          if(section.scope === selectSection) {
+            section.scope.active = !section.scope.active;
+          }
+        } else {
+          //non  multi open will close all tabs and open one
+          if(section.scope === selectSection) {
+            //if collapsible is allowed, a tab will toggle
+            section.scope.active = collapsible ? !section.scope.active : true;
+          } else {
+            section.scope.active = false;
+          }
+        }
+
+      });
     };
 
-    /**
-     * Service implementation
-     * @returns {{}}
-     */
-    this.$get = function () {
-      var iconicObject = new IconicJS();
+    controller.addSection = function addsection(sectionScope) {
+      sections.push({ scope: sectionScope });
 
-      var service = {
-        getAccess: getAccess,
-        getAssetPath: getAssetPath
-      };
-
-      return service;
-
-      /**
-       *
-       * @returns {Window.IconicJS}
-       */
-      function getAccess() {
-        return iconicObject;
+      if(sections.length === 1 && autoOpen === true) {
+        sections[0].active = true;
+        sections[0].scope.active = true;
       }
+    };
 
-      /**
-       *
-       * @returns {string}
-       */
-      function getAssetPath() {
-        return assetPath;
-      }
+    controller.closeAll = function() {
+      sections.forEach(function(section) {
+        section.scope.active = false;
+      });
     };
   }
 
-  zfIconic.$inject = ['Iconic', 'FoundationApi', '$compile'];
-
-  function zfIconic(iconic, foundationApi, $compile) {
+  function zfAccordion() {
     var directive = {
-      restrict: 'A',
-      template: '<img ng-transclude>',
-      transclude: true,
+      restrict: 'EA',
+      transclude: 'true',
       replace: true,
+      templateUrl: 'components/accordion/accordion.html',
+      controller: 'ZfAccordionController',
       scope: {
-        dynSrc: '=?',
-        dynIcon: '=?',
-        dynIconAttrs: '=?',
-        size: '@?',
-        icon: '@',
-        iconDir: '@?',
-        iconAttrs: '=?'
+        multiOpen: '@?',
+        collapsible: '@?',
+        autoOpen: '@?'
       },
-      compile: compile
+      link: link
     };
 
     return directive;
 
-    function compile() {
-      var contents, origAttrs, lastIconAttrs, assetPath;
+    function link(scope, element, attrs, controller) {
+      scope.multiOpen = controller.multiOpen = scope.multiOpen === "true" ? true : false;
+      scope.collapsible = controller.collapsible = scope.collapsible === "true" ? true : false;
+      scope.autoOpen = controller.autoOpen = scope.autoOpen === "true" ? true : false;
+    }
+  }
 
-      return {
-        pre: preLink,
-        post: postLink
+  //accordion item
+  function zfAccordionItem() {
+    var directive = {
+        restrict: 'EA',
+        templateUrl: 'components/accordion/accordion-item.html',
+        transclude: true,
+        scope: {
+          title: '@'
+        },
+        require: '^zfAccordion',
+        replace: true,
+        controller: function() {},
+        link: link
+    };
+
+    return directive;
+
+    function link(scope, element, attrs, controller, transclude) {
+      scope.active = false;
+      controller.addSection(scope);
+
+      scope.activate = function() {
+        controller.select(scope);
       };
 
-      function preLink(scope, element, attrs) {
-        var iconAttrsObj, iconAttr;
-
-        if (scope.iconDir) {
-          // path set via attribute
-          assetPath = scope.iconDir;
-        } else {
-          // default path
-          assetPath = iconic.getAssetPath();
-        }
-        // make sure ends with /
-        if (assetPath.charAt(assetPath.length - 1) !== '/') {
-          assetPath += '/';
-        }
-
-        if (scope.dynSrc) {
-          attrs.$set('data-src', scope.dynSrc);
-        } else if (scope.dynIcon) {
-          attrs.$set('data-src', assetPath + scope.dynIcon + '.svg');
-        } else {
-          if (scope.icon) {
-            attrs.$set('data-src', assetPath + scope.icon + '.svg');
-          } else {
-            // To support expressions on data-src
-            attrs.$set('data-src', attrs.src);
-          }
-        }
-
-        // check if size already added as class
-        if (!element.hasClass('iconic-sm') && !element.hasClass('iconic-md') && !element.hasClass('iconic-lg')) {
-          var iconicClass;
-          switch (scope.size) {
-            case 'small':
-              iconicClass = 'iconic-sm';
-              break;
-            case 'medium':
-              iconicClass = 'iconic-md';
-              break;
-            case 'large':
-              iconicClass = 'iconic-lg';
-              break;
-            default:
-              iconicClass = 'iconic-fluid';
-          }
-          element.addClass(iconicClass);
-        }
-
-        // add static icon attributes to iconic element
-        if (scope.iconAttrs) {
-          iconAttrsObj = angular.fromJson(scope.iconAttrs);
-          for (iconAttr in iconAttrsObj) {
-            // add data- to attribute name if not already present
-            attrs.$set(addDataDash(iconAttr), iconAttrsObj[iconAttr]);
-          }
-        }
-
-        // save contents and attributes of un-inject html, to use for dynamic re-injection
-        contents = element[0].outerHTML;
-        origAttrs = element[0].attributes;
-      }
-
-      function postLink(scope, element, attrs) {
-        var svgElement, ico = iconic.getAccess();
-
-        injectSvg(element[0]);
-
-        foundationApi.subscribe('resize', function () {
-          // only run update on current element
-          ico.update(element[0]);
-        });
-
-        // handle dynamic updating of src
-        if (scope.dynSrc) {
-          scope.$watch('dynSrc', function (newVal, oldVal) {
-            if (newVal && newVal !== oldVal) {
-              reinjectSvg(scope.dynSrc, scope.dynIconAttrs);
-            }
-          });
-        }
-        // handle dynamic updating of icon
-        if (scope.dynIcon) {
-          scope.$watch('dynIcon', function (newVal, oldVal) {
-            if (newVal && newVal !== oldVal) {
-              reinjectSvg(assetPath + scope.dynIcon + '.svg', scope.dynIconAttrs);
-            }
-          });
-        }
-        // handle dynamic updating of icon attrs
-        scope.$watch('dynIconAttrs', function (newVal, oldVal) {
-          if (newVal && newVal !== oldVal) {
-            if (scope.dynSrc) {
-              reinjectSvg(scope.dynSrc, scope.dynIconAttrs);
-            } else {
-              reinjectSvg(assetPath + scope.dynIcon + '.svg', scope.dynIconAttrs);
-            }
-          }
-        });
-
-        function reinjectSvg(newSrc, newAttrs) {
-          var iconAttr;
-
-          if (svgElement) {
-            // set html
-            svgElement.empty();
-            svgElement.append(angular.element(contents));
-
-            // remove 'data-icon' attribute added by injector as it
-            // will cause issues with reinjection when changing icons
-            svgElement.removeAttr('data-icon');
-
-            // set new source
-            svgElement.attr('data-src', newSrc);
-
-            // add additional icon attributes to iconic element
-            if (newAttrs) {
-              // remove previously added attributes
-              if (lastIconAttrs) {
-                for (iconAttr in lastIconAttrs) {
-                  svgElement.removeAttr(addDataDash(iconAttr));
-                }
-              }
-
-              // add newly added attributes
-              for (iconAttr in newAttrs) {
-                // add data- to attribute name if not already present
-                svgElement.attr(addDataDash(iconAttr), newAttrs[iconAttr]);
-              }
-            }
-
-            // store current attrs
-            lastIconAttrs = newAttrs;
-
-            // reinject
-            injectSvg(svgElement[0]);
-          }
-        }
-
-        function injectSvg(element) {
-          ico.inject(element, {
-            each: function (injectedElem) {
-
-              var i, angElem, elemScope;
-
-              // wrap raw element
-              angElem = angular.element(injectedElem);
-
-              for(i = 0; i < origAttrs.length; i++) {
-                // check if attribute should be ignored
-                if (origAttrs[i].name !== 'zf-iconic' &&
-                  origAttrs[i].name !== 'ng-transclude' &&
-                  origAttrs[i].name !== 'icon' &&
-                  origAttrs[i].name !== 'src') {
-                  // check if attribute already exists on svg
-                  if (angular.isUndefined(angElem.attr(origAttrs[i].name))) {
-                    // add attribute to svg
-                    angElem.attr(origAttrs[i].name, origAttrs[i].value);
-                  }
-                }
-              }
-
-              // compile
-              elemScope = angElem.scope();
-              if (elemScope) {
-                svgElement = $compile(angElem)(elemScope);
-              }
-            }
-          });
-        }
-      }
-
-      function addDataDash(attr) {
-        return attr.indexOf('data-') !== 0 ? 'data-' + attr : attr;
-      }
     }
   }
 
@@ -45730,6 +45481,267 @@ angular.module('markdown', [])
 
     }
 
+  }
+
+})();
+
+(function () {
+  'use strict';
+
+  angular.module('foundation.iconic', [])
+    .provider('Iconic', Iconic)
+    .directive('zfIconic', zfIconic)
+  ;
+
+  // iconic wrapper
+  function Iconic() {
+    // default path
+    var assetPath = 'assets/img/iconic/';
+
+    /**
+     * Sets the path used to locate the iconic SVG files
+     * @param {string} path - the base path used to locate the iconic SVG files
+     */
+    this.setAssetPath = function (path) {
+      assetPath = angular.isString(path) ? path : assetPath;
+    };
+
+    /**
+     * Service implementation
+     * @returns {{}}
+     */
+    this.$get = function () {
+      var iconicObject = new IconicJS();
+
+      var service = {
+        getAccess: getAccess,
+        getAssetPath: getAssetPath
+      };
+
+      return service;
+
+      /**
+       *
+       * @returns {Window.IconicJS}
+       */
+      function getAccess() {
+        return iconicObject;
+      }
+
+      /**
+       *
+       * @returns {string}
+       */
+      function getAssetPath() {
+        return assetPath;
+      }
+    };
+  }
+
+  zfIconic.$inject = ['Iconic', 'FoundationApi', '$compile'];
+
+  function zfIconic(iconic, foundationApi, $compile) {
+    var directive = {
+      restrict: 'A',
+      template: '<img ng-transclude>',
+      transclude: true,
+      replace: true,
+      scope: {
+        dynSrc: '=?',
+        dynIcon: '=?',
+        dynIconAttrs: '=?',
+        size: '@?',
+        icon: '@',
+        iconDir: '@?',
+        iconAttrs: '=?'
+      },
+      compile: compile
+    };
+
+    return directive;
+
+    function compile() {
+      var contents, origAttrs, lastIconAttrs, assetPath;
+
+      return {
+        pre: preLink,
+        post: postLink
+      };
+
+      function preLink(scope, element, attrs) {
+        var iconAttrsObj, iconAttr;
+
+        if (scope.iconDir) {
+          // path set via attribute
+          assetPath = scope.iconDir;
+        } else {
+          // default path
+          assetPath = iconic.getAssetPath();
+        }
+        // make sure ends with /
+        if (assetPath.charAt(assetPath.length - 1) !== '/') {
+          assetPath += '/';
+        }
+
+        if (scope.dynSrc) {
+          attrs.$set('data-src', scope.dynSrc);
+        } else if (scope.dynIcon) {
+          attrs.$set('data-src', assetPath + scope.dynIcon + '.svg');
+        } else {
+          if (scope.icon) {
+            attrs.$set('data-src', assetPath + scope.icon + '.svg');
+          } else {
+            // To support expressions on data-src
+            attrs.$set('data-src', attrs.src);
+          }
+        }
+
+        // check if size already added as class
+        if (!element.hasClass('iconic-sm') && !element.hasClass('iconic-md') && !element.hasClass('iconic-lg')) {
+          var iconicClass;
+          switch (scope.size) {
+            case 'small':
+              iconicClass = 'iconic-sm';
+              break;
+            case 'medium':
+              iconicClass = 'iconic-md';
+              break;
+            case 'large':
+              iconicClass = 'iconic-lg';
+              break;
+            default:
+              iconicClass = 'iconic-fluid';
+          }
+          element.addClass(iconicClass);
+        }
+
+        // add static icon attributes to iconic element
+        if (scope.iconAttrs) {
+          iconAttrsObj = angular.fromJson(scope.iconAttrs);
+          for (iconAttr in iconAttrsObj) {
+            // add data- to attribute name if not already present
+            attrs.$set(addDataDash(iconAttr), iconAttrsObj[iconAttr]);
+          }
+        }
+
+        // save contents and attributes of un-inject html, to use for dynamic re-injection
+        contents = element[0].outerHTML;
+        origAttrs = element[0].attributes;
+      }
+
+      function postLink(scope, element, attrs) {
+        var svgElement, ico = iconic.getAccess();
+
+        injectSvg(element[0]);
+
+        foundationApi.subscribe('resize', function () {
+          // only run update on current element
+          ico.update(element[0]);
+        });
+
+        // handle dynamic updating of src
+        if (scope.dynSrc) {
+          scope.$watch('dynSrc', function (newVal, oldVal) {
+            if (newVal && newVal !== oldVal) {
+              reinjectSvg(scope.dynSrc, scope.dynIconAttrs);
+            }
+          });
+        }
+        // handle dynamic updating of icon
+        if (scope.dynIcon) {
+          scope.$watch('dynIcon', function (newVal, oldVal) {
+            if (newVal && newVal !== oldVal) {
+              reinjectSvg(assetPath + scope.dynIcon + '.svg', scope.dynIconAttrs);
+            }
+          });
+        }
+        // handle dynamic updating of icon attrs
+        scope.$watch('dynIconAttrs', function (newVal, oldVal) {
+          if (newVal && newVal !== oldVal) {
+            if (scope.dynSrc) {
+              reinjectSvg(scope.dynSrc, scope.dynIconAttrs);
+            } else {
+              reinjectSvg(assetPath + scope.dynIcon + '.svg', scope.dynIconAttrs);
+            }
+          }
+        });
+
+        function reinjectSvg(newSrc, newAttrs) {
+          var iconAttr;
+
+          if (svgElement) {
+            // set html
+            svgElement.empty();
+            svgElement.append(angular.element(contents));
+
+            // remove 'data-icon' attribute added by injector as it
+            // will cause issues with reinjection when changing icons
+            svgElement.removeAttr('data-icon');
+
+            // set new source
+            svgElement.attr('data-src', newSrc);
+
+            // add additional icon attributes to iconic element
+            if (newAttrs) {
+              // remove previously added attributes
+              if (lastIconAttrs) {
+                for (iconAttr in lastIconAttrs) {
+                  svgElement.removeAttr(addDataDash(iconAttr));
+                }
+              }
+
+              // add newly added attributes
+              for (iconAttr in newAttrs) {
+                // add data- to attribute name if not already present
+                svgElement.attr(addDataDash(iconAttr), newAttrs[iconAttr]);
+              }
+            }
+
+            // store current attrs
+            lastIconAttrs = newAttrs;
+
+            // reinject
+            injectSvg(svgElement[0]);
+          }
+        }
+
+        function injectSvg(element) {
+          ico.inject(element, {
+            each: function (injectedElem) {
+
+              var i, angElem, elemScope;
+
+              // wrap raw element
+              angElem = angular.element(injectedElem);
+
+              for(i = 0; i < origAttrs.length; i++) {
+                // check if attribute should be ignored
+                if (origAttrs[i].name !== 'zf-iconic' &&
+                  origAttrs[i].name !== 'ng-transclude' &&
+                  origAttrs[i].name !== 'icon' &&
+                  origAttrs[i].name !== 'src') {
+                  // check if attribute already exists on svg
+                  if (angular.isUndefined(angElem.attr(origAttrs[i].name))) {
+                    // add attribute to svg
+                    angElem.attr(origAttrs[i].name, origAttrs[i].value);
+                  }
+                }
+              }
+
+              // compile
+              elemScope = angElem.scope();
+              if (elemScope) {
+                svgElement = $compile(angElem)(elemScope);
+              }
+            }
+          });
+        }
+      }
+
+      function addDataDash(attr) {
+        return attr.indexOf('data-') !== 0 ? 'data-' + attr : attr;
+      }
+    }
   }
 
 })();

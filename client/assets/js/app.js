@@ -310,6 +310,7 @@
         org_code: "",
         inbox_status: ""
       };
+      $scope.process_filter_update();
     }
     $scope.keys = [];
     // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});

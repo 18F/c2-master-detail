@@ -101,7 +101,6 @@
         console.log('In feed: ', $scope.items.length);
       }
       $scope.processDateFilter = function(){
-        $scope.reset_data();
         console.log('$scope.dateFilter: ', $scope.dateFilter);
         console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
         console.log('$scope.items: ', $scope.items.length);
@@ -128,7 +127,6 @@
           $scope.setIndex(newItems);
           console.log('In feed: ', $scope.items.length);
         } else {
-          $scope.reset_data();
           $scope.dateFilter = "";
         }
       }
@@ -139,13 +137,12 @@
       }, true);
       $scope.$watch('dateFilter', function(newValue, oldValue) {
         console.log('dateFilter: ', newValue);
-        $scope.reset_data();
         $scope.processFilter();
         $scope.processDateFilter();
       }, true);
       $scope.filter_by = function(param){
         console.log(param);
-        $scope.reset_filter();
+        // $scope.reset_filter();
         $scope.query.inbox_status = param;
         $scope.setQuery = $scope.query;
         $scope.processFilter();
@@ -158,10 +155,12 @@
       
       $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
           $scope.dateFilter = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY')
+          $(this).val($scope.dateFilter);
       });
 
       $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
           $scope.dateFilter = "";
+          $(this).val('');
       });
 
     }, 500);

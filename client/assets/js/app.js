@@ -15,6 +15,7 @@
     ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
+        $scope.active_filter = "";
         $scope.query = {
           $: "",
           id: "",
@@ -50,6 +51,21 @@
     }
   }
 
+  function excel_table_tweaks() {
+    // Table tweaks for the excel view
+    var table = $("#xc-inbox-table").stupidtable();
+    table.on("aftertablesort", function (event, data) {
+      var th = $(this).find("th");
+      th.find(".arrow").remove();
+      var dir = $.fn.stupidtable.dir;
+      var arrow = data.direction === dir.ASC ? "&#x25b2;" : "&#x25bc;";
+      th.eq(data.column)
+        .append('<div class="arrow">' + arrow +'</span>');
+    });
+
+    $("#xc-inbox-table").stickyTableHeaders();
+  }
+
   function blast_off_messages($scope, $state, $http, $filter, hotkeys){
     $scope.date = {startDate: null, endDate: null};
     $scope.setIndex = function(new_list){
@@ -66,6 +82,7 @@
     }
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
+      excel_table_tweaks();
     }, 500);
     console.log('focusIndex: ', $scope.focusIndex);
     $scope.update_detail = function(selectedIndex){
@@ -74,6 +91,8 @@
     $scope.filter_by = function(param){
       console.log(param);
       $scope.query.inbox_status = param;
+      $scope.active_filter = param;
+      console.log($scope.active_filter);
       $scope.processFilter();
     }
     $scope.processFilter = function(){

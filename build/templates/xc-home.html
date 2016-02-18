@@ -1,6 +1,6 @@
 
 
-<div class="vertical grid-frame xc-page">
+<div class="vertical grid-block xc-page">
 
   <div ng-include="'partials/xc/top-bar.html'"></div>
 
@@ -17,16 +17,16 @@
           </div>
         </div>
 
-        <div class="grid-block">
-          <div class="grid-content">
+        <div class="grid-block v-align">
+          <div class="grid-content align-bottom">
             <div ng-include="'partials/xc/filter.html'"></div>
           </div>
 
-          <div class="grid-content small-3 align-right">
+          <div class="grid-content small-3 align-right align-bottom">
             <div ng-include="'partials/xc/create-request.html'"></div>
           </div>
 
-          <div class="grid-content small-3 align-right">
+          <div class="grid-content small-3 align-right align-bottom">
             <div ng-include="'partials/xc/download-csv.html'"></div>
           </div>
         </div>
@@ -41,4 +41,7 @@
     </div>
 
   </div>
+
+  <div ng-include="'partials/xc/detail.html'"></div>
+
 </div>

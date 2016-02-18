@@ -42,34 +42,6 @@
   input:placeholder {
     color: #4b63cf
   }
-
-
-  .Chevron{
-    position:relative;
-    display:block;
-    height:20px;/*height should be double border*/
-  }
-  .Chevron:before,
-  .Chevron:after{
-      position:absolute;
-      display:block;
-      content:"";
-      border:15px solid transparent;/*adjust size*/
-  }
-  /*Change four 'top' values below to rotate (top/right/bottom/left)*/
-  .Chevron:before{
-      top:0;
-      border-top-color:#8dbbf0;/*Chevron Color*/
-  }
-  .Chevron:after{
-      top:-3px;/*adjust thickness*/
-      border-top-color:#354694;/*Match background colour*/
-  }
-}
-
-.xc-chevron-down {
-  transform: rotate(90deg);
-  color: #8dbbf0;
 }
 
 .xc-button {
@@ -132,7 +104,7 @@
     background-color: #192b7c;
     color: white;
 
-    .sorted {
+    .sorting-asc, .sorting-desc {
       background-color: #354694;
     }
 
@@ -143,10 +115,22 @@
       padding-right: 1rem;
       font-weight: normal;
       font-size: 80%;
+      position: relative;
+
+      div {
+        display: inline-block;
+      }
+
+      .arrow {
+        text-align: right;
+        position: absolute;
+        right: 15px;
+      }
+
     }
 
-    th.status {
-      text-align: center;
+    th[data-sort]{
+      cursor:pointer;
     }
   }
 
@@ -204,7 +188,8 @@
 }
 
 .menu-bar li a {
-  padding: 10px;
+  margin: 10px;
+  padding: 0 0 7px 0;
 }
 
 .xc-filter-bar {
@@ -212,6 +197,7 @@
   text-transform: uppercase;
   font-size: 80%;
   font-weight: bolder;
+  margin-bottom: 0.5rem;
 
   .selected {
     padding-bottom: 3px;

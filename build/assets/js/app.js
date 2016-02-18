@@ -18,6 +18,7 @@
       $scope.$on('$viewContentLoaded', function(event) {
         console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
         $scope.filter = "";
+        $scope.setQuery = {};
         $scope.dateFilter = "";
         $scope.slider = {
           min: 0,
@@ -26,7 +27,7 @@
             floor: 0,
             ceil: 3500,
             translate: function(value) {
-              console.log('translate: function(value) {');
+              // console.log('translate: function(value) {');
               return '$' + value;
             }
           }
@@ -87,108 +88,98 @@
       console.log('$scope.add_new_subscriber = function(){');
       $('.new-subscriber').before(new_subcribe);
     }
-      $scope.isEmptyObject = function(obj) {
-        console.log('$scope.isEmptyObject = function(obj) {');
-        return angular.equals("", obj);
-      }
-      $scope.resetLink = function(){
-        console.log('$scope.resetLink = function(){');
-        $scope.reset_filter();
-        $scope.setQuery = $scope.query;
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }
-      $scope.processFilterButton = function(){
-        console.log('$scope.processFilterButton = function(){');
-        $scope.show_advanced_search = false;
-        $scope.setQuery = $scope.query;
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }
-      $scope.remove_filter_key = function(key){
-        console.log('$scope.remove_filter_key = function(key){');
-        $scope.query[key] = "";
-        $scope.processFilter();
-      }
-      $scope.remove_filter_query = function(){
-        console.log('$scope.remove_filter_query = function(){');
-        $scope.query.$ = "";
-        $scope.processFilter();
-      }
-      $scope.remove_date_filter = function(){
-        console.log('$scope.remove_date_filter = function(){');
+    $scope.isEmptyObject = function(obj) {
+      console.log('$scope.isEmptyObject = function(obj) {');
+      return angular.equals("", obj);
+    }
+    $scope.resetLink = function(){
+      console.log('$scope.resetLink = function(){');
+      $scope.reset_filter();
+      $scope.setQuery = $scope.query;
+    }
+    $scope.processFilterButton = function(){
+      console.log('$scope.processFilterButton = function(){');
+      $scope.show_advanced_search = false;
+      $scope.setQuery = $scope.query;
+      $scope.process_filter_update();
+    }
+    $scope.remove_filter_key = function(key){
+      console.log('$scope.remove_filter_key = function(key){');
+      $scope.query[key] = "";
+    }
+    $scope.remove_filter_query = function(){
+      console.log('$scope.remove_filter_query = function(){');
+      $scope.query.$ = "";
+    }
+    $scope.remove_date_filter = function(){
+      console.log('$scope.remove_date_filter = function(){');
+      $scope.dateFilter = "";
+    }
+    $scope.processFilter = function(){
+      console.log('$scope.processFilter = function(){');
+      console.log("$scope.query: ", $scope.query);
+      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.focusIndex = 0;
+      $scope.setIndex(new_list);
+      console.log('In feed: ', $scope.items.length);
+    }
+    $scope.processDateFilter = function(){
+      console.log('$scope.processDateFilter');
+      // console.log('$scope.dateFilter: ', $scope.dateFilter);
+      // console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
+      // console.log('$scope.items: ', $scope.items.length);
+      // console.log('$scope.items: ', $scope.items);
+      if(!angular.equals("", $scope.dateFilter)){
+        console.log('!angular.equals("", $scope.dateFilter)');
+        console.log("$scope.dateFilter: ", $scope.dateFilter);
+        var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
+        var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
+        var range = moment.range(startDate, endDate);
+        console.log('startDate: ', startDate);
+        console.log('endDate: ', endDate);
+        var newItems = []
+        for (var i = $scope.items.length - 1; i >= 0; i--) {
+          if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
+            newItems.push($scope.items[i]);
+          }
+        }
+        console.log('newItems: ', newItems);
+        $scope.setIndex(newItems);
+        $scope.focusIndex = 0;
+        $scope.update_single_item($scope.focusIndex);
+      } else {
+        console.log('Else');
         $scope.dateFilter = "";
       }
-      $scope.processFilter = function(){
-        console.log('$scope.processFilter = function(){');
-        console.log("$scope.query: ", $scope.query);
-        var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-        $scope.focusIndex = 0;
-        $scope.setIndex(new_list);
-        console.log('In feed: ', $scope.items.length);
-      }
-      $scope.processDateFilter = function(){
-        console.log('$scope.processDateFilter = function(){');
-        console.log('$scope.processDateFilter');
-        // console.log('$scope.dateFilter: ', $scope.dateFilter);
-        // console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
-        // console.log('$scope.items: ', $scope.items.length);
-        // console.log('$scope.items: ', $scope.items);
-        if(!angular.equals("", $scope.dateFilter)){
-          console.log('!angular.equals("", $scope.dateFilter)');
-          console.log("$scope.dateFilter: ", $scope.dateFilter);
-          var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
-          var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
-          var range = moment.range(startDate, endDate);
-          console.log('startDate: ', startDate);
-          console.log('endDate: ', endDate);
-          var newItems = []
-          console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
-          console.log('$scope.items: ', $scope.items.length);
-          for (var i = $scope.items.length - 1; i >= 0; i--) {
-            if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
-              console.log('$scope.items[i]: ', $scope.items[i]);
-              newItems.push($scope.items[i]);
-            }
-          }
-          console.log('newItems: ', newItems);
-          $scope.items = newItems;
-          $scope.focusIndex = 0;
-          $scope.setIndex(newItems);
-          console.log('In feed: ', $scope.items.length);
-        } else {
-          console.log('Else');
-          $scope.dateFilter = "";
-        }
-      }
-      $scope.$watch('query', function(newValue, oldValue) {
-        console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
-        console.log('Running');
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }, true);
-      $scope.$watch('dateFilter', function(newValue, oldValue) {
-        console.log('$scope.$watch(\'dateFilter\', function(newValue, oldValue) {');
-        console.log('dateFilter: ', newValue);
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }, true);
-      $scope.filter_by = function(param){
-        console.log('$scope.filter_by = function(param){');
-        console.log(param);
-        // $scope.reset_filter();
-        $scope.query.inbox_status = param;
-        $scope.setQuery = $scope.query;
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }
-      $scope.format_date_range = function(start, end){
-        console.log('$scope.format_date_range = function(start, end){');
-        var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
-        $scope.dateFilter = date_range;
-        console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
-        return date_range;
-      }
+    }
+    $scope.process_filter_update = function(){
+      $scope.processFilter();
+      $scope.processDateFilter();
+    }
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
+      console.log('Running');
+      $scope.process_filter_update();
+    }, true);
+    $scope.$watch('dateFilter', function(newValue, oldValue) {
+      console.log('$scope.$watch(\'dateFilter\', function(newValue, oldValue) {');
+      console.log('dateFilter: ', newValue);
+      $scope.process_filter_update();
+    }, true);
+    $scope.filter_by = function(param){
+      console.log('$scope.filter_by = function(param){');
+      console.log(param);
+      // $scope.reset_filter();
+      $scope.query.inbox_status = param;
+      $scope.setQuery = $scope.query;
+    }
+    $scope.format_date_range = function(start, end){
+      console.log('$scope.format_date_range = function(start, end){');
+      var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
+      $scope.dateFilter = date_range;
+      console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
+      return date_range;
+    }
     /* Onload */
     window.setTimeout(function(){
       console.log('window.setTimeout(function(){');
@@ -202,19 +193,23 @@
         console.log('$(\'input.date-picker\').on(\'apply.daterangepicker\', function(ev, picker) {');
           $scope.format_date_range(picker.startDate, picker.endDate);
           $(this).val($scope.dateFilter);
+          $scope.$apply();
       });
 
       $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
         console.log('$(\'input.date-picker\').on(\'cancel.daterangepicker\', function(ev, picker) {');
           $scope.dateFilter = "";
           $(this).val('');
-          $scope.processFilterButton();
+          $scope.$apply();
       });
 
     }, 300);
     
     console.log('focusIndex: ', $scope.focusIndex);
     
+    $scope.update_single_item = function(newValue){
+      $scope.single = $scope.items[newValue];
+    }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
       $scope.focusIndex = selectedIndex;
@@ -222,7 +217,7 @@
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log('$scope.$watch(\'focusIndex\', function(newValue, oldValue) {');
       console.log(newValue);
-      $scope.single = $scope.items[newValue];
+      $scope.update_single_item(newValue);
       return newValue;
     });
     $scope.view_all_activity = function(){
@@ -260,17 +255,9 @@
     if($scope['single'] == undefined){
       $scope['single'] = mock_data[0];
     }
-    console.log($scope['single']);
-
-    $scope.reset_data = function(){
-      console.log('$scope.reset_data = function(){');
-      $scope.items = mock_data;
-      $scope.itemsDisplayed = mock_data;
-    }
     
     $scope.reset_filter = function(){
       console.log('$scope.reset_filter = function(){');
-      $scope.reset_data();
       $scope.dateFilter = "";
       $scope.query = {
         $: "",

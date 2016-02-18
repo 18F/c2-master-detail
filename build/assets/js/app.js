@@ -37,6 +37,7 @@
         $scope.query = {
           $: "",
           id: "",
+          has_attachment: "",
           product_company: "",
           product_type: "",
           product_name: "",
@@ -71,6 +72,7 @@
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
     $scope.resetAmountSlider = function(){
+      $scope.amountFilter = "";
       $scope.slider.min = 0;
       $scope.slider.max = 3500;
     }
@@ -295,6 +297,7 @@
     
     $scope.reset_filter = function(){
       console.log('$scope.reset_filter = function(){');
+      $scope.resetAmountSlider();
       $scope.dateFilter = "";
       $scope.query = {
         $: "",
@@ -306,6 +309,7 @@
         date: "",
         description: "",
         vendor: "",
+        has_attachment: "",
         amount: "",
         org_code: "",
         inbox_status: ""
@@ -582,6 +586,7 @@ var search_params = [
                       'approver',
                       'purchaser',
                       'reconciler',
+                      'has_attachment',
                       'subscriber_1',
                       'subscriber_2',
                       'subscriber_3',

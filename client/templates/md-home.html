@@ -130,6 +130,14 @@ controller: MessageCtrl
                     </div>
                     <div class="grid-block">
                         <div class="small-12 medium-12 text-right">
+                            <label>
+                              Has attachment
+                              <input type="checkbox" ng-model='query.has_attachment'>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="grid-block">
+                        <div class="small-12 medium-12 text-right">
                             <button ng-click="processFilterButton()" class="small-4 button">New Search</button>
                         </div>
                     </div>

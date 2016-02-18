@@ -72,6 +72,7 @@
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
     $scope.resetAmountSlider = function(){
+      $scope.amountFilter = "";
       $scope.slider.min = 0;
       $scope.slider.max = 3500;
     }
@@ -296,6 +297,7 @@
     
     $scope.reset_filter = function(){
       console.log('$scope.reset_filter = function(){');
+      $scope.resetAmountSlider();
       $scope.dateFilter = "";
       $scope.query = {
         $: "",

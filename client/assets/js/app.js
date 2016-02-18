@@ -74,11 +74,13 @@
         $scope.reset_filter();
         $scope.setQuery = $scope.query;
         $scope.processFilter();
+        $scope.processDateFilter();
       }
       $scope.processFilterButton = function(){
         $scope.show_advanced_search = false;
         $scope.setQuery = $scope.query;
         $scope.processFilter();
+        $scope.processDateFilter();
       }
       $scope.remove_filter_key = function(key){
         $scope.query[key] = "";
@@ -90,8 +92,6 @@
       }
       $scope.remove_date_filter = function(){
         $scope.dateFilter = "";
-        $scope.processFilter();
-        $scope.processDateFilter();
       }
       $scope.processFilter = function(){
         console.log("$scope.query: ", $scope.query);
@@ -101,6 +101,10 @@
         console.log('In feed: ', $scope.items.length);
       }
       $scope.processDateFilter = function(){
+        $scope.reset_data();
+        console.log('$scope.dateFilter: ', $scope.dateFilter);
+        console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed);
+        console.log('$scope.items: ', $scope.items);
         if(!angular.equals("", $scope.dateFilter)){
           console.log("$scope.dateFilter: ", $scope.dateFilter);
           var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
@@ -118,15 +122,23 @@
           $scope.itemsDisplayed = newItems;
           $scope.focusIndex = 0;
           $scope.setIndex(newItems);
+          console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed);
+          console.log('$scope.items: ', $scope.items);
           console.log('In feed: ', $scope.items.length);
+        } else {
+          $scope.reset_data();
+          $scope.dateFilter = "";
         }
       }
       $scope.$watch('query', function(newValue, oldValue) {
         console.log('Running');
         $scope.processFilter();
+        $scope.processDateFilter();
       }, true);
       $scope.$watch('dateFilter', function(newValue, oldValue) {
-        console.log('Running');
+        console.log('dateFilter: ', newValue);
+        $scope.reset_data();
+        $scope.processFilter();
         $scope.processDateFilter();
       }, true);
       $scope.filter_by = function(param){
@@ -135,6 +147,7 @@
         $scope.query.inbox_status = param;
         $scope.setQuery = $scope.query;
         $scope.processFilter();
+        $scope.processDateFilter();
       }
 
     /* Onload */
@@ -142,14 +155,11 @@
       $('.activity-item').first().addClass("visible single");
       
       $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
-          var dateValue = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY')
-          $(this).val(dateValue);
-          $scope.dateFilter = dateValue;
-        
+          $scope.dateFilter = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY')
       });
 
       $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
-          $(this).val('');
+          $scope.dateFilter = "";
       });
 
     }, 500);
@@ -200,7 +210,14 @@
     }
     console.log($scope['single']);
 
+    $scope.reset_data = function(){
+      $scope.items = mock_data;
+      $scope.itemsDisplayed = mock_data;
+    }
+    
     $scope.reset_filter = function(){
+      $scope.reset_data();
+      $scope.dateFilter = "";
       $scope.query = {
         $: "",
         id: "",
@@ -266,7 +283,9 @@
           "applyClass": "button success",
           "cancelClass": "button alert"
       }, function(start, end, label) {
-        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        var dateRange = start.format('MM/DD/YYYY') + ' to ' + end.format('MM/DD/YYYY');
+        $scope.dateFilter = dateRange;
+        console.log('New date range selected: ' + dateRange + ' (predefined range: ' + label + ')');
       });
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
     }

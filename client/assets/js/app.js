@@ -6,6 +6,7 @@
     'ngAnimate',
     'daterangepicker',
     'cfp.hotkeys',
+    'rzModule',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
@@ -15,6 +16,17 @@
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
         $scope.dateFilter = "";
+        $scope.slider = {
+          min: 0,
+          max: 3500,
+          options: {
+            floor: 0,
+            ceil: 3500,
+            translate: function(value) {
+              return '$' + value;
+            }
+          }
+        };
         $scope.query = {
           $: "",
           id: "",
@@ -297,8 +309,9 @@
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
       if($scope.show_advanced_search == true){
         window.setTimeout(function(){
+          $scope.$broadcast('rzSliderForceRender');
           $('.advanced-search input').first().focus();
-        }, 200);
+        }, 1);
       }
     }
     hotkeys.add({

@@ -86,11 +86,23 @@ controller: MessageCtrl
                         <input type="text" class="small-12" ng-model="query.product_name">
                     </label>
                     <div class="grid-block">
-                        <div class="small-12 medium-12 grid-content">
-                            <label>
-                              Amount
-                              <input type="text" ng-model="query.amount">
-                            </label>
+                        <div class="small-3 medium-3 grid-content">
+                          <label class="small-12">
+                            Amount
+                            <input type="text" class="small-12" ng-model="slider.min">
+                          </label>
+                        </div>
+                        <div class="small-3 medium-3 grid-content">
+                          <label class="small-12">
+                            <span style="opacity: 0;">.</span>
+                          <input type="text" class="small-12" ng-model="slider.max">
+                          </label>
+                        </div>
+                        <div class="small-6 medium-6 grid-content">
+                          <rzslider
+                          rz-slider-model="slider.min"
+                          rz-slider-high="slider.max"
+                          rz-slider-options="slider.options"></rzslider>
                         </div>
                     </div>
                     <div class="grid-block">

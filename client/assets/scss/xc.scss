@@ -2,6 +2,13 @@
   background-color: #f3f3f3;
 }
 
+.view-container{
+  display: none;
+  &.visible{
+    display: flex;
+  }
+}
+
 .xc-top-bar {
   @include grid-block(
     $size: expand, // Can be expand, shrink, or a number of columns
@@ -154,9 +161,14 @@
     }
   }
 
-  tbody tr:hover {
+  tbody tr:hover td {
     background-color: #ebf1f7;
   }
+
+  tbody tr:hover td.activity {
+    background-color: #dfe5ec;
+  }
+
 
   .xc-status-indicator {
     @extend %button;

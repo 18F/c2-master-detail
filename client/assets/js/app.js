@@ -21,6 +21,47 @@
         $scope.active_filter = "";
         $scope.setQuery = {};
         $scope.dateFilter = "";
+        $scope.amountFilter = "";
+        $scope.slider = {
+          min: 0,
+          max: 3500,
+          options: {
+            floor: 0,
+            ceil: 3500,
+            translate: function(value) {
+              // console.log('translate: function(value) {');
+              return '$' + value;
+            }
+          }
+        };
+        $scope.query = {
+          $: "",
+          id: "",
+          product_company: "",
+          product_type: "",
+          product_name: "",
+          person_name: "",
+          date: "",
+          description: "",
+          vendor: "",
+          amount: "",
+          org_code: "",
+          inbox_status: ""
+        };
+        $scope.show_advanced_search = false;
+        $scope.focusIndex = 0;
+        $scope.items = mock_data;
+        $scope.itemsDisplayed = $scope.items;
+        blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
+      });
+  }])
+  .controller('ExcelCtrl',
+    ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
+      $scope.$on('$viewContentLoaded', function(event) {
+        console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
+        $scope.filter = "";
+        $scope.active_filter = "";
+        $scope.setQuery = {};
         $scope.dateFilter = "";
         $scope.amountFilter = "";
         $scope.slider = {
@@ -49,6 +90,8 @@
           org_code: "",
           inbox_status: ""
         };
+        $scope.view_type = "master";
+
         $scope.show_advanced_search = false;
         $scope.focusIndex = 0;
         $scope.items = mock_data;
@@ -264,6 +307,7 @@
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
+      $scope.view_type = "detail";
       $scope.focusIndex = selectedIndex;
     }
     $scope.filter_by = function(param){
@@ -281,6 +325,19 @@
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
     }
+    $scope.update_view_type = function(){
+      if($scope.view_type == "master"){
+
+      }else if($scope.view_type == "detail"){
+
+      }
+    }
+    $scope.$watch('view_type', function(newValue, oldValue) {
+      console.log('##################################################');
+      console.log('$scope.view_type: ', $scope.view_type);
+      console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+      $scope.update_view_type();
+    });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('Running');
       $scope.processFilter();

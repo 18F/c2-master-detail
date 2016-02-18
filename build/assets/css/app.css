@@ -6798,6 +6798,13 @@ blockquote p {
 .xc-page {
   background-color: #f3f3f3; }
 
+.view-container {
+  display: none; }
+  .view-container.visible {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+
 .xc-top-bar {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6971,8 +6978,11 @@ blockquote p {
   .xc-inbox tbody tr td:last-child {
     border: 1px solid #e2e8ee; }
 
-.xc-inbox tbody tr:hover {
+.xc-inbox tbody tr:hover td {
   background-color: #ebf1f7; }
+
+.xc-inbox tbody tr:hover td.activity {
+  background-color: #dfe5ec; }
 
 .xc-inbox .xc-status-indicator {
   font-size: 0.9rem;

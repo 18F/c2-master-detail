@@ -12,14 +12,13 @@
   <tbody>
     <tr ng-class="{'active': item.navIndex == focusIndex}"
         data-itemid="{{item.id}}" ng-repeat="item in items"
-        ng-click="update_detail(item.navIndex)"
-        zf-open="detailModal">
+        ng-click="update_detail(item.navIndex)">
       <td><span class="xc-status-indicator {{item.inbox_status}}">{{item.inbox_status}}</span></td>
       <td>{{item.date}}</td>
       <td>{{item.person_name}}</td>
       <td>{{item.product_name}}</td>
       <td>{{item.amount}}</td>
-      <td>&nbsp;</td>
+      <td class="activity">&nbsp;</td>
     </tr>
   </tbody>
 </table>

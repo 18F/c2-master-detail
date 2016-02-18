@@ -41,13 +41,24 @@
                       {{dateFilter}}  <a ng-click="remove_date_filter()" class="remove" tabindex="-1" title="Remove">×</a>
                   </div>
                 </span>
+                <span ng-hide="isEmptyObject(amountFilter)">
+                  <div class="item">
+                      Amount: {{amountFilter}}  <a ng-click="remove_amount_filter()" class="remove" tabindex="-1" title="Remove">×</a>
+                  </div>
+                </span>
                 <span ng-repeat="(key, value) in setQuery">
                   <div class="item"  ng-hide="isEmptyObject(value)">
                       {{key}}: {{value}}  <a ng-click="remove_filter_key(key)" class="remove" tabindex="-1" title="Remove">×</a>
                   </div>
                 </span>
 
-                <span class="secondary badge" style="float:left; margin-right: 5px;">{{items.length}}</span> <a ng-click="resetLink()" class="reset-link" style="margin-right: 5px; line-height: 25px;">Reset Search</a>
+                <a class="popup-toggle" href="#" zf-popup-toggle="popup">
+                  <span class="secondary badge" style="float:left; margin-right: 5px;">{{items.length}}</span>
+                  <div class="request-popup">
+                    There are {{items.length}} requests displayed, based on the selected search parameters.
+                  </div>
+                </a>
+                 <a ng-click="resetLink()" class="reset-link" style="margin-right: 5px; line-height: 25px;">Reset Search</a>
               </div>
               <div class="search-bar medium-4">
                 <form ng-submit="processFilter()">
@@ -56,7 +67,7 @@
                     <a ng-click="processFilter()" class="">
                       <img zf-iconic="" icon="magnifying-glass" size="small">
                     </a>
-                    <a ng-click="advanced_search()" class="iconic-chevron">
+                    <a ng-click="toggle_advanced_search()" class="iconic-chevron">
                       <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                     </a>
                   </label>
@@ -77,8 +88,8 @@
                     <div class="grid-block">
                         <div class="small-12 medium-6 grid-content">
                             <label>
-                              Amount
-                              <input type="text" ng-model="query.amount">
+                                Date Submitted
+                                <input type='text' ng-model='dateFilter' datepicker='' class="date-picker"></input>
                             </label>
                         </div>
                         <div class="small-12 medium-6 grid-content">
@@ -93,16 +104,28 @@
                         </div>
                     </div>
                     <div class="grid-block">
-                        <div class="small-12 medium-6 grid-content">
-                            <label>
-                                Date Within
-                                <input type='text' ng-model='dateFilter' datepicker='' class="date-picker"></input>
-                            </label>
+                        <div class="small-3 medium-3 grid-content">
+                          <label class="small-12">
+                            Amount
+                            <input type="number" class="small-12" ng-model="slider.min">
+                          </label>
+                        </div>
+                        <div class="small-3 medium-3 grid-content">
+                          <label class="small-12">
+                            <span style="opacity: 0;">.</span>
+                          <input type="number" class="small-12" ng-model="slider.max">
+                          </label>
+                        </div>
+                        <div class="small-6 medium-6 grid-content">
+                          <rzslider
+                          rz-slider-model="slider.min"
+                          rz-slider-high="slider.max"
+                          rz-slider-options="slider.options"></rzslider>
                         </div>
                     </div>
                     <div class="grid-block">
                         <div class="small-12 medium-12 text-right">
-                            <button ng-click="processFilterButton()" class="button">New Search</button>
+                            <button ng-click="processFilterButton()" class="small-4 button">New Search</button>
                         </div>
                     </div>
                   </form>
@@ -133,15 +156,17 @@
                         <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
                       </p>
                       <h5 class="product_name">{{item.product_name}}</h5>
-                      <div class="align-right text-right icon-box" ng-if="item.inbox_status == 'Approved'">
-                        <span class="label">
-                          <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">File Attached</span>
-                        </span>
-                      </div>
-                      <div class="align-right text-right icon-box" ng-if="item.message_status == 'Comment added'">
-                        <span class="label">
-                          <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">{{item.message_status}}</span>
-                        </span>
+                      <div class="align-right">
+                        <div class="icon-box" ng-if="item.inbox_status == 'Approved'">
+                          <span class="label">
+                            <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">File Attached</span>
+                          </span>
+                        </div>
+                        <div class="icon-box" ng-if="item.message_status == 'Comment added'">
+                          <span class="label">
+                            <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">{{item.message_status}}</span>
+                          </span>
+                        </div>
                       </div>
                     </a>
                   </li>

@@ -1,4 +1,5 @@
 (function() {
+  console.log('(function() {');
   'use strict';
 
   angular.module('application', [
@@ -6,17 +7,34 @@
     'ngAnimate',
     'daterangepicker',
     'cfp.hotkeys',
+    'rzModule',
+    'rt.debounce',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
   ])
   .controller('MessageCtrl',
-    ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
+    ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
       $scope.$on('$viewContentLoaded', function(event) {
+        console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
         $scope.filter = "";
         $scope.active_filter = "";
         $scope.setQuery = {};
         $scope.dateFilter = "";
+        $scope.dateFilter = "";
+        $scope.amountFilter = "";
+        $scope.slider = {
+          min: 0,
+          max: 3500,
+          options: {
+            floor: 0,
+            ceil: 3500,
+            translate: function(value) {
+              // console.log('translate: function(value) {');
+              return '$' + value;
+            }
+          }
+        };
         $scope.query = {
           $: "",
           id: "",
@@ -35,7 +53,7 @@
         $scope.focusIndex = 0;
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
-        blast_off_messages($scope, $state, $http, $filter, hotkeys);
+        blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
   .config(config)
@@ -65,124 +83,187 @@
     });
   }
 
-  function blast_off_messages($scope, $state, $http, $filter, hotkeys){
+  function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
+    $scope.resetAmountSlider = function(){
+      $scope.slider.min = 0;
+      $scope.slider.max = 3500;
+    }
     $scope.setIndex = function(new_list){
+      console.log('$scope.setIndex = function(new_list){');
       for (var i = new_list.length - 1; i >= 0; i--) {
         new_list[i]["navIndex"] = i;
       }
       $scope.items = new_list;
     }
     $scope.issetQuery = function(){
+      console.log('$scope.issetQuery = function(){');
       if(true){
       }
     }
     $scope.add_new_vendor = function(){
+      console.log('$scope.add_new_vendor = function(){');
       $('.new-vendor').before(new_vendor);
     }
     $scope.add_new_subscriber = function(){
+      console.log('$scope.add_new_subscriber = function(){');
       $('.new-subscriber').before(new_subcribe);
     }
-      $scope.isEmptyObject = function(obj) {
-        return angular.equals("", obj);
-      }
-      $scope.resetLink = function(){
-        $scope.reset_filter();
-        $scope.setQuery = $scope.query;
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }
-      $scope.processFilterButton = function(){
-        $scope.show_advanced_search = false;
-        $scope.setQuery = $scope.query;
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }
-      $scope.remove_filter_key = function(key){
-        $scope.query[key] = "";
-        $scope.processFilter();
-      }
-      $scope.remove_filter_query = function(){
-        $scope.query.$ = "";
-        $scope.processFilter();
-      }
-      $scope.remove_date_filter = function(){
+    $scope.isEmptyObject = function(obj) {
+      // console.log('$scope.isEmptyObject = function(obj) {');
+      return angular.equals("", obj);
+    }
+    $scope.resetLink = function(){
+      console.log('$scope.resetLink = function(){');
+      $scope.reset_filter();
+      $scope.setQuery = $scope.query;
+    }
+    $scope.processFilterButton = function(){
+      console.log('$scope.processFilterButton = function(){');
+      $scope.show_advanced_search = false;
+      $scope.setQuery = $scope.query;
+      $scope.process_filter_update();
+    }
+    $scope.remove_filter_key = function(key){
+      console.log('$scope.remove_filter_key = function(key){');
+      $scope.query[key] = "";
+    }
+    $scope.remove_filter_query = function(){
+      console.log('$scope.remove_filter_query = function(){');
+      $scope.query.$ = "";
+    }
+    $scope.remove_date_filter = function(){
+      console.log('$scope.remove_date_filter = function(){');
+      $scope.dateFilter = "";
+    }
+    $scope.remove_amount_filter = function(){
+      console.log('$scope.remove_amount_filter = function(){');
+      $scope.resetAmountSlider();
+      $scope.amountFilter = "";
+    }
+    $scope.processFilter = function(){
+      console.log('$scope.processFilter = function(){');
+      console.log("$scope.query: ", $scope.query);
+      var newItems = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.setup_new_item_list(newItems);
+      console.log('In feed: ', $scope.items.length);
+    }
+    $scope.setup_new_item_list = function(newItems){
+      $scope.setIndex(newItems);
+      $scope.focusIndex = 0;
+      $scope.update_single_item($scope.focusIndex);
+    }
+    $scope.processDateFilter = function(){
+      if(!angular.equals("", $scope.dateFilter)){
+        var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
+        var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
+        var range = moment.range(startDate, endDate);
+        var newItems = []
+        for (var i = $scope.items.length - 1; i >= 0; i--) {
+          if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
+            newItems.push($scope.items[i]);
+          }
+        }
+        $scope.setup_new_item_list(newItems);
+      } else {
         $scope.dateFilter = "";
       }
-      $scope.processFilter = function(){
-        console.log("$scope.query: ", $scope.query);
-        var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-        $scope.focusIndex = 0;
-        $scope.setIndex(new_list);
-        console.log('In feed: ', $scope.items.length);
-      }
-      $scope.processDateFilter = function(){
-        console.log('$scope.dateFilter: ', $scope.dateFilter);
-        console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
-        console.log('$scope.items: ', $scope.items.length);
-        console.log('$scope.items: ', $scope.items);
-        if(!angular.equals("", $scope.dateFilter)){
-          console.log("$scope.dateFilter: ", $scope.dateFilter);
-          var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
-          var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
-          var range = moment.range(startDate, endDate);
-          console.log('startDate: ', startDate);
-          console.log('endDate: ', endDate);
-          var newItems = []
-          console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
-          console.log('$scope.items: ', $scope.items.length);
-          for (var i = $scope.items.length - 1; i >= 0; i--) {
-            if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
-              console.log('$scope.items[i]: ', $scope.items[i]);
-              newItems.push($scope.items[i]);
-            }
-          }
-          console.log('newItems: ', newItems);
-          $scope.items = newItems;
-          $scope.focusIndex = 0;
-          $scope.setIndex(newItems);
-          console.log('In feed: ', $scope.items.length);
-        } else {
-          $scope.dateFilter = "";
+    }
+    $scope.processAmountFilter = debounce(1000, function () {
+      console.log('Running: $scope.processAmountFilter');
+      var min = $scope.slider.min;
+      var max = $scope.slider.max;
+      // console.log(' -', min);
+      // console.log(' -', max);
+      var newItems = []
+      // console.log('$scope.items: ', $scope.items.length);
+      for (var i = $scope.items.length - 1; i >= 0; i--) {
+        var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
+        // console.log('amount: ', amount);
+        // console.log('$scope.items[i]: ', $scope.items[i]);
+        if( amount >= min && amount <= max ){
+          newItems.push($scope.items[i]);
         }
       }
-      $scope.$watch('query', function(newValue, oldValue) {
-        console.log('Running');
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }, true);
-      $scope.$watch('dateFilter', function(newValue, oldValue) {
-        console.log('dateFilter: ', newValue);
-        $scope.processFilter();
-        $scope.processDateFilter();
-      }, true);
-      $scope.filter_by = function(param){
-        console.log(param);
-        // $scope.reset_filter();
-        $scope.query.inbox_status = param;
-        $scope.setQuery = $scope.query;
-        $scope.processFilter();
-        $scope.processDateFilter();
+      console.log('newItems: ', newItems.length);
+      $scope.setup_new_item_list(newItems);
+    });
+    $scope.process_filter_update = function(){
+      $scope.processFilter();
+      $scope.processDateFilter();
+      $scope.processAmountFilter();
+    }
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
+      console.log('Running');
+      $scope.process_filter_update();
+    }, true);
+    $scope.$watch('amountFilter', function(newValue, oldValue) {
+      console.log(newValue);
+      $scope.process_filter_update();
+    }, true);
+    $scope.$watch('slider', function(newValue, oldValue) {
+      // console.log('$scope.slider.min: ', $scope.slider.min);
+      // console.log('$scope.slider.max: ', $scope.slider.max);
+      $scope.process_filter_update();
+      $scope.format_amount_range();
+    }, true);
+    $scope.filter_by = function(param){
+      console.log('$scope.filter_by = function(param){');
+      console.log(param);
+      // $scope.reset_filter();
+      $scope.query.inbox_status = param;
+      $scope.setQuery = $scope.query;
+    }
+    $scope.format_date_range = function(start, end){
+      console.log('$scope.format_date_range = function(start, end){');
+      var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
+      $scope.dateFilter = date_range;
+      console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
+      return date_range;
+    }
+    $scope.format_amount_range = function(start, end){
+      console.log('$scope.slider: ', $scope.slider.max);
+      console.log('$scope.slider: ', $scope.slider.min);
+      if($scope.slider.min == 0 && $scope.slider.max == 3500){
+        var amount_range = "";
+      } else {
+        var amount_range = '$' + $scope.slider.min + ' - $' + $scope.slider.max;
       }
-
+      $scope.amountFilter = amount_range;
+      console.log('$scope.amountFilter: ', $scope.amountFilter);
+    }
     /* Onload */
     window.setTimeout(function(){
+      console.log('window.setTimeout(function(){');
+      $scope.advanced_search();
+
+      vm.refreshSlider();
+
       $('.activity-item').first().addClass("visible single");
       excel_table_tweaks();
 
       $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
-          $scope.dateFilter = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY');
+        console.log('$(\'input.date-picker\').on(\'apply.daterangepicker\', function(ev, picker) {');
+          $scope.format_date_range(picker.startDate, picker.endDate);
           $(this).val($scope.dateFilter);
+          $scope.$apply();
       });
 
       $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
+        console.log('$(\'input.date-picker\').on(\'cancel.daterangepicker\', function(ev, picker) {');
           $scope.dateFilter = "";
           $(this).val('');
+          $scope.$apply();
       });
-    }, 500);
+    }, 300);
 
     console.log('focusIndex: ', $scope.focusIndex);
 
+    $scope.update_single_item = function(newValue){
+      $scope.single = $scope.items[newValue];
+    }
     $scope.update_detail = function(selectedIndex){
+      console.log('$scope.update_detail = function(selectedIndex){');
       $scope.focusIndex = selectedIndex;
     }
     $scope.filter_by = function(param){
@@ -205,11 +286,12 @@
       $scope.processFilter();
     }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
-      console.log(newValue);
-      $scope.single = $scope.items[newValue];
+      console.log('focusIndex: ', newValue);
+      $scope.update_single_item(newValue);
       return newValue;
     });
     $scope.view_all_activity = function(){
+      console.log('$scope.view_all_activity = function(){');
       if(!$('.status-comment').hasClass('open')){
         $('.status-comment').addClass('open');
         $('.activity-item.single').addClass('first');
@@ -243,15 +325,9 @@
     if($scope['single'] == undefined){
       $scope['single'] = mock_data[0];
     }
-    console.log($scope['single']);
-
-    $scope.reset_data = function(){
-      $scope.items = mock_data;
-      $scope.itemsDisplayed = mock_data;
-    }
 
     $scope.reset_filter = function(){
-      $scope.reset_data();
+      console.log('$scope.reset_filter = function(){');
       $scope.dateFilter = "";
       $scope.query = {
         $: "",
@@ -267,22 +343,27 @@
         org_code: "",
         inbox_status: ""
       };
+      $scope.process_filter_update();
     }
     $scope.keys = [];
     // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
+    console.log('// $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});');
     $scope.focusIndexDown = function() {
+      console.log('$scope.focusIndexDown = function() {');
       if($scope.items.length >= $scope.focusIndex && $scope.focusIndex > 0){
         $scope.focusIndex--;
         $scope.correctScroll();
       }
     };
     $scope.focusIndexUp = function() {
+      console.log('$scope.focusIndexUp = function() {');
       if($scope.items.length > $scope.focusIndex+1 && $scope.focusIndex >= 0){
         $scope.focusIndex++;
         $scope.correctScroll();
       }
     };
     $scope.advanced_search = function(){
+      console.log('$scope.advanced_search = function(){');
       $('.date-picker').daterangepicker({
           "ranges": {
               "Today": [
@@ -318,24 +399,55 @@
           "applyClass": "button success",
           "cancelClass": "button alert"
       }, function(start, end, label) {
-        var dateRange = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
-        $scope.dateFilter = dateRange;
-        console.log('New date range selected: ' + dateRange + ' (predefined range: ' + label + ')');
+        console.log('}, function(start, end, label) {');
+        $scope.format_date_range(start, end);
+        $scope.processDateFilter();
+        console.log('New date range selected: ' + $scope.dateFilter + ' (predefined range: ' + label + ')');
       });
+    }
+    $scope.toggle_advanced_search = function(){
+      console.log('$scope.toggle_advanced_search = function(){');
+      $scope.setQuery = $scope.query;
+      vm.refreshSlider();
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
+      if($scope.show_advanced_search == true){
+        window.setTimeout(function(){
+          console.log('window.setTimeout(function(){');
+          $('.advanced-search input').first().focus();
+        }, 100);
+      }
     }
     hotkeys.add({
-      combo: 's',
+      combo: 'ctrl+e',
+      description: 'Reset search parameters.',
+      callback: function() {
+        console.log('callback: function() {');
+        $scope.resetLink();
+      }
+    });
+    hotkeys.add({
+      combo: 'ctrl+s',
       description: 'Select the search field',
       callback: function() {
+        console.log('callback: function() {');
         $('.search-field-input').focus();
         return false;
+      }
+    });
+    hotkeys.add({
+      combo: 'ctrl+d',
+      description: 'Toggle the advanced search box',
+      allowIn: ['INPUT'],
+      callback: function() {
+        console.log('callback: function() {');
+        $scope.toggle_advanced_search();
       }
     });
     hotkeys.add({
       combo: 'up',
       description: 'Select the inbox item above',
       callback: function() {
+        console.log('callback: function() {');
         $scope.focusIndexDown();
       }
     });
@@ -343,10 +455,17 @@
       combo: 'down',
       description: 'Select the inbox item below',
       callback: function() {
+        console.log('callback: function() {');
         $scope.focusIndexUp();
       }
     });
 
+    vm.refreshSlider = function () {
+      window.setTimeout(function(){
+        console.log('window.setTimeout(function(){');
+        $scope.$broadcast('rzSliderForceRender');
+      });
+    };
   }
 
 
@@ -380,6 +499,7 @@
 
     var userList = new List('messages', options, data);
     userList.filter(function(item) {
+      console.log('userList.filter(function(item) {');
        if (item.values().inbox_status != "Approved") {
            return true;
        } else {
@@ -393,6 +513,7 @@
     var userList = new List('messages', options, data);
 
     userList.filter(function(item) {
+      console.log('userList.filter(function(item) {');
        if (item.values().inbox_status != "Needs Attention" &&
                               item.values().inbox_status != "Pending" &&
                               item.values().inbox_status != "New") {
@@ -410,10 +531,12 @@
       create: true,
       render: {
         item: function(data, escape) {
+          console.log('item: function(data, escape) {');
           return '<div>"' + escape(data.text) + '"</div>';
         }
       },
       onDelete: function(values) {
+        console.log('onDelete: function(values) {');
         console.log('Deleted: ', values)
       }
     });
@@ -471,6 +594,7 @@
 
 })();
 
+var vm = {};
 var circleX = '<svg xmlns="http://www.w3.org/2000/svg" class="iconic iconic-circle-x injected-svg iconic-color-secondary ng-isolate-scope iconic-sm ng-scope" width="128" height="128" viewBox="0 0 128 128" data-src="assets/img/iconic/circle-x.svg" size="small"><g class="iconic-metadata"><title>Circle X</title></g><defs><clipPath id="iconic-size-lg-circle-x-clip-0-17"><path d="M0 0v128h128v-128h-128zm90.657 85l-5.657 5.657-21-21-21 21-5.657-5.657 21-21-21-21 5.657-5.657 21 21 21-21 5.657 5.657-21 21 21 21z"></path></clipPath><clipPath id="iconic-size-md-circle-x-clip-0-17"><path d="M0 0v32h32v-32h-32zm23.121 21l-2.121 2.121-5-5-5 5-2.121-2.121 5-5-5-5 2.121-2.121 5 5 5-5 2.121 2.121-5 5 5 5z"></path></clipPath><clipPath id="iconic-size-sm-circle-x-clip-0-17"><path d="M0 0v16h16v-16h-16zm11.414 10l-1.414 1.414-2-2-2 2-1.414-1.414 2-2-2-2 1.414-1.414 2 2 2-2 1.414 1.414-2 2 2 2z"></path></clipPath></defs><g class="iconic-circle-x-lg iconic-container iconic-lg" data-width="128" data-height="128" display="inline"><circle cx="64" cy="64" r="64" clip-path="url(#iconic-size-lg-circle-x-clip-0-17)" class="iconic-circle-x-body iconic-property-fill"></circle></g><g class="iconic-circle-x-md iconic-container iconic-md" data-width="32" data-height="32" display="none" transform="scale(4)"><circle cx="16" cy="16" r="16" clip-path="url(#iconic-size-md-circle-x-clip-0-17)" class="iconic-circle-x-body iconic-property-fill"></circle></g><g class="iconic-circle-x-sm iconic-container iconic-sm" data-width="16" data-height="16" display="none" transform="scale(8)"><circle cx="8" cy="8" r="8" clip-path="url(#iconic-size-sm-circle-x-clip-0-17)" class="iconic-circle-x-body iconic-property-fill"></circle></g></svg>';
 var new_vendor = '<div class="small-12 grid-block vertical"><div class="grid-block"><div class="grid-content small-5 vendor-field"><label>Vendor<input type="text"></label></div><div class="grid-content small-6 vendor-field"><label>Link<input type="text"></label></div><div class="grid-content small-1 vendor-field vendor-delete"><a href="" class="align-right">'+circleX+'</a></div></div>';
 var new_subcribe = '<div class="grid-block" style="padding-bottom:0px;"><div class="grid-content small-10 subscribe-field"><label><input type="email" placeholder="name@domain.com"></label></div><div class="grid-content small-2 subscribe-field subscribe-delete"><a href="" class="align-right">'+ circleX +'</a></div></div>';

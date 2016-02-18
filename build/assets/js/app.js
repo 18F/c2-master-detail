@@ -103,7 +103,8 @@
       $scope.processDateFilter = function(){
         $scope.reset_data();
         console.log('$scope.dateFilter: ', $scope.dateFilter);
-        console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed);
+        console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
+        console.log('$scope.items: ', $scope.items.length);
         console.log('$scope.items: ', $scope.items);
         if(!angular.equals("", $scope.dateFilter)){
           console.log("$scope.dateFilter: ", $scope.dateFilter);
@@ -113,17 +114,18 @@
           console.log('startDate: ', startDate);
           console.log('endDate: ', endDate);
           var newItems = []
-          for (var i = $scope.itemsDisplayed.length - 1; i >= 0; i--) {
-            if( range.contains(moment($scope.itemsDisplayed[i]["date"], 'MM/DD/YYYY')) ){
-              newItems.push($scope.itemsDisplayed[i]);
+          console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed.length);
+          console.log('$scope.items: ', $scope.items.length);
+          for (var i = $scope.items.length - 1; i >= 0; i--) {
+            if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
+              console.log('$scope.items[i]: ', $scope.items[i]);
+              newItems.push($scope.items[i]);
             }
           }
           console.log('newItems: ', newItems);
-          $scope.itemsDisplayed = newItems;
+          $scope.items = newItems;
           $scope.focusIndex = 0;
           $scope.setIndex(newItems);
-          console.log('$scope.itemsDisplayed: ', $scope.itemsDisplayed);
-          console.log('$scope.items: ', $scope.items);
           console.log('In feed: ', $scope.items.length);
         } else {
           $scope.reset_data();
@@ -283,7 +285,7 @@
           "applyClass": "button success",
           "cancelClass": "button alert"
       }, function(start, end, label) {
-        var dateRange = start.format('MM/DD/YYYY') + ' to ' + end.format('MM/DD/YYYY');
+        var dateRange = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
         $scope.dateFilter = dateRange;
         console.log('New date range selected: ' + dateRange + ' (predefined range: ' + label + ')');
       });

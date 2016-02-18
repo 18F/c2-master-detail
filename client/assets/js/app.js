@@ -291,6 +291,7 @@
       $scope.toggle_advanced_search();
     }
     $scope.toggle_advanced_search = function(){
+      $scope.setQuery = $scope.query;
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
       if($scope.show_advanced_search == true){
         window.setTimeout(function(){

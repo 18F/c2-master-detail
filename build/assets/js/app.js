@@ -154,7 +154,7 @@
       $('.activity-item').first().addClass("visible single");
       
       $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
-          $scope.dateFilter = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY')
+          $scope.dateFilter = picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY');
           $(this).val($scope.dateFilter);
       });
 

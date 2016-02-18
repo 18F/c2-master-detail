@@ -156,15 +156,17 @@ controller: MessageCtrl
                         <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
                       </p>
                       <h5 class="product_name">{{item.product_name}}</h5>
-                      <div class="align-right text-right icon-box" ng-if="item.inbox_status == 'Approved'">
-                        <span class="label">
-                          <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">File Attached</span>
-                        </span>
-                      </div>
-                      <div class="align-right text-right icon-box" ng-if="item.message_status == 'Comment added'">
-                        <span class="label">
-                          <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">{{item.message_status}}</span>
-                        </span>
+                      <div class="align-right">
+                        <div class="icon-box" ng-if="item.inbox_status == 'Approved'">
+                          <span class="label">
+                            <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">File Attached</span>
+                          </span>
+                        </div>
+                        <div class="icon-box" ng-if="item.message_status == 'Comment added'">
+                          <span class="label">
+                            <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">{{item.message_status}}</span>
+                          </span>
+                        </div>
                       </div>
                     </a>
                   </li>

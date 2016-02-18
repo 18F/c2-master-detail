@@ -37,6 +37,7 @@
         $scope.query = {
           $: "",
           id: "",
+          has_attachment: "",
           product_company: "",
           product_type: "",
           product_name: "",
@@ -306,6 +307,7 @@
         date: "",
         description: "",
         vendor: "",
+        has_attachment: "",
         amount: "",
         org_code: "",
         inbox_status: ""
@@ -582,6 +584,7 @@ var search_params = [
                       'approver',
                       'purchaser',
                       'reconciler',
+                      'has_attachment',
                       'subscriber_1',
                       'subscriber_2',
                       'subscriber_3',

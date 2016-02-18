@@ -923,7 +923,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         margin-left: 0.8rem;
         float: none; }
 
-.button, .button-group > li > a, .button-group > li > label, .button-group > li > button, .xc-button {
+.button, .button-group > li > a, .button-group > li > label, .button-group > li > button, .xc-button, .xc-inbox .xc-status-indicator {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -6869,12 +6869,14 @@ blockquote p {
 
 .xc-search {
   vertical-align: baseline;
-  background-color: #354694; }
-  .xc-search input, .xc-search input:hover, .xc-search input:focus, .xc-search a {
+  background-color: #354694;
+  width: 100%;
+  margin: 0 1rem 0 1rem; }
+  .xc-search input, .xc-search input:focus, .xc-search input:hover, .xc-search a {
     color: #8dbbf0;
     background-color: #354694;
     border: none;
-    margin-bottom: 0px; }
+    padding-left: 1rem; }
   .xc-search input:placeholder {
     color: #4b63cf; }
 
@@ -6960,56 +6962,108 @@ blockquote p {
   line-height: 130%;
   height: 60px;
   padding-top: 10px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  background-color: white; }
   .xc-inbox tbody tr td {
     text-align: left;
-    background-color: white;
     border-bottom: 1px solid #e2e8ee;
     border-top: 1px solid #e2e8ee; }
-  .xc-inbox tbody tr td:first-child {
-    background-color: #e2e8ee;
-    vertical-align: middle;
-    text-align: center;
-    padding: 0px; }
   .xc-inbox tbody tr td:last-child {
     border: 1px solid #e2e8ee; }
 
+.xc-inbox tbody tr:hover {
+  background-color: #ebf1f7; }
+
 .xc-inbox .xc-status-indicator {
-  content: '';
-  pointer-events: none;
-  background-image: none;
-  border-radius: 25px;
-  width: 25px;
-  padding: 0px;
-  display: block;
-  height: 25px;
-  margin: 0 auto; }
+  font-size: 0.9rem;
+  font-size: 80%;
+  font-weight: bold;
+  width: 6rem;
+  margin: 0; }
+  .xc-inbox .xc-status-indicator .iconic {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    margin-top: -2px; }
 
 .xc-inbox .Approved {
-  background: #1b2b7a;
-  border: 2px solid #1b2b7a; }
+  background: #192b7c;
+  color: #fff; }
+  .xc-inbox .Approved:hover, .xc-inbox .Approved:focus {
+    background: #172568;
+    color: #fff; }
+  .xc-inbox .Approved .iconic * {
+    fill: #fff;
+    stroke: #fff; }
+    .xc-inbox .Approved .iconic *.iconic-property-accent {
+      fill: #fff;
+      stroke: #fff; }
 
 .xc-inbox .Pending {
-  background: white;
-  border: 2px solid #1b2b7a; }
+  border: 1px solid #192b7c;
+  background: transparent;
+  color: #192b7c;
+  border-width: 2px; }
+  .xc-inbox .Pending:hover, .xc-inbox .Pending:focus {
+    border-color: #2845c7;
+    background: transparent;
+    color: #2845c7; }
+  .xc-inbox .Pending .iconic * {
+    fill: #192b7c;
+    stroke: #192b7c; }
+    .xc-inbox .Pending .iconic *.iconic-property-accent {
+      fill: #192b7c;
+      stroke: #192b7c; }
+  .xc-inbox .Pending:hover .iconic * {
+    fill: #2845c7;
+    stroke: #2845c7; }
+    .xc-inbox .Pending:hover .iconic *.iconic-property-accent {
+      fill: #2845c7;
+      stroke: #2845c7; }
 
 .xc-inbox .Completed {
-  background-color: #c1c0c0;
-  border: 2px solid #c1c0c0; }
+  background: #4a4a4a;
+  color: #fff; }
+  .xc-inbox .Completed:hover, .xc-inbox .Completed:focus {
+    background: #172568;
+    color: #fff; }
+  .xc-inbox .Completed .iconic * {
+    fill: #fff;
+    stroke: #fff; }
+    .xc-inbox .Completed .iconic *.iconic-property-accent {
+      fill: #fff;
+      stroke: #fff; }
+
+.xc-inbox .Canceled {
+  background: #e8e8e8;
+  color: #4a4a4a; }
+  .xc-inbox .Canceled:hover, .xc-inbox .Canceled:focus {
+    background: #172568;
+    color: #4a4a4a; }
+  .xc-inbox .Canceled .iconic * {
+    fill: #4a4a4a;
+    stroke: #4a4a4a; }
+    .xc-inbox .Canceled .iconic *.iconic-property-accent {
+      fill: #4a4a4a;
+      stroke: #4a4a4a; }
 
 .menu-bar li a {
   margin: 10px;
-  padding: 0 0 7px 0; }
+  padding: 0 0 7px 0;
+  color: #192b7c; }
 
 .xc-filter-bar {
   background: none;
   text-transform: uppercase;
   font-size: 80%;
-  font-weight: bolder;
-  margin-bottom: 0.5rem; }
+  font-weight: bold; }
   .xc-filter-bar .selected {
     padding-bottom: 3px;
-    border-bottom: 3px solid black; }
+    border-bottom: 2px solid #192b7c; }
+
+.modal {
+  max-width: 80%; }
 
 /*! 
  * angular-hotkeys v1.6.0

@@ -31,12 +31,15 @@
 .xc-search {
   vertical-align: baseline;
   background-color: #354694;
+  width: 100%;
+  margin: 0 1rem 0 1rem;
 
-  input, input:hover, input:focus, a {
+  input, input:focus, input:hover, a {
     color: #8dbbf0;
     background-color: #354694;
     border: none;
-    margin-bottom: 0px;
+    padding-left: 1rem;
+    //margin: 0;
   }
 
   input:placeholder {
@@ -86,7 +89,6 @@
 }
 
 .xc-inbox {
-
 
   table {
     width: 100%;
@@ -139,19 +141,12 @@
     height: 60px;
     padding-top: 10px;
     padding-bottom: 10px;
+    background-color: white;
 
     td {
       text-align: left;
-      background-color: white;
       border-bottom: 1px solid #e2e8ee;
       border-top: 1px solid #e2e8ee;
-    }
-
-    td:first-child {
-      background-color: #e2e8ee;
-      vertical-align: middle;
-      text-align: center;
-      padding: 0px;
     }
 
     td:last-child {
@@ -159,49 +154,75 @@
     }
   }
 
+  tbody tr:hover {
+    background-color: #ebf1f7;
+  }
+
   .xc-status-indicator {
-    content: '';
-    pointer-events: none;
-    background-image: none;
-    border-radius: 25px;
-    width: 25px;
-    padding: 0px;
-    display: block;
-    height: 25px;
-    margin: 0 auto;
+    @extend %button;
+    // Use the size mixin to set a size
+    @include button-size(
+      $size: medium, // tiny, small, medium, or large
+      $expand: false
+    );
+    font-size: 80%;
+    font-weight: bold;
+    width: 6rem;
+    margin: 0;
   }
 
   .Approved {
-    background: #1b2b7a;
-    border: 2px solid #1b2b7a;
+    @include button-style(
+      $background: #192b7c, // Background color
+      $color: #fff, // Text color
+      $style: solid // Can be solid or hollow
+    );
   }
 
   .Pending {
-    background: white;
-    border: 2px solid #1b2b7a;
+    @include button-style(
+    $background: #192b7c, // Background color
+    $color: #fff, // Text color
+    $style: hollow // Can be solid or hollow
+    );
+    border-width: 2px;
   }
 
   .Completed {
-    background-color: #c1c0c0;
-    border: 2px solid #c1c0c0;
+    @include button-style(
+      $background: #4a4a4a, // Background color
+      $color: #fff, // Text color
+      $style: solid // Can be solid or hollow
+    );
+  }
+
+  .Canceled {
+    @include button-style(
+      $background: #e8e8e8, // Background color
+      $color: #4a4a4a, // Text color
+      $style: solid // Can be solid or hollow
+    );
   }
 }
 
 .menu-bar li a {
   margin: 10px;
   padding: 0 0 7px 0;
+  color: #192b7c;
 }
 
 .xc-filter-bar {
   background: none;
   text-transform: uppercase;
   font-size: 80%;
-  font-weight: bolder;
-  margin-bottom: 0.5rem;
+  font-weight: bold;
 
   .selected {
     padding-bottom: 3px;
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid #192b7c;
   }
+}
 
+.modal {
+  max-width: 80%;
 }

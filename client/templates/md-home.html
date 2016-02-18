@@ -52,7 +52,13 @@ controller: MessageCtrl
                   </div>
                 </span>
 
-                <span class="secondary badge" style="float:left; margin-right: 5px;">{{items.length}}</span> <a ng-click="resetLink()" class="reset-link" style="margin-right: 5px; line-height: 25px;">Reset Search</a>
+                <a class="popup-toggle" href="#" zf-popup-toggle="popup">
+                  <span class="secondary badge" style="float:left; margin-right: 5px;">{{items.length}}</span>
+                  <div class="request-popup">
+                    There are {{items.length}} requests displayed, based on the selected search parameters.
+                  </div>
+                </a>
+                 <a ng-click="resetLink()" class="reset-link" style="margin-right: 5px; line-height: 25px;">Reset Search</a>
               </div>
               <div class="search-bar medium-4">
                 <form ng-submit="processFilter()">

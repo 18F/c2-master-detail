@@ -288,14 +288,30 @@
         $scope.dateFilter = dateRange;
         console.log('New date range selected: ' + dateRange + ' (predefined range: ' + label + ')');
       });
+      $scope.toggle_advanced_search();
+    }
+    $scope.toggle_advanced_search = function(){
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
+      if($scope.show_advanced_search == true){
+        window.setTimeout(function(){
+          $('.advanced-search input').first().focus();
+        }, 200);
+      }
     }
     hotkeys.add({
-      combo: 's',
+      combo: 'ctrl+s',
       description: 'Select the search field',
       callback: function() {
         $('.search-field-input').focus();
         return false;
+      }
+    });
+    hotkeys.add({
+      combo: 'ctrl+d',
+      description: 'Toggle the advanced search box',
+      allowIn: ['INPUT'],
+      callback: function() {
+        $scope.toggle_advanced_search();
       }
     });
     hotkeys.add({

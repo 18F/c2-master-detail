@@ -7342,6 +7342,17 @@ blockquote p {
     fill: #e1e1e1;
     stroke: #e1e1e1; }
 
+.popup-toggle:hover .request-popup {
+  display: block; }
+
+.request-popup {
+  display: none;
+  position: absolute;
+  background: #eee;
+  border: 1px solid #333;
+  padding: 2px 5px;
+  margin-left: 29px; }
+
 .search-fields-result {
   position: relative;
   z-index: 1;

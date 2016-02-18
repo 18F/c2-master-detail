@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Requester</th>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in items">
+      <td><span class="xc-status-indicator {{item.inbox_status}}"></span></td>
+      <td>{{item.date}}</td>
+      <td>{{item.person_name}}</td>
+      <td>{{item.product_name}}</td>
+      <td>{{item.amount}}</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>

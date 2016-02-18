@@ -5,11 +5,120 @@
 @import "hotkeys";
 @import "daterangepicker";
 
+.search-fields-result{ 
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 100%;
+  padding: 8px 8px;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 13px 8px 2px;
+  font-family: inherit;
+  font-size: 13px;
+  -webkit-font-smoothing: inherit;
+  line-height: 18px;
+  color: #303030;
+  span .hidden{
+    display: none;
+  }
+  .item{
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    position: relative;
+    padding-right: 24px !important;
+    padding: 2px 6px;
+    margin: 0 3px 3px 0;
+    color: #ffffff;
+    cursor: pointer;
+    background: #1da7ee;
+    border: 1px solid #0073bb;
+    text-shadow: 0 1px 0 rgba(0, 51, 83, 0.3);
+    background-color: #1b9dec;
+    background-image: -moz-linear-gradient(top, #1da7ee, #178ee9);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1da7ee), to(#178ee9));
+    background-image: -webkit-linear-gradient(top, #1da7ee, #178ee9);
+    background-image: -o-linear-gradient(top, #1da7ee, #178ee9);
+    background-image: linear-gradient(to bottom, #1da7ee, #178ee9);
+    background-repeat: repeat-x;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1da7ee', endColorstr='#ff178ee9', GradientType=0);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03);
+  }
+  span{
+    .remove{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: inline-block;
+      width: 17px;
+      padding: 2px 0 0 0;
+      font-size: 12px;
+      font-weight: bold;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      border-left: 1px solid #0073bb;
+      -webkit-border-radius: 0 2px 2px 0;
+      -moz-border-radius: 0 2px 2px 0;
+      border-radius: 0 2px 2px 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  }
+}
+
 .drop-container{
   padding-bottom: 10px;
   background: #2c4d93;
   a:hover{
     background: lighten(#2c4d93, 20%) !important;
+  }
+}
+
+@media only screen and (max-width: 75em){
+  .show-for-large-inline:not(.ng-hide) {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 75em){
+  .show-for-large-inline:not(.ng-hide) {
+    display: inline-block !important;
+  }
+}
+.search-results{
+  &:hover{
+    background: #ededed;
+  }
+  .search-wrapper{
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #ededed;
+    h5{
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0px;
+      padding: 0px;
+    }
+    .filter-case{
+      float: right;
+    }
   }
 }
 
@@ -34,12 +143,12 @@ p{
     position: absolute;
   }
   .iconic-magnifying-glass {
-    top: 12px;
+    top: 20px;
     left: 10px;
   }
   a.iconic-chevron {
     position: absolute;
-    top: 15px;
+    top: 22px;
     right: 28px;
     .iconic *{
       fill: $secondary-color;
@@ -297,8 +406,8 @@ strong, b {
   border: 1px solid #ccc;
   padding: 15px;
   z-index: 1;
-  top: 39px;
-  left: 0px;
+  top: 46px;
+  right: 0px;
   width: 150%;
   .search-field .button{
     background: none;
@@ -399,7 +508,15 @@ aside.modal{
   margin-bottom: 10px;
 }
 
-@media only screen and (min-width: 40em){
+.reset-link{
+  float: right;
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: underline;
+  line-height: 22px;
+}
+
+@media only screen and (min-width: 1200px){
   .large-correct{
     padding-right: 40px;
   }
@@ -644,9 +761,12 @@ aside.modal{
     }
   }
   .inbox-item{
-    border-left: 5px solid $secondary-color;
+    a{
+      height: 135px;
+    }
+    // border-left: 5px solid $secondary-color;
     &.active{
-      border-left: 5px solid $primary-color;
+      // border-left: 5px solid $primary-color;
       background: #fff;
     }
     &:hover{

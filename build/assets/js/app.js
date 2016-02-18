@@ -16,6 +16,7 @@
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.filter = "";
         $scope.active_filter = "";
+        $scope.setQuery = {};
         $scope.query = {
           $: "",
           id: "",
@@ -74,11 +75,37 @@
       }
       $scope.items = new_list;
     }
+    $scope.issetQuery = function(){
+      if(true){
+
+      }
+    }
     $scope.add_new_vendor = function(){
       $('.new-vendor').before(new_vendor);
     }
     $scope.add_new_subscriber = function(){
       $('.new-subscriber').before(new_subcribe);
+    }
+    $scope.resetLink = function(){
+      $scope.reset_filter();
+      $scope.setQuery = $scope.query;
+      $scope.processFilter();
+    }
+    $scope.isEmptyObject = function(obj) {
+      return angular.equals("", obj);
+    }
+    $scope.processFilterButton = function(){
+      $scope.show_advanced_search = false;
+      $scope.setQuery = $scope.query;
+      $scope.processFilter();
+    }
+    $scope.remove_filter_key = function(key){
+      $scope.query[key] = "";
+      $scope.processFilter();
+    }
+    $scope.remove_filter_query = function(){
+      $scope.query.$ = "";
+      $scope.processFilter();
     }
     window.setTimeout(function(){
       $('.activity-item').first().addClass("visible single");
@@ -90,9 +117,10 @@
     }
     $scope.filter_by = function(param){
       console.log(param);
+      $scope.reset_filter();
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
-      console.log($scope.active_filter);
+      $scope.setQuery = $scope.query;
       $scope.processFilter();
     }
     $scope.processFilter = function(){
@@ -147,6 +175,22 @@
     }
     console.log($scope['single']);
 
+    $scope.reset_filter = function(){
+      $scope.query = {
+        $: "",
+        id: "",
+        product_company: "",
+        product_type: "",
+        product_name: "",
+        person_name: "",
+        date: "",
+        description: "",
+        vendor: "",
+        amount: "",
+        org_code: "",
+        inbox_status: ""
+      };
+    }
     $scope.keys = [];
     // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
     $scope.focusIndexDown = function() {
@@ -188,6 +232,7 @@
     });
 
   }
+
 
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');

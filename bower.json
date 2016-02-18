@@ -26,6 +26,8 @@
     "foundation-apps": "^1.2.0",
     "ng-selectize": "^0.0.6",
     "angular-masonry": "^0.15.0",
-    "angular-daterangepicker": "^0.2.2"
+    "angular-daterangepicker": "^0.2.2",
+    "angularjs-slider": "^2.8.0",
+    "angular-debounce": "^1.0.3"
   }
 }

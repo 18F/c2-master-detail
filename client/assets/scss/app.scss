@@ -4,6 +4,7 @@
 @import "xc";
 @import "hotkeys";
 @import "daterangepicker";
+@import "rzslider";
 
 .calendar-table{
   svg.iconic.iconic-md:not(.iconic-size-sm):not(.iconic-size-lg), svg.iconic.iconic-size-md{
@@ -14,6 +15,18 @@
       stroke: $secondary-color;
     }
   }
+}
+
+.popup-toggle:hover .request-popup{
+  display: block;
+}
+.request-popup{
+  display: none;    
+  position: absolute;
+  background: #eee;
+  border: 1px solid #333;
+  padding: 2px 5px;
+  margin-left: 29px;
 }
 
 .search-fields-result{ 

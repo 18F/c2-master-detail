@@ -1,8 +1,70 @@
-<div class="xc-button">
+<div class="xc-button" zf-open="downloadCsvModal">
   <div class="xc-download-csv-icon">
     <img zf-iconic="" icon="account" size="small" color="dark">
   </div>
   <div class="xc-button-text">
     Download .csv
   </div>
+</div>
+
+<div zf-modal="" id="downloadCsvModal">
+  <a zf-close="" class="close-button">×</a>
+  <h3>Download .csv</h3>
+  <form>
+    <div class="grid-block horizontal">
+      <div class="grid-content small-6 medium-6">
+        <label>
+          Report
+          <select name="report" multiple>
+            <option>Current Results</option>
+            <option>All My Requests</option>
+            <option>Missing CL#s</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid-content small-6 medium-6">
+        <label>
+          Description
+          <textarea rows="2"></textarea>
+        </label>
+      </div>
+      <div>
+        <label>
+          Expense Type
+          <input type="text">
+        </label>
+      </div>
+      <div class="grid-block horizontal">
+        <div class="grid-content small-12 medium-6" style="padding-left:0">
+          <label>
+            Amount
+            <input type="text">
+          </label>
+        </div>
+        <div class="grid-content small-12 medium-6">
+          <div style="position: absolute; bottom: 0; padding-bottom: 1rem">
+            <input type="radio" id="radio-notToExceed"><label for="radio-notToExceed">Not to exceed</label>
+            <input type="radio" id="radio-exactly"><label for="radio-exactly">Exactly</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label>
+          Vendor
+          <input type="text">
+        </label>
+      </div>
+      <div>
+        <label>
+          Subscriber
+          <input type="text">
+        </label>
+      </div>
+      <div class="grid-block align-right">
+        <div class="grid-content small-2 medium-2">
+          <a class="button">Submit</a>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

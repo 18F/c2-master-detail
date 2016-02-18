@@ -41,11 +41,17 @@ controller: MessageCtrl
                       Search: {{query.$}}  <a ng-click="remove_filter_query()" class="remove" tabindex="-1" title="Remove">×</a>
                   </div>
                 </span>
+                <span ng-hide="isEmptyObject(dateFilter)">
+                  <div class="item">
+                      {{dateFilter}}  <a ng-click="remove_date_filter()" class="remove" tabindex="-1" title="Remove">×</a>
+                  </div>
+                </span>
                 <span ng-repeat="(key, value) in setQuery">
                   <div class="item"  ng-hide="isEmptyObject(value)">
                       {{key}}: {{value}}  <a ng-click="remove_filter_key(key)" class="remove" tabindex="-1" title="Remove">×</a>
                   </div>
                 </span>
+
                 <span class="secondary badge" style="float:left; margin-right: 5px;">{{items.length}}</span> <a ng-click="resetLink()" class="reset-link" style="margin-right: 5px; line-height: 25px;">Reset Search</a>
               </div>
               <div class="search-bar medium-4">
@@ -92,10 +98,10 @@ controller: MessageCtrl
                         </div>
                     </div>
                     <div class="grid-block">
-                        <div class="small-12 medium-12 grid-content">
+                        <div class="small-12 medium-6 grid-content">
                             <label>
                                 Date Within
-                                <input date-range-picker class="form-control date-picker" type="text" ng-model="date" />
+                                <input type='text' ng-model='dateFilter' datepicker='' class="date-picker"></input>
                             </label>
                         </div>
                     </div>

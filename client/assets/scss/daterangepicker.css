@@ -8,9 +8,18 @@
  * Built for http://www.improvely.com
  */
 
+.rangepicker-box {
+  background: #fff; 
+  cursor: pointer; 
+  padding: 5px 10px; 
+  border: 1px solid #ccc;
+}
+
+ .daterangepicker {
+    z-index: 2;
+ }
  .daterangepicker.dropdown-menu {
   max-width: none;
-  z-index: 3000;
 }
 
 .daterangepicker.opensleft .ranges, .daterangepicker.opensleft .calendar {
@@ -37,29 +46,15 @@
 }
 
 .daterangepicker .calendar {
-  display: none;
+ /* display: none; */
   max-width: 270px;
-}
-
-.daterangepicker .calendar table {
-  border: 0px;
-}
-
-.daterangepicker .calendar.single .calendar-date {
-  border: none;
 }
 
 .daterangepicker .calendar th, .daterangepicker .calendar td {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   white-space: nowrap;
   text-align: center;
-  font-size: 0.73em;
-  padding: 0.4em;
-  line-height: 1.3em;
-}
-
-.daterangepicker .calendar td {
-  background-color: #fff;
+  min-width: 32px;
 }
 
 .daterangepicker .ranges label {
@@ -102,9 +97,9 @@
 
 .daterangepicker .ranges li {
   font-size: 13px;
-  background: #e7ebf1;
-  border: 1px solid #e7ebf1;
-  color: #222;
+  background: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  color: #08c;
   padding: 3px 12px;
   margin-bottom: 8px;
   -webkit-border-radius: 5px;
@@ -114,8 +109,8 @@
 }
 
 .daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
-  background: #162856;
-  border: 1px solid #162856;
+  background: #08c;
+  border: 1px solid #08c;
   color: #fff;
 }
 
@@ -142,6 +137,7 @@
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  display: none;
 }
 
 .daterangepicker.opensleft:before {
@@ -193,7 +189,7 @@
 .daterangepicker table {
   width: 100%;
   margin: 0;
-  border:0px;
+  border: 0;
 }
 
 .daterangepicker td, .daterangepicker th {
@@ -205,22 +201,6 @@
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
-}
-
-.daterangepicker thead {
-  background: transparent;
-}
-
-.daterangepicker .calendar table thead tr:nth-of-type(even) {
-  background-color: #162856;
-}
-
-.daterangepicker .calendar table thead tr:nth-of-type(even) th {
-  color: #fff;
-}
-
-.daterangepicker th {
-  border-radius: 0;
 }
 
 .daterangepicker td.off {
@@ -236,15 +216,15 @@
 }
 
 .daterangepicker td.in-range {
-  background: #d9dde8;
+  background: #ebf4f8;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
 
 .daterangepicker td.active, .daterangepicker td.active:hover {
-  background-color: #162856;
-  border-color: #162856;
+  background-color: #357ebd;
+  border-color: #3071a9;
   color: #fff;
 }
 
@@ -273,17 +253,4 @@
 .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.ampmselect {
   width: 50px;
   margin-bottom: 0;
-}
-
-.daterangepicker_start_input {
-  float: left;
-}
-
-.daterangepicker_end_input {
-  float: left;
-  padding-left: 11px
-}
-
-.daterangepicker th.month {
-  width: auto;
 }

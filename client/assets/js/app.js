@@ -18,8 +18,50 @@
       $scope.$on('$viewContentLoaded', function(event) {
         console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
         $scope.filter = "";
+        $scope.active_filter = "";
         $scope.setQuery = {};
         $scope.dateFilter = "";
+        $scope.amountFilter = "";
+        $scope.slider = {
+          min: 0,
+          max: 3500,
+          options: {
+            floor: 0,
+            ceil: 3500,
+            translate: function(value) {
+              // console.log('translate: function(value) {');
+              return '$' + value;
+            }
+          }
+        };
+        $scope.query = {
+          $: "",
+          id: "",
+          product_company: "",
+          product_type: "",
+          product_name: "",
+          person_name: "",
+          date: "",
+          description: "",
+          vendor: "",
+          amount: "",
+          org_code: "",
+          inbox_status: ""
+        };
+        $scope.show_advanced_search = false;
+        $scope.focusIndex = 0;
+        $scope.items = mock_data;
+        $scope.itemsDisplayed = $scope.items;
+        blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
+      });
+  }])
+  .controller('ExcelCtrl',
+    ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
+      $scope.$on('$viewContentLoaded', function(event) {
+        console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
+        $scope.filter = "";
+        $scope.active_filter = "";
+        $scope.setQuery = {};
         $scope.dateFilter = "";
         $scope.amountFilter = "";
         $scope.slider = {
@@ -49,6 +91,8 @@
           org_code: "",
           inbox_status: ""
         };
+        $scope.view_type = "master";
+
         $scope.show_advanced_search = false;
         $scope.focusIndex = 0;
         $scope.items = mock_data;
@@ -68,6 +112,19 @@
         return arr[i];
       }
     }
+  }
+
+  function excel_table_tweaks() {
+    // Table tweaks for the excel view
+    var table = $("#xc-inbox-table").stupidtable();
+    table.on("aftertablesort", function (event, data) {
+      var th = $(this).find("th");
+      th.find(".arrow").remove();
+      var dir = $.fn.stupidtable.dir;
+      var arrow = data.direction === dir.ASC ? "&#x25b2;" : "&#x25bc;";
+      th.eq(data.column)
+        .append('<div class="arrow">' + arrow +'</span>');
+    });
   }
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
@@ -228,7 +285,8 @@
       vm.refreshSlider();
 
       $('.activity-item').first().addClass("visible single");
-      
+      excel_table_tweaks();
+
       $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
         console.log('$(\'input.date-picker\').on(\'apply.daterangepicker\', function(ev, picker) {');
           $scope.format_date_range(picker.startDate, picker.endDate);
@@ -242,18 +300,50 @@
           $(this).val('');
           $scope.$apply();
       });
-
     }, 300);
-    
+
     console.log('focusIndex: ', $scope.focusIndex);
-    
+
     $scope.update_single_item = function(newValue){
       $scope.single = $scope.items[newValue];
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
+      $scope.view_type = "detail";
       $scope.focusIndex = selectedIndex;
     }
+    $scope.filter_by = function(param){
+      console.log(param);
+      $scope.reset_filter();
+      $scope.query.inbox_status = param;
+      $scope.active_filter = param;
+      $scope.setQuery = $scope.query;
+      $scope.processFilter();
+    }
+    $scope.processFilter = function(){
+      console.log("$scope.query: ", $scope.query);
+      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.focusIndex = 0;
+      $scope.setIndex(new_list);
+      console.log('In feed: ', $scope.items.length);
+    }
+    $scope.update_view_type = function(){
+      if($scope.view_type == "master"){
+
+      }else if($scope.view_type == "detail"){
+
+      }
+    }
+    $scope.$watch('view_type', function(newValue, oldValue) {
+      console.log('##################################################');
+      console.log('$scope.view_type: ', $scope.view_type);
+      console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+      $scope.update_view_type();
+    });
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('Running');
+      $scope.processFilter();
+    }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
@@ -294,7 +384,7 @@
     if($scope['single'] == undefined){
       $scope['single'] = mock_data[0];
     }
-    
+
     $scope.reset_filter = function(){
       console.log('$scope.reset_filter = function(){');
       $scope.resetAmountSlider();

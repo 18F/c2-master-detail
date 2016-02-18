@@ -5,6 +5,17 @@
 @import "hotkeys";
 @import "daterangepicker";
 
+.calendar-table{
+  svg.iconic.iconic-md:not(.iconic-size-sm):not(.iconic-size-lg), svg.iconic.iconic-size-md{
+    width: 23px;
+    height: 23px;
+    *{
+      fill: $secondary-color;
+      stroke: $secondary-color;
+    }
+  }
+}
+
 .search-fields-result{ 
   position: relative;
   z-index: 1;

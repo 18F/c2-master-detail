@@ -8,18 +8,20 @@
     'daterangepicker',
     'cfp.hotkeys',
     'rzModule',
+    'rt.debounce',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
   ])
   .controller('MessageCtrl',
-    ["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){
-      console.log('["$scope", "$state", "$http", "$filter", "hotkeys", function($scope, $state, $http, $filter, hotkeys){');
+    ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
       $scope.$on('$viewContentLoaded', function(event) {
         console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
         $scope.filter = "";
         $scope.setQuery = {};
         $scope.dateFilter = "";
+        $scope.dateFilter = "";
+        $scope.amountFilter = "";
         $scope.slider = {
           min: 0,
           max: 3500,
@@ -50,7 +52,7 @@
         $scope.focusIndex = 0;
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
-        blast_off_messages($scope, $state, $http, $filter, hotkeys);
+        blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
   .config(config)
@@ -67,7 +69,11 @@
     }
   }
 
-  function blast_off_messages($scope, $state, $http, $filter, hotkeys){
+  function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
+    $scope.resetAmountSlider = function(){
+      $scope.slider.min = 0;
+      $scope.slider.max = 3500;
+    }
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
       for (var i = new_list.length - 1; i >= 0; i--) {
@@ -115,6 +121,11 @@
       console.log('$scope.remove_date_filter = function(){');
       $scope.dateFilter = "";
     }
+    $scope.remove_amount_filter = function(){
+      console.log('$scope.remove_amount_filter = function(){');
+      $scope.resetAmountSlider();
+      $scope.amountFilter = "";
+    }
     $scope.processFilter = function(){
       console.log('$scope.processFilter = function(){');
       console.log("$scope.query: ", $scope.query);
@@ -143,32 +154,44 @@
         $scope.dateFilter = "";
       }
     }
-    $scope.processAmountFilter = function(){
-      if(!angular.equals("", $scope.dateFilter)){
-        var min = $scope.slider.min;
-        var max = $scope.slider.max;
-        var newItems = []
-        for (var i = $scope.items.length - 1; i >= 0; i--) {
-          if( $scope.items[i]["amount"] >= $scope.slider.min && $scope.items[i]["amount"] <= $scope.slider.max ){
-            newItems.push($scope.items[i]);
-          }
+    $scope.processAmountFilter = debounce(1000, function () {
+      console.log('Running: $scope.processAmountFilter');
+      var min = $scope.slider.min;
+      var max = $scope.slider.max;
+      // console.log(' -', min);
+      // console.log(' -', max);
+      var newItems = []
+      // console.log('$scope.items: ', $scope.items.length);
+      for (var i = $scope.items.length - 1; i >= 0; i--) {
+        var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
+        // console.log('amount: ', amount);
+        // console.log('$scope.items[i]: ', $scope.items[i]);
+        if( amount >= min && amount <= max ){
+          newItems.push($scope.items[i]);
         }
-        $scope.setup_new_item_list(newItems);
       }
-    }
+      console.log('newItems: ', newItems.length);
+      $scope.setup_new_item_list(newItems);
+    });
     $scope.process_filter_update = function(){
       $scope.processFilter();
       $scope.processDateFilter();
+      $scope.processAmountFilter();
     }
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
       console.log('Running');
       $scope.process_filter_update();
     }, true);
-    $scope.$watch('dateFilter', function(newValue, oldValue) {
-      console.log('$scope.$watch(\'dateFilter\', function(newValue, oldValue) {');
-      console.log('dateFilter: ', newValue);
+    $scope.$watch('amountFilter', function(newValue, oldValue) {
+      console.log(newValue);
       $scope.process_filter_update();
+    }, true);
+    $scope.$watch('slider', function(newValue, oldValue) {
+      // console.log('$scope.slider.min: ', $scope.slider.min);
+      // console.log('$scope.slider.max: ', $scope.slider.max);
+      $scope.process_filter_update();
+      $scope.format_amount_range();
     }, true);
     $scope.filter_by = function(param){
       console.log('$scope.filter_by = function(param){');
@@ -183,6 +206,17 @@
       $scope.dateFilter = date_range;
       console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
       return date_range;
+    }
+    $scope.format_amount_range = function(start, end){
+      console.log('$scope.slider: ', $scope.slider.max);
+      console.log('$scope.slider: ', $scope.slider.min);
+      if($scope.slider.min == 0 && $scope.slider.max == 3500){
+        var amount_range = "";
+      } else {
+        var amount_range = '$' + $scope.slider.min + ' - $' + $scope.slider.max;
+      }
+      $scope.amountFilter = amount_range;
+      console.log('$scope.amountFilter: ', $scope.amountFilter);
     }
     /* Onload */
     window.setTimeout(function(){
@@ -219,8 +253,7 @@
       $scope.focusIndex = selectedIndex;
     }
     $scope.$watch('focusIndex', function(newValue, oldValue) {
-      console.log('$scope.$watch(\'focusIndex\', function(newValue, oldValue) {');
-      console.log(newValue);
+      console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
       return newValue;
     });

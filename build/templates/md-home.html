@@ -62,7 +62,7 @@
                     <a ng-click="processFilter()" class="">
                       <img zf-iconic="" icon="magnifying-glass" size="small">
                     </a>
-                    <a ng-click="advanced_search()" class="iconic-chevron">
+                    <a ng-click="toggle_advanced_search()" class="iconic-chevron">
                       <img zf-iconic="" class="iconic-color-secondary" icon="chevron" data-direction="bottom" size="small">
                     </a>
                   </label>
@@ -81,10 +81,18 @@
                         <input type="text" class="small-12" ng-model="query.product_name">
                     </label>
                     <div class="grid-block">
-                        <div class="small-12 medium-6 grid-content">
+                        <div class="small-12 medium-12 grid-content">
                             <label>
                               Amount
                               <input type="text" ng-model="query.amount">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="grid-block">
+                        <div class="small-12 medium-6 grid-content">
+                            <label>
+                                Date Submitted
+                                <input type='text' ng-model='dateFilter' datepicker='' class="date-picker"></input>
                             </label>
                         </div>
                         <div class="small-12 medium-6 grid-content">
@@ -99,16 +107,8 @@
                         </div>
                     </div>
                     <div class="grid-block">
-                        <div class="small-12 medium-6 grid-content">
-                            <label>
-                                Date Within
-                                <input type='text' ng-model='dateFilter' datepicker='' class="date-picker"></input>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="grid-block">
                         <div class="small-12 medium-12 text-right">
-                            <button ng-click="processFilterButton()" class="button">New Search</button>
+                            <button ng-click="processFilterButton()" class="small-4 button">New Search</button>
                         </div>
                     </div>
                   </form>

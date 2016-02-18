@@ -151,6 +151,8 @@
 
     /* Onload */
     window.setTimeout(function(){
+      $scope.advanced_search();
+      
       $('.activity-item').first().addClass("visible single");
       
       $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {

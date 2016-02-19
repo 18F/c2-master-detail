@@ -39,16 +39,12 @@
     setup_hotkeys($scope, hotkeys);
     setup_date_range_picker($scope);
     setup_advanced_search($scope);
-    setup_single_page($scope);
+    setup_single_page($scope, debounce);
     setup_keyboard_navigation($scope);
     setup_utility_functions($scope);
+    setup_filter_utilities($scope, debounce, $filter);
 
-    if($state.params && $state.params.id != undefined){
-       $scope.update_single_item(search($state.params.id, mock_data));
-    }
-    if($scope['single'] == undefined){
-       $scope.update_single_item(mock_data[0]);
-    }
+    setup_view($scope, $state);
     
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
@@ -63,34 +59,16 @@
       $scope.reset_filter();
       $scope.setQuery = $scope.query;
     }
-    $scope.processFilterButton = function(){
-      console.log('$scope.processFilterButton = function(){');
-      $scope.show_advanced_search = false;
-      $scope.setQuery = $scope.query;
-      $scope.process_filter_update();
-    }
+
+
 
     $scope.setup_new_item_list = function(newItems){
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
       $scope.update_single_item($scope.focusIndex);
     }
-    $scope.processDateFilter = function(){
-      if(!angular.equals("", $scope.dateFilter)){
-        var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
-        var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
-        var range = moment.range(startDate, endDate);
-        var newItems = []
-        for (var i = $scope.items.length - 1; i >= 0; i--) {
-          if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
-            newItems.push($scope.items[i]);
-          }
-        }
-        $scope.setup_new_item_list(newItems);
-      } else {
-        $scope.dateFilter = "";
-      }
-    }
+
+
     $scope.processColumnDateFilter = function(){
       if($scope.columnDateFilter !== ""){
         console.log("Running columnDateFilter: ", $scope.columnDateFilter);
@@ -130,52 +108,11 @@
         $scope.setup_new_item_list(newItems);
       }
     }
-    $scope.trigger_single_change = debounce(300, function () {
-      console.log('$scope.single: ', $scope.single);
-    });
-    $scope.process_filter_update = debounce(300, function () {
-      $scope.processFilter();
-      $scope.processDateFilter();
-      $scope.processAmountFilter();
-      $scope.processColumnDateFilter();
-    });
+
+    
 
 
-    $scope.format_amount_range = function(start, end){
-      console.log('$scope.slider: ', $scope.slider.max);
-      console.log('$scope.slider: ', $scope.slider.min);
-      if($scope.slider.min == min_purchase_amount && $scope.slider.max == max_purchase_amount){
-        var amount_range = "";
-      } else {
-        var amount_range = '$' + $scope.slider.min + ' - $' + $scope.slider.max;
-      }
-      $scope.amountFilter = amount_range;
-      console.log('$scope.amountFilter: ', $scope.amountFilter);
-    }
-    /* Onload */
-    window.setTimeout(function(){
-      console.log('window.setTimeout(function(){');
-      $scope.advanced_search();
 
-      $scope.refreshSlider();
-
-      $('.activity-item').first().addClass("visible single");
-      excel_table_tweaks();
-
-      $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
-        console.log('$(\'input.date-picker\').on(\'apply.daterangepicker\', function(ev, picker) {');
-          $scope.format_date_range(picker.startDate, picker.endDate);
-          $(this).val($scope.dateFilter);
-          $scope.$apply();
-      });
-
-      $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
-        console.log('$(\'input.date-picker\').on(\'cancel.daterangepicker\', function(ev, picker) {');
-          $scope.dateFilter = "";
-          $(this).val('');
-          $scope.$apply();
-      });
-    }, 300);
 
     console.log('focusIndex: ', $scope.focusIndex);
 
@@ -183,19 +120,7 @@
     $scope.close_detail = function() {
       $scope.view_type = "master";
     }
-    $scope.filter_by = function(param){
-      $scope.columnDateFilter = "";
-      $scope.query.inbox_status = param;
-      $scope.active_filter = param;
-      $scope.setQuery = $scope.query;
-    }
-    $scope.processFilter = function(){
-      console.log("$scope.query: ", $scope.query);
-      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-      $scope.focusIndex = 0;
-      $scope.setIndex(new_list);
-      console.log('In feed: ', $scope.items.length);
-    }
+    
     $scope.unixdate = function(date_string) {
       if (date_string.match(/:/)) {
         return moment(date_string,'MM/DD/YYYY hh:mm AA').unix()
@@ -256,6 +181,31 @@
     };
 
 
+   
+    
+    
+  }
+
+  function setup_filter_utilities($scope, debounce, $filter){
+    $scope.process_filter_update = debounce(300, function () {
+      $scope.processFilter();
+      $scope.processDateFilter();
+      $scope.processAmountFilter();
+      $scope.processColumnDateFilter();
+    });
+    $scope.filter_by = function(param){
+      $scope.columnDateFilter = "";
+      $scope.query.inbox_status = param;
+      $scope.active_filter = param;
+      $scope.setQuery = $scope.query;
+    }
+    $scope.processFilter = function(){
+      console.log("$scope.query: ", $scope.query);
+      var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
+      $scope.focusIndex = 0;
+      $scope.setIndex(new_list);
+      console.log('In feed: ', $scope.items.length);
+    }
     $scope.reset_filter = function(){
       console.log('$scope.reset_filter = function(){');
       $scope.resetAmountSlider();
@@ -278,9 +228,41 @@
       };
       $scope.process_filter_update();
     }
-    
-    
   }
+
+  function setup_view($scope, $state){
+    if($state.params && $state.params.id != undefined){
+       $scope.update_single_item(search($state.params.id, mock_data));
+    }
+    if($scope['single'] == undefined){
+       $scope.update_single_item(mock_data[0]);
+    }
+        /* Onload */
+    window.setTimeout(function(){
+      console.log('window.setTimeout(function(){');
+      $scope.advanced_search();
+
+      $scope.refreshSlider();
+
+      $('.activity-item').first().addClass("visible single");
+      excel_table_tweaks();
+
+      $('input.date-picker').on('apply.daterangepicker', function(ev, picker) {
+        console.log('$(\'input.date-picker\').on(\'apply.daterangepicker\', function(ev, picker) {');
+          $scope.format_date_range(picker.startDate, picker.endDate);
+          $(this).val($scope.dateFilter);
+          $scope.$apply();
+      });
+
+      $('input.date-picker').on('cancel.daterangepicker', function(ev, picker) {
+        console.log('$(\'input.date-picker\').on(\'cancel.daterangepicker\', function(ev, picker) {');
+          $scope.dateFilter = "";
+          $(this).val('');
+          $scope.$apply();
+      });
+    }, 300);
+  }
+
   function setup_utility_functions($scope){
     $scope.issetQuery = function(){
       console.log('$scope.issetQuery = function(){');
@@ -293,6 +275,7 @@
       return angular.equals("", obj);
     }
   }
+
   function setup_keyboard_navigation($scope){
     $scope.correctScroll = function () {
       $scope.items[$scope.focusIndex];
@@ -314,7 +297,11 @@
       }
     };
   }
-  function setup_single_page($scope){
+
+  function setup_single_page($scope, debounce){
+    $scope.trigger_single_change = debounce(300, function () {
+      console.log('$scope.single: ', $scope.single);
+    });
     $scope.update_single_item = function(newValue){
       $scope.singleHasChanged = false;
       $scope.single = $scope.items[newValue];
@@ -333,7 +320,14 @@
       $('.new-subscriber').before(new_subcribe);
     }
   }
+
   function setup_advanced_search($scope){
+    $scope.processFilterButton = function(){
+      console.log('$scope.processFilterButton = function(){');
+      $scope.show_advanced_search = false;
+      $scope.setQuery = $scope.query;
+      $scope.process_filter_update();
+    }
     $scope.remove_filter_key = function(key){
       console.log('$scope.remove_filter_key = function(key){');
       $scope.query[key] = "";
@@ -364,7 +358,35 @@
       }
     }
   }
+
   function setup_date_range_picker($scope){
+    $scope.processDateFilter = function(){
+      if(!angular.equals("", $scope.dateFilter)){
+        var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
+        var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
+        var range = moment.range(startDate, endDate);
+        var newItems = []
+        for (var i = $scope.items.length - 1; i >= 0; i--) {
+          if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
+            newItems.push($scope.items[i]);
+          }
+        }
+        $scope.setup_new_item_list(newItems);
+      } else {
+        $scope.dateFilter = "";
+      }
+    }
+    $scope.format_amount_range = function(start, end){
+      console.log('$scope.slider: ', $scope.slider.max);
+      console.log('$scope.slider: ', $scope.slider.min);
+      if($scope.slider.min == min_purchase_amount && $scope.slider.max == max_purchase_amount){
+        var amount_range = "";
+      } else {
+        var amount_range = '$' + $scope.slider.min + ' - $' + $scope.slider.max;
+      }
+      $scope.amountFilter = amount_range;
+      console.log('$scope.amountFilter: ', $scope.amountFilter);
+    }
     $scope.refreshSlider = function () {
       window.setTimeout(function(){
         console.log('window.setTimeout(function(){');
@@ -427,6 +449,7 @@
       });
     }
   }
+
   function setup_scope_variables($scope){
     $scope.keys = [];
     $scope.filter = "";
@@ -466,6 +489,7 @@
     $scope.items = mock_data;
     $scope.itemsDisplayed = $scope.items;
   }
+
   function setup_hotkeys($scope, hotkeys){
     hotkeys.add({
       combo: 'ctrl+e',

@@ -245,3 +245,15 @@
 .modal {
   max-width: 80%;
 }
+
+select {
+    height: auto;
+}
+
+select[size], select[multiple] {
+    background-image: none;
+
+    option {
+      padding: 0.5rem;
+    } 
+}

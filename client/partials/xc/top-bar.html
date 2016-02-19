@@ -1,14 +1,14 @@
 <div class="overflow-visible" ng-class="view_type == 'master' ? 'xc-top-bar' : 'xc-top-detail'">
-  <div class="grid-block small-1 medium-1"></div>
-
-  <div class="grid-block small-3 medium-3">
-    <div class="grid-content">
-      <img src="/assets/img/carticon.png" style="height:25px">
-      <img src="/assets/img/img-logo-c2-portal.png">
+  <div class="grid-block small-10 grid-container overflow-visible">
+    <div class="grid-block small-6 logo-wrapper">
+      <div class="grid-content">
+        <img src="/assets/img/carticon.png" style="height:25px">
+        <img src="/assets/img/img-logo-c2-portal.png">
+      </div>
     </div>
-  </div>
 
-  <div class="grid-block small-5 medium-5 overflow-visible">
-    <div class="search-bar overflow-visible" ng-include="'partials/global/advanced-search.html'"></div>
+    <div class="grid-block small-6 overflow-visible align-right">
+      <div class="search-bar overflow-visible" ng-include="'partials/global/advanced-search.html'"></div>
+    </div>
   </div>
 </div>

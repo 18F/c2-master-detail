@@ -14,13 +14,16 @@
 }
 
 .xc-top-bar {
+  .logo-wrapper{
+    padding-top: 10px;
+  }
   @include grid-block(
     $size: expand, // Can be expand, shrink, or a number of columns
     $orientation: horizontal, // Set to vertical for a vertical grid
     $align: left // Can be left, right, center, justify, or spaced
   )
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   background-color: #192b7c;
 }
 

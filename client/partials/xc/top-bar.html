@@ -1,4 +1,4 @@
-<div ng-class="view_type == 'master' ? 'xc-top-bar' : 'xc-top-detail'">
+<div class="overflow-visible" ng-class="view_type == 'master' ? 'xc-top-bar' : 'xc-top-detail'">
   <div class="grid-block small-1 medium-1"></div>
 
   <div class="grid-block small-3 medium-3">
@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div class="grid-block small-5 medium-5">
-    <div class="search-bar" ng-include="'partials/global/advanced-search.html'"></div>
+  <div class="grid-block small-5 medium-5 overflow-visible">
+    <div class="search-bar overflow-visible" ng-include="'partials/global/advanced-search.html'"></div>
   </div>
 </div>

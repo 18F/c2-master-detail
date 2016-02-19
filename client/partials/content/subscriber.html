@@ -1,0 +1,59 @@
+
+  <div class="card grid-block">
+    <div class="small-12 grid-block vertical">
+      <div class="grid-block shrink card-title">
+        <div class="grid-content">
+          <h4 style="">Subscribers</h4>
+        </div>
+      </div>
+      <div class="grid-block" style="padding-bottom:0px;" ng-if="single.comment_1 != undefined && single.comment_1 != ''">
+        <div class="grid-content small-10 subscribe-field">
+          <label>
+            <input type="email" placeholder="name@domain.com" value="{{single.subscriber_1}}">
+          </label>
+        </div>
+        <div class="grid-content small-2 subscribe-field subscribe-delete">
+          <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+        </div>
+      </div>
+      <div class="grid-block" style="padding-bottom:0px;" ng-if="single.comment_2 != undefined && single.comment_2 != ''">
+        <div class="grid-content small-10 subscribe-field">
+          <label>
+            <input type="email" placeholder="name@domain.com" value="{{single.subscriber_2}}">
+          </label>
+        </div>
+        <div class="grid-content small-2 subscribe-field subscribe-delete">
+          <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+        </div>
+      </div>
+      <div class="grid-block" style="padding-bottom:0px;" ng-if="single.comment_3 != undefined && single.comment_3 != ''">
+        <div class="grid-content small-10 subscribe-field">
+          <label>
+            <input type="email" placeholder="name@domain.com" value="{{single.subscriber_3}}">
+          </label>
+        </div>
+        <div class="grid-content small-2 subscribe-field subscribe-delete">
+          <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+        </div>
+      </div>
+      <div class="grid-block" style="padding-bottom:0px;">
+        <div class="grid-content small-10 subscribe-field">
+          <label>
+            <input type="email" placeholder="name@domain.com">
+          </label>
+        </div>
+        <div class="grid-content small-2 subscribe-field subscribe-delete">
+          <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+        </div>
+      </div>
+      <div class="grid-block new-subscriber" style="padding-bottom:0px;">
+        <div class="grid-content">
+          <p>
+            <a ng-click="add_new_subscriber()" class="subscribe-button">
+              Add Subscriber
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

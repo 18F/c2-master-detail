@@ -247,12 +247,19 @@
         $scope.setup_new_item_list(newItems);
       }
     }
+    $scope.trigger_single_change = debounce(300, function () {
+
+    });
     $scope.process_filter_update = debounce(300, function () {
       $scope.processFilter();
       $scope.processDateFilter();
       $scope.processAmountFilter();
       $scope.processColumnDateFilter();
     });
+    $scope.$watch('single', function(newValue, oldValue) {
+      console.log('Single has changed');
+      $scope.trigger_single_change();
+    }, true);
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
       console.log('Running');

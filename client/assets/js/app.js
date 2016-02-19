@@ -309,7 +309,6 @@
     }
     $scope.filter_by = function(param){
       console.log(param);
-      $scope.reset_filter();
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
       $scope.setQuery = $scope.query;
@@ -353,7 +352,6 @@
       console.log('##################################################');
       console.log('$scope.view_type: ', $scope.view_type);
       console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-      $scope.update_view_type();
     });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('Running');

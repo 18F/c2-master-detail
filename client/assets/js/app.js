@@ -200,7 +200,27 @@
 
   function setup_utility_functions($scope){
 
+    $scope.check_object_differences = function(obj1, obj2){
+      // console.log('obj1: ', obj1);
+      // console.log('obj2: ', obj2);
+      var log = [];
+      angular.forEach(obj1, function(value1, key1) {
+        // console.log(value1 + ' ' + key1);
+        angular.forEach(obj2, function(value2, key2) {
+          // console.log(value2 + ' ' + key2);
+          if(key1 == key2){
+            if(value1 != value2){
+              console.log('different: ', key2);
+              log.push(key2);
+            }
+          }
+        }, log);
+      }, log);
+      return log;
+    }
+
     $scope.setup_new_item_list = function(newItems){
+      console.log("setup_new_item_list");
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
       $scope.update_single_item($scope.focusIndex);
@@ -256,14 +276,31 @@
       }
       $scope.items = new_list;
     }
-    
+    $scope.trigger_response_to_changed_fields = function(){
+      console.log('trigger_response_to_changed_fields');
+    };
+
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
+      console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
+      var obj1 = $scope.items[$scope.focusIndex];
+      var obj2 = $scope.single;
+      var diff = objectDiff.diff(obj1, obj2);
+      var diffKeys = $scope.check_object_differences(obj1, obj2);
+      console.log('diffKeys: ', diffKeys);
+      console.log('diffKeys.length: ', diffKeys.length);
+      if(diffKeys.length == 0){
+        $scope.singleHasChanged = false;
+        // console.log('No changes in ');
+      } else {
+        // console.log('diffKeys: ', diffKeys);
+        $scope.singleHasChanged = true;
+      }
+      console.log(diff);
     });
 
     $scope.update_single_item = function(newValue){
       $scope.singleHasChanged = false;
-      $scope.single = $scope.items[newValue];
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
@@ -521,6 +558,10 @@
   }
 
   function setup_watches($scope){
+    $scope.$watch('singleHasChanged', function(newValue, oldValue) {
+      console.log('Single view has changed');
+      $scope.trigger_response_to_changed_fields();
+    }, true);
     $scope.$watch('single', function(newValue, oldValue) {
       console.log('Single has changed');
       $scope.trigger_single_change();
@@ -541,9 +582,7 @@
       $scope.format_amount_range();
     }, true);
     $scope.$watch('view_type', function(newValue, oldValue) {
-      console.log('##################################################');
       console.log('$scope.view_type: ', $scope.view_type);
-      console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
     });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('Running');
@@ -552,6 +591,9 @@
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
+      $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      console.log('$scope.single:', $scope.single);
+      console.log("$scope.items[$scope.focusIndex]: ", $scope.items[$scope.focusIndex]);
       return newValue;
     });
   }

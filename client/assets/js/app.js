@@ -214,7 +214,7 @@
               log.push(key2);
             }
           }
-        });
+        }, log);
       }, log);
       return log;
     }
@@ -276,7 +276,10 @@
       }
       $scope.items = new_list;
     }
-    
+    $scope.trigger_response_to_changed_fields = function(){
+      console.log('trigger_response_to_changed_fields');
+    };
+
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
       console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
@@ -284,11 +287,13 @@
       var obj2 = $scope.single;
       var diff = objectDiff.diff(obj1, obj2);
       var diffKeys = $scope.check_object_differences(obj1, obj2);
-      if(diffKeys.length > 0){
+      console.log('diffKeys: ', diffKeys);
+      console.log('diffKeys.length: ', diffKeys.length);
+      if(diffKeys.length == 0){
         $scope.singleHasChanged = false;
-        console.log('No changes in ');
+        // console.log('No changes in ');
       } else {
-        console.log('diffKeys: ', diffKeys);
+        // console.log('diffKeys: ', diffKeys);
         $scope.singleHasChanged = true;
       }
       console.log(diff);
@@ -553,6 +558,10 @@
   }
 
   function setup_watches($scope){
+    $scope.$watch('singleHasChanged', function(newValue, oldValue) {
+      console.log('Single view has changed');
+      $scope.trigger_response_to_changed_fields();
+    }, true);
     $scope.$watch('single', function(newValue, oldValue) {
       console.log('Single has changed');
       $scope.trigger_single_change();

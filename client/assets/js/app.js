@@ -285,11 +285,9 @@
       // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];
       var obj2 = $scope.single;
-      var diff = objectDiff.diff(obj1, obj2);
-      $scope.singleChanges = $scope.check_object_differences(obj1, obj2);
-      // console.log('diffKeys: ', diffKeys);
-      // console.log('diffKeys.length: ', diffKeys.length);
-      console.log(diff);
+      $scope.singleChanges.diff = $scope.check_object_differences(obj1, obj2);
+      $scope.singleChanges.detail = objectDiff.diff(obj1, obj2);
+      console.log('$scope.singleChanges: ', $scope.singleChanges);
     });
 
     $scope.update_single_item = function(newValue){

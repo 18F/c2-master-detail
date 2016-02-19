@@ -20,6 +20,20 @@
   background-color: #192b7c;
 }
 
+.xc-top-detail {
+  @include grid-block(
+    $size: expand, // Can be expand, shrink, or a number of columns
+    $orientation: horizontal, // Set to vertical for a vertical grid
+    $align: left // Can be left, right, center, justify, or spaced
+  )
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: black;
+
+  .search-bar {
+    visibility: collapse;
+  }
+}
 
 .xc-header-block {
   @include grid-block(
@@ -255,5 +269,29 @@ select[size], select[multiple] {
 
     option {
       padding: 0.5rem;
-    } 
+    }
+}
+
+
+.xc-detail-nav {
+  background-color: #192b7c;
+  color: white;
+  padding: 1rem;
+
+  .active-filter {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  a {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+    color: white;
+    font-size: 140%;
+    font-weight: bold;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

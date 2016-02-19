@@ -42,6 +42,7 @@
     setup_single_page($scope, debounce);
     setup_keyboard_navigation($scope);
     setup_utility_functions($scope);
+    setup_excel($scope);
     setup_filter_utilities($scope, debounce, $filter);
 
     setup_view($scope, $state);
@@ -60,15 +61,37 @@
       $scope.setQuery = $scope.query;
     }
 
-
-
     $scope.setup_new_item_list = function(newItems){
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
       $scope.update_single_item($scope.focusIndex);
     }
 
+    
+   
 
+    $scope.view_all_activity = function(){
+      console.log('$scope.view_all_activity = function(){');
+      if(!$('.status-comment').hasClass('open')){
+        $('.status-comment').addClass('open');
+        $('.activity-item.single').addClass('first');
+        $('.activity-item').removeClass('single').addClass('visible');
+        $('.activity-visible-button span').text('Hide All');
+      } else {
+        $('.status-comment').removeClass('open');
+        $('.activity-item').removeClass('visible');
+        $('.activity-item.first').addClass('visible');
+        $('.activity-visible-button span').text('View All');
+      }
+    }
+
+
+
+    
+    
+  }
+
+  function setup_excel($scope){
     $scope.processColumnDateFilter = function(){
       if($scope.columnDateFilter !== ""){
         console.log("Running columnDateFilter: ", $scope.columnDateFilter);
@@ -87,36 +110,6 @@
         $scope.columnDateFilter = "";
       }
     }
-    $scope.processAmountFilter = function(){
-      if($scope.slider.min != min_purchase_amount || $scope.slider.max != max_purchase_amount){
-        console.log('Running: $scope.processAmountFilter');
-        var min = $scope.slider.min;
-        var max = $scope.slider.max;
-        // console.log(' -', min);
-        // console.log(' -', max);
-        var newItems = []
-        // console.log('$scope.items: ', $scope.items.length);
-        for (var i = $scope.items.length - 1; i >= 0; i--) {
-          var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
-          // console.log('amount: ', amount);
-          // console.log('$scope.items[i]: ', $scope.items[i]);
-          if( amount >= min && amount <= max ){
-            newItems.push($scope.items[i]);
-          }
-        }
-        console.log('newItems: ', newItems.length);
-        $scope.setup_new_item_list(newItems);
-      }
-    }
-
-    
-
-
-
-
-    console.log('focusIndex: ', $scope.focusIndex);
-
-    
     $scope.close_detail = function() {
       $scope.view_type = "master";
     }
@@ -153,37 +146,6 @@
       //$("#thActivity").stupidsort("desc");
       $scope.processColumnDateFilter();
     }
-
-    $scope.view_all_activity = function(){
-      console.log('$scope.view_all_activity = function(){');
-      if(!$('.status-comment').hasClass('open')){
-        $('.status-comment').addClass('open');
-        $('.activity-item.single').addClass('first');
-        $('.activity-item').removeClass('single').addClass('visible');
-        $('.activity-visible-button span').text('Hide All');
-      } else {
-        $('.status-comment').removeClass('open');
-        $('.activity-item').removeClass('visible');
-        $('.activity-item.first').addClass('visible');
-        $('.activity-visible-button span').text('View All');
-      }
-    }
-
-
-
-    $scope.open = function ( index ) {
-      var items;
-      for ( var i = 0; i < $scope.itemsDisplayed.length; i++ ) {
-        if ( $scope.itemsDisplayed[ i ].navIndex !== index ) { continue; }
-        items = $scope.itemsDisplayed[ i ];
-      }
-      console.log('opening : ', items );
-    };
-
-
-   
-    
-    
   }
 
   function setup_filter_utilities($scope, debounce, $filter){
@@ -277,6 +239,14 @@
   }
 
   function setup_keyboard_navigation($scope){
+    $scope.open = function ( index ) {
+      var items;
+      for ( var i = 0; i < $scope.itemsDisplayed.length; i++ ) {
+        if ( $scope.itemsDisplayed[ i ].navIndex !== index ) { continue; }
+        items = $scope.itemsDisplayed[ i ];
+      }
+      console.log('opening : ', items );
+    };
     $scope.correctScroll = function () {
       $scope.items[$scope.focusIndex];
       console.log('focus: ', $scope.focusIndex);
@@ -322,6 +292,28 @@
   }
 
   function setup_advanced_search($scope){
+
+    $scope.processAmountFilter = function(){
+      if($scope.slider.min != min_purchase_amount || $scope.slider.max != max_purchase_amount){
+        console.log('Running: $scope.processAmountFilter');
+        var min = $scope.slider.min;
+        var max = $scope.slider.max;
+        // console.log(' -', min);
+        // console.log(' -', max);
+        var newItems = []
+        // console.log('$scope.items: ', $scope.items.length);
+        for (var i = $scope.items.length - 1; i >= 0; i--) {
+          var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
+          // console.log('amount: ', amount);
+          // console.log('$scope.items[i]: ', $scope.items[i]);
+          if( amount >= min && amount <= max ){
+            newItems.push($scope.items[i]);
+          }
+        }
+        console.log('newItems: ', newItems.length);
+        $scope.setup_new_item_list(newItems);
+      }
+    }
     $scope.processFilterButton = function(){
       console.log('$scope.processFilterButton = function(){');
       $scope.show_advanced_search = false;
@@ -534,6 +526,7 @@
       }
     });
   }
+
   function setup_watches($scope){
     $scope.$watch('single', function(newValue, oldValue) {
       console.log('Single has changed');
@@ -585,19 +578,11 @@
     FastClick.attach(document.body);
   }
 
-  function setup_charts(){
-    if (loaded == false){
-      loaded = true;
-      google.charts.load('current', {'packages':['bar']});
-    }
-  }
-
   function load_active_message(el){
 
   }
 
   function setup_list(){
-
     var userList = new List('messages', options, data);
     userList.filter(function(item) {
       console.log('userList.filter(function(item) {');
@@ -610,9 +595,7 @@
   }
 
   function setup_completed_list(){
-
     var userList = new List('messages', options, data);
-
     userList.filter(function(item) {
       console.log('userList.filter(function(item) {');
        if (item.values().inbox_status != "Needs Attention" &&
@@ -624,75 +607,6 @@
        }
     });
   }
-
-  function setup_selectize(){
-    $('.title input').selectize({
-      plugins: ['remove_button'],
-      persist: false,
-      create: true,
-      render: {
-        item: function(data, escape) {
-          console.log('item: function(data, escape) {');
-          return '<div>"' + escape(data.text) + '"</div>';
-        }
-      },
-      onDelete: function(values) {
-        console.log('onDelete: function(values) {');
-        console.log('Deleted: ', values)
-      }
-    });
-  }
-
-  function overview_requests(){
-    google.charts.setOnLoadCallback(drawChart_overview_requests);
-    function drawChart_overview_requests() {
-      var data = google.visualization.arrayToDataTable([
-        ['Month', 'Requests'],
-        ['Aug', 1000],
-        ['Sep', 1170],
-        ['Nov', 660],
-        ['Dec', 1030]
-      ]);
-
-      var options = {
-        chart: {
-          title: 'Department Overview',
-          subtitle: 'Requests Processed 2015',
-        },
-        bars: 'horizontal', // Required for Material Bar Charts.
-        hAxis: {format: 'decimal'},
-        height: 400,
-        colors: ['#1b9e77']
-      };
-
-      var chart_overview_requests = new google.charts.Bar(document.getElementById('chart_div'));
-      chart_overview_requests.draw(data, google.charts.Bar.convertOptions(options));
-    }
-  }
-
-  function request_tracking(){
-    google.charts.setOnLoadCallback(drawChart_request_tracking);
-    function drawChart_request_tracking() {
-      var data = google.visualization.arrayToDataTable([
-        ['Week', 'Requested', 'Incomplete', 'Processed'],
-        ['1/11', 1000, 400, 200],
-        ['1/18', 1170, 460, 250],
-        ['1/25', 660, 1120, 300],
-        ['2/1', 1030, 540, 350]
-      ]);
-
-      var options = {
-        chart: {
-          title: 'Department Status',
-          subtitle: 'Weekly Processed Summary',
-        }
-      };
-
-      var chart_request_tracking = new google.charts.Bar(document.getElementById('columnchart_material'));
-      chart_request_tracking.draw(data, options);
-    }
-  }
-
 
   function search(nameKey, arr){
     for (var i = 0; i < arr.length; i++) {

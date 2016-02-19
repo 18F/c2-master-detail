@@ -200,6 +200,20 @@
 
   function setup_utility_functions($scope){
 
+    $scope.check_object_differences = function(obj1, obj2){
+      var log = [];
+      angular.forEach(obj1, function(value1, key1) {
+        angular.forEach(obj2, function(value2, key2) {
+          if(key1 == key2){
+            if(value1 != value2){
+              log.push(value1);
+            }
+          }
+        });
+      }, log);
+      return log;
+    }
+
     $scope.setup_new_item_list = function(newItems){
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
@@ -259,10 +273,15 @@
     
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
-      var diff = objectDiff.diff($scope.items[$scope.focusIndex], $scope.single)
-      if(diff.changed == "equal"){
+      var obj1 = $scope.items[$scope.focusIndex];
+      var obj2 = $scope.single;
+      var diff = objectDiff.diff(obj1, obj2);
+      var diffKeys = $scope.check_object_differences(obj1, obj2);
+      if(diffKeys.length > 0){
         $scope.singleHasChanged = false;
+        console.log('No changes in ');
       } else {
+        console.log('diffKeys: ', diffKeys);
         $scope.singleHasChanged = true;
       }
       console.log(diff);
@@ -270,8 +289,8 @@
 
     $scope.update_single_item = function(newValue){
       $scope.singleHasChanged = false;
-      $scope.single = $scope.items[newValue];
-      $scope.single = $scope.items[newValue];
+      $scope.single = {};
+      angular.copy($scope.items[newValue], $scope.single);
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');

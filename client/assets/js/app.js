@@ -47,6 +47,7 @@
 
     setup_view($scope, $state);
 
+    // THIS IS BAD. CHANGE ASAP
     $scope.view_all_activity = function(){
       console.log('$scope.view_all_activity = function(){');
       if(!$('.status-comment').hasClass('open')){
@@ -60,7 +61,7 @@
         $('.activity-item.first').addClass('visible');
         $('.activity-visible-button span').text('View All');
       }
-    }
+    } // THIS IS BAD. CHANGE ASAP
   }
 
   function setup_excel($scope){

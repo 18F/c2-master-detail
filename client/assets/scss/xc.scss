@@ -13,7 +13,7 @@
   }
 }
 
-.xc-top-bar {
+.xc-top-bar, .xc-top-detail{
   .logo-wrapper{
     padding-top: 10px;
   }
@@ -28,14 +28,7 @@
 }
 
 .xc-top-detail {
-  @include grid-block(
-    $size: expand, // Can be expand, shrink, or a number of columns
-    $orientation: horizontal, // Set to vertical for a vertical grid
-    $align: left // Can be left, right, center, justify, or spaced
-  )
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: black;
+  background-color: darken(#192b7c, 10%);
 
   .search-bar {
     visibility: collapse;

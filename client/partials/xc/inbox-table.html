@@ -2,11 +2,11 @@
   <thead>
     <tr>
       <th>Status</th>
-      <th>Date</th>
+      <th data-sort="int">Submitted</th>
       <th data-sort="string"><div>Requester</div></th>
       <th data-sort="string"><div>Title</div></th>
-      <th>Amount</th>
-      <th>Activity</th>
+      <th data-sort="float">Amount</th>
+      <th data-sort="int">Activity</th>
     </tr>
   </thead>
   <tbody>
@@ -14,11 +14,11 @@
         data-itemid="{{item.id}}" ng-repeat="item in items"
         ng-click="update_detail(item.navIndex)">
       <td><span class="xc-status-indicator {{item.inbox_status}}">{{item.inbox_status}}</span></td>
-      <td>{{item.date}}</td>
+      <td data-sort-value="{{unixdate(item.date)}}">{{item.date}}</td>
       <td>{{item.person_name}}</td>
       <td>{{item.product_name}}</td>
-      <td>{{item.amount}}</td>
-      <td class="activity">&nbsp;</td>
+      <td data-sort-value="{{item.amount.slice(1)}}">{{item.amount}}</td>
+      <td data-sort-value="{{unixdate(item.comment_3_date + ' ' + item.comment_3_time)}}" class="activity"><span class="actor">{{item.purchaser}}</span><br/>commented<br/>{{relativeTime(item.comment_3_date + ' ' + item.comment_3_time)}}</td>
     </tr>
   </tbody>
 </table>

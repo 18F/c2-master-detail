@@ -156,8 +156,15 @@
       border-top: 1px solid #e2e8ee;
     }
 
-    td:last-child {
+    td.activity {
+      font-size: 70%;
       border: 1px solid #e2e8ee;
+      color: #0744a4;
+      line-height: 0.9rem;
+
+      .actor {
+        font-weight: bold;
+      }
     }
   }
 

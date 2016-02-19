@@ -334,6 +334,20 @@
 
       }
     }
+    $scope.unixdate = function(date_string) {
+      if (date_string.match(/:/)) {
+        return moment(date_string,'MM/DD/YYYY hh:mm AA').unix()
+      } else {
+        return moment(date_string,'MM/DD/YYYY').unix()
+      }
+    }
+    $scope.relativeTime = function(date_string) {
+      if (date_string.match(/:/)) {
+        return moment(date_string,'MM/DD/YYYY hh:mm AA').fromNow()
+      } else {
+        return moment(date_string,'MM/DD/YYYY').fromNow()
+      }
+    }
     $scope.$watch('view_type', function(newValue, oldValue) {
       console.log('##################################################');
       console.log('$scope.view_type: ', $scope.view_type);

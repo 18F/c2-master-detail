@@ -54,7 +54,7 @@
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
         setup_watches($scope);
-        setup_hotkeys($scopem hotkey);
+        setup_hotkeys($scope, hotkeys);
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
@@ -103,7 +103,7 @@
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
         setup_watches($scope);
-        setup_hotkeys($scopem hotkey);
+        setup_hotkeys($scope, hotkeys);
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
@@ -398,7 +398,7 @@
        $scope.update_single_item(search($state.params.id, mock_data));
     }
     if($scope['single'] == undefined){
-       $scope.update_single_item(mock_data[0];
+       $scope.update_single_item(mock_data[0]);
     }
 
     $scope.reset_filter = function(){

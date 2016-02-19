@@ -11,7 +11,7 @@ controller: ExcelCtrl
   <div class="grid-block">
     <div id="view-master" class="grid-block vertical view-container" ng-class="{'visible': view_type == 'master'}">
       <div class="grid-block vertical xc-table-nav shrink">
-        <div class="medium-10 small-12 grid-container align-justify">
+        <div class="medium-11 small-12 grid-container align-justify">
           <div class="xc-header-block grid-block">
             <div class="grid-content">
               <h2>My Requests</h2>
@@ -32,8 +32,8 @@ controller: ExcelCtrl
           </div>
         </div>
       </div>
-      <div class="grid-block xc-table-content">
-        <table id="xc-inbox-table" class="grid-block vertical xc-inbox" ng-include="'partials/xc/inbox-table.html'"></table>
+      <div class="grid-block xc-table-content medium-11 small-12 grid-container  xc-inbox">
+        <table id="xc-inbox-table" class="grid-content" ng-include="'partials/xc/inbox-table.html'"></table>
       </div>
 
     </div><!-- id="view-master" -->

@@ -1,24 +1,24 @@
-<table id="xc-inbox-table" class="grid-block vertical">
-  <thead class="grid-block shrink">
-    <tr class="grid-block">
-      <th class="grid-content">Status</th>
-      <th class="grid-content" data-sort="int">Submitted</th>
-      <th class="grid-content" data-sort="string"><div>Requester</div></th>
-      <th class="grid-content" data-sort="string"><div>Title</div></th>
-      <th class="grid-content" data-sort="float">Amount</th>
-      <th class="grid-content" id="thActivity" data-sort="int">Activity</th>
+
+  <thead class="">
+    <tr class="">
+      <th class="">Status</th>
+      <th class="" data-sort="int">Submitted</th>
+      <th class="" data-sort="string"><div>Requester</div></th>
+      <th class="" data-sort="string"><div>Title</div></th>
+      <th class="" data-sort="float">Amount</th>
+      <th class="" id="thActivity" data-sort="int">Activity</th>
     </tr>
   </thead>
-  <tbody class="grid-block vertical">
-    <tr class="grid-block" ng-class="{'active': item.navIndex == focusIndex}"
+  <tbody class="">
+    <tr class="" ng-class="{'active': item.navIndex == focusIndex}"
         data-itemid="{{item.id}}" ng-repeat="item in items"
         ng-click="update_detail(item.navIndex)">
-      <td class="grid-content"><span class="xc-status-indicator {{item.inbox_status}}">{{item.inbox_status}}</span></td>
-      <td class="grid-content" data-sort-value="{{unixdate(item.date)}}">{{item.date}}</td>
-      <td class="grid-content">{{item.person_name}}</td>
-      <td class="grid-content">{{item.product_name}}</td>
-      <td class="grid-content" data-sort-value="{{item.amount.slice(1)}}">{{item.amount}}</td>
-      <td class="grid-content" data-sort-value="{{unixdate(item.comment_3_date + ' ' + item.comment_3_time)}}" class="activity">
+      <td class=""><span class="xc-status-indicator {{item.inbox_status}}">{{item.inbox_status}}</span></td>
+      <td class="" data-sort-value="{{unixdate(item.date)}}">{{item.date}}</td>
+      <td class="">{{item.person_name}}</td>
+      <td class="">{{item.product_name}}</td>
+      <td class="" data-sort-value="{{item.amount.slice(1)}}">{{item.amount}}</td>
+      <td data-sort-value="{{unixdate(item.comment_3_date + ' ' + item.comment_3_time)}}" class="activity">
         <img ng-if="activityIcon(item)" src="assets/img/{{activityIcon(item)}}.png" align="right">
         <span class="actor">{{item.purchaser}}</span>
         <br/>commented<br/>
@@ -26,4 +26,3 @@
       </td>
     </tr>
   </tbody>
-</table>

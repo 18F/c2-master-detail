@@ -213,23 +213,25 @@
       }
     }
     $scope.processAmountFilter = debounce(1000, function () {
-      console.log('Running: $scope.processAmountFilter');
-      var min = $scope.slider.min;
-      var max = $scope.slider.max;
-      // console.log(' -', min);
-      // console.log(' -', max);
-      var newItems = []
-      // console.log('$scope.items: ', $scope.items.length);
-      for (var i = $scope.items.length - 1; i >= 0; i--) {
-        var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
-        // console.log('amount: ', amount);
-        // console.log('$scope.items[i]: ', $scope.items[i]);
-        if( amount >= min && amount <= max ){
-          newItems.push($scope.items[i]);
+      if($scope.slider.min != min_purchase_amount && $scope.slider.max != max_purchase_amount){
+        console.log('Running: $scope.processAmountFilter');
+        var min = $scope.slider.min;
+        var max = $scope.slider.max;
+        // console.log(' -', min);
+        // console.log(' -', max);
+        var newItems = []
+        // console.log('$scope.items: ', $scope.items.length);
+        for (var i = $scope.items.length - 1; i >= 0; i--) {
+          var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
+          // console.log('amount: ', amount);
+          // console.log('$scope.items[i]: ', $scope.items[i]);
+          if( amount >= min && amount <= max ){
+            newItems.push($scope.items[i]);
+          }
         }
+        console.log('newItems: ', newItems.length);
+        $scope.setup_new_item_list(newItems);
       }
-      console.log('newItems: ', newItems.length);
-      $scope.setup_new_item_list(newItems);
     });
     $scope.process_filter_update = function(){
       $scope.processFilter();
@@ -261,7 +263,7 @@
     $scope.format_amount_range = function(start, end){
       console.log('$scope.slider: ', $scope.slider.max);
       console.log('$scope.slider: ', $scope.slider.min);
-      if($scope.slider.min == 0 && $scope.slider.max == 3500){
+      if($scope.slider.min == min_purchase_amount && $scope.slider.max == max_purchase_amount){
         var amount_range = "";
       } else {
         var amount_range = '$' + $scope.slider.min + ' - $' + $scope.slider.max;
@@ -675,6 +677,8 @@ var new_subcribe = '<div class="grid-block" style="padding-bottom:0px;"><div cla
 var mock_data = data;
 var loaded = false;
 var loaded_active = false;
+var max_purchase_amount = 3500;
+var min_purchase_amount = 0;
 var search_params = [
                       'id',
                       'product_company',

@@ -53,6 +53,8 @@
         $scope.focusIndex = 0;
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
+        setup_watches($scope);
+        setup_hotkeys($scopem hotkey);
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
@@ -100,6 +102,8 @@
         $scope.focusIndex = 0;
         $scope.items = mock_data;
         $scope.itemsDisplayed = $scope.items;
+        setup_watches($scope);
+        setup_hotkeys($scopem hotkey);
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
@@ -257,25 +261,7 @@
       $scope.processAmountFilter();
       $scope.processColumnDateFilter();
     });
-    $scope.$watch('single', function(newValue, oldValue) {
-      console.log('Single has changed');
-      $scope.trigger_single_change();
-    }, true);
-    $scope.$watch('query', function(newValue, oldValue) {
-      console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
-      console.log('Running');
-      $scope.process_filter_update();
-    }, true);
-    $scope.$watch('amountFilter', function(newValue, oldValue) {
-      console.log(newValue);
-      $scope.process_filter_update();
-    }, true);
-    $scope.$watch('slider', function(newValue, oldValue) {
-      // console.log('$scope.slider.min: ', $scope.slider.min);
-      // console.log('$scope.slider.max: ', $scope.slider.max);
-      $scope.process_filter_update();
-      $scope.format_amount_range();
-    }, true);
+
     $scope.format_date_range = function(start, end){
       console.log('$scope.format_date_range = function(' + start+ ', ' + end + '){');
       var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
@@ -378,20 +364,7 @@
       //$("#thActivity").stupidsort("desc");
       $scope.processColumnDateFilter();
     }
-    $scope.$watch('view_type', function(newValue, oldValue) {
-      console.log('##################################################');
-      console.log('$scope.view_type: ', $scope.view_type);
-      console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-    });
-    $scope.$watch('query', function(newValue, oldValue) {
-      console.log('Running');
-      $scope.processFilter();
-    }, true);
-    $scope.$watch('focusIndex', function(newValue, oldValue) {
-      console.log('focusIndex: ', newValue);
-      $scope.update_single_item(newValue);
-      return newValue;
-    });
+
     $scope.view_all_activity = function(){
       console.log('$scope.view_all_activity = function(){');
       if(!$('.status-comment').hasClass('open')){
@@ -425,7 +398,7 @@
        $scope.update_single_item(search($state.params.id, mock_data));
     }
     if($scope['single'] == undefined){
-       $scope.update_single_item(mock_data[0]);
+       $scope.update_single_item(mock_data[0];
     }
 
     $scope.reset_filter = function(){
@@ -522,6 +495,16 @@
         }, 100);
       }
     }
+    
+
+    vm.refreshSlider = function () {
+      window.setTimeout(function(){
+        console.log('window.setTimeout(function(){');
+        $scope.$broadcast('rzSliderForceRender');
+      });
+    };
+  }
+  function setup_hotkeys($scope, hotkeys){
     hotkeys.add({
       combo: 'ctrl+e',
       description: 'Reset search parameters.',
@@ -564,15 +547,42 @@
         $scope.focusIndexUp();
       }
     });
-
-    vm.refreshSlider = function () {
-      window.setTimeout(function(){
-        console.log('window.setTimeout(function(){');
-        $scope.$broadcast('rzSliderForceRender');
-      });
-    };
   }
-
+  function setup_watches($scope){
+    $scope.$watch('single', function(newValue, oldValue) {
+      console.log('Single has changed');
+      $scope.trigger_single_change();
+    }, true);
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
+      console.log('Running');
+      $scope.process_filter_update();
+    }, true);
+    $scope.$watch('amountFilter', function(newValue, oldValue) {
+      console.log(newValue);
+      $scope.process_filter_update();
+    }, true);
+    $scope.$watch('slider', function(newValue, oldValue) {
+      // console.log('$scope.slider.min: ', $scope.slider.min);
+      // console.log('$scope.slider.max: ', $scope.slider.max);
+      $scope.process_filter_update();
+      $scope.format_amount_range();
+    }, true);
+    $scope.$watch('view_type', function(newValue, oldValue) {
+      console.log('##################################################');
+      console.log('$scope.view_type: ', $scope.view_type);
+      console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+    });
+    $scope.$watch('query', function(newValue, oldValue) {
+      console.log('Running');
+      $scope.processFilter();
+    }, true);
+    $scope.$watch('focusIndex', function(newValue, oldValue) {
+      console.log('focusIndex: ', newValue);
+      $scope.update_single_item(newValue);
+      return newValue;
+    });
+  }
 
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');

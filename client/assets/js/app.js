@@ -312,6 +312,9 @@
       $scope.view_type = "detail";
       $scope.focusIndex = selectedIndex;
     }
+    $scope.close_detail = function() {
+      $scope.view_type = "master";
+    }
     $scope.filter_by = function(param){
       console.log(param);
       $scope.reset_filter();

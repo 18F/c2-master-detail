@@ -398,6 +398,9 @@ strong, b {
   background: #FBFBFB;
   .card{
     border-top: 5px solid #07519B;
+    &.changed{
+      border-top: 5px solid $warning-color;
+    }
     h4{
       font-weight: 300;
     }

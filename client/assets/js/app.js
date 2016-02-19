@@ -280,6 +280,17 @@
       console.log('trigger_response_to_changed_fields');
     };
 
+    $scope.check_has_changed = function(param){
+      var diff = $scope.singleChanges.diff;
+      var detail = $scope.singleChanges.detail;
+      if( $scope.singleChanges.diff.length > 0){
+        for (var i = diff.length - 1; i >= 0; i--) {
+          console.log(diff[i] + ': ' + detail[diff[i]]);
+        }
+      }
+      return true;
+    }
+
     $scope.trigger_single_change = debounce(300, function () {
       // console.log('$scope.single: ', $scope.single);
       // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);

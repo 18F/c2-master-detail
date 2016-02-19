@@ -46,29 +46,6 @@
     setup_filter_utilities($scope, debounce, $filter);
 
     setup_view($scope, $state);
-    
-    $scope.setIndex = function(new_list){
-      console.log('$scope.setIndex = function(new_list){');
-      for (var i = new_list.length - 1; i >= 0; i--) {
-        new_list[i]["navIndex"] = i;
-      }
-      $scope.items = new_list;
-    }
-    
-    $scope.resetLink = function(){
-      console.log('$scope.resetLink = function(){');
-      $scope.reset_filter();
-      $scope.setQuery = $scope.query;
-    }
-
-    $scope.setup_new_item_list = function(newItems){
-      $scope.setIndex(newItems);
-      $scope.focusIndex = 0;
-      $scope.update_single_item($scope.focusIndex);
-    }
-
-    
-   
 
     $scope.view_all_activity = function(){
       console.log('$scope.view_all_activity = function(){');
@@ -84,11 +61,6 @@
         $('.activity-visible-button span').text('View All');
       }
     }
-
-
-
-    
-    
   }
 
   function setup_excel($scope){
@@ -226,6 +198,13 @@
   }
 
   function setup_utility_functions($scope){
+
+    $scope.setup_new_item_list = function(newItems){
+      $scope.setIndex(newItems);
+      $scope.focusIndex = 0;
+      $scope.update_single_item($scope.focusIndex);
+    }
+
     $scope.issetQuery = function(){
       console.log('$scope.issetQuery = function(){');
       if(true){
@@ -269,6 +248,14 @@
   }
 
   function setup_single_page($scope, debounce){
+    $scope.setIndex = function(new_list){
+      console.log('$scope.setIndex = function(new_list){');
+      for (var i = new_list.length - 1; i >= 0; i--) {
+        new_list[i]["navIndex"] = i;
+      }
+      $scope.items = new_list;
+    }
+    
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
     });
@@ -292,7 +279,11 @@
   }
 
   function setup_advanced_search($scope){
-
+    $scope.resetLink = function(){
+      console.log('$scope.resetLink = function(){');
+      $scope.reset_filter();
+      $scope.setQuery = $scope.query;
+    }
     $scope.processAmountFilter = function(){
       if($scope.slider.min != min_purchase_amount || $scope.slider.max != max_purchase_amount){
         console.log('Running: $scope.processAmountFilter');

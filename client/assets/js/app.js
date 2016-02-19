@@ -66,6 +66,7 @@
         $scope.dateFilter = "";
         $scope.amountFilter = "";
         $scope.columnDateFilter = "";
+        $scope.singleHasChanged = false;
         $scope.slider = {
           min: 0,
           max: 3500,
@@ -321,6 +322,7 @@
     console.log('focusIndex: ', $scope.focusIndex);
 
     $scope.update_single_item = function(newValue){
+      $scope.singleHasChanged = false;
       $scope.single = $scope.items[newValue];
     }
     $scope.update_detail = function(selectedIndex){
@@ -420,10 +422,10 @@
     };
 
     if($state.params && $state.params.id != undefined){
-      $scope['single'] = search($state.params.id, mock_data);
+       $scope.update_single_item(search($state.params.id, mock_data));
     }
     if($scope['single'] == undefined){
-      $scope['single'] = mock_data[0];
+       $scope.update_single_item(mock_data[0]);
     }
 
     $scope.reset_filter = function(){

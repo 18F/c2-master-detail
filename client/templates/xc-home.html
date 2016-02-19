@@ -15,28 +15,31 @@ controller: ExcelCtrl
 
         <div class="medium-10 small-12 grid-container overflow-visible">
           <div class="grid-block vertical">
-            <div class="xc-header-block">
-              <div class="grid-content">
-                <h2>My Requests</h2>
+            <div class="grid-block xc-table-nav shrink">
+              <div class="xc-header-block">
+                <div class="grid-content">
+                  <h2>My Requests</h2>
+                </div>
+              </div>
+
+              <div class="grid-block v-align">
+                <div class="grid-content align-bottom">
+                  <div ng-include="'partials/xc/filter.html'"></div>
+                </div>
+
+                <div class="grid-content small-3 align-right align-bottom">
+                  <div ng-include="'partials/xc/create-request.html'"></div>
+                </div>
+
+                <div class="grid-content small-3 align-right align-bottom">
+                  <div ng-include="'partials/xc/download-csv.html'"></div>
+                </div>
               </div>
             </div>
-
-            <div class="grid-block v-align">
-              <div class="grid-content align-bottom">
-                <div ng-include="'partials/xc/filter.html'"></div>
+            <div class="grid-block xc-table-content">
+              <div class="grid-content xc-inbox">
+                <div ng-include="'partials/xc/inbox-table.html'"></div>
               </div>
-
-              <div class="grid-content small-3 align-right align-bottom">
-                <div ng-include="'partials/xc/create-request.html'"></div>
-              </div>
-
-              <div class="grid-content small-3 align-right align-bottom">
-                <div ng-include="'partials/xc/download-csv.html'"></div>
-              </div>
-            </div>
-
-            <div class="grid-content xc-inbox">
-              <div ng-include="'partials/xc/inbox-table.html'"></div>
             </div>
           </div>
         </div>

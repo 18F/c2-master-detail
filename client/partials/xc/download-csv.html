@@ -22,21 +22,16 @@
           </select>
         </label>
       </div>
-      <div class="grid-content small-6 medium-6">
-        <label>
-          Start Date
-          <input type="text">
-        </label>
-        <label>
-          End Date
-          <input type="text">
-        </label>
-      </div>
-    </div>
-    <div class="grid-block align-right">
-      <div class="grid-block shrink">
-        <span class="button" zf-close>Download</span>
-      </div>
+      <div class="grid-block vertical align-right small-6 medium-6">
+        <div class="grid-content">
+          <label>
+            Start Date
+            <input type='text' ng-model='' datepicker='' class="date-picker">
+          </label>
+        </div>
+        <div class="grid-content shrink xc-csv-download-button">
+          <span class="button" zf-close>Download</span>
+        </div>
     </div>
   </form>
 </div>

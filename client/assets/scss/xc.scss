@@ -304,3 +304,11 @@ select[size], select[multiple] {
     padding-right: 1rem;
   }
 }
+
+.xc-csv-download-button {
+  text-align: right;
+
+  .button {
+    margin-right: 0;
+  }
+}

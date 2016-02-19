@@ -260,6 +260,7 @@
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
     });
+
     $scope.update_single_item = function(newValue){
       $scope.singleHasChanged = false;
       $scope.single = $scope.items[newValue];

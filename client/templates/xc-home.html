@@ -49,17 +49,10 @@ controller: ExcelCtrl
   </div><!-- id="view-master" -->
 
   <div id="view-detail" class="vertical grid-block shrink view-container" ng-class="{'visible': view_type == 'detail'}">
-
-    <div class="horizontal grid-block">
-      <div class="grid-block small-1 medium-1">
-      </div>
-
-      <div ng-include="'partials/master-detail/message/content.html'" id="message" position="right" class=""></div>
-
-      <div class="grid-block small-1 medium-1">
-      </div>
+    <div class="grid-block large-correct">
+      <div ng-include="'partials/global/content.html'" id="message" position="right" class=""></div>
     </div>
-
+    <div ng-include="'partials/global/action-footer.html'" class="grid-block footer-menu-wrapper shrink wrap large-correct"></div>
   </div><!-- id="view-detail" -->
 
   <div ng-include="'partials/xc/detail.html'"></div>

@@ -212,7 +212,7 @@
         $scope.dateFilter = "";
       }
     }
-    $scope.processAmountFilter = debounce(1000, function () {
+    $scope.processAmountFilter = function(){
       if($scope.slider.min != min_purchase_amount && $scope.slider.max != max_purchase_amount){
         console.log('Running: $scope.processAmountFilter');
         var min = $scope.slider.min;
@@ -232,12 +232,12 @@
         console.log('newItems: ', newItems.length);
         $scope.setup_new_item_list(newItems);
       }
-    });
-    $scope.process_filter_update = function(){
+    }
+    $scope.process_filter_update = debounce(1000, function () {
       $scope.processFilter();
       $scope.processDateFilter();
       $scope.processAmountFilter();
-    }
+    });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
       console.log('Running');

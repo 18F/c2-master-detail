@@ -201,12 +201,17 @@
   function setup_utility_functions($scope){
 
     $scope.check_object_differences = function(obj1, obj2){
+      // console.log('obj1: ', obj1);
+      // console.log('obj2: ', obj2);
       var log = [];
       angular.forEach(obj1, function(value1, key1) {
+        // console.log(value1 + ' ' + key1);
         angular.forEach(obj2, function(value2, key2) {
+          // console.log(value2 + ' ' + key2);
           if(key1 == key2){
             if(value1 != value2){
-              log.push(value1);
+              console.log('different: ', key2);
+              log.push(key2);
             }
           }
         });
@@ -215,6 +220,7 @@
     }
 
     $scope.setup_new_item_list = function(newItems){
+      console.log("setup_new_item_list");
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
       $scope.update_single_item($scope.focusIndex);
@@ -273,6 +279,7 @@
     
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
+      console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];
       var obj2 = $scope.single;
       var diff = objectDiff.diff(obj1, obj2);
@@ -289,8 +296,6 @@
 
     $scope.update_single_item = function(newValue){
       $scope.singleHasChanged = false;
-      $scope.single = {};
-      angular.copy($scope.items[newValue], $scope.single);
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
@@ -568,9 +573,7 @@
       $scope.format_amount_range();
     }, true);
     $scope.$watch('view_type', function(newValue, oldValue) {
-      console.log('##################################################');
       console.log('$scope.view_type: ', $scope.view_type);
-      console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
     });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('Running');
@@ -579,6 +582,9 @@
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
+      $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      console.log('$scope.single:', $scope.single);
+      console.log("$scope.items[$scope.focusIndex]: ", $scope.items[$scope.focusIndex]);
       return newValue;
     });
   }

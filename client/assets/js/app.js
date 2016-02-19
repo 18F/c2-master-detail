@@ -21,6 +21,7 @@
         $scope.active_filter = "";
         $scope.setQuery = {};
         $scope.dateFilter = "";
+        $scope.columnDateFilter = "";
         $scope.amountFilter = "";
         $scope.slider = {
           min: 0,
@@ -64,6 +65,7 @@
         $scope.setQuery = {};
         $scope.dateFilter = "";
         $scope.amountFilter = "";
+        $scope.columnDateFilter = "";
         $scope.slider = {
           min: 0,
           max: 3500,
@@ -192,14 +194,26 @@
     }
     $scope.processDateFilter = function(){
       if(!angular.equals("", $scope.dateFilter)){
-        var rangeString = $scope.dateFilter;
-        var dateField = "date";
-        if (rangeString.match(/\|/)) {
-          rangeString = rangeString.split('|')[0];
-          dateField = rangeString.split('|')[1];
+        var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
+        var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
+        var range = moment.range(startDate, endDate);
+        var newItems = []
+        for (var i = $scope.items.length - 1; i >= 0; i--) {
+          if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
+            newItems.push($scope.items[i]);
+          }
         }
-        var startDate = moment(rangeString.split(' - ')[0], 'MM/DD/YYYY');
-        var endDate = moment(rangeString.split(' - ')[1], 'MM/DD/YYYY');
+        $scope.setup_new_item_list(newItems);
+      } else {
+        $scope.dateFilter = "";
+      }
+    }
+    $scope.processColumnDateFilter = function(){
+      if($scope.columnDateFilter !== ""){
+        console.log("Running columnDateFilter: ", $scope.columnDateFilter);
+        var startDate = $scope.columnDateFilter[0];
+        var endDate = $scope.columnDateFilter[1];
+        var dateField = $scope.columnDateFilter[2];
         var range = moment.range(startDate, endDate);
         var newItems = []
         for (var i = $scope.items.length - 1; i >= 0; i--) {
@@ -209,7 +223,7 @@
         }
         $scope.setup_new_item_list(newItems);
       } else {
-        $scope.dateFilter = "";
+        $scope.columnDateFilter = "";
       }
     }
     $scope.processAmountFilter = function(){
@@ -237,6 +251,7 @@
       $scope.processFilter();
       $scope.processDateFilter();
       $scope.processAmountFilter();
+      $scope.processColumnDateFilter();
     });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
@@ -310,7 +325,7 @@
       $scope.view_type = "master";
     }
     $scope.filter_by = function(param){
-      console.log(param);
+      $scope.columnDateFilter = "";
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
       $scope.setQuery = $scope.query;
@@ -345,10 +360,14 @@
     }
     $scope.recentActivityFilter = function() {
       $scope.reset_filter();
-      $scope.dateFilter = '01/16/2016 - 02/16/2016|comment_3_date';
+      $scope.columnDateFilter = [
+        moment('2016-01-16'),
+        moment('2016-02-16'),
+        'comment_3_date'
+      ];
       $scope.active_filter = 'recent';
       //$("#thActivity").stupidsort("desc");
-      $scope.processDateFilter();
+      $scope.processColumnDateFilter();
     }
     $scope.$watch('view_type', function(newValue, oldValue) {
       console.log('##################################################');
@@ -404,6 +423,7 @@
       console.log('$scope.reset_filter = function(){');
       $scope.resetAmountSlider();
       $scope.dateFilter = "";
+      $scope.columnDateFilter = "";
       $scope.query = {
         $: "",
         id: "",
@@ -470,7 +490,7 @@
           "linkedCalendars": true,
           "autoUpdateInput": false,
           "opens": "left",
-          "drops": "up",
+          "drops": "down",
           "buttonClasses": "button small",
           "applyClass": "button success",
           "cancelClass": "button alert"

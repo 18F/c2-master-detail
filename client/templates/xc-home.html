@@ -37,20 +37,13 @@ controller: ExcelCtrl
           <table id="xc-inbox-table" ng-include="'partials/xc/inbox-table.html'"></table>
         </div>
       </div>
-
     </div><!-- id="view-master" -->
-    <div id="view-detail" class="grid-block view-container" ng-class="{'visible': view_type == 'detail'}">
-      <div class="grid-block">
-        <div class="medium-10 small-12 grid-block vertical grid-container overflow-visible">
-          <div class="grid-block">
-            <div ng-include="'partials/xc/detail-nav.html'" class="align-justify xc-detail-nav grid-block"></div>
-          </div>
-          <div class="grid-block large-correct">
-            <div ng-include="'partials/global/content.html'" id="message" position="right" class=""></div>
-          </div>
-        </div>
+    <div id="view-detail" class="grid-block vertical view-container" ng-class="{'visible': view_type == 'detail'}">
+      <div class="grid-block vertical">
+        <div ng-include="'partials/xc/detail-nav.html'" class="align-justify xc-detail-nav grid-block"></div>
+        <div ng-include="'partials/global/content.html'" id="message" position="right" class="grid-conte large-correct"></div>
       </div>
-      <div ng-include="'partials/global/action-footer.html'" class="grid-block footer-menu-wrapper large-correct"></div>
+      <div ng-include="'partials/global/action-footer.html'" class="shrink grid-block footer-menu-wrapper large-correct"></div>
     </div><!-- id="view-detail" -->
   </div>
 </div>

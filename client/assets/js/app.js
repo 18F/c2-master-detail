@@ -303,7 +303,7 @@
         var newItems = []
         // console.log('$scope.items: ', $scope.items.length);
         for (var i = $scope.items.length - 1; i >= 0; i--) {
-          var amount = parseFloat($scope.items[i]["amount"].split('$')[1]);
+          var amount = $scope.items[i]["amount"];
           // console.log('amount: ', amount);
           // console.log('$scope.items[i]: ', $scope.items[i]);
           if( amount >= min && amount <= max ){

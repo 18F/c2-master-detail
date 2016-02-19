@@ -39,6 +39,16 @@
     setup_hotkeys($scope, hotkeys);
     setup_date_range_picker($scope);
     setup_advanced_search($scope);
+    setup_single_page($scope);
+    setup_keyboard_navigation($scope);
+    setup_utility_functions($scope);
+
+    if($state.params && $state.params.id != undefined){
+       $scope.update_single_item(search($state.params.id, mock_data));
+    }
+    if($scope['single'] == undefined){
+       $scope.update_single_item(mock_data[0]);
+    }
     
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
@@ -47,23 +57,7 @@
       }
       $scope.items = new_list;
     }
-    $scope.issetQuery = function(){
-      console.log('$scope.issetQuery = function(){');
-      if(true){
-      }
-    }
-    $scope.add_new_vendor = function(){
-      console.log('$scope.add_new_vendor = function(){');
-      $('.new-vendor').before(new_vendor);
-    }
-    $scope.add_new_subscriber = function(){
-      console.log('$scope.add_new_subscriber = function(){');
-      $('.new-subscriber').before(new_subcribe);
-    }
-    $scope.isEmptyObject = function(obj) {
-      // console.log('$scope.isEmptyObject = function(obj) {');
-      return angular.equals("", obj);
-    }
+    
     $scope.resetLink = function(){
       console.log('$scope.resetLink = function(){');
       $scope.reset_filter();
@@ -185,15 +179,7 @@
 
     console.log('focusIndex: ', $scope.focusIndex);
 
-    $scope.update_single_item = function(newValue){
-      $scope.singleHasChanged = false;
-      $scope.single = $scope.items[newValue];
-    }
-    $scope.update_detail = function(selectedIndex){
-      console.log('$scope.update_detail = function(selectedIndex){');
-      $scope.view_type = "detail";
-      $scope.focusIndex = selectedIndex;
-    }
+    
     $scope.close_detail = function() {
       $scope.view_type = "master";
     }
@@ -258,10 +244,7 @@
       }
     }
 
-    $scope.correctScroll = function () {
-      $scope.items[$scope.focusIndex];
-      console.log('focus: ', $scope.focusIndex);
-    }
+
 
     $scope.open = function ( index ) {
       var items;
@@ -272,12 +255,6 @@
       console.log('opening : ', items );
     };
 
-    if($state.params && $state.params.id != undefined){
-       $scope.update_single_item(search($state.params.id, mock_data));
-    }
-    if($scope['single'] == undefined){
-       $scope.update_single_item(mock_data[0]);
-    }
 
     $scope.reset_filter = function(){
       console.log('$scope.reset_filter = function(){');
@@ -301,8 +278,26 @@
       };
       $scope.process_filter_update();
     }
-    $scope.keys = [];
-    // $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});
+    
+    
+  }
+  function setup_utility_functions($scope){
+    $scope.issetQuery = function(){
+      console.log('$scope.issetQuery = function(){');
+      if(true){
+      }
+    }
+    
+    $scope.isEmptyObject = function(obj) {
+      // console.log('$scope.isEmptyObject = function(obj) {');
+      return angular.equals("", obj);
+    }
+  }
+  function setup_keyboard_navigation($scope){
+    $scope.correctScroll = function () {
+      $scope.items[$scope.focusIndex];
+      console.log('focus: ', $scope.focusIndex);
+    }
     console.log('// $scope.focusIndexSelect = function() { $scope.open( $scope.focusIndex ); }});');
     $scope.focusIndexDown = function() {
       console.log('$scope.focusIndexDown = function() {');
@@ -318,6 +313,25 @@
         $scope.correctScroll();
       }
     };
+  }
+  function setup_single_page($scope){
+    $scope.update_single_item = function(newValue){
+      $scope.singleHasChanged = false;
+      $scope.single = $scope.items[newValue];
+    }
+    $scope.update_detail = function(selectedIndex){
+      console.log('$scope.update_detail = function(selectedIndex){');
+      $scope.view_type = "detail";
+      $scope.focusIndex = selectedIndex;
+    }
+    $scope.add_new_vendor = function(){
+      console.log('$scope.add_new_vendor = function(){');
+      $('.new-vendor').before(new_vendor);
+    }
+    $scope.add_new_subscriber = function(){
+      console.log('$scope.add_new_subscriber = function(){');
+      $('.new-subscriber').before(new_subcribe);
+    }
   }
   function setup_advanced_search($scope){
     $scope.remove_filter_key = function(key){
@@ -414,6 +428,7 @@
     }
   }
   function setup_scope_variables($scope){
+    $scope.keys = [];
     $scope.filter = "";
     $scope.active_filter = "";
     $scope.setQuery = {};

@@ -233,7 +233,7 @@
         $scope.setup_new_item_list(newItems);
       }
     }
-    $scope.process_filter_update = debounce(1000, function () {
+    $scope.process_filter_update = debounce(300, function () {
       $scope.processFilter();
       $scope.processDateFilter();
       $scope.processAmountFilter();

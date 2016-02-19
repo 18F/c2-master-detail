@@ -40,8 +40,10 @@ controller: ExcelCtrl
     </div><!-- id="view-master" -->
     <div id="view-detail" class="grid-block vertical view-container" ng-class="{'visible': view_type == 'detail'}">
       <div ng-include="'partials/xc/detail-nav.html'" class="shrink align-justify xc-detail-nav grid-block"></div>
-      <div class="grid-block vertical">
-        <div ng-include="'partials/global/content.html'" id="message" position="right" class="grid-block large-correct grid-container medium-11 small-12"></div>
+      <div class="grid-block ">
+        <div class="grid-container medium-11 small-12">
+          <div ng-include="'partials/global/content.html'" id="message" position="right" class="vertical grid-block large-correct"></div>
+        </div>
       </div>
       <div ng-include="'partials/global/action-footer.html'" class="shrink grid-block footer-menu-wrapper large-correct"></div>
     </div><!-- id="view-detail" -->

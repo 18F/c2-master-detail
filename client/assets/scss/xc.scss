@@ -48,11 +48,13 @@
     $orientation: horizontal, // Set to vertical for a vertical grid
     $align: spaced // Can be left, right, center, justify, or spaced
   )
-  padding-top: 20px;
-  padding-bottom: 3rem;
+  padding-top: 0px;
+  padding-bottom: 0rem;
 
   h2 {
     font-weight: light;
+    font-size: 1.5em;
+    margin-bottom: 0px;
   }
 }
 

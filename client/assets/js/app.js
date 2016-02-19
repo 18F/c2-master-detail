@@ -185,13 +185,6 @@
       $scope.resetAmountSlider();
       $scope.amountFilter = "";
     }
-    $scope.processFilter = function(){
-      console.log('$scope.processFilter = function(){');
-      console.log("$scope.query: ", $scope.query);
-      var newItems = $filter('filter')($scope.itemsDisplayed, $scope.query);
-      $scope.setup_new_item_list(newItems);
-      console.log('In feed: ', $scope.items.length);
-    }
     $scope.setup_new_item_list = function(newItems){
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
@@ -252,15 +245,8 @@
       $scope.process_filter_update();
       $scope.format_amount_range();
     }, true);
-    $scope.filter_by = function(param){
-      console.log('$scope.filter_by = function(param){');
-      console.log(param);
-      // $scope.reset_filter();
-      $scope.query.inbox_status = param;
-      $scope.setQuery = $scope.query;
-    }
     $scope.format_date_range = function(start, end){
-      console.log('$scope.format_date_range = function(start, end){');
+      console.log('$scope.format_date_range = function(' + start+ ', ' + end + '){');
       var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
       $scope.dateFilter = date_range;
       console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
@@ -321,7 +307,6 @@
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
       $scope.setQuery = $scope.query;
-      $scope.processFilter();
     }
     $scope.processFilter = function(){
       console.log("$scope.query: ", $scope.query);
@@ -329,13 +314,6 @@
       $scope.focusIndex = 0;
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
-    }
-    $scope.update_view_type = function(){
-      if($scope.view_type == "master"){
-
-      }else if($scope.view_type == "detail"){
-
-      }
     }
     $scope.unixdate = function(date_string) {
       if (date_string.match(/:/)) {

@@ -248,7 +248,7 @@
       }
     }
     $scope.trigger_single_change = debounce(300, function () {
-
+      console.log('$scope.single: ', $scope.single);
     });
     $scope.process_filter_update = debounce(300, function () {
       $scope.processFilter();

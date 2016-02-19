@@ -213,7 +213,7 @@
       }
     }
     $scope.processAmountFilter = function(){
-      if($scope.slider.min != min_purchase_amount && $scope.slider.max != max_purchase_amount){
+      if($scope.slider.min != min_purchase_amount || $scope.slider.max != max_purchase_amount){
         console.log('Running: $scope.processAmountFilter');
         var min = $scope.slider.min;
         var max = $scope.slider.max;

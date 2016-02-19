@@ -17,93 +17,13 @@
     ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
       $scope.$on('$viewContentLoaded', function(event) {
         console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
-        $scope.filter = "";
-        $scope.active_filter = "";
-        $scope.setQuery = {};
-        $scope.dateFilter = "";
-        $scope.columnDateFilter = "";
-        $scope.amountFilter = "";
-        $scope.slider = {
-          min: 0,
-          max: 3500,
-          options: {
-            floor: 0,
-            ceil: 3500,
-            translate: function(value) {
-              // console.log('translate: function(value) {');
-              return '$' + value;
-            }
-          }
-        };
-        $scope.query = {
-          $: "",
-          id: "",
-          product_company: "",
-          product_type: "",
-          product_name: "",
-          person_name: "",
-          date: "",
-          description: "",
-          vendor: "",
-          amount: "",
-          org_code: "",
-          inbox_status: ""
-        };
-        $scope.show_advanced_search = false;
-        $scope.focusIndex = 0;
-        $scope.items = mock_data;
-        $scope.itemsDisplayed = $scope.items;
-        setup_watches($scope);
-        setup_hotkeys($scope, hotkeys);
+        
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
   .controller('ExcelCtrl',
     ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
       $scope.$on('$viewContentLoaded', function(event) {
-        console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
-        $scope.filter = "";
-        $scope.active_filter = "";
-        $scope.setQuery = {};
-        $scope.dateFilter = "";
-        $scope.amountFilter = "";
-        $scope.columnDateFilter = "";
-        $scope.singleHasChanged = false;
-        $scope.slider = {
-          min: 0,
-          max: 3500,
-          options: {
-            floor: 0,
-            ceil: 3500,
-            translate: function(value) {
-              // console.log('translate: function(value) {');
-              return '$' + value;
-            }
-          }
-        };
-        $scope.query = {
-          $: "",
-          id: "",
-          has_attachment: "",
-          product_company: "",
-          product_type: "",
-          product_name: "",
-          person_name: "",
-          date: "",
-          description: "",
-          vendor: "",
-          amount: "",
-          org_code: "",
-          inbox_status: ""
-        };
-        $scope.view_type = "master";
-
-        $scope.show_advanced_search = false;
-        $scope.focusIndex = 0;
-        $scope.items = mock_data;
-        $scope.itemsDisplayed = $scope.items;
-        setup_watches($scope);
-        setup_hotkeys($scope, hotkeys);
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
@@ -135,6 +55,10 @@
   }
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
+    setup_scope_variables($scope);
+    setup_watches($scope);
+    setup_hotkeys($scope, hotkeys);
+    setup_date_range_picker($scope);
     $scope.resetAmountSlider = function(){
       $scope.amountFilter = "";
       $scope.slider.min = 0;
@@ -440,6 +364,28 @@
         $scope.correctScroll();
       }
     };
+    
+    $scope.toggle_advanced_search = function(){
+      console.log('$scope.toggle_advanced_search = function(){');
+      $scope.setQuery = $scope.query;
+      vm.refreshSlider();
+      $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
+      if($scope.show_advanced_search == true){
+        window.setTimeout(function(){
+          console.log('window.setTimeout(function(){');
+          $('.advanced-search input').first().focus();
+        }, 100);
+      }
+    }
+    
+    vm.refreshSlider = function () {
+      window.setTimeout(function(){
+        console.log('window.setTimeout(function(){');
+        $scope.$broadcast('rzSliderForceRender');
+      });
+    };
+  }
+  function setup_date_range_picker($scope){
     $scope.advanced_search = function(){
       console.log('$scope.advanced_search = function(){');
       $('.date-picker').daterangepicker({
@@ -483,26 +429,44 @@
         console.log('New date range selected: ' + $scope.dateFilter + ' (predefined range: ' + label + ')');
       });
     }
-    $scope.toggle_advanced_search = function(){
-      console.log('$scope.toggle_advanced_search = function(){');
-      $scope.setQuery = $scope.query;
-      vm.refreshSlider();
-      $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
-      if($scope.show_advanced_search == true){
-        window.setTimeout(function(){
-          console.log('window.setTimeout(function(){');
-          $('.advanced-search input').first().focus();
-        }, 100);
+  }
+  function setup_scope_variables($scope){
+    $scope.filter = "";
+    $scope.active_filter = "";
+    $scope.setQuery = {};
+    $scope.dateFilter = "";
+    $scope.columnDateFilter = "";
+    $scope.amountFilter = "";
+    $scope.slider = {
+      min: 0,
+      max: 3500,
+      options: {
+        floor: 0,
+        ceil: 3500,
+        translate: function(value) {
+          // console.log('translate: function(value) {');
+          return '$' + value;
+        }
       }
-    }
-    
-
-    vm.refreshSlider = function () {
-      window.setTimeout(function(){
-        console.log('window.setTimeout(function(){');
-        $scope.$broadcast('rzSliderForceRender');
-      });
     };
+    $scope.query = {
+      $: "",
+      id: "",
+      product_company: "",
+      product_type: "",
+      product_name: "",
+      person_name: "",
+      date: "",
+      description: "",
+      vendor: "",
+      amount: "",
+      org_code: "",
+      inbox_status: ""
+    };
+    $scope.show_advanced_search = false;
+    $scope.focusIndex = 0;
+    $scope.items = mock_data;
+    $scope.itemsDisplayed = $scope.items;
   }
   function setup_hotkeys($scope, hotkeys){
     hotkeys.add({

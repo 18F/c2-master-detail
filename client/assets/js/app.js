@@ -16,14 +16,13 @@
   .controller('MessageCtrl',
     ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
       $scope.$on('$viewContentLoaded', function(event) {
-        console.log('$scope.$on(\'$viewContentLoaded\', function(event) {');
-        
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
   .controller('ExcelCtrl',
     ["$scope", "$state", "$http", "$filter", "hotkeys", "debounce", function($scope, $state, $http, $filter, hotkeys, debounce){
       $scope.$on('$viewContentLoaded', function(event) {
+        $scope.view_type = "master";
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
@@ -33,37 +32,14 @@
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-  function search(nameKey, arr){
-    for (var i = 0; i < arr.length; i++) {
-      if(arr[i]["id"] == nameKey){
-        return arr[i];
-      }
-    }
-  }
-
-  function excel_table_tweaks() {
-    // Table tweaks for the excel view
-    var table = $("#xc-inbox-table").stupidtable();
-    table.on("aftertablesort", function (event, data) {
-      var th = $(this).find("th");
-      th.find(".arrow").remove();
-      var dir = $.fn.stupidtable.dir;
-      var arrow = data.direction === dir.ASC ? "&#x25b2;" : "&#x25bc;";
-      th.eq(data.column)
-        .append('<div class="arrow">' + arrow +'</span>');
-    });
-  }
 
   function blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce){
     setup_scope_variables($scope);
     setup_watches($scope);
     setup_hotkeys($scope, hotkeys);
     setup_date_range_picker($scope);
-    $scope.resetAmountSlider = function(){
-      $scope.amountFilter = "";
-      $scope.slider.min = 0;
-      $scope.slider.max = 3500;
-    }
+    setup_advanced_search($scope);
+    
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
       for (var i = new_list.length - 1; i >= 0; i--) {
@@ -99,23 +75,7 @@
       $scope.setQuery = $scope.query;
       $scope.process_filter_update();
     }
-    $scope.remove_filter_key = function(key){
-      console.log('$scope.remove_filter_key = function(key){');
-      $scope.query[key] = "";
-    }
-    $scope.remove_filter_query = function(){
-      console.log('$scope.remove_filter_query = function(){');
-      $scope.query.$ = "";
-    }
-    $scope.remove_date_filter = function(){
-      console.log('$scope.remove_date_filter = function(){');
-      $scope.dateFilter = "";
-    }
-    $scope.remove_amount_filter = function(){
-      console.log('$scope.remove_amount_filter = function(){');
-      $scope.resetAmountSlider();
-      $scope.amountFilter = "";
-    }
+
     $scope.setup_new_item_list = function(newItems){
       $scope.setIndex(newItems);
       $scope.focusIndex = 0;
@@ -186,13 +146,7 @@
       $scope.processColumnDateFilter();
     });
 
-    $scope.format_date_range = function(start, end){
-      console.log('$scope.format_date_range = function(' + start+ ', ' + end + '){');
-      var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
-      $scope.dateFilter = date_range;
-      console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
-      return date_range;
-    }
+
     $scope.format_amount_range = function(start, end){
       console.log('$scope.slider: ', $scope.slider.max);
       console.log('$scope.slider: ', $scope.slider.min);
@@ -209,7 +163,7 @@
       console.log('window.setTimeout(function(){');
       $scope.advanced_search();
 
-      vm.refreshSlider();
+      $scope.refreshSlider();
 
       $('.activity-item').first().addClass("visible single");
       excel_table_tweaks();
@@ -364,11 +318,29 @@
         $scope.correctScroll();
       }
     };
-    
+  }
+  function setup_advanced_search($scope){
+    $scope.remove_filter_key = function(key){
+      console.log('$scope.remove_filter_key = function(key){');
+      $scope.query[key] = "";
+    }
+    $scope.remove_filter_query = function(){
+      console.log('$scope.remove_filter_query = function(){');
+      $scope.query.$ = "";
+    }
+    $scope.remove_date_filter = function(){
+      console.log('$scope.remove_date_filter = function(){');
+      $scope.dateFilter = "";
+    }
+    $scope.remove_amount_filter = function(){
+      console.log('$scope.remove_amount_filter = function(){');
+      $scope.resetAmountSlider();
+      $scope.amountFilter = "";
+    }
     $scope.toggle_advanced_search = function(){
       console.log('$scope.toggle_advanced_search = function(){');
       $scope.setQuery = $scope.query;
-      vm.refreshSlider();
+      $scope.refreshSlider();
       $scope.show_advanced_search ? $scope.show_advanced_search = false : $scope.show_advanced_search = true;
       if($scope.show_advanced_search == true){
         window.setTimeout(function(){
@@ -377,15 +349,26 @@
         }, 100);
       }
     }
-    
-    vm.refreshSlider = function () {
+  }
+  function setup_date_range_picker($scope){
+    $scope.refreshSlider = function () {
       window.setTimeout(function(){
         console.log('window.setTimeout(function(){');
         $scope.$broadcast('rzSliderForceRender');
       });
     };
-  }
-  function setup_date_range_picker($scope){
+    $scope.format_date_range = function(start, end){
+      console.log('$scope.format_date_range = function(' + start+ ', ' + end + '){');
+      var date_range = start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY');
+      $scope.dateFilter = date_range;
+      console.log('$scope.dateFilter from format_date_range: ', $scope.dateFilter);
+      return date_range;
+    }
+    $scope.resetAmountSlider = function(){
+      $scope.amountFilter = "";
+      $scope.slider.min = 0;
+      $scope.slider.max = 3500;
+    }
     $scope.advanced_search = function(){
       console.log('$scope.advanced_search = function(){');
       $('.date-picker').daterangepicker({
@@ -669,6 +652,28 @@
       var chart_request_tracking = new google.charts.Bar(document.getElementById('columnchart_material'));
       chart_request_tracking.draw(data, options);
     }
+  }
+
+
+  function search(nameKey, arr){
+    for (var i = 0; i < arr.length; i++) {
+      if(arr[i]["id"] == nameKey){
+        return arr[i];
+      }
+    }
+  }
+
+  function excel_table_tweaks() {
+    // Table tweaks for the excel view
+    var table = $("#xc-inbox-table").stupidtable();
+    table.on("aftertablesort", function (event, data) {
+      var th = $(this).find("th");
+      th.find(".arrow").remove();
+      var dir = $.fn.stupidtable.dir;
+      var arrow = data.direction === dir.ASC ? "&#x25b2;" : "&#x25bc;";
+      th.eq(data.column)
+        .append('<div class="arrow">' + arrow +'</span>');
+    });
   }
 
 })();

@@ -151,7 +151,7 @@
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label style="width: 100%;">
                 Building Number
-                <select name="" id="" style="margin-top: 0.5rem;">
+                <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;">
                   <option  value="{{single.building_number}}">{{single.building_number}}</option>
                 </select>
               </label>
@@ -159,7 +159,7 @@
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label>
                 Org Code
-                <input type="text" value="{{single.org_code}}">
+                <input type="text" ng-model="single.org_code">
               </label>
           </div>
           <div class="large-12 medium-4 grid-block">
@@ -178,7 +178,7 @@
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label>
                 Amount ($)
-                <input type="number" value="{{single.amount}}">
+                <input type="number" ng-model="single.amount">
               </label>
           </div>
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
@@ -211,13 +211,13 @@
           <div class="grid-content small-5 vendor-field">
             <label>
               Vendor
-              <input type="text" value="{{single.product_company}}">
+              <input type="text" ng-model="single.product_company">
             </label>
           </div>
           <div class="grid-content small-6 vendor-field">
             <label>
               Link
-              <input type="text" value="{{single.vendor}}">
+              <input type="text" ng-model="single.vendor">
             </label>
           </div>
           <div class="grid-content small-1 vendor-field vendor-delete">

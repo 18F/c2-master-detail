@@ -6,57 +6,55 @@ controller: ExcelCtrl
 
 
 <div class="vertical grid-block xc-page">
-<div ng-include="'partials/xc/top-bar.html'"></div>
+  <div class="grid-block shrink" ng-include="'partials/xc/top-bar.html'"></div>
 
+  <div class="grid-block">
+    <div id="view-master" class="grid-block view-container" ng-class="{'visible': view_type == 'master'}">
 
-   <!-- class="vertical grid-block shrink" > -->
-   <div id="view-master" class="vertical grid-block shrink view-container" ng-class="{'visible': view_type == 'master'}">
+      <div class="grid-block">
 
-    <div class="grid-block">
+        <div class="medium-10 small-12 grid-container overflow-visible">
+          <div class="grid-block vertical">
+            <div class="xc-header-block">
+              <div class="grid-content">
+                <h2>My Requests</h2>
+              </div>
+            </div>
 
-      <div class="medium-10 small-12 grid-container overflow-visible">
-        <div class="grid-block vertical">
-          <div class="xc-header-block">
-            <div class="grid-content">
-              <h2>My Requests</h2>
+            <div class="grid-block v-align">
+              <div class="grid-content align-bottom">
+                <div ng-include="'partials/xc/filter.html'"></div>
+              </div>
+
+              <div class="grid-content small-3 align-right align-bottom">
+                <div ng-include="'partials/xc/create-request.html'"></div>
+              </div>
+
+              <div class="grid-content small-3 align-right align-bottom">
+                <div ng-include="'partials/xc/download-csv.html'"></div>
+              </div>
+            </div>
+
+            <div class="grid-content xc-inbox">
+              <div ng-include="'partials/xc/inbox-table.html'"></div>
             </div>
           </div>
+        </div>
 
-          <div class="grid-block v-align">
-            <div class="grid-content align-bottom">
-              <div ng-include="'partials/xc/filter.html'"></div>
-            </div>
-
-            <div class="grid-content small-3 align-right align-bottom">
-              <div ng-include="'partials/xc/create-request.html'"></div>
-            </div>
-
-            <div class="grid-content small-3 align-right align-bottom">
-              <div ng-include="'partials/xc/download-csv.html'"></div>
-            </div>
+      </div>
+    </div><!-- id="view-master" -->
+    <div id="view-detail" class="grid-block view-container" ng-class="{'visible': view_type == 'detail'}">
+      <div class="grid-block">
+        <div class="medium-10 small-12 grid-block vertical grid-container overflow-visible">
+          <div class="grid-block">
+            <div ng-include="'partials/xc/detail-nav.html'" class="align-justify xc-detail-nav grid-block"></div>
           </div>
-
-          <div class="grid-content xc-inbox">
-            <div ng-include="'partials/xc/inbox-table.html'"></div>
+          <div class="grid-block large-correct">
+            <div ng-include="'partials/global/content.html'" id="message" position="right" class=""></div>
           </div>
         </div>
       </div>
-
-    </div>
-
-  </div><!-- id="view-master" -->
-
-  <div id="view-detail" class="vertical grid-block shrink view-container" ng-class="{'visible': view_type == 'detail'}">
-    <div class="grid-block">
-      <div class="medium-10 small-12 grid-container overflow-visible">
-        <div class="grid-block">
-          <div ng-include="'partials/xc/detail-nav.html'" class="align-justify horizonal xc-detail-nav grid-block"></div>
-        </div>
-        <div class="grid-block large-correct">
-          <div ng-include="'partials/global/content.html'" id="message" position="right" class=""></div>
-        </div>
-      </div>
-    </div>
-    <div ng-include="'partials/global/action-footer.html'" class="grid-block footer-menu-wrapper shrink wrap large-correct"></div>
-  </div><!-- id="view-detail" -->
+      <div ng-include="'partials/global/action-footer.html'" class="grid-block footer-menu-wrapper large-correct"></div>
+    </div><!-- id="view-detail" -->
+  </div>
 </div>

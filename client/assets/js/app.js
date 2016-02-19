@@ -259,10 +259,18 @@
     
     $scope.trigger_single_change = debounce(300, function () {
       console.log('$scope.single: ', $scope.single);
+      var diff = objectDiff.diff($scope.items[$scope.focusIndex], $scope.single)
+      if(diff.changed == "equal"){
+        $scope.singleHasChanged = false;
+      } else {
+        $scope.singleHasChanged = true;
+      }
+      console.log(diff);
     });
 
     $scope.update_single_item = function(newValue){
       $scope.singleHasChanged = false;
+      $scope.single = $scope.items[newValue];
       $scope.single = $scope.items[newValue];
     }
     $scope.update_detail = function(selectedIndex){

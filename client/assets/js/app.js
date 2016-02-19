@@ -351,6 +351,13 @@
         return moment(date_string,'MM/DD/YYYY').fromNow()
       }
     }
+    $scope.activityIcon = function(item) {
+      if (item.message_status == 'Request approved' || item.message_status == 'Comment added')
+        return 'comment';
+      if (item.has_attachment == 'true')
+        return 'attachment';
+      return false;
+    }
     $scope.$watch('view_type', function(newValue, oldValue) {
       console.log('##################################################');
       console.log('$scope.view_type: ', $scope.view_type);

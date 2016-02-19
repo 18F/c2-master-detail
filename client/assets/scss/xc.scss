@@ -175,9 +175,16 @@
       border: 1px solid #e2e8ee;
       color: #0744a4;
       line-height: 0.9rem;
+      vertical-align: middle;
 
       .actor {
         font-weight: bold;
+        white-space: nowrap;
+      }
+
+      img {
+        height: 32px;
+        padding-left: 1rem;
       }
     }
   }

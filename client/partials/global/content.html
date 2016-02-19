@@ -23,8 +23,8 @@
   </div>
 </div>
 
-<div class="grid-block message-content medium-up-1">
-  <div class="grid-block control-current-status card-parent">
+<div class="grid-block message-content medium-up-1" >
+  <div class="grid-block control-current-status card-parent"  ng-class="{'changed': '' == ''}">
     <div class="card grid-block vertical">
       <div class="card-title grid-block" >
         <div class="small-12 grid-content">
@@ -109,7 +109,7 @@
         <div class="grid-block small-6 ">
           <div class="grid-content">
             <label>
-              <textarea name="" ng-model="single.comment" id="" cols="30" class="" rows="5" placeholder="Add a comment..."></textarea>
+              <textarea name="" ng-model="single.comment" id="" cols="30" class="" rows="5" placeholder="Add a comment..."  ng-class="{'changed': '' == ''}"></textarea>
             </label>
             <label class="file-wrapper">
               Add an attachment
@@ -121,7 +121,7 @@
     </div>
   </div>
 
-  <div class="grid-block control-current-status card-parent">
+  <div class="grid-block control-current-status card-parent"  ng-class="{'changed': '' == ''}">
     <div class="card grid-block">
       <div class="small-12 grid-block vertical">
         <div class="card-title grid-block">
@@ -151,7 +151,7 @@
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label style="width: 100%;">
                 Building Number
-                <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;">
+                <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;"   ng-class="{'changed': '' == ''}">
                   <option  value="{{single.building_number}}">{{single.building_number}}</option>
                 </select>
               </label>
@@ -159,7 +159,7 @@
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label>
                 Org Code
-                <input type="text" ng-model="single.org_code">
+                <input type="text" ng-model="single.org_code"   ng-class="{'changed': '' == ''}">
               </label>
           </div>
           <div class="large-12 medium-4 grid-block">
@@ -178,7 +178,7 @@
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
               <label>
                 Amount ($)
-                <input type="number" ng-model="single.amount">
+                <input type="number" ng-model="single.amount"   ng-class="{'changed': '' == ''}">
               </label>
           </div>
           <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
@@ -199,7 +199,7 @@
     </div>
   </div>
 
-  <div class="grid-block control-current-status card-parent">
+  <div class="grid-block control-current-status card-parent"   ng-class="{'changed': '' == ''}">
     <div class="card grid-block">
       <div class="small-12 grid-block vertical">
         <div class="card-title grid-block">
@@ -256,7 +256,7 @@
 </div>
 
 <div class="grid-block message-content medium-up-2">
-  <div class="grid-block control-current-status card-parent">
+  <div class="grid-block control-current-status card-parent"   ng-class="{'changed': '' == ''}">
     <div class="card grid-block">
       <div class="small-12 grid-block vertical">
         <div class="card-title grid-block shrink" style="margin-bottom: 0px;">

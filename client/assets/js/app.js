@@ -281,14 +281,14 @@
     };
 
     $scope.trigger_single_change = debounce(300, function () {
-      console.log('$scope.single: ', $scope.single);
-      console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
+      // console.log('$scope.single: ', $scope.single);
+      // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];
       var obj2 = $scope.single;
       var diff = objectDiff.diff(obj1, obj2);
       var diffKeys = $scope.check_object_differences(obj1, obj2);
-      console.log('diffKeys: ', diffKeys);
-      console.log('diffKeys.length: ', diffKeys.length);
+      // console.log('diffKeys: ', diffKeys);
+      // console.log('diffKeys.length: ', diffKeys.length);
       if(diffKeys.length == 0){
         $scope.singleHasChanged = false;
         // console.log('No changes in ');

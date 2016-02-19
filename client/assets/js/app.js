@@ -286,21 +286,17 @@
       var obj1 = $scope.items[$scope.focusIndex];
       var obj2 = $scope.single;
       var diff = objectDiff.diff(obj1, obj2);
-      var diffKeys = $scope.check_object_differences(obj1, obj2);
+      $scope.singleChanges = $scope.check_object_differences(obj1, obj2);
       // console.log('diffKeys: ', diffKeys);
       // console.log('diffKeys.length: ', diffKeys.length);
-      if(diffKeys.length == 0){
-        $scope.singleHasChanged = false;
-        // console.log('No changes in ');
-      } else {
-        // console.log('diffKeys: ', diffKeys);
-        $scope.singleHasChanged = true;
-      }
       console.log(diff);
     });
 
     $scope.update_single_item = function(newValue){
-      $scope.singleHasChanged = false;
+      $scope.singleChanges = {
+        diff: [], 
+        detail: {}
+      };
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
@@ -473,6 +469,10 @@
   }
 
   function setup_scope_variables($scope){
+    $scope.singleChanges = {
+      diff: [], 
+      detail: {}
+    };
     $scope.keys = [];
     $scope.filter = "";
     $scope.active_filter = "";
@@ -558,7 +558,7 @@
   }
 
   function setup_watches($scope){
-    $scope.$watch('singleHasChanged', function(newValue, oldValue) {
+    $scope.$watch('singleChanges', function(newValue, oldValue) {
       console.log('Single view has changed');
       $scope.trigger_response_to_changed_fields();
     }, true);

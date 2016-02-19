@@ -6,6 +6,10 @@
 @import "daterangepicker";
 @import "rzslider";
 
+.daterangepicker {
+  border: 2px solid #ccc;
+}
+
 .calendar-table{
   svg.iconic.iconic-md:not(.iconic-size-sm):not(.iconic-size-lg), svg.iconic.iconic-size-md{
     width: 23px;

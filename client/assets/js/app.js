@@ -192,12 +192,18 @@
     }
     $scope.processDateFilter = function(){
       if(!angular.equals("", $scope.dateFilter)){
-        var startDate = moment($scope.dateFilter.split(' - ')[0], 'MM/DD/YYYY');
-        var endDate = moment($scope.dateFilter.split(' - ')[1], 'MM/DD/YYYY');
+        var rangeString = $scope.dateFilter;
+        var dateField = "date";
+        if (rangeString.match(/\|/)) {
+          rangeString = rangeString.split('|')[0];
+          dateField = rangeString.split('|')[1];
+        }
+        var startDate = moment(rangeString.split(' - ')[0], 'MM/DD/YYYY');
+        var endDate = moment(rangeString.split(' - ')[1], 'MM/DD/YYYY');
         var range = moment.range(startDate, endDate);
         var newItems = []
         for (var i = $scope.items.length - 1; i >= 0; i--) {
-          if( range.contains(moment($scope.items[i]["date"], 'MM/DD/YYYY')) ){
+          if( range.contains(moment($scope.items[i][dateField], 'MM/DD/YYYY')) ){
             newItems.push($scope.items[i]);
           }
         }
@@ -335,6 +341,13 @@
       if (item.has_attachment == 'true')
         return 'attachment';
       return false;
+    }
+    $scope.recentActivityFilter = function() {
+      $scope.reset_filter();
+      $scope.dateFilter = '01/16/2016 - 02/16/2016|comment_3_date';
+      $scope.active_filter = 'recent';
+      //$("#thActivity").stupidsort("desc");
+      $scope.processDateFilter();
     }
     $scope.$watch('view_type', function(newValue, oldValue) {
       console.log('##################################################');

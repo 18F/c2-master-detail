@@ -26,6 +26,34 @@
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
+            Org Code
+              <input type="text" ng-model="single.org_code">
+            </select>
+          </label>
+      </div>
+      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
+          <label style="width: 100%;">
+            Object Field / SOC
+              <input type="text" ng-model="single.object_field">
+            </select>
+          </label>
+      </div>
+      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
+          <label style="width: 100%;">
+            CL#
+              <input type="text" ng-model="single.cl_number">
+            </select>
+          </label>
+      </div>
+      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
+          <label style="width: 100%;">
+            Function Code
+              <input type="text" ng-model="single.function_code">
+            </select>
+          </label>
+      </div>
+      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
+          <label style="width: 100%;">
             Building Number
             <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;" ng-class="{'changed': singleChanges.diff.indexOf('building_number') != -1}">
               <option  value="{{items[focusIndex]['building_number']}}">{{items[focusIndex]['building_number']}}</option>
@@ -58,12 +86,6 @@
                 <p style="margin-bottom: 0px;">I am going to use <a href="#" zf-open="my-notify">Direct Pay</a> for this transaction</p>
               </div>
             </div>
-          </label>
-      </div>
-      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
-          <label>
-            Org Code
-            <input type="text" ng-model="single.org_code"  ng-class="{'changed': singleChanges.diff.indexOf('org_code') != -1}">
           </label>
       </div>
     </div>

@@ -299,6 +299,9 @@
 
     $scope.save_changes = function(){
       $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
     }
 
     $scope.setup_single_clone = function(){

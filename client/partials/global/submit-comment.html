@@ -4,7 +4,8 @@
   <div style="padding: 10px; background: #eee; margin-bottom: 20px;">
     <p>{{single.comment}}</p>
   </div>
-  <p>The following subscribers will receive your comment: <span ng-repeat="subscriber in single.subscriber">{{subscriber}} </span></p>
+  <p>The following subscribers will receive your comment: 
+  <ul><li ng-repeat="subscriber in single.subscriber"><input type="checkbox" checked="true"> {{subscriber}} </li></ul></p>
   <a zf-close="" class="secondary button">Go back</a>
   <a zf-close="" class="success button">Send</a>
 </div>

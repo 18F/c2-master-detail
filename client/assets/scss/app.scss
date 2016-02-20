@@ -397,6 +397,7 @@ strong, b {
 #message{
   background: #FBFBFB;
   .card{
+    transition: border 0.25s ease-out;
     border-top: 5px solid #07519B;
     &.changed{
       border-top: 5px solid $warning-color;

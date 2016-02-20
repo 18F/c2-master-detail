@@ -288,6 +288,14 @@
       $scope.$apply();
     }
 
+    $scope.reconcile_single = function(){
+      $scope.single.inbox_status = "Completed";
+      $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
+    }
+
     $scope.send_comment = function(){
       $scope.single.comments.push({
         "name": "You",
@@ -611,6 +619,12 @@
   }
 
   function setup_watches($scope){
+    $scope.$watch('query.has_attachment', function(newValue, oldValue) {
+      console.log('Single view has changed');
+      if($scope.query.has_attachment == false){
+        $scope.query.has_attachment = "";
+      }
+    }, true);
     $scope.$watch('singleChanges', function(newValue, oldValue) {
       console.log('Single view has changed');
       $scope.trigger_response_to_changed_fields();

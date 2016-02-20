@@ -1,6 +1,7 @@
 <ul class="menu-bar" style="background: #ccc;">
   <li class="small-4">
-    <a zf-open="delete-modal" class="align-left" style="float: left; background: none !important;">Cancel Request</a>
+    <a zf-open="delete-modal" class="align-left" style="float: left; background: none !important;" ng-if="single.inbox_status!='Approved'">Cancel Request</a>
+    <a zf-open="reconcile-modal" class="align-left" style="float: left; background: none !important;" ng-if="single.inbox_status=='Approved'">Reconcile Request</a>
   </li>
   <li ng-include="'partials/content/action-buttons.html'"></li>
 </ul>

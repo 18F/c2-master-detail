@@ -1,20 +1,20 @@
 
-<div class="grid-block medium-12 grid-container align-justify message-header" style="padding-left: 25px">
+<div class="grid-block medium-12 grid-container align-justify message-header">
   <div class="small-12 grid-block medium-8">
     <div class="grid-content">
-      <p>Requester: <b>{{single.person_name}}</b><span style="padding-left: 1.8em"></span>Submitted {{single.date}}</p>
+      <p>Requester: <b>{{single.person_name}}</b> | Status: <b>{{single.inbox_status | capitalize}}</b></p>
       <h3>{{single.product_name}}</h3>
     </div>
   </div>
-  <div class="small-12 grid-block medium-3 vertical">
+  <div class="small-12 grid-block medium-3 vertical align-right">
     <div class="grid-block">
       <div class="grid-content">
-        <p class="text-right" style="opacity: 0;">Submitted {{single.date}}</p>
+        <p class="text-right" style="opacity: 1;">Submitted {{single.date}}</p>
       </div>
     </div>
     <div class="grid-block">
       <div class="grid-content" style="    margin-top: auto;">
-        <p class="text-right">
+        <p class="text-right no-margin-button">
           <div ng-include="'partials/content/action-buttons.html'"></div>
         </p>
       </div>

@@ -11,6 +11,10 @@
   z-index: 1000;
 }
 
+.no-margin-button.no-margin-button{
+  margin-bottom: 0px;
+}
+
 .calendar-table{
   svg.iconic.iconic-md:not(.iconic-size-sm):not(.iconic-size-lg), svg.iconic.iconic-size-md{
     width: 23px;

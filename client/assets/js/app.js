@@ -160,6 +160,9 @@
         person_name: "",
         date: "",
         description: "",
+        "function_code": "",
+        "object_field": "",
+        "cl_number": "",
         vendor: "",
         has_attachment: "",
         amount: "",
@@ -280,6 +283,46 @@
   }
 
   function setup_single_page($scope, debounce){
+    
+    $scope.delete_single = function(){
+      $scope.items.splice($scope.focusIndex, 1);
+      $scope.setIndex($scope.items);
+      $scope.setup_single_clone();
+      $scope.$apply();
+    }
+
+    $scope.reconcile_single = function(){
+      $scope.single.inbox_status = "Completed";
+      $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
+    }
+
+    $scope.send_comment = function(){
+      $scope.single.comments.push({
+        "name": "You",
+        "date": moment().format("MM//DD/YYYY"),
+        "time": moment().format('h:mm a')
+      });
+      $scope.single.comment = "";
+    }
+
+    $scope.save_changes = function(){
+      $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
+    }
+
+    $scope.setup_single_clone = function(){
+      $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+    }
+
+    $scope.submit_comment = function(){
+      console.log('fire comment submit');
+    }
+
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
       for (var i = new_list.length - 1; i >= 0; i--) {
@@ -287,9 +330,10 @@
       }
       $scope.items = new_list;
     }
+
     $scope.trigger_response_to_changed_fields = function(){
       console.log('trigger_response_to_changed_fields');
-    };
+    }
 
     $scope.check_has_changed = function(param){
       var diff = $scope.singleChanges.diff;
@@ -302,7 +346,7 @@
       return true;
     }
 
-    $scope.trigger_single_change = debounce(300, function () {
+    $scope.trigger_single_change = debounce(50, function () {
       // console.log('$scope.single: ', $scope.single);
       // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];
@@ -523,6 +567,9 @@
       description: "",
       vendor: "",
       amount: "",
+      "function_code": "",
+      "object_field": "",
+      "cl_number": "",
       org_code: "",
       inbox_status: ""
     };
@@ -578,6 +625,12 @@
   }
 
   function setup_watches($scope){
+    $scope.$watch('query.has_attachment', function(newValue, oldValue) {
+      console.log('Single view has changed');
+      if($scope.query.has_attachment == false){
+        $scope.query.has_attachment = "";
+      }
+    }, true);
     $scope.$watch('singleChanges', function(newValue, oldValue) {
       console.log('Single view has changed');
       $scope.trigger_response_to_changed_fields();
@@ -611,7 +664,7 @@
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
-      $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      $scope.setup_single_clone();
       console.log('$scope.single:', $scope.single);
       console.log("$scope.items[$scope.focusIndex]: ", $scope.items[$scope.focusIndex]);
       return newValue;
@@ -703,6 +756,9 @@ var search_params = [
                       'date',
                       'message_status',
                       'description',
+                      "function_code",
+                      "object_field",
+                      "cl_number",
                       'comment_1',
                       'comment_2',
                       'comment_3',

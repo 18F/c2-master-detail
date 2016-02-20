@@ -1,11 +1,11 @@
-<span ng-if="singleChanges.diff.length == 0">
-  <a style="width:100%; color: white;" class="no-margin-button button primary align-right" href="#" style="width: 100%; margin: 0px;">Approve</a>
-</span>
 <span ng-if="singleChanges.diff.length > 0">
-  <span ng-if="findOne(singleChanges.diff, ['amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay'])">
-    <a style="width:100%" class="no-margin-button button success align-right" href="#" style="width: 100%; margin: 0px;">Save Change</a>
+  <span ng-if="!findOne(singleChanges.diff, ['comment']) && findOne(singleChanges.diff, ['amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code'])">
+    <a ng-click="save_changes()" style="width:100%" class="no-margin-button button success align-right" style="width: 100%; margin: 0px;" title="Notification" content="Your changes have been saved." color="success" autoclose="3000" zf-notify="comment-sent-notification">Save Change</a>
   </span>
-  <span ng-if="findOne(singleChanges.diff, ['comment'])">
-    <a style="width:100%" class="no-margin-button button success align-right" href="#" style="width: 100%; margin: 0px;">Send Comment</a>
+  <span ng-if="findOne(singleChanges.diff, ['comment'])" >
+    <a ng-click="submit_comment()" zf-open="commentModal"  style="width:100%" class="no-margin-button button success align-right" style="width: 100%; margin: 0px;">Send Comment</a>
+  </span>
+  <span ng-if="!findOne(singleChanges.diff, ['comment', 'amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) && single.inbox_status=='Approved'">
+    <a ng-click="reconcile_single()" zf-open="reconcile-modal"  style="width:100%" class="no-margin-button button primary align-right" style="width: 100%; margin: 0px;">Reconcile Request</a>
   </span>
 </span>

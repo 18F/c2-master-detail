@@ -11,7 +11,7 @@
         <p>{{single.description}}</p>
       </div>
     </div>
-    <div class="grid-block medium-up-3">
+    <div class="grid-block medium-up-2">
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Expense Type
@@ -37,8 +37,14 @@
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label>
-            Org Code
-            <input type="text" ng-model="single.org_code"  ng-class="{'changed': singleChanges.diff.indexOf('org_code') != -1}">
+            Amount ($)
+            <input type="number" ng-model="single.amount" ng-class="{'changed': singleChanges.diff.indexOf('amount') != -1}">
+          </label>
+      </div>
+      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
+          <label style="margin-top: .8em;">
+            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="1"> Not to exceed <br>
+            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="2"> Exactly
           </label>
       </div>
       <div class="large-12 medium-4 grid-block">
@@ -56,14 +62,8 @@
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label>
-            Amount ($)
-            <input type="number" ng-model="single.amount" ng-class="{'changed': singleChanges.diff.indexOf('amount') != -1}">
-          </label>
-      </div>
-      <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
-          <label style="margin-top: .8em;">
-            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="1"> Not to exceed <br>
-            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="2"> Exactly
+            Org Code
+            <input type="text" ng-model="single.org_code"  ng-class="{'changed': singleChanges.diff.indexOf('org_code') != -1}">
           </label>
       </div>
     </div>

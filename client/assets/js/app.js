@@ -283,7 +283,13 @@
   }
 
   function setup_single_page($scope, debounce){
-    
+
+    $scope.remove_subscriber = function(subscriber_email){
+      var index = $scope.single.subscribers.indexOf(subscriber_email);
+      $scope.single.subscribers.splice(index, 1);
+      $scope.save_changes();
+    } 
+
     $scope.delete_single = function(){
       $scope.items.splice($scope.focusIndex, 1);
       $scope.setIndex($scope.items);
@@ -372,6 +378,7 @@
       $('.new-vendor').before(new_vendor);
     }
     $scope.add_new_subscriber = function(){
+      $scope.single.subscribers.push();
       console.log('$scope.add_new_subscriber = function(){');
       $('.new-subscriber').before(new_subcribe);
     }

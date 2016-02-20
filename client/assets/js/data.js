@@ -2707,9 +2707,8 @@ var data = [{
     "reconciler": "Earl Marshall",
     "subscriber": [ 
         "Kypuros@army.mil",
-        "Dodgion@123-reg.co.
-        uk","Shamp@army.
-    mil" ],
+        "Dodgion@123-reg.co"
+    ],
     "vendor": "http://irs.gov/eget/orci/vehicula.js?primis=neque\u0026in=sapien\u0026faucibus=placerat\u0026orci=ante\u0026luctus=nulla\u0026et=justo\u0026ultrices=aliquam\u0026posuere=quis\u0026cubilia=turpis\u0026curae=eget\u0026donec=elit\u0026pharetra=sodales\u0026magna=scelerisque\u0026vestibulum=mauris\u0026aliquet=sit\u0026ultrices=amet\u0026erat=eros\u0026tortor=suspendisse\u0026sollicitudin=accumsan\u0026mi=tortor\u0026sit=quis\u0026amet=turpis\u0026lobortis=sed\u0026sapien=ante\u0026sapien=vivamus\u0026non=tortor\u0026mi=duis\u0026integer=mattis\u0026ac=egestas\u0026neque=metus\u0026duis=aenean\u0026bibendum=fermentum\u0026morbi=donec\u0026non=ut\u0026quam=mauris\u0026nec=eget\u0026dui=massa\u0026luctus=tempor\u0026rutrum=convallis\u0026nulla=nulla\u0026tellus=neque\u0026in=libero\u0026sagittis=convallis\u0026dui=eget\u0026vel=eleifend\u0026nisl=luctus\u0026duis=ultricies\u0026ac=eu\u0026nibh=nibh\u0026fusce=quisque\u0026lacus=id\u0026purus=justo\u0026aliquet=sit\u0026at=amet\u0026feugiat=sapien\u0026non=dignissim\u0026pretium=vestibulum\u0026quis=vestibulum\u0026lectus=ante\u0026suspendisse=ipsum\u0026potenti=primis\u0026in=in\u0026eleifend=faucibus\u0026quam=orci\u0026a=luctus\u0026odio=et\u0026in=ultrices\u0026hac=posuere\u0026habitasse=cubilia\u0026platea=curae\u0026dictumst=nulla\u0026maecenas=dapibus\u0026ut=dolor\u0026massa=vel\u0026quis=est\u0026augue=donec\u0026luctus=odio\u0026tincidunt=justo\u0026nulla=sollicitudin\u0026mollis=ut\u0026molestie=suscipit\u0026lorem=a\u0026quisque=feugiat\u0026ut=et\u0026erat=eros\u0026curabitur=vestibulum\u0026gravida=ac\u0026nisi=est\u0026at=lacinia\u0026nibh=nisi\u0026in=venenatis\u0026hac=tristique\u0026habitasse=fusce\u0026platea=congue\u0026dictumst=diam\u0026aliquam=id\u0026augue=ornare",
     "amount": 1439.34,
     "amount_type": "Exactly",
@@ -4820,8 +4819,7 @@ var data = [{
     "subscriber": [ 
         "Pillarella@house.gov",
         "Aman@who.int",
-        "Lipoma@so-net.ne.
-    jp" ],
+    ],
     "vendor": "https://mozilla.org/rutrum/nulla/nunc/purus/phasellus/in/felis.xml?pede=in\u0026justo=hac\u0026lacinia=habitasse\u0026eget=platea\u0026tincidunt=dictumst\u0026eget=maecenas\u0026tempus=ut\u0026vel=massa\u0026pede=quis\u0026morbi=augue\u0026porttitor=luctus\u0026lorem=tincidunt\u0026id=nulla\u0026ligula=mollis\u0026suspendisse=molestie\u0026ornare=lorem\u0026consequat=quisque\u0026lectus=ut\u0026in=erat\u0026est=curabitur\u0026risus=gravida\u0026auctor=nisi\u0026sed=at\u0026tristique=nibh\u0026in=in\u0026tempus=hac\u0026sit=habitasse\u0026amet=platea\u0026sem=dictumst\u0026fusce=aliquam\u0026consequat=augue\u0026nulla=quam\u0026nisl=sollicitudin\u0026nunc=vitae\u0026nisl=consectetuer\u0026duis=eget\u0026bibendum=rutrum\u0026felis=at\u0026sed=lorem\u0026interdum=integer\u0026venenatis=tincidunt\u0026turpis=ante\u0026enim=vel\u0026blandit=ipsum\u0026mi=praesent\u0026in=blandit\u0026porttitor=lacinia\u0026pede=erat\u0026justo=vestibulum\u0026eu=sed\u0026massa=magna\u0026donec=at\u0026dapibus=nunc\u0026duis=commodo",
     "amount": 1957.89,
     "amount_type": "Not to exceed",

@@ -1,9 +1,10 @@
 <div zf-modal="" id="commentModal" overlay="true" overlay-close="false" class="tiny dialog">
   <h4>Comment Submission</h4>
-  <p><i>The following subscribers will receive your comment. Please confirm your message below:</i></p>
+  <p><i>Please confirm your message below:</i></p>
   <div style="padding: 10px; background: #eee; margin-bottom: 20px;">
     <p>{{single.comment}}</p>
   </div>
+  <p>The following subscribers will receive your comment: <span ng-repeat="subscriber in single.subscriber">{{subscriber}} </span></p>
   <a zf-close="" class="secondary button">Go back</a>
   <a zf-close="" class="success button">Send</a>
 </div>

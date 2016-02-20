@@ -281,6 +281,13 @@
 
   function setup_single_page($scope, debounce){
     
+    $scope.delete_single = function(){
+      $scope.items.splice($scope.focusIndex, 1);
+      $scope.setIndex($scope.items);
+      $scope.setup_single_clone();
+      $scope.$apply();
+    }
+
     $scope.send_comment = function(){
       $scope.single.comments.push({
         "name": "You",
@@ -325,7 +332,7 @@
       return true;
     }
 
-    $scope.trigger_single_change = debounce(300, function () {
+    $scope.trigger_single_change = debounce(50, function () {
       // console.log('$scope.single: ', $scope.single);
       // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];

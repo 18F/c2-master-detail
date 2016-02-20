@@ -26,6 +26,11 @@
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
       });
   }])
+  .filter('capitalize', function() {
+    return function(token) {
+        return token.charAt(0).toUpperCase() + token.slice(1);
+     }
+  })
   .config(config)
   .run(run)
 ;
@@ -205,7 +210,7 @@
             return haystack.indexOf(v) >= 0;
         });
     }
-    
+
     $scope.check_object_differences = function(obj1, obj2){
       // console.log('obj1: ', obj1);
       // console.log('obj2: ', obj2);

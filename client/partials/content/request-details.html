@@ -1,4 +1,4 @@
-<div class="card grid-block" ng-class="{'changed': findOne(singleChanges.diff, ['direct_pay','amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay']) }">
+<div class="card grid-block" ng-class="{'changed': findOne(singleChanges.diff, ['direct_pay','amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) }">
   <div class="small-12 grid-block vertical">
     <div class="card-title grid-block">
       <div class="grid-content">
@@ -27,28 +27,28 @@
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Org Code
-              <input type="text" ng-model="single.org_code">
+              <input type="text" ng-model="single.org_code" ng-class="{'changed': singleChanges.diff.indexOf('org_code') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Object Field / SOC
-              <input type="text" ng-model="single.object_field">
+              <input type="text" ng-model="single.object_field" ng-class="{'changed': singleChanges.diff.indexOf('object_field') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             CL#
-              <input type="text" ng-model="single.cl_number">
+              <input type="text" ng-model="single.cl_number" ng-class="{'changed': singleChanges.diff.indexOf('cl_number') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Function Code
-              <input type="text" ng-model="single.function_code">
+              <input type="text" ng-model="single.function_code" ng-class="{'changed': singleChanges.diff.indexOf('function_code') != -1}">
             </select>
           </label>
       </div>

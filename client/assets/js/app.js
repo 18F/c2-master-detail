@@ -280,6 +280,9 @@
   }
 
   function setup_single_page($scope, debounce){
+    $scope.submit_comment = function(){
+      console.log('fire comment submit');
+    }
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
       for (var i = new_list.length - 1; i >= 0; i--) {

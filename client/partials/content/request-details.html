@@ -28,7 +28,7 @@
           <label style="width: 100%;">
             Building Number
             <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;" ng-class="{'changed': singleChanges.diff.indexOf('building_number') != -1}">
-              <option  value="{{single.building_number}}">{{single.building_number}}</option>
+              <option  value="{{items[focusIndex]['building_number']}}">{{items[focusIndex]['building_number']}}</option>
               <option  value="#adfadf">#adfadf</option>
               <option  value="#adfe">#adfe</option>
               <option  value="#3afe">#3afe</option>

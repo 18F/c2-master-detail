@@ -22,12 +22,12 @@
   }
 }
 
-// textarea, input, select{
-//   &.changed {
-//       background: rgba(240, 138, 36, .1);
-//       transition: background 0.25s ease-out;
-//   }
-// }
+textarea, input, select{
+  &.changed {
+      background: rgba(240, 138, 36, .1);
+      transition: background 0.25s ease-out;
+  }
+}
 
 .popup-toggle:hover .request-popup{
   display: block;

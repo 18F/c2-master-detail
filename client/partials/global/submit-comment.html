@@ -8,5 +8,5 @@
   <ul style="list-style: none;"><li ng-repeat="subscriber in single.subscriber"><input type="checkbox" checked="true"> {{subscriber}} </li></ul></p>
   <a zf-close="" class="secondary button">Go back</a>
 
-  <a zf-close="" class="button" href="#" title="Notification" content="Your comment has been sent." color="success" autoclose="3000" zf-notify="comment-sent-notification">Send</a>
+  <a zf-close="" ng-click="send_comment()" class="button" href="#" title="Notification" content="Your comment has been sent." color="success" autoclose="3000" zf-notify="comment-sent-notification">Send</a>
 </div>

@@ -280,9 +280,28 @@
   }
 
   function setup_single_page($scope, debounce){
+    
+    $scope.send_comment = function(){
+      $scope.single.comments.push({
+        "name": "You",
+        "date": moment().format("MM//DD/YYYY"),
+        "time": moment().format('h:mm a')
+      });
+      $scope.single.comment = "";
+    }
+
+    $scope.save_changes = function(){
+      $scope.items[$scope.focusIndex] = $scope.single;
+    }
+
+    $scope.setup_single_clone = function(){
+      $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+    }
+
     $scope.submit_comment = function(){
       console.log('fire comment submit');
     }
+
     $scope.setIndex = function(new_list){
       console.log('$scope.setIndex = function(new_list){');
       for (var i = new_list.length - 1; i >= 0; i--) {
@@ -290,9 +309,10 @@
       }
       $scope.items = new_list;
     }
+
     $scope.trigger_response_to_changed_fields = function(){
       console.log('trigger_response_to_changed_fields');
-    };
+    }
 
     $scope.check_has_changed = function(param){
       var diff = $scope.singleChanges.diff;
@@ -614,7 +634,7 @@
     $scope.$watch('focusIndex', function(newValue, oldValue) {
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
-      $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      $scope.setup_single_clone();
       console.log('$scope.single:', $scope.single);
       console.log("$scope.items[$scope.focusIndex]: ", $scope.items[$scope.focusIndex]);
       return newValue;

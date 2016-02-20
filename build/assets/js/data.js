@@ -1,5 +1,7 @@
 var data = [{
     "id": "158393630-0",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Gigazoom",
     "product_type": "service",
@@ -34,6 +36,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "843501173-9",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Browsecat",
     "product_type": "service",
@@ -67,6 +71,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "911907657-6",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Yakitri",
     "product_type": "widget",
@@ -101,6 +107,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "130368289-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Roomm",
     "product_type": "widget",
@@ -131,6 +139,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "079921008-0",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Abata",
     "product_type": "equipment",
@@ -165,6 +175,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "860782308-6",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Skajo",
     "product_type": "service",
@@ -200,6 +212,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "444850140-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Plajo",
     "product_type": "product",
@@ -230,6 +244,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "647008690-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Voolith",
     "product_type": "widget",
@@ -263,6 +279,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "213320876-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Buzzbean",
     "product_name": "soldierly Buzzbean ",
@@ -297,6 +315,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "067239463-4",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Voolith",
     "product_type": "product",
@@ -326,6 +346,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "592557009-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Linklinks",
     "product_type": "event",
@@ -356,6 +378,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "231018859-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Devbug",
     "product_type": "order",
@@ -391,6 +415,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "140943428-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Topicstorm",
     "product_type": "widget",
@@ -425,6 +451,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "166423223-0",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Zooxo",
     "product_name": "reimportation Zooxo ",
@@ -458,6 +486,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "033635930-6",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Zazio",
     "product_type": "order",
@@ -492,6 +522,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "227011675-5",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Edgetag",
     "product_type": "order",
@@ -526,6 +558,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "180747495-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Skimia",
     "product_type": "equipment",
@@ -556,6 +590,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "452963524-4",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Eayo",
     "product_type": "widget",
@@ -589,6 +625,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "104254889-7",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Realpoint",
     "product_type": "widget",
@@ -619,6 +657,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "772667450-4",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Oyope",
     "product_type": "product",
@@ -652,6 +692,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "487872141-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Dablist",
     "product_type": "equipment",
@@ -682,6 +724,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "144396541-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Zoomzone",
     "product_name": "magiric Zoomzone ",
@@ -715,6 +759,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "443019899-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Zooveo",
     "product_type": "event",
@@ -750,6 +796,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "035731180-9",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Tazz",
     "product_type": "service",
@@ -784,6 +832,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "840074586-8",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Linktype",
     "product_name": "pyocyanin Linktype ",
@@ -814,6 +864,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "549978960-6",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Cogidoo",
     "product_type": "event",
@@ -849,6 +901,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "650796392-5",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Flipopia",
     "product_type": "service",
@@ -884,6 +938,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "622469297-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Twitterbridge",
     "product_type": "product",
@@ -915,6 +971,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "606806063-2",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Yozio",
     "product_type": "event",
@@ -950,6 +1008,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "173919777-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Yotz",
     "product_type": "service",
@@ -985,6 +1045,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "477400005-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Oyonder",
     "product_name": "pastorally Oyonder ",
@@ -1014,6 +1076,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "579443675-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Skyvu",
     "product_type": "product",
@@ -1048,6 +1112,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "133300749-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Topicshots",
     "product_type": "order",
@@ -1083,6 +1149,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "078982823-5",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Shufflebeat",
     "product_type": "order",
@@ -1117,6 +1185,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "113943266-4",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Tavu",
     "product_name": "exulcerative Tavu ",
@@ -1151,6 +1221,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "133374269-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Rooxo",
     "product_name": "wolfachite Rooxo ",
@@ -1180,6 +1252,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "638812125-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Zooxo",
     "product_type": "equipment",
@@ -1210,6 +1284,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "717539822-0",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Dynabox",
     "product_type": "product",
@@ -1244,6 +1320,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "889729382-4",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Kwinu",
     "product_type": "service",
@@ -1277,6 +1355,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "224433128-8",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Skyndu",
     "product_type": "event",
@@ -1311,6 +1391,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "003120381-7",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Linklinks",
     "product_type": "event",
@@ -1341,6 +1423,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "418285696-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Oyope",
     "product_name": "ulvaceous Oyope ",
@@ -1374,6 +1458,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "565796604-X",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Skynoodle",
     "product_type": "widget",
@@ -1404,6 +1490,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "537311377-8",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "LiveZ",
     "product_type": "event",
@@ -1439,6 +1527,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "531699837-5",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Devpoint",
     "product_type": "service",
@@ -1470,6 +1560,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "055106110-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Minyx",
     "product_type": "event",
@@ -1505,6 +1597,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "889619655-8",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Yakitri",
     "product_type": "equipment",
@@ -1540,6 +1634,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "194721051-3",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Dabvine",
     "product_type": "order",
@@ -1575,6 +1671,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "977966497-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Meembee",
     "product_type": "service",
@@ -1609,6 +1707,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "761342738-2",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Jaloo",
     "product_type": "service",
@@ -1640,6 +1740,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "635549952-0",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Tagfeed",
     "product_type": "service",
@@ -1674,6 +1776,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "431534350-1",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Jayo",
     "product_type": "service",
@@ -1707,6 +1811,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "983226839-7",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Aimbu",
     "product_type": "service",
@@ -1736,6 +1842,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "446270523-8",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Talane",
     "product_type": "product",
@@ -1767,6 +1875,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "515313395-8",
+    "direct_pay": false,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Skiptube",
     "product_type": "order",
@@ -1801,6 +1911,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "242585402-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Shuffledrive",
     "product_type": "order",
@@ -1835,6 +1947,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "733699462-8",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Yata",
     "product_type": "event",
@@ -1869,6 +1983,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "670963581-3",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Leenti",
     "product_type": "widget",
@@ -1904,6 +2020,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "519364602-6",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Zoonoodle",
     "product_type": "equipment",
@@ -1939,6 +2057,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "139468108-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Tazzy",
     "product_type": "widget",
@@ -1973,6 +2093,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "092702815-8",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Dabtype",
     "product_type": "service",
@@ -2006,6 +2128,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "172114622-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Tekfly",
     "product_type": "service",
@@ -2040,6 +2164,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "574242166-4",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Twitterlist",
     "product_type": "equipment",
@@ -2074,6 +2200,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "075673806-7",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Kimia",
     "product_name": "ropelike Kimia ",
@@ -2107,6 +2235,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "780230551-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Voomm",
     "product_type": "equipment",
@@ -2138,6 +2268,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "426918666-6",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Mymm",
     "product_type": "widget",
@@ -2167,6 +2299,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "280136215-8",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Blogtags",
     "product_name": "morale Blogtags ",
@@ -2196,6 +2330,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "017135357-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Youfeed",
     "product_type": "widget",
@@ -2230,6 +2366,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "634184507-3",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Gabtune",
     "product_type": "widget",
@@ -2263,6 +2401,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "958047330-7",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Avavee",
     "product_type": "service",
@@ -2296,6 +2436,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "970839955-8",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Plambee",
     "product_type": "widget",
@@ -2329,6 +2471,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "684924196-6",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Rhynoodle",
     "product_type": "order",
@@ -2359,6 +2503,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "667142241-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Nlounge",
     "product_type": "event",
@@ -2389,6 +2535,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "914258617-8",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Buzzdog",
     "product_type": "service",
@@ -2424,6 +2572,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "865568360-4",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Zoomcast",
     "product_type": "service",
@@ -2453,6 +2603,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "897531244-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Wordtune",
     "product_name": "stirpiculturist Wordtune ",
@@ -2486,6 +2638,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "179093648-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Eayo",
     "product_name": "Sharezer Eayo ",
@@ -2516,6 +2670,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "295878159-3",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Shuffledrive",
     "product_name": "Ioskeha Shuffledrive ",
@@ -2550,6 +2706,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "534675181-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Feednation",
     "product_type": "event",
@@ -2583,6 +2741,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "531739866-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Skiptube",
     "product_name": "sensitize Skiptube ",
@@ -2615,6 +2775,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "362957893-4",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Skimia",
     "product_type": "service",
@@ -2649,6 +2811,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "724333359-1",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Livefish",
     "product_type": "event",
@@ -2683,6 +2847,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "157386073-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Quaxo",
     "product_type": "equipment",
@@ -2718,6 +2884,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "683589550-0",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Realbuzz",
     "product_type": "service",
@@ -2752,6 +2920,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "717347233-4",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Divavu",
     "product_type": "event",
@@ -2787,6 +2957,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "891417358-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Gigabox",
     "product_type": "equipment",
@@ -2820,6 +2992,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "266019070-4",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Mydo",
     "product_type": "equipment",
@@ -2853,6 +3027,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "762337647-0",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Brightdog",
     "product_type": "order",
@@ -2883,6 +3059,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "119295550-1",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Browsedrive",
     "product_type": "widget",
@@ -2917,6 +3095,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "548025850-8",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Skinix",
     "product_type": "order",
@@ -2948,6 +3128,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "315362673-1",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Npath",
     "product_type": "order",
@@ -2981,6 +3163,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "009963263-2",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Yodoo",
     "product_type": "product",
@@ -3015,6 +3199,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "581780482-4",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Minyx",
     "product_type": "widget",
@@ -3045,6 +3231,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "388871428-1",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Quimm",
     "product_type": "event",
@@ -3079,6 +3267,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "673229556-X",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Bluejam",
     "product_type": "event",
@@ -3113,6 +3303,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "472356163-3",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Feedfish",
     "product_name": "sawwort Feedfish ",
@@ -3145,6 +3337,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "626384143-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Rooxo",
     "product_type": "order",
@@ -3175,6 +3369,8 @@ var data = [{
     "inbox_status": "New"
 }, {
     "id": "081752260-3",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Feedmix",
     "product_type": "widget",
@@ -3208,6 +3404,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "312619394-3",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Buzzshare",
     "product_type": "event",
@@ -3238,6 +3436,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "418928072-0",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "LiveZ",
     "product_type": "service",
@@ -3268,6 +3468,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "301969866-9",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Devcast",
     "product_type": "product",
@@ -3303,6 +3505,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "546932320-X",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Meevee",
     "product_type": "product",
@@ -3338,6 +3542,8 @@ var data = [{
     "inbox_status": "Pending"
 }, {
     "id": "957993794-X",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Thoughtmix",
     "product_type": "product",
@@ -3373,6 +3579,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "064143100-7",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Feedspan",
     "product_type": "widget",
@@ -3407,6 +3615,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "140820748-6",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Demivee",
     "product_type": "product",
@@ -3438,6 +3648,8 @@ var data = [{
     "inbox_status": "Completed"
 }, {
     "id": "588046259-5",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Yata",
     "product_type": "widget",
@@ -3472,6 +3684,8 @@ var data = [{
     "inbox_status": "Approved"
 }, {
     "id": "147532185-6",
+    "direct_pay": false,
+    "amount_scope": 2,
     "comment": "",
     "product_company": "Quire",
     "product_type": "widget",

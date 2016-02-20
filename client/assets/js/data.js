@@ -1,6 +1,8 @@
 var data = [{
     "id": "158393630-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Gigazoom",
     "product_type": "service",
     "product_name": "Gigazoom solvent service",
@@ -35,6 +37,8 @@ var data = [{
 }, {
     "id": "843501173-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Browsecat",
     "product_type": "service",
     "product_name": "Browsecat Sara service",
@@ -68,6 +72,8 @@ var data = [{
 }, {
     "id": "911907657-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Yakitri",
     "product_type": "widget",
     "product_name": "Yakitri cataphoretic widget",
@@ -102,6 +108,8 @@ var data = [{
 }, {
     "id": "130368289-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Roomm",
     "product_type": "widget",
     "product_name": "Roomm coelostat widget",
@@ -132,6 +140,8 @@ var data = [{
 }, {
     "id": "079921008-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Abata",
     "product_type": "equipment",
     "product_name": "Abata ultraromantic equipment",
@@ -166,6 +176,8 @@ var data = [{
 }, {
     "id": "860782308-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Skajo",
     "product_type": "service",
     "product_name": "Skajo Tingitidae service",
@@ -201,6 +213,8 @@ var data = [{
 }, {
     "id": "444850140-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Plajo",
     "product_type": "product",
     "product_name": "Plajo microphthalmia product",
@@ -231,6 +245,8 @@ var data = [{
 }, {
     "id": "647008690-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Voolith",
     "product_type": "widget",
     "product_name": "Voolith manner widget",
@@ -264,6 +280,8 @@ var data = [{
 }, {
     "id": "213320876-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Buzzbean",
     "product_name": "soldierly Buzzbean ",
     "person_name": "Michelle Harris",
@@ -298,6 +316,8 @@ var data = [{
 }, {
     "id": "067239463-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Voolith",
     "product_type": "product",
     "product_name": "Voolith underdrainer product",
@@ -327,6 +347,8 @@ var data = [{
 }, {
     "id": "592557009-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Linklinks",
     "product_type": "event",
     "product_name": "Linklinks unfructuous event",
@@ -357,6 +379,8 @@ var data = [{
 }, {
     "id": "231018859-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Devbug",
     "product_type": "order",
     "product_name": "Devbug intrabranchial order",
@@ -392,6 +416,8 @@ var data = [{
 }, {
     "id": "140943428-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Topicstorm",
     "product_type": "widget",
     "product_name": "Topicstorm presider widget",
@@ -426,6 +452,8 @@ var data = [{
 }, {
     "id": "166423223-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Zooxo",
     "product_name": "reimportation Zooxo ",
     "person_name": "Irene Ruiz",
@@ -459,6 +487,8 @@ var data = [{
 }, {
     "id": "033635930-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Zazio",
     "product_type": "order",
     "product_name": "Zazio protransfer order",
@@ -493,6 +523,8 @@ var data = [{
 }, {
     "id": "227011675-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Edgetag",
     "product_type": "order",
     "product_name": "Edgetag stuffer order",
@@ -527,6 +559,8 @@ var data = [{
 }, {
     "id": "180747495-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Skimia",
     "product_type": "equipment",
     "product_name": "Skimia protoforester equipment",
@@ -557,6 +591,8 @@ var data = [{
 }, {
     "id": "452963524-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Eayo",
     "product_type": "widget",
     "product_name": "Eayo pried widget",
@@ -590,6 +626,8 @@ var data = [{
 }, {
     "id": "104254889-7",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Realpoint",
     "product_type": "widget",
     "product_name": "Realpoint phanerogenetic widget",
@@ -620,6 +658,8 @@ var data = [{
 }, {
     "id": "772667450-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Oyope",
     "product_type": "product",
     "product_name": "Oyope yardarm product",
@@ -653,6 +693,8 @@ var data = [{
 }, {
     "id": "487872141-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Dablist",
     "product_type": "equipment",
     "product_name": "Dablist citharist equipment",
@@ -683,6 +725,8 @@ var data = [{
 }, {
     "id": "144396541-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Zoomzone",
     "product_name": "magiric Zoomzone ",
     "person_name": "Andrea Hunt",
@@ -716,6 +760,8 @@ var data = [{
 }, {
     "id": "443019899-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Zooveo",
     "product_type": "event",
     "product_name": "Zooveo etacist event",
@@ -751,6 +797,8 @@ var data = [{
 }, {
     "id": "035731180-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Tazz",
     "product_type": "service",
     "product_name": "Tazz substantiality service",
@@ -785,6 +833,8 @@ var data = [{
 }, {
     "id": "840074586-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Linktype",
     "product_name": "pyocyanin Linktype ",
     "person_name": "Denise Marshall",
@@ -815,6 +865,8 @@ var data = [{
 }, {
     "id": "549978960-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Cogidoo",
     "product_type": "event",
     "product_name": "Cogidoo grassquit event",
@@ -850,6 +902,8 @@ var data = [{
 }, {
     "id": "650796392-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Flipopia",
     "product_type": "service",
     "product_name": "Flipopia transfixion service",
@@ -885,6 +939,8 @@ var data = [{
 }, {
     "id": "622469297-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Twitterbridge",
     "product_type": "product",
     "product_name": "Twitterbridge celiogastrotomy product",
@@ -916,6 +972,8 @@ var data = [{
 }, {
     "id": "606806063-2",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Yozio",
     "product_type": "event",
     "product_name": "Yozio straightener event",
@@ -951,6 +1009,8 @@ var data = [{
 }, {
     "id": "173919777-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Yotz",
     "product_type": "service",
     "product_name": "Yotz tracheloscapular service",
@@ -986,6 +1046,8 @@ var data = [{
 }, {
     "id": "477400005-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Oyonder",
     "product_name": "pastorally Oyonder ",
     "person_name": "Juan West",
@@ -1015,6 +1077,8 @@ var data = [{
 }, {
     "id": "579443675-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Skyvu",
     "product_type": "product",
     "product_name": "Skyvu deficiency product",
@@ -1049,6 +1113,8 @@ var data = [{
 }, {
     "id": "133300749-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Topicshots",
     "product_type": "order",
     "product_name": "Topicshots Gillenia order",
@@ -1084,6 +1150,8 @@ var data = [{
 }, {
     "id": "078982823-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Shufflebeat",
     "product_type": "order",
     "product_name": "Shufflebeat gravestone order",
@@ -1118,6 +1186,8 @@ var data = [{
 }, {
     "id": "113943266-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Tavu",
     "product_name": "exulcerative Tavu ",
     "person_name": "Mary George",
@@ -1152,6 +1222,8 @@ var data = [{
 }, {
     "id": "133374269-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Rooxo",
     "product_name": "wolfachite Rooxo ",
     "person_name": "John Knight",
@@ -1181,6 +1253,8 @@ var data = [{
 }, {
     "id": "638812125-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Zooxo",
     "product_type": "equipment",
     "product_name": "Zooxo ustilagineous equipment",
@@ -1211,6 +1285,8 @@ var data = [{
 }, {
     "id": "717539822-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Dynabox",
     "product_type": "product",
     "product_name": "Dynabox brevilingual product",
@@ -1245,6 +1321,8 @@ var data = [{
 }, {
     "id": "889729382-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Kwinu",
     "product_type": "service",
     "product_name": "Kwinu radiosurgery service",
@@ -1278,6 +1356,8 @@ var data = [{
 }, {
     "id": "224433128-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Skyndu",
     "product_type": "event",
     "product_name": "Skyndu unsabled event",
@@ -1312,6 +1392,8 @@ var data = [{
 }, {
     "id": "003120381-7",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Linklinks",
     "product_type": "event",
     "product_name": "Linklinks Phaeosporales event",
@@ -1342,6 +1424,8 @@ var data = [{
 }, {
     "id": "418285696-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Oyope",
     "product_name": "ulvaceous Oyope ",
     "person_name": "Russell Fisher",
@@ -1375,6 +1459,8 @@ var data = [{
 }, {
     "id": "565796604-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Skynoodle",
     "product_type": "widget",
     "product_name": "Skynoodle Guahibo widget",
@@ -1405,6 +1491,8 @@ var data = [{
 }, {
     "id": "537311377-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "LiveZ",
     "product_type": "event",
     "product_name": "LiveZ intersoluble event",
@@ -1440,6 +1528,8 @@ var data = [{
 }, {
     "id": "531699837-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Devpoint",
     "product_type": "service",
     "product_name": "Devpoint cystogenous service",
@@ -1471,6 +1561,8 @@ var data = [{
 }, {
     "id": "055106110-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Minyx",
     "product_type": "event",
     "product_name": "Minyx napthionic event",
@@ -1506,6 +1598,8 @@ var data = [{
 }, {
     "id": "889619655-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Yakitri",
     "product_type": "equipment",
     "product_name": "Yakitri neurhypnotist equipment",
@@ -1541,6 +1635,8 @@ var data = [{
 }, {
     "id": "194721051-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Dabvine",
     "product_type": "order",
     "product_name": "Dabvine retral order",
@@ -1576,6 +1672,8 @@ var data = [{
 }, {
     "id": "977966497-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Meembee",
     "product_type": "service",
     "product_name": "Meembee Perseid service",
@@ -1610,6 +1708,8 @@ var data = [{
 }, {
     "id": "761342738-2",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Jaloo",
     "product_type": "service",
     "product_name": "Jaloo infamonize service",
@@ -1641,6 +1741,8 @@ var data = [{
 }, {
     "id": "635549952-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Tagfeed",
     "product_type": "service",
     "product_name": "Tagfeed ulla service",
@@ -1675,6 +1777,8 @@ var data = [{
 }, {
     "id": "431534350-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Jayo",
     "product_type": "service",
     "product_name": "Jayo pleurohepatitis service",
@@ -1708,6 +1812,8 @@ var data = [{
 }, {
     "id": "983226839-7",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Aimbu",
     "product_type": "service",
     "product_name": "Aimbu repercussion service",
@@ -1737,6 +1843,8 @@ var data = [{
 }, {
     "id": "446270523-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Talane",
     "product_type": "product",
     "product_name": "Talane octuple product",
@@ -1768,6 +1876,8 @@ var data = [{
 }, {
     "id": "515313395-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Skiptube",
     "product_type": "order",
     "product_name": "Skiptube jaunder order",
@@ -1802,6 +1912,8 @@ var data = [{
 }, {
     "id": "242585402-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Shuffledrive",
     "product_type": "order",
     "product_name": "Shuffledrive Judaical order",
@@ -1836,6 +1948,8 @@ var data = [{
 }, {
     "id": "733699462-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Yata",
     "product_type": "event",
     "product_name": "Yata cumulous event",
@@ -1870,6 +1984,8 @@ var data = [{
 }, {
     "id": "670963581-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Leenti",
     "product_type": "widget",
     "product_name": "Leenti hexagonal widget",
@@ -1905,6 +2021,8 @@ var data = [{
 }, {
     "id": "519364602-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Zoonoodle",
     "product_type": "equipment",
     "product_name": "Zoonoodle Ophidiobatrachia equipment",
@@ -1940,6 +2058,8 @@ var data = [{
 }, {
     "id": "139468108-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Tazzy",
     "product_type": "widget",
     "product_name": "Tazzy suspenseful widget",
@@ -1974,6 +2094,8 @@ var data = [{
 }, {
     "id": "092702815-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Dabtype",
     "product_type": "service",
     "product_name": "Dabtype smith service",
@@ -2007,6 +2129,8 @@ var data = [{
 }, {
     "id": "172114622-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Tekfly",
     "product_type": "service",
     "product_name": "Tekfly missel service",
@@ -2041,6 +2165,8 @@ var data = [{
 }, {
     "id": "574242166-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Twitterlist",
     "product_type": "equipment",
     "product_name": "Twitterlist dirge equipment",
@@ -2075,6 +2201,8 @@ var data = [{
 }, {
     "id": "075673806-7",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Kimia",
     "product_name": "ropelike Kimia ",
     "person_name": "Donna Little",
@@ -2108,6 +2236,8 @@ var data = [{
 }, {
     "id": "780230551-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Voomm",
     "product_type": "equipment",
     "product_name": "Voomm intradivisional equipment",
@@ -2139,6 +2269,8 @@ var data = [{
 }, {
     "id": "426918666-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Mymm",
     "product_type": "widget",
     "product_name": "Mymm dystectic widget",
@@ -2168,6 +2300,8 @@ var data = [{
 }, {
     "id": "280136215-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "1",
     "product_company": "Blogtags",
     "product_name": "morale Blogtags ",
     "person_name": "Arthur Flores",
@@ -2197,6 +2331,8 @@ var data = [{
 }, {
     "id": "017135357-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Youfeed",
     "product_type": "widget",
     "product_name": "Youfeed ammoniate widget",
@@ -2231,6 +2367,8 @@ var data = [{
 }, {
     "id": "634184507-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Gabtune",
     "product_type": "widget",
     "product_name": "Gabtune anteroflexion widget",
@@ -2264,6 +2402,8 @@ var data = [{
 }, {
     "id": "958047330-7",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Avavee",
     "product_type": "service",
     "product_name": "Avavee lacmoid service",
@@ -2297,6 +2437,8 @@ var data = [{
 }, {
     "id": "970839955-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Plambee",
     "product_type": "widget",
     "product_name": "Plambee foosterer widget",
@@ -2330,6 +2472,8 @@ var data = [{
 }, {
     "id": "684924196-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Rhynoodle",
     "product_type": "order",
     "product_name": "Rhynoodle dilapidate order",
@@ -2360,6 +2504,8 @@ var data = [{
 }, {
     "id": "667142241-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Nlounge",
     "product_type": "event",
     "product_name": "Nlounge sophisticate event",
@@ -2390,6 +2536,8 @@ var data = [{
 }, {
     "id": "914258617-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Buzzdog",
     "product_type": "service",
     "product_name": "Buzzdog solidi service",
@@ -2425,6 +2573,8 @@ var data = [{
 }, {
     "id": "865568360-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Zoomcast",
     "product_type": "service",
     "product_name": "Zoomcast vinagron service",
@@ -2454,6 +2604,8 @@ var data = [{
 }, {
     "id": "897531244-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Wordtune",
     "product_name": "stirpiculturist Wordtune ",
     "person_name": "Ronald Young",
@@ -2487,6 +2639,8 @@ var data = [{
 }, {
     "id": "179093648-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Eayo",
     "product_name": "Sharezer Eayo ",
     "person_name": "Clarence Oliver",
@@ -2517,6 +2671,8 @@ var data = [{
 }, {
     "id": "295878159-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Shuffledrive",
     "product_name": "Ioskeha Shuffledrive ",
     "person_name": "Amy Simmons",
@@ -2551,6 +2707,8 @@ var data = [{
 }, {
     "id": "534675181-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Feednation",
     "product_type": "event",
     "product_name": "Feednation ingrown event",
@@ -2584,6 +2742,8 @@ var data = [{
 }, {
     "id": "531739866-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Skiptube",
     "product_name": "sensitize Skiptube ",
     "person_name": "Mildred Dixon",
@@ -2616,6 +2776,8 @@ var data = [{
 }, {
     "id": "362957893-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Skimia",
     "product_type": "service",
     "product_name": "Skimia pyloristenosis service",
@@ -2650,6 +2812,8 @@ var data = [{
 }, {
     "id": "724333359-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Livefish",
     "product_type": "event",
     "product_name": "Livefish Caccabis event",
@@ -2684,6 +2848,8 @@ var data = [{
 }, {
     "id": "157386073-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Quaxo",
     "product_type": "equipment",
     "product_name": "Quaxo resorcine equipment",
@@ -2719,6 +2885,8 @@ var data = [{
 }, {
     "id": "683589550-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Realbuzz",
     "product_type": "service",
     "product_name": "Realbuzz Pantastomina service",
@@ -2753,6 +2921,8 @@ var data = [{
 }, {
     "id": "717347233-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Divavu",
     "product_type": "event",
     "product_name": "Divavu deathlike event",
@@ -2788,6 +2958,8 @@ var data = [{
 }, {
     "id": "891417358-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Gigabox",
     "product_type": "equipment",
     "product_name": "Gigabox honeymooner equipment",
@@ -2821,6 +2993,8 @@ var data = [{
 }, {
     "id": "266019070-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Mydo",
     "product_type": "equipment",
     "product_name": "Mydo rang equipment",
@@ -2854,6 +3028,8 @@ var data = [{
 }, {
     "id": "762337647-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Brightdog",
     "product_type": "order",
     "product_name": "Brightdog ineffaceability order",
@@ -2884,6 +3060,8 @@ var data = [{
 }, {
     "id": "119295550-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Browsedrive",
     "product_type": "widget",
     "product_name": "Browsedrive Baloghia widget",
@@ -2918,6 +3096,8 @@ var data = [{
 }, {
     "id": "548025850-8",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Skinix",
     "product_type": "order",
     "product_name": "Skinix gastroenteritic order",
@@ -2949,6 +3129,8 @@ var data = [{
 }, {
     "id": "315362673-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Npath",
     "product_type": "order",
     "product_name": "Npath editorial order",
@@ -2982,6 +3164,8 @@ var data = [{
 }, {
     "id": "009963263-2",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Yodoo",
     "product_type": "product",
     "product_name": "Yodoo bellmaster product",
@@ -3016,6 +3200,8 @@ var data = [{
 }, {
     "id": "581780482-4",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Minyx",
     "product_type": "widget",
     "product_name": "Minyx tresslike widget",
@@ -3046,6 +3232,8 @@ var data = [{
 }, {
     "id": "388871428-1",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Quimm",
     "product_type": "event",
     "product_name": "Quimm diatonical event",
@@ -3080,6 +3268,8 @@ var data = [{
 }, {
     "id": "673229556-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Bluejam",
     "product_type": "event",
     "product_name": "Bluejam byously event",
@@ -3114,6 +3304,8 @@ var data = [{
 }, {
     "id": "472356163-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Feedfish",
     "product_name": "sawwort Feedfish ",
     "person_name": "Jack Rodriguez",
@@ -3146,6 +3338,8 @@ var data = [{
 }, {
     "id": "626384143-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Rooxo",
     "product_type": "order",
     "product_name": "Rooxo raser order",
@@ -3176,6 +3370,8 @@ var data = [{
 }, {
     "id": "081752260-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Feedmix",
     "product_type": "widget",
     "product_name": "Feedmix underrule widget",
@@ -3209,6 +3405,8 @@ var data = [{
 }, {
     "id": "312619394-3",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Buzzshare",
     "product_type": "event",
     "product_name": "Buzzshare cheddite event",
@@ -3239,6 +3437,8 @@ var data = [{
 }, {
     "id": "418928072-0",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "LiveZ",
     "product_type": "service",
     "product_name": "LiveZ unparticipating service",
@@ -3269,6 +3469,8 @@ var data = [{
 }, {
     "id": "301969866-9",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Devcast",
     "product_type": "product",
     "product_name": "Devcast bebeeru product",
@@ -3304,6 +3506,8 @@ var data = [{
 }, {
     "id": "546932320-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Meevee",
     "product_type": "product",
     "product_name": "Meevee batoid product",
@@ -3339,6 +3543,8 @@ var data = [{
 }, {
     "id": "957993794-X",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Thoughtmix",
     "product_type": "product",
     "product_name": "Thoughtmix rancher product",
@@ -3374,6 +3580,8 @@ var data = [{
 }, {
     "id": "064143100-7",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Feedspan",
     "product_type": "widget",
     "product_name": "Feedspan unresentful widget",
@@ -3408,6 +3616,8 @@ var data = [{
 }, {
     "id": "140820748-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Demivee",
     "product_type": "product",
     "product_name": "Demivee arthrography product",
@@ -3439,6 +3649,8 @@ var data = [{
 }, {
     "id": "588046259-5",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Yata",
     "product_type": "widget",
     "product_name": "Yata pyrenodeous widget",
@@ -3473,6 +3685,8 @@ var data = [{
 }, {
     "id": "147532185-6",
     "comment": "",
+    "direct_pay": false,
+    "amount_scope": "2",
     "product_company": "Quire",
     "product_type": "widget",
     "product_name": "Quire premold widget",

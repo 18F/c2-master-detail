@@ -46,7 +46,7 @@
             Direct Pay <br>
             <div class="grid-block" style="padding-top: 15px;">
               <div class="small-2 grid-block" >
-                <input type="checkbox" name="radAnswer" ng-class="{'changed': singleChanges.diff.indexOf('direct_pay') != -1}">
+                <input type="checkbox" name="radAnswer" ng-model="single.direct_pay" ng-class="{'changed': singleChanges.diff.indexOf('direct_pay') != -1}">
               </div>
               <div class="small-10 grid-block" >
                 <p style="margin-bottom: 0px;">I am going to use <a href="#" zf-open="my-notify">Direct Pay</a> for this transaction</p>
@@ -62,8 +62,8 @@
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="margin-top: .8em;">
-            <input type="radio" name="radAnswer" ng-model="single.amount_scope" value="1"> Not to exceed <br>
-            <input type="radio" name="radAnswer" ng-model="single.amount_scope" value="2"> Exactly
+            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="1"> Not to exceed <br>
+            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="2"> Exactly
           </label>
       </div>
     </div>

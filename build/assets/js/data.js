@@ -1912,7 +1912,7 @@ var data = [{
 }, {
     "id": "242585402-9",
     "direct_pay": false,
-    "amount_scope": 2,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Shuffledrive",
     "product_type": "order",
@@ -1948,7 +1948,7 @@ var data = [{
 }, {
     "id": "733699462-8",
     "direct_pay": false,
-    "amount_scope": 2,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Yata",
     "product_type": "event",
@@ -1984,7 +1984,7 @@ var data = [{
 }, {
     "id": "670963581-3",
     "direct_pay": false,
-    "amount_scope": 2,
+    "amount_scope": 1,
     "comment": "",
     "product_company": "Leenti",
     "product_type": "widget",

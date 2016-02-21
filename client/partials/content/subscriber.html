@@ -6,14 +6,14 @@
           <h4 style="">Subscribers</h4>
         </div>
       </div>
-      <div ng-repeat="subscriber in single.subscriber" class="grid-block" style="padding-bottom:0px;">
+      <div ng-repeat="subscriber in single.subscribers" class="grid-block" style="padding-bottom:0px;">
         <div class="grid-content small-10 subscribe-field">
           <label>
             <input type="email" placeholder="name@domain.com" value="{{subscriber}}">
           </label>
         </div>
         <div class="grid-content small-2 subscribe-field subscribe-delete">
-          <a ng-click="remove_subscriber(subscriber)" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+          <a ng-click="single.subscriber_to_remove = subscriber" zf-open="remove-subscriber-modal" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
         </div>
       </div>
       <div class="grid-block" style="padding-bottom:0px;">
@@ -21,9 +21,6 @@
           <label>
             <input type="email" placeholder="name@domain.com">
           </label>
-        </div>
-        <div class="grid-content small-2 subscribe-field subscribe-delete">
-          <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
         </div>
       </div>
       <div class="grid-block new-subscriber" style="padding-bottom:0px;">
@@ -36,4 +33,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div zf-modal="" id="remove-subscriber-modal" class="tiny dialog" style="border: 1px solid #333;">
+    <h4>Are you sure you want to unsubscribe {{single.subscriber_to_remove}} from this request?</h4>
+    <a zf-close="" ng-click="remove_subscriber(single.subscriber_to_remove)" class="primary button" title="Notification" content="{{single.subscriber_to_remove}} has been unsubscribed from this request." color="warning" autoclose="3000" zf-notify="comment-sent-notification">Yes</a>
+    <a zf-close="" class="secondary button">No</a>
   </div>

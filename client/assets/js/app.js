@@ -448,7 +448,6 @@
     $scope.processFilterButton = function(){
       console.log('$scope.processFilterButton = function(){');
       $scope.show_advanced_search = false;
-      $scope.setQuery = $scope.query;
       $scope.process_filter_update();
     }
     $scope.remove_filter_key = function(key){
@@ -686,13 +685,6 @@
       console.log('---single-----');
       console.log('Single has changed');
       $scope.trigger_single_change();
-    }, true);
-    $scope.$watch('query', function(newValue, oldValue) {
-      console.log('---------------------');
-      console.log('---query-----');
-      console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
-      console.log('Running');
-      $scope.process_filter_update();
     }, true);
     $scope.$watch('amountFilter', function(newValue, oldValue) {
       console.log('---------------------');

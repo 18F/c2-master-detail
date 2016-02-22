@@ -1,4 +1,4 @@
-<div class="card grid-block" ng-class="{'changed': findOne(singleChanges.diff, ['direct_pay','amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) }">
+<div class="card grid-block" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': findOne(singleChanges.diff, ['direct_pay','amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) }">
   <div class="small-12 grid-block vertical">
     <div class="card-title grid-block">
       <div class="grid-content">
@@ -15,7 +15,7 @@
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Expense Type
-            <select name="" id="" style="margin-top: 0.5rem;" ng-model="single.product_type" ng-class="{'changed': singleChanges.diff.indexOf('product_type') != -1}">
+            <select name="" id="" style="margin-top: 0.5rem;" ng-model="single.product_type" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('product_type') != -1}">
               <option value="{{items[focusIndex]['product_type']}}">{{items[focusIndex]['product_type'] | capitalize}}</option>
               <option value="widget">Equiptment</option>
               <option value="services">Services</option>
@@ -27,35 +27,35 @@
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Org Code
-              <input type="text" ng-model="single.org_code" ng-class="{'changed': singleChanges.diff.indexOf('org_code') != -1}">
+              <input type="text" ng-model="single.org_code" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('org_code') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Object Field / SOC
-              <input type="text" ng-model="single.object_field" ng-class="{'changed': singleChanges.diff.indexOf('object_field') != -1}">
+              <input type="text" ng-model="single.object_field" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('object_field') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             CL#
-              <input type="text" ng-model="single.cl_number" ng-class="{'changed': singleChanges.diff.indexOf('cl_number') != -1}">
+              <input type="text" ng-model="single.cl_number" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('cl_number') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Function Code
-              <input type="text" ng-model="single.function_code" ng-class="{'changed': singleChanges.diff.indexOf('function_code') != -1}">
+              <input type="text" ng-model="single.function_code" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('function_code') != -1}">
             </select>
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="width: 100%;">
             Building Number
-            <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;" ng-class="{'changed': singleChanges.diff.indexOf('building_number') != -1}">
+            <select ng-model="single.building_number" name="" id="" style="margin-top: 0.5rem;" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('building_number') != -1}">
               <option  value="{{items[focusIndex]['building_number']}}">{{items[focusIndex]['building_number']}}</option>
               <option  value="#adfadf">#adfadf</option>
               <option  value="#adfe">#adfe</option>
@@ -66,13 +66,13 @@
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label>
             Amount ($)
-            <input type="number" ng-model="single.amount" ng-class="{'changed': singleChanges.diff.indexOf('amount') != -1}">
+            <input type="number" ng-model="single.amount" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('amount') != -1}">
           </label>
       </div>
       <div class="large-6 medium-4 grid-block" style="padding-bottom: 0px;">
           <label style="margin-top: .8em;">
-            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="1"> Not to exceed <br>
-            <input  ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="2"> Exactly
+            <input  ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="1"> Not to exceed <br>
+            <input  ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('amount_scope') != -1}" type="radio" name="radAnswer" ng-model="single.amount_scope" value="2"> Exactly
           </label>
       </div>
       <div class="large-12 medium-4 grid-block">
@@ -80,7 +80,7 @@
             Direct Pay <br>
             <div class="grid-block" style="padding-top: 15px;">
               <div class="small-2 grid-block" >
-                <input type="checkbox" name="radAnswer" ng-model="single.direct_pay" ng-class="{'changed': singleChanges.diff.indexOf('direct_pay') != -1}">
+                <input type="checkbox" name="radAnswer" ng-model="single.direct_pay" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('direct_pay') != -1}">
               </div>
               <div class="small-10 grid-block" >
                 <p style="margin-bottom: 0px;">I am going to use <a href="#" zf-open="my-notify">Direct Pay</a> for this transaction</p>

@@ -201,6 +201,26 @@
   }
 
   function setup_utility_functions($scope){
+    
+    $scope.has_attachment = function(comments){
+      var has_attachment = false;
+      for (var i = comments.length - 1; i >= 0; i--) {
+        if(comments[i].action == "File Uploaded"){
+          has_attachment = true;
+        }
+      }
+      return has_attachment;
+    }
+
+    $scope.has_comments = function(comments){
+      var has_comment = false;
+      for (var i = comments.length - 1; i >= 0; i--) {
+        if(comments[i].action == "Comment Added"){
+          has_comment = true;
+        }
+      }
+      return has_comment;
+    }
 
     $scope.findOne = function (haystack, arr) {
         return arr.some(function (v) {

@@ -8,14 +8,14 @@
     </p>
     <h5 class="product_name">{{item.product_name}}</h5>
     <div class="align-right label-wrapper">
-      <div class="icon-box" ng-if="item.inbox_status == 'Approved'">
+      <div class="icon-box" ng-if="has_attachment(item.comments)">
         <span class="label">
           <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">File Attached</span>
         </span>
       </div>
-      <div class="icon-box" ng-if="item.message_status == 'Comment added'">
+      <div class="icon-box" ng-if="has_comments(item.comments)">
         <span class="label">
-          <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">{{item.message_status}}</span>
+          <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">Has Comments</span>
         </span>
       </div>
     </div>

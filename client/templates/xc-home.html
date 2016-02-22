@@ -12,11 +12,7 @@ controller: ExcelCtrl
     <div id="view-master" class="grid-block vertical view-container" ng-class="{'visible': view_type == 'master'}">
       <div class="grid-block xc-table-nav shrink">
         <div class="medium-11 small-12 grid-container align-justify">
-          <div class="xc-header-block grid-block">
-            <div class="grid-content">
-              <h2>My Requests</h2>
-            </div>
-          </div>
+          <div ng-include="'partials/xc/head.html'" class="xc-header-block grid-block"></div>
           <div class="grid-block v-align">
             <div class="grid-content align-bottom">
               <div ng-include="'partials/xc/filter.html'"></div>

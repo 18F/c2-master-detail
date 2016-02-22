@@ -70,28 +70,30 @@
   }
 
   function setup_excel($scope){
-    $scope.processColumnDateFilter = function(){
-      if($scope.columnDateFilter !== ""){
-        console.log("Running columnDateFilter: ", $scope.columnDateFilter);
-        var startDate = $scope.columnDateFilter[0];
-        var endDate = $scope.columnDateFilter[1];
-        var dateField = $scope.columnDateFilter[2];
-        var range = moment.range(startDate, endDate);
+    $scope.getRecentActivityDateTime = function(item) {
+      var date = $scope.items[i].comments.slice(-1)[0].date;
+      var time = $scope.items[i].comments.slice(-1)[0].time;
+      return date + " " + time;
+    }
+    $scope.processRecentActivityFilter = function(){
+      if($scope.recentActivityFilter !== ""){
+        var range = moment.range(moment("2016-01-16"), moment("2016-02-16"));
         var newItems = []
         for (var i = $scope.items.length - 1; i >= 0; i--) {
-          if( range.contains(moment($scope.items[i][dateField], 'MM/DD/YYYY')) ){
+          var comment_date = $scope.items[i].comments.slice(-1)[0].date;
+          if( range.contains(moment(comment_date, 'MM/DD/YYYY')) ){
             newItems.push($scope.items[i]);
           }
         }
         $scope.setup_new_item_list(newItems);
       } else {
-        $scope.columnDateFilter = "";
+        $scope.recentActivityFilter = "";
       }
     }
     $scope.close_detail = function() {
       $scope.view_type = "master";
     }
-    
+
     $scope.unixdate = function(date_string) {
       if (date_string.match(/:/)) {
         return moment(date_string,'MM/DD/YYYY hh:mm AA').unix()
@@ -113,16 +115,12 @@
         return 'attachment';
       return false;
     }
-    $scope.recentActivityFilter = function() {
+    $scope.enableRecentActivityFilter = function() {
       $scope.reset_filter();
-      $scope.columnDateFilter = [
-        moment('2016-01-16'),
-        moment('2016-02-16'),
-        'comment_3_date'
-      ];
+      $scope.recentActivityFilter = "true";
       $scope.active_filter = 'recent';
       //$("#thActivity").stupidsort("desc");
-      $scope.processColumnDateFilter();
+      $scope.processRecentActivityFilter();
     }
   }
 
@@ -131,10 +129,10 @@
       $scope.processFilter();
       $scope.processDateFilter();
       $scope.processAmountFilter();
-      $scope.processColumnDateFilter();
+      $scope.processRecentActivityFilter();
     });
     $scope.filter_by = function(param){
-      $scope.columnDateFilter = "";
+      $scope.recentActivityFilter = "";
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
       $scope.setQuery = $scope.query;
@@ -150,7 +148,7 @@
       console.log('$scope.reset_filter = function(){');
       $scope.resetAmountSlider();
       $scope.dateFilter = "";
-      $scope.columnDateFilter = "";
+      $scope.recentActivityFilter = "";
       $scope.query = {
         $: "",
         id: "",
@@ -549,7 +547,7 @@
     $scope.active_filter = "";
     $scope.setQuery = {};
     $scope.dateFilter = "";
-    $scope.columnDateFilter = "";
+    $scope.recentActivityFilter = "";
     $scope.amountFilter = "";
     $scope.slider = {
       min: 0,

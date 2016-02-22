@@ -18,11 +18,11 @@
       <td class="">{{item.person_name}}</td>
       <td class="">{{item.product_name}}</td>
       <td class="" data-sort-value="{{item.amount}}">${{item.amount}}</td>
-      <td data-sort-value="{{unixdate(item.comment_3_date + ' ' + item.comment_3_time)}}" class="activity">
+      <td data-sort-value="{{unixdate(item.comments.slice(-1)[0].date + ' ' + item.comments.slice(-1)[0].date)}}" class="activity">
         <img ng-if="activityIcon(item)" src="assets/img/{{activityIcon(item)}}.png" align="right">
         <span class="actor">{{item.purchaser}}</span>
         <br/>commented<br/>
-        {{relativeTime(item.comment_3_date + ' ' + item.comment_3_time)}}
+        {{relativeTime(item.comments.slice(-1)[0].date + ' ' + item.comments.slice(-1)[0].date)}}
       </td>
     </tr>
   </tbody>

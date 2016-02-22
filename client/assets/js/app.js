@@ -128,6 +128,7 @@
       console.log('$scope.processColumnDateFilter();');
     };
     $scope.filter_by = function(param){
+      $scope.resetLink();
       $scope.columnDateFilter = "";
       $scope.query.inbox_status = param;
       $scope.active_filter = param;

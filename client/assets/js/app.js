@@ -115,11 +115,17 @@
 
   function setup_filter_utilities($scope, debounce, $filter){
     $scope.process_filter_update = function () {
-      console.log('$scope.focusIndex: ', $scope.focusIndex);
       $scope.processFilter();
+      console.log('$scope.processFilter();');
+
       $scope.processDateFilter();
+      console.log('$scope.processDateFilter();');
+
       $scope.processAmountFilter();
+      console.log('$scope.processAmountFilter();');
+
       $scope.processColumnDateFilter();
+      console.log('$scope.processColumnDateFilter();');
     };
     $scope.filter_by = function(param){
       $scope.columnDateFilter = "";
@@ -359,6 +365,9 @@
         new_list[i]["navIndex"] = i;
       }
       $scope.items = new_list;
+
+      $scope.setup_single_clone();
+      window.setTimeout(function(){ $scope.$apply(); }, 1);
     }
 
     $scope.trigger_response_to_changed_fields = function(){

@@ -28,7 +28,9 @@
   }])
   .filter('capitalize', function() {
     return function(token) {
-        return token.charAt(0).toUpperCase() + token.slice(1);
+        if(token != undefined){
+          return token.charAt(0).toUpperCase() + token.slice(1);
+        }
      }
   })
   .config(config)
@@ -51,22 +53,7 @@
     setup_filter_utilities($scope, debounce, $filter);
 
     setup_view($scope, $state);
-
-    // THIS IS BAD. CHANGE ASAP
-    $scope.view_all_activity = function(){
-      console.log('$scope.view_all_activity = function(){');
-      if(!$('.status-comment').hasClass('open')){
-        $('.status-comment').addClass('open');
-        $('.activity-item.single').addClass('first');
-        $('.activity-item').removeClass('single').addClass('visible');
-        $('.activity-visible-button span').text('Hide All');
-      } else {
-        $('.status-comment').removeClass('open');
-        $('.activity-item').removeClass('visible');
-        $('.activity-item.first').addClass('visible');
-        $('.activity-visible-button span').text('View All');
-      }
-    } // THIS IS BAD. CHANGE ASAP
+    window.current_scope = $scope;
   }
 
   function setup_excel($scope){
@@ -125,13 +112,21 @@
   }
 
   function setup_filter_utilities($scope, debounce, $filter){
-    $scope.process_filter_update = debounce(300, function () {
+    $scope.process_filter_update = function () {
       $scope.processFilter();
+      console.log('$scope.processFilter();');
+
       $scope.processDateFilter();
+      console.log('$scope.processDateFilter();');
+
       $scope.processAmountFilter();
+      console.log('$scope.processAmountFilter();');
+
       $scope.processRecentActivityFilter();
-    });
+      console.log('$scope.processRecentActivityFilter();');
+    };
     $scope.filter_by = function(param){
+      $scope.resetLink();
       $scope.recentActivityFilter = "";
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
@@ -140,7 +135,6 @@
     $scope.processFilter = function(){
       console.log("$scope.query: ", $scope.query);
       var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-      $scope.focusIndex = 0;
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
     }
@@ -206,6 +200,26 @@
 
   function setup_utility_functions($scope){
 
+    $scope.has_attachment = function(comments){
+      var has_attachment = false;
+      for (var i = comments.length - 1; i >= 0; i--) {
+        if(comments[i].action == "File Uploaded"){
+          has_attachment = true;
+        }
+      }
+      return has_attachment;
+    }
+
+    $scope.has_comments = function(comments){
+      var has_comment = false;
+      for (var i = comments.length - 1; i >= 0; i--) {
+        if(comments[i].action == "Comment Added"){
+          has_comment = true;
+        }
+      }
+      return has_comment;
+    }
+
     $scope.findOne = function (haystack, arr) {
         return arr.some(function (v) {
             return haystack.indexOf(v) >= 0;
@@ -243,7 +257,7 @@
       if(true){
       }
     }
-    
+
     $scope.isEmptyObject = function(obj) {
       // console.log('$scope.isEmptyObject = function(obj) {');
       return angular.equals("", obj);
@@ -286,13 +300,29 @@
       var index = $scope.single.subscribers.indexOf(subscriber_email);
       $scope.single.subscribers.splice(index, 1);
       $scope.save_changes();
-    } 
+    }
 
     $scope.delete_single = function(){
       $scope.items.splice($scope.focusIndex, 1);
       $scope.setIndex($scope.items);
       $scope.setup_single_clone();
       $scope.$apply();
+    }
+
+    $scope.approve_single = function(){
+      $scope.single.inbox_status = "Approved";
+      $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
+    }
+
+    $scope.unreconcile_request = function(){
+      $scope.single.inbox_status = "Approved";
+      $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
     }
 
     $scope.reconcile_single = function(){
@@ -319,8 +349,37 @@
       $scope.setup_single_clone();
     }
 
+    $scope.view_all_activity = function(){
+      if($scope.single.activity == false){
+        $scope.single.activity = true;
+        for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
+          $scope.single.comments[i]['visible'] = true;
+        }
+      } else {
+        $scope.single.activity = false;
+        for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
+          $scope.single.comments[i]['visible'] = false;
+        }
+      }
+    }
+
     $scope.setup_single_clone = function(){
+      console.log('Clone wars in progress');
+      console.log('Target identified: ', $scope.items[$scope.focusIndex]);
+      console.log('Before copy Single: ', $scope.single);
       $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      console.log('Copy complete.');
+      console.log('New single: ', $scope.single);
+      $scope.single.activity = false;
+      for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
+        if(i == 0 ){
+          $scope.single.comments[i]['visible'] = true;
+          $scope.single.comments[i]['first']   = true;
+        } else {
+          $scope.single.comments[i]['visible'] = false;
+          $scope.single.comments[i]['first']   = false;
+        }
+      }
     }
 
     $scope.submit_comment = function(){
@@ -333,6 +392,9 @@
         new_list[i]["navIndex"] = i;
       }
       $scope.items = new_list;
+
+      $scope.setup_single_clone();
+      window.setTimeout(function(){ $scope.$apply(); }, 1);
     }
 
     $scope.trigger_response_to_changed_fields = function(){
@@ -350,7 +412,7 @@
       return true;
     }
 
-    $scope.trigger_single_change = debounce(50, function () {
+    $scope.trigger_single_change = function () {
       // console.log('$scope.single: ', $scope.single);
       // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];
@@ -358,17 +420,18 @@
       $scope.singleChanges.diff = $scope.check_object_differences(obj1, obj2);
       $scope.singleChanges.detail = objectDiff.diff(obj1, obj2);
       console.log('$scope.singleChanges: ', $scope.singleChanges);
-    });
+    };
 
     $scope.update_single_item = function(newValue){
       $scope.singleChanges = {
-        diff: [], 
+        diff: [],
         detail: {}
       };
     }
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
       $scope.view_type = "detail";
+      console.log('$scope.update_detail = function(selectedIndex){');
       $scope.focusIndex = selectedIndex;
     }
     $scope.add_new_vendor = function(){
@@ -412,12 +475,12 @@
     $scope.processFilterButton = function(){
       console.log('$scope.processFilterButton = function(){');
       $scope.show_advanced_search = false;
-      $scope.setQuery = $scope.query;
       $scope.process_filter_update();
     }
     $scope.remove_filter_key = function(key){
       console.log('$scope.remove_filter_key = function(key){');
       $scope.query[key] = "";
+      $scope.process_filter_update();
     }
     $scope.remove_filter_query = function(){
       console.log('$scope.remove_filter_query = function(){');
@@ -478,7 +541,7 @@
       window.setTimeout(function(){
         console.log('window.setTimeout(function(){');
         $scope.$broadcast('rzSliderForceRender');
-      });
+      }, 10);
     };
     $scope.format_date_range = function(start, end){
       console.log('$scope.format_date_range = function(' + start+ ', ' + end + '){');
@@ -531,7 +594,7 @@
       }, function(start, end, label) {
         console.log('}, function(start, end, label) {');
         $scope.format_date_range(start, end);
-        $scope.processDateFilter();
+        $scope.process_filter_update();
         console.log('New date range selected: ' + $scope.dateFilter + ' (predefined range: ' + label + ')');
       });
     }
@@ -539,7 +602,7 @@
 
   function setup_scope_variables($scope){
     $scope.singleChanges = {
-      diff: [], 
+      diff: [],
       detail: {}
     };
     $scope.keys = [];
@@ -631,42 +694,53 @@
 
   function setup_watches($scope){
     $scope.$watch('query.has_attachment', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---query.has_attachment-----');
       console.log('Single view has changed');
       if($scope.query.has_attachment == false){
         $scope.query.has_attachment = "";
       }
     }, true);
     $scope.$watch('singleChanges', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---singleChanges-----');
       console.log('Single view has changed');
       $scope.trigger_response_to_changed_fields();
     }, true);
     $scope.$watch('single', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---single-----');
       console.log('Single has changed');
       $scope.trigger_single_change();
     }, true);
-    $scope.$watch('query', function(newValue, oldValue) {
-      console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
-      console.log('Running');
-      $scope.process_filter_update();
-    }, true);
     $scope.$watch('amountFilter', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---amountFilter-----');
       console.log(newValue);
       $scope.process_filter_update();
     }, true);
     $scope.$watch('slider', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---slider-----');
       // console.log('$scope.slider.min: ', $scope.slider.min);
       // console.log('$scope.slider.max: ', $scope.slider.max);
       $scope.process_filter_update();
       $scope.format_amount_range();
     }, true);
     $scope.$watch('view_type', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---view_type-----');
       console.log('$scope.view_type: ', $scope.view_type);
     });
     $scope.$watch('query', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---query-----');
       console.log('Running');
-      $scope.processFilter();
+      $scope.process_filter_update();
     }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---focusIndex-----');
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
       $scope.setup_single_clone();

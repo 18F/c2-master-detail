@@ -9,9 +9,9 @@
     <a ng-click="" zf-open="reconcile-modal" class="no-margin-button button primary align-right" style="margin: 0px;">Reconcile Request</a>
   </span>
   <span ng-if="!findOne(singleChanges.diff, ['comment', 'amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) && single.inbox_status=='Pending'">
-    <a ng-click="" zf-open="reconcile-modal" class="no-margin-button button primary align-right" style="margin: 0px;">Update Request</a>
+    <a ng-click="" zf-open="approve-modal" class="no-margin-button button primary align-right" style="margin: 0px;">Approve</a>
   </span>
   <span ng-if="!findOne(singleChanges.diff, ['comment', 'amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) && single.inbox_status=='Completed'">
-    <a ng-click="" zf-open="reconcile-modal" class="no-margin-button button primary align-right" style="margin: 0px; opacity: 0;">Update Request</a>
+    <a ng-click="" class="no-margin-button button primary align-right" style="margin: 0px; opacity: 0;">Update Request</a>
   </span>
 </span>

@@ -27,6 +27,12 @@
   <a zf-close="" class="secondary button">No</a>
 </div>
 
+<div zf-modal="" id="approve-modal" overlay="false" overlay-close="false" class="tiny dialog" style="border: 1px solid #333;">
+  <h4>Are you sure you want to <em>approve</em> this request?</h4>
+  <a zf-close="" ng-click="approve_single()" class="primary button" title="Notification" content="The request has been approved." color="success" autoclose="3000" zf-notify="comment-sent-notification">Yes</a>
+  <a zf-close="" class="secondary button">No</a>
+</div>
+
 <div zf-modal="" id="delete-modal" overlay="false" overlay-close="false" class="tiny dialog" style="border: 1px solid #333;">
   <h4>Are you sure you want to <em>delete</em> this request?</h4>
   <a zf-close="" ng-click="delete_single()" class="alert button" title="Notification" content="The request has been deleted." color="alert" autoclose="3000" zf-notify="comment-sent-notification">Yes</a>
@@ -57,13 +63,13 @@
 <div zf-modal="" id="advancedModal" class="collapse">
   <div class="grid-block vertical">
     <div class="primary title-bar">
-    <div class="center title">Title Bar</div>
+    <div class="center title">Attachment</div>
     <span zf-close="" class="left"><a>Close</a></span>
     <span zf-close="" class="right"><a>Done</a></span>
     </div>
     <div class="grid-content padding" style="padding-top: 1rem;">
-    <p>
-    <img src="assets/img/mountain.jpg">
+    <p class="text-center">
+    <img src="http://images.clipartpanda.com/document-clipart-9iRRbd7ET.png">
     </p>
     <a zf-close="" class="button">OK</a>
     <a zf-close="" class="button">Cancel</a>

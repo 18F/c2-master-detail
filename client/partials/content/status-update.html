@@ -9,6 +9,7 @@
   </div>
   <div class="small-10 grid-content">
     <p><b>{{comment.action}}</b> by <u>{{comment.name}}</u>. {{comment.date}} at {{comment.time}}</p>
+    <p ng-if="comment.message"><br>{{comment.message}}</p>
     <p ng-if="comment.action == 'File Uploaded'"><a zf-open="advancedModal">Click to View</a></p>
   </div>
 </div>

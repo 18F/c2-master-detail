@@ -339,7 +339,9 @@
       $scope.single.comments.push({
         "name": "You",
         "date": moment().format("MM//DD/YYYY"),
-        "time": moment().format('h:mm a')
+        "time": moment().format('h:mm a'),
+        "message": $scope.single.comment,
+        "action": "Comment Added"
       });
       $scope.single.comment = "";
     }

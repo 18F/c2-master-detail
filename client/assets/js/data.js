@@ -1044,8 +1044,8 @@ var data = [{
         "name": "Willette Depaz",
         "date": "11/4/2015",
         "action": "Comment Added",
-        "action": "Comment Added",
-        "message": "8:AM",
+        "time": "11:43 PM",
+        "message": "Lorem ipsum In officia sunt dolor ullamco cupidatat Duis Ut aute minim id ad dolore ad deserunt qui exercitation culpa id.",
     }
     ],
     "building_number": "#893",

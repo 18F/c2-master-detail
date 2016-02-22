@@ -28,7 +28,9 @@
   }])
   .filter('capitalize', function() {
     return function(token) {
-        return token.charAt(0).toUpperCase() + token.slice(1);
+        if(token != undefined){
+          return token.charAt(0).toUpperCase() + token.slice(1);
+        }
      }
   })
   .config(config)
@@ -51,6 +53,7 @@
     setup_filter_utilities($scope, debounce, $filter);
 
     setup_view($scope, $state);
+    window.current_scope = $scope;
   }
 
   function setup_excel($scope){
@@ -111,12 +114,13 @@
   }
 
   function setup_filter_utilities($scope, debounce, $filter){
-    $scope.process_filter_update = debounce(300, function () {
+    $scope.process_filter_update = function () {
+      console.log('$scope.focusIndex: ', $scope.focusIndex);
       $scope.processFilter();
       $scope.processDateFilter();
       $scope.processAmountFilter();
       $scope.processColumnDateFilter();
-    });
+    };
     $scope.filter_by = function(param){
       $scope.columnDateFilter = "";
       $scope.query.inbox_status = param;
@@ -126,7 +130,6 @@
     $scope.processFilter = function(){
       console.log("$scope.query: ", $scope.query);
       var new_list = $filter('filter')($scope.itemsDisplayed, $scope.query);
-      $scope.focusIndex = 0;
       $scope.setIndex(new_list);
       console.log('In feed: ', $scope.items.length);
     }
@@ -328,7 +331,12 @@
     }
 
     $scope.setup_single_clone = function(){
+      console.log('Clone wars in progress');
+      console.log('Target identified: ', $scope.items[$scope.focusIndex]);
+      console.log('Before copy Single: ', $scope.single);
       $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      console.log('Copy complete.');
+      console.log('New single: ', $scope.single);
       $scope.single.activity = false;
       for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
         if(i == 0 ){
@@ -368,7 +376,7 @@
       return true;
     }
 
-    $scope.trigger_single_change = debounce(50, function () {
+    $scope.trigger_single_change = function () {
       // console.log('$scope.single: ', $scope.single);
       // console.log('$scope.items[$scope.focusIndex]: ', $scope.items[$scope.focusIndex]);
       var obj1 = $scope.items[$scope.focusIndex];
@@ -376,7 +384,7 @@
       $scope.singleChanges.diff = $scope.check_object_differences(obj1, obj2);
       $scope.singleChanges.detail = objectDiff.diff(obj1, obj2);
       console.log('$scope.singleChanges: ', $scope.singleChanges);
-    });
+    };
 
     $scope.update_single_item = function(newValue){
       $scope.singleChanges = {
@@ -387,6 +395,7 @@
     $scope.update_detail = function(selectedIndex){
       console.log('$scope.update_detail = function(selectedIndex){');
       $scope.view_type = "detail";
+      console.log('$scope.update_detail = function(selectedIndex){');
       $scope.focusIndex = selectedIndex;
     }
     $scope.add_new_vendor = function(){
@@ -436,6 +445,7 @@
     $scope.remove_filter_key = function(key){
       console.log('$scope.remove_filter_key = function(key){');
       $scope.query[key] = "";
+      $scope.process_filter_update();
     }
     $scope.remove_filter_query = function(){
       console.log('$scope.remove_filter_query = function(){');
@@ -496,7 +506,7 @@
       window.setTimeout(function(){
         console.log('window.setTimeout(function(){');
         $scope.$broadcast('rzSliderForceRender');
-      });
+      }, 10);
     };
     $scope.format_date_range = function(start, end){
       console.log('$scope.format_date_range = function(' + start+ ', ' + end + '){');
@@ -549,7 +559,7 @@
       }, function(start, end, label) {
         console.log('}, function(start, end, label) {');
         $scope.format_date_range(start, end);
-        $scope.processDateFilter();
+        $scope.process_filter_update();
         console.log('New date range selected: ' + $scope.dateFilter + ' (predefined range: ' + label + ')');
       });
     }
@@ -649,42 +659,60 @@
 
   function setup_watches($scope){
     $scope.$watch('query.has_attachment', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---query.has_attachment-----');
       console.log('Single view has changed');
       if($scope.query.has_attachment == false){
         $scope.query.has_attachment = "";
       }
     }, true);
     $scope.$watch('singleChanges', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---singleChanges-----');
       console.log('Single view has changed');
       $scope.trigger_response_to_changed_fields();
     }, true);
     $scope.$watch('single', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---single-----');
       console.log('Single has changed');
       $scope.trigger_single_change();
     }, true);
     $scope.$watch('query', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---query-----');
       console.log('$scope.$watch(\'query\', function(newValue, oldValue) {');
       console.log('Running');
       $scope.process_filter_update();
     }, true);
     $scope.$watch('amountFilter', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---amountFilter-----');
       console.log(newValue);
       $scope.process_filter_update();
     }, true);
     $scope.$watch('slider', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---slider-----');
       // console.log('$scope.slider.min: ', $scope.slider.min);
       // console.log('$scope.slider.max: ', $scope.slider.max);
       $scope.process_filter_update();
       $scope.format_amount_range();
     }, true);
     $scope.$watch('view_type', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---view_type-----');
       console.log('$scope.view_type: ', $scope.view_type);
     });
     $scope.$watch('query', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---query-----');
       console.log('Running');
-      $scope.processFilter();
+      $scope.process_filter_update();
     }, true);
     $scope.$watch('focusIndex', function(newValue, oldValue) {
+      console.log('---------------------');
+      console.log('---focusIndex-----');
       console.log('focusIndex: ', newValue);
       $scope.update_single_item(newValue);
       $scope.setup_single_clone();

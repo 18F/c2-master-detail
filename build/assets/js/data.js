@@ -36,11 +36,14 @@ var data = [{
     {
         "name": "Miranda Creegan",
         "date": "3/3/2015",
+        "action": "Email Added",
+
         "time": "8:01 AM"
     },
     {
         "name": "Lucien Grafton",
         "date": "12/25/2015",
+        "action": "Request Modified",
         "time": "7:32 AM"
     }
     ],
@@ -83,21 +86,26 @@ var data = [{
     {
         "name": "Eloise Polak",
         "date": "2/27/2015",
+        "action": "Email Opened",
+
         "time": "11:38 PM"
     },
     {
         "name": "Manual Pollman",
         "date": "8/23/2015",
+        "action": "Request Modified",
         "time": "4:56 PM"
     },
     {
         "name": "Alane Fortmann",
         "date": "8/23/2015",
+        "action": "Comment Added",
         "time": "6:56 PM"
     },
     {
         "name": "Valerie Pizer",
         "date": "11/10/2015",
+        "action": "File Uploaded",
         "time": "12:00 AM"
     }
     ],
@@ -141,6 +149,7 @@ var data = [{
     {
         "name": "China Simpelo",
         "date": "10/17/2015",
+        "action": "Email Sent",
         "time": "1:58 PM"
     }
     ],
@@ -178,16 +187,19 @@ var data = [{
     {
         "name": "Mignon Locicero",
         "date": "3/16/2015",
+        "action": "Field Changed",
         "time": "1:12 AM"
     },
     {
         "name": "Willie Romines",
         "date": "8/14/2015",
+        "action": "Field Added",
         "time": "10:50 PM"
     },
     {
         "name": "Taunya Rogan",
         "date": "10/15/2015",
+        "action": "Viewed",
         "time": "7:43 AM"
     }
     ],
@@ -231,16 +243,19 @@ var data = [{
     {
         "name": "Shawna Kypuros",
         "date": "4/9/2015",
+        "action": "Request Modified",
         "time": "4:19 AM"
     },
     {
         "name": "Jeanelle Rishell",
         "date": "6/10/2015",
+        "action": "Comment Added",
         "time": "10:20 AM"
     },
     {
         "name": "Patrina Dagel",
         "date": "11/30/2015",
+        "action": "Field Added",
         "time": "6:42 PM"
     }
     ],
@@ -285,16 +300,20 @@ var data = [{
     {
         "name": "Pennie Howlingwolf",
         "date": "4/5/2015",
+        "action": "Email Sent",
         "time": "4:24 PM"
     },
     {
         "name": "Lizabeth Whitey",
         "date": "8/27/2015",
+        "action": "Approved",
         "time": "4:05 AM"
     },
     {
         "name": "Kanisha Darjean",
         "date": "11/13/2015",
+        "action": "Email Opened",
+
         "time": "3:24 PM"
     }
     ],
@@ -332,16 +351,19 @@ var data = [{
     {
         "name": "Bethann Porreca",
         "date": "2/10/2015",
+        "action": "Field Changed",
         "time": "7:17 PM"
     },
     {
         "name": "Teofila Palazzo",
         "date": "9/25/2015",
+        "action": "Email Sent",
         "time": "12:32 AM"
     },
     {
         "name": "Ardath Gordils",
         "date": "12/6/2015",
+        "action": "File Uploaded",
         "time": "10:59 PM"
     }
     ],
@@ -384,16 +406,19 @@ var data = [{
     {
         "name": "Pearly Chuang",
         "date": "4/23/2015",
+        "action": "Email Sent",
         "time": "12:37 AM"
     },
     {
         "name": "Micah Tuch",
         "date": "7/29/2015",
+        "action": "Request Modified",
         "time": "6:23 PM"
     },
     {
         "name": "Adriana Willoughby",
         "date": "1/19/2016",
+        "action": "Subscriber Added",
         "time": "12:59 PM"
     }
     ],
@@ -437,16 +462,19 @@ var data = [{
     {
         "name": "Rochel Honza",
         "date": "4/15/2015",
+        "action": "Request Modified",
         "time": "12:39 AM"
     },
     {
         "name": "Allen Breiten",
         "date": "8/11/2015",
+        "action": "Email Sent",
         "time": "4:16 AM"
     },
     {
         "name": "Amy Vauters",
         "date": "10/18/2015",
+        "action": "Request Modified",
         "time": "11:40 PM"
     }
     ],
@@ -483,16 +511,21 @@ var data = [{
     {
         "name": "Marcus Sallah",
         "date": "2/20/2015",
+        "action": "Email Added",
+
         "time": "5:58 PM"
     },
     {
         "name": "Deb Abe",
         "date": "7/30/2015",
+        "action": "Field Changed",
         "time": "6:48 AM"
     },
     {
         "name": "Mari Benne",
         "date": "10/20/2015",
+        "action": "Email Added",
+
         "time": "4:07 AM"
     }
     ],
@@ -530,16 +563,20 @@ var data = [{
     {
         "name": "Anjanette Letters",
         "date": "4/10/2015",
+        "action": "Field Added",
         "time": "9:02 PM"
     },
     {
         "name": "Manuela Stinchfield",
         "date": "5/30/2015",
+        "action": "Email Opened",
+
         "time": "12:12 PM"
     },
     {
         "name": "Karine Lannen",
         "date": "11/17/2015",
+        "action": "Viewed",
         "time": "8:47 PM"
     }
     ],
@@ -584,16 +621,19 @@ var data = [{
     {
         "name": "Elanor Wager",
         "date": "3/6/2015",
+        "action": "Request Modified",
         "time": "8:40 AM"
     },
     {
         "name": "Hoa Balcazar",
         "date": "8/29/2015",
+        "action": "Approved",
         "time": "11:06 PM"
     },
     {
         "name": "Ellan Jargas",
         "date": "12/4/2015",
+        "action": "Field Added",
         "time": "4:58 PM"
     }
     ],
@@ -637,16 +677,19 @@ var data = [{
     {
         "name": "Will Ianuzzi",
         "date": "3/28/2015",
+        "action": "Field Changed",
         "time": "12:50 PM"
     },
     {
         "name": "Reginia Bushner",
         "date": "9/9/2015",
+        "action": "Email Sent",
         "time": "4:35 PM"
     },
     {
         "name": "Zachary Effland",
         "date": "1/15/2016",
+        "action": "Comment Added",
         "time": "3:08 AM"
     }
     ],
@@ -689,16 +732,19 @@ var data = [{
     {
         "name": "Lillie Norbeck",
         "date": "3/8/2015",
+        "action": "Email Sent",
         "time": "2:29 AM"
     },
     {
         "name": "Josefa Pinuelas",
         "date": "7/5/2015",
+        "action": "Field Changed",
         "time": "9:43 AM"
     },
     {
         "name": "Gerald Dudasik",
         "date": "12/6/2015",
+        "action": "Request Modified",
         "time": "7:28 AM"
     }
     ],
@@ -742,16 +788,20 @@ var data = [{
     {
         "name": "Corazon Pratte",
         "date": "4/20/2015",
+        "action": "Comment Added",
         "time": "9:27 PM"
     },
     {
         "name": "Lashaun Bilecki",
         "date": "7/14/2015",
+        "action": "Email Opened",
+
         "time": "2:04 AM"
     },
     {
         "name": "Desiree Parado",
         "date": "11/25/2015",
+        "action": "Approved",
         "time": "10:29 AM"
     }
     ],
@@ -795,16 +845,19 @@ var data = [{
     {
         "name": "Marry Kimrey",
         "date": "3/18/2015",
+        "action": "Field Changed",
         "time": "5:21 PM"
     },
     {
         "name": "Divina Vandover",
         "date": "5/16/2015",
+        "action": "Email Sent",
         "time": "10:16 AM"
     },
     {
         "name": "Vallie Nagel",
         "date": "10/31/2015",
+        "action": "Email Sent",
         "time": "1:43 PM"
     }
     ],
@@ -842,16 +895,19 @@ var data = [{
     {
         "name": "Bennett Shipe",
         "date": "3/11/2015",
+        "action": "Field Added",
         "time": "6:14 AM"
     },
     {
         "name": "Derrick Pineo",
         "date": "9/10/2015",
+        "action": "Email Opened",
         "time": "10:28 AM"
     },
     {
         "name": "Merle Bialy",
         "date": "11/19/2015",
+        "action": "File Uploaded",
         "time": "7:53 PM"
     }
     ],
@@ -894,16 +950,19 @@ var data = [{
     {
         "name": "Hung Harkenreader",
         "date": "4/21/2015",
+        "action": "Email Sent",
         "time": "6:36 AM"
     },
     {
         "name": "Jule Lagoo",
         "date": "8/11/2015",
+        "action": "Request Modified",
         "time": "11:37 PM"
     },
     {
         "name": "Willette Depaz",
         "date": "11/4/2015",
+        "action": "Email Opened",
         "time": "8:03 AM"
     }
     ],
@@ -941,16 +1000,22 @@ var data = [{
     {
         "name": "Ailene Neelly",
         "date": "3/1/2015",
+        "action": "Email Opened",
+
         "time": "9:01 PM"
     },
     {
         "name": "Denese Connors",
         "date": "5/24/2015",
+        "action": "Email Opened",
+
         "time": "7:13 PM"
     },
     {
         "name": "Pura Dasalia",
         "date": "12/24/2015",
+        "action": "Email Opened",
+
         "time": "6:28 PM"
     }
     ],
@@ -993,16 +1058,19 @@ var data = [{
     {
         "name": "Shalon Demange",
         "date": "5/5/2015",
+        "action": "Viewed",
         "time": "11:38 PM"
     },
     {
         "name": "Carlotta Naiman",
         "date": "9/5/2015",
+        "action": "Field Changed",
         "time": "11:28 AM"
     },
     {
         "name": "Delana Lashmet",
         "date": "1/17/2016",
+        "action": "Comment Added",
         "time": "9:28 PM"
     }
     ],
@@ -1040,16 +1108,19 @@ var data = [{
     {
         "name": "Cassidy Canlas",
         "date": "2/28/2015",
+        "action": "Approved",
         "time": "6:23 AM"
     },
     {
         "name": "Fidel Hoffmeister",
         "date": "5/22/2015",
+        "action": "Field Changed",
         "time": "2:21 AM"
     },
     {
         "name": "Deandre Wellons",
         "date": "12/24/2015",
+        "action": "Email Opened",
         "time": "9:56 PM"
     }
     ],
@@ -1092,16 +1163,20 @@ var data = [{
     {
         "name": "Avril Primack",
         "date": "4/28/2015",
+        "action": "Viewed",
         "time": "11:25 AM"
     },
     {
         "name": "Giselle Muschik",
         "date": "8/22/2015",
+        "action": "Email Opened",
+
         "time": "4:26 AM"
     },
     {
         "name": "Stacia Joas",
         "date": "11/5/2015",
+        "action": "Viewed",
         "time": "2:08 PM"
     }
     ],
@@ -1146,16 +1221,19 @@ var data = [{
     {
         "name": "Temeka Soyke",
         "date": "5/8/2015",
+        "action": "Email Sent",
         "time": "5:57 AM"
     },
     {
         "name": "Toby Vina",
         "date": "8/6/2015",
+        "action": "Comment Added",
         "time": "10:15 AM"
     },
     {
         "name": "Justin Melaro",
         "date": "2/2/2016",
+        "action": "Request Modified",
         "time": "2:00 PM"
     }
     ],
@@ -1199,16 +1277,19 @@ var data = [{
     {
         "name": "Rosario Desousa",
         "date": "3/1/2015",
+        "action": "Field Changed",
         "time": "8:19 AM"
     },
     {
         "name": "Forest Karpin",
         "date": "6/4/2015",
+        "action": "Field Changed",
         "time": "8:58 AM"
     },
     {
         "name": "Cher Daye",
         "date": "12/1/2015",
+        "action": "Field Added",
         "time": "12:49 AM"
     }
     ],
@@ -1246,16 +1327,20 @@ var data = [{
     {
         "name": "Nelly Kruel",
         "date": "2/10/2015",
+        "action": "Comment Added",
         "time": "12:09 AM"
     },
     {
         "name": "Tobias Montgonery",
         "date": "6/17/2015",
+        "action": "Email Opened",
+
         "time": "8:28 PM"
     },
     {
         "name": "Lilli Hryniewich",
         "date": "12/4/2015",
+        "action": "Comment Added",
         "time": "6:44 AM"
     }
     ],
@@ -1300,16 +1385,19 @@ var data = [{
     {
         "name": "Dovie Sandeen",
         "date": "3/30/2015",
+        "action": "Request Modified",
         "time": "12:47 PM"
     },
     {
         "name": "Neoma Homby",
         "date": "6/19/2015",
+        "action": "Email Sent",
         "time": "4:00 AM"
     },
     {
         "name": "Carleen Hemann",
         "date": "1/30/2016",
+        "action": "Email Sent",
         "time": "10:02 PM"
     }
     ],
@@ -1354,16 +1442,19 @@ var data = [{
     {
         "name": "Charlene Reinbold",
         "date": "2/24/2015",
+        "action": "Email Sent",
         "time": "2:05 AM"
     },
     {
         "name": "Nora Carnahiba",
         "date": "9/23/2015",
+        "action": "Request Modified",
         "time": "12:49 PM"
     },
     {
         "name": "Nathanael Cowdery",
         "date": "2/5/2016",
+        "action": "Request Modified",
         "time": "5:53 AM"
     }
     ],
@@ -1402,16 +1493,19 @@ var data = [{
     {
         "name": "Machelle Cardy",
         "date": "3/25/2015",
+        "action": "Email Sent",
         "time": "8:49 PM"
     },
     {
         "name": "Pamila Carpino",
         "date": "9/23/2015",
+        "action": "Email Sent",
         "time": "10:56 PM"
     },
     {
         "name": "Jeanine Hora",
         "date": "11/20/2015",
+        "action": "File Uploaded",
         "time": "11:51 AM"
     }
     ],
@@ -1456,16 +1550,19 @@ var data = [{
     {
         "name": "Susanne Hoop",
         "date": "3/16/2015",
+        "action": "Viewed",
         "time": "6:02 PM"
     },
     {
         "name": "Maryrose Holland",
         "date": "9/19/2015",
+        "action": "Email Sent",
         "time": "1:24 AM"
     },
     {
         "name": "Amira Finan",
         "date": "10/15/2015",
+        "action": "Email Sent",
         "time": "5:10 PM"
     }
     ],
@@ -1510,16 +1607,19 @@ var data = [{
     {
         "name": "Claris Vandorien",
         "date": "4/20/2015",
+        "action": "Email Opened",
         "time": "5:04 PM"
     },
     {
         "name": "Gwenn Hassell",
         "date": "5/10/2015",
+        "action": "Email Opened",
         "time": "5:23 PM"
     },
     {
         "name": "Sunni Stuesse",
         "date": "11/4/2015",
+        "action": "Viewed",
         "time": "3:48 PM"
     }
     ],
@@ -1556,16 +1656,19 @@ var data = [{
     {
         "name": "Karine Corolis",
         "date": "3/1/2015",
+        "action": "Email Opened",
         "time": "3:50 PM"
     },
     {
         "name": "Kathrin Schrupp",
         "date": "8/17/2015",
+        "action": "Email Opened",
         "time": "2:46 PM"
     },
     {
         "name": "Jeanine Feuer",
         "date": "12/31/2015",
+        "action": "Email Opened",
         "time": "12:39 AM"
     }
     ],
@@ -1609,16 +1712,20 @@ var data = [{
     {
         "name": "Pedro Deaguero",
         "date": "5/5/2015",
+        "action": "Request Modified",
         "time": "7:49 PM"
     },
     {
         "name": "Georgie Fiedler",
         "date": "5/20/2015",
+        "action": "Email Sent",
         "time": "2:42 AM"
     },
     {
         "name": "Liane Hoese",
         "date": "10/15/2015",
+        "action": "Email Opened",
+
         "time": "8:19 AM"
     }
     ],
@@ -1663,16 +1770,20 @@ var data = [{
     {
         "name": "Terrance Nock",
         "date": "3/9/2015",
+        "action": "Email Sent",
         "time": "1:02 AM"
     },
     {
         "name": "Cassidy Gies",
         "date": "9/6/2015",
+        "action": "Email Added",
+
         "time": "9:14 PM"
     },
     {
         "name": "Sanjuanita Winikoff",
         "date": "12/23/2015",
+        "action": "Request Modified",
         "time": "9:46 AM"
     }
     ],
@@ -1716,16 +1827,19 @@ var data = [{
     {
         "name": "Val Bacerra",
         "date": "2/28/2015",
+        "action": "Comment Added",
         "time": "8:34 AM"
     },
     {
         "name": "Louis Lyseski",
         "date": "9/4/2015",
+        "action": "Request Modified",
         "time": "11:57 PM"
     },
     {
         "name": "Garnet Robin",
         "date": "10/20/2015",
+        "action": "Request Modified",
         "time": "1:58 AM"
     }
     ],
@@ -1769,16 +1883,20 @@ var data = [{
     {
         "name": "Roxy Presser",
         "date": "3/11/2015",
+        "action": "Email Sent",
         "time": "8:51 AM"
     },
     {
         "name": "Meghan Gutowski",
         "date": "8/5/2015",
+        "action": "Email Opened",
+
         "time": "5:37 PM"
     },
     {
         "name": "Tracy Isabell",
         "date": "10/18/2015",
+        "action": "Email Opened",
         "time": "7:08 PM"
     }
     ],
@@ -1815,16 +1933,19 @@ var data = [{
     {
         "name": "Nan Schwarm",
         "date": "4/3/2015",
+        "action": "Email Sent",
         "time": "8:18 AM"
     },
     {
         "name": "Dale Wilhelmy",
         "date": "6/29/2015",
+        "action": "Email Opened",
         "time": "1:32 AM"
     },
     {
         "name": "Fe Moulding",
         "date": "1/14/2016",
+        "action": "Field Added",
         "time": "4:30 AM"
     }
     ],
@@ -1862,16 +1983,19 @@ var data = [{
     {
         "name": "Emelda Lathrop",
         "date": "2/21/2015",
+        "action": "Comment Added",
         "time": "3:46 PM"
     },
     {
         "name": "Shantel Plunket",
         "date": "6/2/2015",
+        "action": "Field Changed",
         "time": "7:37 AM"
     },
     {
         "name": "Tyson Bermel",
         "date": "11/9/2015",
+        "action": "Approved",
         "time": "2:11 AM"
     }
     ],
@@ -1915,16 +2039,20 @@ var data = [{
     {
         "name": "Sylvester Marquina",
         "date": "4/23/2015",
+        "action": "Email Sent",
         "time": "9:42 AM"
     },
     {
         "name": "Valentina Stiltz",
         "date": "5/10/2015",
+        "action": "Request Modified",
         "time": "8:58 PM"
     },
     {
         "name": "Luci Warbington",
         "date": "12/29/2015",
+        "action": "Email Added",
+
         "time": "6:29 AM"
     }
     ],
@@ -1967,16 +2095,21 @@ var data = [{
     {
         "name": "Amberly Wildberger",
         "date": "3/28/2015",
+        "action": "Email Opened",
+
         "time": "6:56 PM"
     },
     {
         "name": "Vilma Crookes",
         "date": "9/14/2015",
+        "action": "Request Modified",
         "time": "2:40 PM"
     },
     {
         "name": "Karrie Greenlaw",
         "date": "11/17/2015",
+        "action": "Email Opened",
+
         "time": "4:41 PM"
     }
     ],
@@ -2020,16 +2153,19 @@ var data = [{
     {
         "name": "Hsiu Schimanski",
         "date": "5/7/2015",
+        "action": "Field Changed",
         "time": "12:35 PM"
     },
     {
         "name": "Angila Zatorski",
         "date": "6/4/2015",
+        "action": "Request Modified",
         "time": "10:49 PM"
     },
     {
         "name": "Azalee Iniguez",
         "date": "2/4/2016",
+        "action": "Email Opened",
         "time": "6:10 AM"
     }
     ],
@@ -2067,16 +2203,19 @@ var data = [{
     {
         "name": "Erin Brunt",
         "date": "4/13/2015",
+        "action": "File Uploaded",
         "time": "12:06 AM"
     },
     {
         "name": "Perry Lagatella",
         "date": "9/12/2015",
+        "action": "Approved",
         "time": "12:57 AM"
     },
     {
         "name": "Maurice Tuppen",
         "date": "1/22/2016",
+        "action": "Email Sent",
         "time": "1:19 AM"
     }
     ],
@@ -2119,16 +2258,20 @@ var data = [{
     {
         "name": "Terry Hagmann",
         "date": "3/4/2015",
+        "action": "Email Opened",
+
         "time": "7:18 PM"
     },
     {
         "name": "Sterling Mikez",
         "date": "6/18/2015",
+        "action": "Field Changed",
         "time": "8:23 PM"
     },
     {
         "name": "Viki Cunnane",
         "date": "12/31/2015",
+        "action": "Email Opened",
         "time": "7:40 PM"
     }
     ],
@@ -2166,16 +2309,19 @@ var data = [{
     {
         "name": "Minerva Ramcharan",
         "date": "2/28/2015",
+        "action": "Email Opened",
         "time": "4:25 PM"
     },
     {
         "name": "Clement Sitzman",
         "date": "7/24/2015",
+        "action": "Request Modified",
         "time": "7:00 PM"
     },
     {
         "name": "Samual Doerfler",
         "date": "10/11/2015",
+        "action": "Request Modified",
         "time": "1:15 PM"
     }
     ],
@@ -2220,16 +2366,20 @@ var data = [{
     {
         "name": "Eladia Curio",
         "date": "5/4/2015",
+        "action": "Email Opened",
         "time": "10:09 PM"
     },
     {
         "name": "Tory Coombe",
         "date": "10/7/2015",
+        "action": "Email Opened",
+
         "time": "7:47 AM"
     },
     {
         "name": "Zora Buescher",
         "date": "12/14/2015",
+        "action": "Viewed",
         "time": "3:14 AM"
     }
     ],
@@ -2268,16 +2418,19 @@ var data = [{
     {
         "name": "Wally Abbott",
         "date": "4/2/2015",
+        "action": "Request Modified",
         "time": "12:02 PM"
     },
     {
         "name": "Lovie Magallon",
         "date": "6/28/2015",
+        "action": "Viewed",
         "time": "7:02 AM"
     },
     {
         "name": "Precious Rine",
         "date": "12/13/2015",
+        "action": "Email Sent",
         "time": "4:42 AM"
     }
     ],
@@ -2322,16 +2475,20 @@ var data = [{
     {
         "name": "Elvera Spickler",
         "date": "5/1/2015",
+        "action": "Email Sent",
         "time": "2:21 PM"
     },
     {
         "name": "Tandra Kimpton",
         "date": "6/16/2015",
+        "action": "Email Added",
+
         "time": "4:56 PM"
     },
     {
         "name": "Savanna Kaiktsian",
         "date": "1/13/2016",
+        "action": "Request Modified",
         "time": "4:42 AM"
     }
     ],
@@ -2376,16 +2533,19 @@ var data = [{
     {
         "name": "Sylvester Slanina",
         "date": "2/23/2015",
+        "action": "Email Opened",
         "time": "11:09 PM"
     },
     {
         "name": "Rene Latronica",
         "date": "8/15/2015",
+        "action": "Email Opened",
         "time": "3:00 PM"
     },
     {
         "name": "Tereasa Washum",
         "date": "12/19/2015",
+        "action": "Email Sent",
         "time": "8:56 AM"
     }
     ],
@@ -2430,16 +2590,19 @@ var data = [{
     {
         "name": "Tom Homma",
         "date": "4/1/2015",
+        "action": "Email Opened",
         "time": "8:21 PM"
     },
     {
         "name": "Marhta Ballesterous",
         "date": "6/27/2015",
+        "action": "Email Opened",
         "time": "8:20 AM"
     },
     {
         "name": "Wilford Wight",
         "date": "11/10/2015",
+        "action": "Field Changed",
         "time": "4:55 AM"
     }
     ],
@@ -2483,16 +2646,19 @@ var data = [{
     {
         "name": "Jordan Tantillo",
         "date": "2/24/2015",
+        "action": "Comment Added",
         "time": "3:53 PM"
     },
     {
         "name": "Saran Paxson",
         "date": "9/16/2015",
+        "action": "Viewed",
         "time": "10:51 PM"
     },
     {
         "name": "Fritz Mcmenomy",
         "date": "1/22/2016",
+        "action": "Viewed",
         "time": "11:52 AM"
     }
     ],
@@ -2531,16 +2697,21 @@ var data = [{
     {
         "name": "Kaila Crochet",
         "date": "4/25/2015",
+        "action": "Email Opened",
+
         "time": "6:22 PM"
     },
     {
         "name": "Danyelle Bilotti",
         "date": "7/19/2015",
+        "action": "Approved",
         "time": "11:05 AM"
     },
     {
         "name": "Julio Wilging",
         "date": "10/20/2015",
+        "action": "Email Added",
+
         "time": "2:24 PM"
     }
     ],
@@ -2584,16 +2755,19 @@ var data = [{
     {
         "name": "Regina Haggerton",
         "date": "3/7/2015",
+        "action": "File Uploaded",
         "time": "12:52 PM"
     },
     {
         "name": "Brandon Michon",
         "date": "5/23/2015",
+        "action": "Request Modified",
         "time": "11:02 AM"
     },
     {
         "name": "Nannie Marcell",
         "date": "1/19/2016",
+        "action": "Approved",
         "time": "3:42 AM"
     }
     ],
@@ -2636,16 +2810,20 @@ var data = [{
     {
         "name": "Jean Silfies",
         "date": "3/17/2015",
+        "action": "Email Added",
+
         "time": "10:01 PM"
     },
     {
         "name": "Yanira Inglis",
         "date": "9/12/2015",
+        "action": "Comment Added",
         "time": "7:20 PM"
     },
     {
         "name": "Precious Litsey",
         "date": "10/30/2015",
+        "action": "Email Opened",
         "time": "10:34 AM"
     }
     ],
@@ -2682,16 +2860,20 @@ var data = [{
     {
         "name": "Mayme Brosman",
         "date": "4/26/2015",
+        "action": "Approved",
         "time": "10:30 PM"
     },
     {
         "name": "Gussie Skowron",
         "date": "7/6/2015",
+        "action": "Email Added",
+
         "time": "10:30 AM"
     },
     {
         "name": "Maximina Blakeway",
         "date": "1/24/2016",
+        "action": "Email Opened",
         "time": "11:44 AM"
     }
     ],
@@ -2730,16 +2912,19 @@ var data = [{
     {
         "name": "Scott Ucci",
         "date": "3/11/2015",
+        "action": "Email Sent",
         "time": "3:40 PM"
     },
     {
         "name": "Faye Lew",
         "date": "5/22/2015",
+        "action": "Email Opened",
         "time": "11:12 AM"
     },
     {
         "name": "Curtis Carland",
         "date": "10/15/2015",
+        "action": "Approved",
         "time": "2:18 AM"
     }
     ],
@@ -2783,16 +2968,19 @@ var data = [{
     {
         "name": "Lavonna Hwee",
         "date": "4/7/2015",
+        "action": "Viewed",
         "time": "6:35 AM"
     },
     {
         "name": "Traci Macho",
         "date": "8/5/2015",
+        "action": "Email Sent",
         "time": "10:42 PM"
     },
     {
         "name": "Jannet Bacino",
         "date": "12/9/2015",
+        "action": "Email Sent",
         "time": "6:13 AM"
     }
     ],
@@ -2836,16 +3024,19 @@ var data = [{
     {
         "name": "Akilah Seigfried",
         "date": "3/28/2015",
+        "action": "Field Changed",
         "time": "10:04 AM"
     },
     {
         "name": "Leena Vaccarezza",
         "date": "7/24/2015",
+        "action": "Field Added",
         "time": "12:51 PM"
     },
     {
         "name": "Laveta Cuddington",
         "date": "1/10/2016",
+        "action": "File Uploaded",
         "time": "5:39 AM"
     }
     ],
@@ -2888,16 +3079,19 @@ var data = [{
     {
         "name": "Jeanine Allegrucci",
         "date": "3/7/2015",
+        "action": "Request Modified",
         "time": "8:02 PM"
     },
     {
         "name": "Stefania Ausiello",
         "date": "7/1/2015",
+        "action": "Field Changed",
         "time": "6:56 PM"
     },
     {
         "name": "Cyrstal Dowden",
         "date": "11/28/2015",
+        "action": "Viewed",
         "time": "11:15 AM"
     }
     ],
@@ -2942,16 +3136,21 @@ var data = [{
     {
         "name": "Liane Lyme",
         "date": "4/4/2015",
+        "action": "File Uploaded",
         "time": "6:26 PM"
     },
     {
         "name": "Rickie Koebley",
         "date": "7/3/2015",
+        "action": "Email Added",
+
         "time": "7:40 AM"
     },
     {
         "name": "Stephane Newhall",
         "date": "1/19/2016",
+        "action": "Email Opened",
+
         "time": "3:36 AM"
     }
     ],
@@ -2996,16 +3195,20 @@ var data = [{
     {
         "name": "Royce Biancuzzo",
         "date": "3/10/2015",
+        "action": "Field Added",
         "time": "12:28 PM"
     },
     {
         "name": "Kemberly Drong",
         "date": "9/4/2015",
+        "action": "Email Sent",
         "time": "12:57 PM"
     },
     {
         "name": "Josue Trela",
         "date": "11/5/2015",
+        "action": "Email Opened",
+
         "time": "8:37 PM"
     }
     ],
@@ -3049,16 +3252,19 @@ var data = [{
     {
         "name": "Amber Carrahan",
         "date": "5/6/2015",
+        "action": "Request Modified",
         "time": "5:58 AM"
     },
     {
         "name": "Emelina Hunsaker",
         "date": "8/8/2015",
+        "action": "Request Modified",
         "time": "1:02 AM"
     },
     {
         "name": "Frieda Santisteban",
         "date": "1/14/2016",
+        "action": "Field Changed",
         "time": "12:57 PM"
     }
     ],
@@ -3101,16 +3307,19 @@ var data = [{
     {
         "name": "Neta Yournet",
         "date": "4/9/2015",
+        "action": "Field Changed",
         "time": "12:25 PM"
     },
     {
         "name": "Darcy Mokry",
         "date": "9/9/2015",
+        "action": "Field Added",
         "time": "4:44 AM"
     },
     {
         "name": "Maxine Breckel",
         "date": "11/28/2015",
+        "action": "Email Opened",
         "time": "8:53 PM"
     }
     ],
@@ -3154,16 +3363,20 @@ var data = [{
     {
         "name": "Felecia Cordonnier",
         "date": "2/27/2015",
+        "action": "Email Sent",
         "time": "3:56 AM"
     },
     {
         "name": "Jacinda Lant",
         "date": "8/1/2015",
+        "action": "Field Added",
         "time": "1:32 PM"
     },
     {
         "name": "Lavette Guse",
         "date": "10/23/2015",
+        "action": "Email Opened",
+
         "time": "3:03 AM"
     }
     ],
@@ -3207,16 +3420,19 @@ var data = [{
     {
         "name": "Hassan Steeley",
         "date": "3/1/2015",
+        "action": "Viewed",
         "time": "6:50 AM"
     },
     {
         "name": "Tonda Cristales",
         "date": "9/19/2015",
+        "action": "Comment Added",
         "time": "3:21 PM"
     },
     {
         "name": "Evelyn Ludewig",
         "date": "11/30/2015",
+        "action": "Field Changed",
         "time": "11:55 PM"
     }
     ],
@@ -3259,16 +3475,19 @@ var data = [{
     {
         "name": "Randy Ransbottom",
         "date": "3/15/2015",
+        "action": "File Uploaded",
         "time": "3:22 AM"
     },
     {
         "name": "Syreeta Contraras",
         "date": "6/4/2015",
+        "action": "Email Sent",
         "time": "11:48 AM"
     },
     {
         "name": "Dinah Korns",
         "date": "11/10/2015",
+        "action": "Email Sent",
         "time": "8:01 PM"
     }
     ],
@@ -3307,16 +3526,19 @@ var data = [{
     {
         "name": "Berniece Hegener",
         "date": "4/17/2015",
+        "action": "Field Added",
         "time": "3:28 AM"
     },
     {
         "name": "Beatriz Sansbury",
         "date": "6/2/2015",
+        "action": "Approved",
         "time": "8:03 PM"
     },
     {
         "name": "Miesha Mallar",
         "date": "12/29/2015",
+        "action": "Field Added",
         "time": "5:49 AM"
     }
     ],
@@ -3353,16 +3575,19 @@ var data = [{
     {
         "name": "Dong Kempfer",
         "date": "3/27/2015",
+        "action": "Viewed",
         "time": "2:28 AM"
     },
     {
         "name": "Renae Rentschler",
         "date": "7/7/2015",
+        "action": "Email Sent",
         "time": "12:18 AM"
     },
     {
         "name": "Camelia Lendor",
         "date": "11/25/2015",
+        "action": "Email Sent",
         "time": "12:42 AM"
     }
     ],
@@ -3399,16 +3624,19 @@ var data = [{
     {
         "name": "Corrine Kot",
         "date": "3/29/2015",
+        "action": "Email Opened",
         "time": "12:07 AM"
     },
     {
         "name": "Melina Serve",
         "date": "8/29/2015",
+        "action": "Email Sent",
         "time": "4:26 AM"
     },
     {
         "name": "Tyree Etier",
         "date": "10/9/2015",
+        "action": "Field Added",
         "time": "8:22 PM"
     }
     ],
@@ -3452,16 +3680,21 @@ var data = [{
     {
         "name": "Ronni Fiotodimitrak",
         "date": "4/12/2015",
+        "action": "Comment Added",
         "time": "12:49 PM"
     },
     {
         "name": "Janay Shands",
         "date": "7/9/2015",
+        "action": "Email Opened",
+
         "time": "9:19 PM"
     },
     {
         "name": "Cyrus Dexheimer",
         "date": "11/9/2015",
+        "action": "Email Opened",
+
         "time": "12:16 PM"
     }
     ],
@@ -3504,16 +3737,19 @@ var data = [{
     {
         "name": "Vernia Dad",
         "date": "3/1/2015",
+        "action": "Approved",
         "time": "9:31 AM"
     },
     {
         "name": "Vivian Caci",
         "date": "5/9/2015",
+        "action": "Viewed",
         "time": "7:39 AM"
     },
     {
         "name": "Edith Hersha",
         "date": "11/22/2015",
+        "action": "Comment Added",
         "time": "12:03 PM"
     }
     ],
@@ -3556,16 +3792,19 @@ var data = [{
     {
         "name": "Dallas Dildine",
         "date": "4/15/2015",
+        "action": "Field Changed",
         "time": "11:58 PM"
     },
     {
         "name": "Lora Yokota",
         "date": "6/12/2015",
+        "action": "Comment Added",
         "time": "9:23 PM"
     },
     {
         "name": "Antonina Sgambati",
         "date": "12/1/2015",
+        "action": "Comment Added",
         "time": "4:35 AM"
     }
     ],
@@ -3608,16 +3847,20 @@ var data = [{
     {
         "name": "Timothy Schirm",
         "date": "2/24/2015",
+        "action": "Request Modified",
         "time": "5:05 AM"
     },
     {
         "name": "Frankie Bancks",
         "date": "9/16/2015",
+        "action": "Email Sent",
         "time": "10:55 AM"
     },
     {
         "name": "Harold Laflamme",
         "date": "12/10/2015",
+        "action": "Email Opened",
+
         "time": "1:07 PM"
     }
     ],
@@ -3655,16 +3898,19 @@ var data = [{
     {
         "name": "Stefanie Grundman",
         "date": "4/23/2015",
+        "action": "Field Changed",
         "time": "6:20 PM"
     },
     {
         "name": "Isabelle Bolevice",
         "date": "5/24/2015",
+        "action": "Email Sent",
         "time": "5:49 PM"
     },
     {
         "name": "Janean Debes",
         "date": "10/20/2015",
+        "action": "Comment Added",
         "time": "8:03 AM"
     }
     ],
@@ -3702,16 +3948,19 @@ var data = [{
     {
         "name": "Ida Pince",
         "date": "2/14/2015",
+        "action": "Request Modifiedd",
         "time": "11:18 AM"
     },
     {
         "name": "Darcy Shumsky",
         "date": "9/18/2015",
+        "action": "Field Changed",
         "time": "4:31 PM"
     },
     {
         "name": "Hans Stegman",
         "date": "11/13/2015",
+        "action": "Comment Added",
         "time": "8:04 AM"
     }
     ],
@@ -3756,16 +4005,19 @@ var data = [{
     {
         "name": "Annalee Smayda",
         "date": "3/2/2015",
+        "action": "Email Sent",
         "time": "5:32 PM"
     },
     {
         "name": "Floy Sluder",
         "date": "8/10/2015",
+        "action": "Email Sent",
         "time": "8:23 PM"
     },
     {
         "name": "Darcey Beuther",
         "date": "1/11/2016",
+        "action": "Field Added",
         "time": "2:12 AM"
     }
     ],
@@ -3802,16 +4054,20 @@ var data = [{
     {
         "name": "Carolin Zullig",
         "date": "3/29/2015",
+        "action": "File Uploaded",
         "time": "12:47 AM"
     },
     {
         "name": "Denna Angis",
         "date": "7/25/2015",
+        "action": "Email Sent",
         "time": "4:05 PM"
     },
     {
         "name": "Dacia Linsner",
         "date": "11/13/2015",
+        "action": "Email Opened",
+
         "time": "1:04 PM"
     }
     ],
@@ -3854,16 +4110,20 @@ var data = [{
     {
         "name": "Odessa Sharick",
         "date": "3/6/2015",
+        "action": "Email Opened",
+
         "time": "12:30 PM"
     },
     {
         "name": "Jacalyn Dubill",
         "date": "8/3/2015",
+        "action": "Viewed",
         "time": "4:36 PM"
     },
     {
         "name": "Rose Vetri",
         "date": "1/5/2016",
+        "action": "Comment Added",
         "time": "11:07 PM"
     }
     ],
@@ -3901,16 +4161,20 @@ var data = [{
     {
         "name": "Nicky Kalupa",
         "date": "4/6/2015",
+        "action": "Viewed",
         "time": "12:10 AM"
     },
     {
         "name": "David Minskey",
         "date": "5/9/2015",
+        "action": "Email Opened",
         "time": "1:20 AM"
     },
     {
         "name": "Maia Baucom",
         "date": "1/2/2016",
+        "action": "Email Added",
+
         "time": "12:58 PM"
     }
     ],
@@ -3954,16 +4218,20 @@ var data = [{
     {
         "name": "Charlsie Trobridge",
         "date": "4/28/2015",
+        "action": "Email Added",
+
         "time": "4:34 AM"
     },
     {
         "name": "Bethann Martorana",
         "date": "5/13/2015",
+        "action": "Comment Added",
         "time": "6:45 AM"
     },
     {
         "name": "Zane Whitelaw",
         "date": "10/24/2015",
+        "action": "Field Changed",
         "time": "12:20 PM"
     }
     ],
@@ -4006,16 +4274,20 @@ var data = [{
     {
         "name": "Enedina Fieselman",
         "date": "3/19/2015",
+        "action": "Email Opened",
         "time": "11:22 AM"
     },
     {
         "name": "Emerson Shoe",
         "date": "9/3/2015",
+        "action": "Viewed",
         "time": "5:20 AM"
     },
     {
         "name": "Miss Salonia",
         "date": "10/22/2015",
+        "action": "Email Opened",
+
         "time": "4:50 PM"
     }
     ],
@@ -4057,16 +4329,20 @@ var data = [{
     {
         "name": "Ema Dickhaut",
         "date": "4/29/2015",
+        "action": "Email Opened",
+
         "time": "6:11 PM"
     },
     {
         "name": "Eugenio Brehony",
         "date": "10/7/2015",
+        "action": "Request Modified",
         "time": "4:16 PM"
     },
     {
         "name": "Eda Hecke",
         "date": "11/5/2015",
+        "action": "Field Added",
         "time": "11:07 PM"
     }
     ],
@@ -4110,16 +4386,19 @@ var data = [{
     {
         "name": "Gregory Magorina",
         "date": "4/4/2015",
+        "action": "Email Sent",
         "time": "1:12 AM"
     },
     {
         "name": "Leia Parron",
         "date": "8/9/2015",
+        "action": "Field Changed",
         "time": "10:02 AM"
     },
     {
         "name": "Shelli Coval",
         "date": "1/6/2016",
+        "action": "Field Added",
         "time": "5:55 PM"
     }
     ],
@@ -4163,16 +4442,19 @@ var data = [{
     {
         "name": "Marlo Dominicus",
         "date": "4/27/2015",
+        "action": "Comment Added",
         "time": "12:51 PM"
     },
     {
         "name": "Jin Loggin",
         "date": "5/16/2015",
+        "action": "Field Changed",
         "time": "4:44 PM"
     },
     {
         "name": "Jammie Malkoski",
         "date": "12/30/2015",
+        "action": "Comment Added",
         "time": "1:44 AM"
     }
     ],
@@ -4217,16 +4499,20 @@ var data = [{
     {
         "name": "Elden Liskey",
         "date": "3/21/2015",
+        "action": "Viewed",
         "time": "8:10 PM"
     },
     {
         "name": "Xuan Dearcos",
         "date": "8/16/2015",
+        "action": "Email Opened",
+
         "time": "6:13 PM"
     },
     {
         "name": "Velvet Ekdahl",
         "date": "12/2/2015",
+        "action": "Approved",
         "time": "10:14 AM"
     }
     ],
@@ -4270,16 +4556,22 @@ var data = [{
     {
         "name": "Ricki Lester",
         "date": "3/20/2015",
+        "action": "Email Opened",
+
         "time": "10:06 PM"
     },
     {
         "name": "Ivey Suit",
         "date": "6/9/2015",
+        "action": "Email Added",
+
         "time": "8:20 AM"
     },
     {
         "name": "Seth Whitley",
         "date": "12/5/2015",
+        "action": "Email Opened",
+
         "time": "6:48 PM"
     }
     ],
@@ -4324,16 +4616,19 @@ var data = [{
     {
         "name": "Clarine Ptacek",
         "date": "4/11/2015",
+        "action": "File Uploaded",
         "time": "11:38 AM"
     },
     {
         "name": "Elodia Ysaguirre",
         "date": "8/14/2015",
+        "action": "Field Changed",
         "time": "11:27 PM"
     },
     {
         "name": "Saul Poto",
         "date": "12/14/2015",
+        "action": "Email Sent",
         "time": "5:36 PM"
     }
     ],
@@ -4376,16 +4671,19 @@ var data = [{
     {
         "name": "Valorie Aguiar",
         "date": "3/11/2015",
+        "action": "Email Opened",
         "time": "11:40 AM"
     },
     {
         "name": "Davida Gralak",
         "date": "9/26/2015",
+        "action": "Email Opened",
         "time": "3:28 PM"
     },
     {
         "name": "Thao Kulseth",
         "date": "11/26/2015",
+        "action": "File Uploaded",
         "time": "4:49 PM"
     }
     ],
@@ -4428,16 +4726,20 @@ var data = [{
     {
         "name": "Margareta Corte",
         "date": "3/6/2015",
+        "action": "Viewed",
         "time": "4:38 PM"
     },
     {
         "name": "Priscila Breland",
         "date": "10/8/2015",
+        "action": "Comment Added",
         "time": "11:51 PM"
     },
     {
         "name": "Jacquelin Esterline",
         "date": "10/28/2015",
+        "action": "Email Opened",
+
         "time": "11:15 PM"
     }
     ],
@@ -4475,16 +4777,19 @@ var data = [{
     {
         "name": "Miesha Ringus",
         "date": "4/9/2015",
+        "action": "Email Sent",
         "time": "4:42 PM"
     },
     {
         "name": "Donovan Weihe",
         "date": "6/12/2015",
+        "action": "Email Sent",
         "time": "7:47 AM"
     },
     {
         "name": "Ella Russin",
         "date": "10/9/2015",
+        "action": "File Uploaded",
         "time": "1:19 AM"
     }
     ],
@@ -4528,16 +4833,20 @@ var data = [{
     {
         "name": "Laverne Thoen",
         "date": "4/20/2015",
+        "action": "Viewed",
         "time": "8:13 PM"
     },
     {
         "name": "Annis Aldred",
         "date": "7/6/2015",
+        "action": "Email Added",
+
         "time": "6:54 AM"
     },
     {
         "name": "Edra Dansby",
         "date": "12/25/2015",
+        "action": "Request Modified",
         "time": "10:10 AM"
     }
     ],
@@ -4576,16 +4885,19 @@ var data = [{
     {
         "name": "Dee Jabiro",
         "date": "3/20/2015",
+        "action": "Email Opened",
         "time": "1:25 AM"
     },
     {
         "name": "Sharyn Deraney",
         "date": "5/20/2015",
+        "action": "Request Modified",
         "time": "10:09 AM"
     },
     {
         "name": "Bao Wamboldt",
         "date": "12/14/2015",
+        "action": "Field Changed",
         "time": "11:11 PM"
     }
     ],
@@ -4628,16 +4940,19 @@ var data = [{
     {
         "name": "Rolf Leonardis",
         "date": "3/16/2015",
+        "action": "Approved",
         "time": "4:26 AM"
     },
     {
         "name": "Lamar Desposito",
         "date": "9/6/2015",
+        "action": "Email Sent",
         "time": "3:59 AM"
     },
     {
         "name": "Darleen Berendzen",
         "date": "1/25/2016",
+        "action": "Approved",
         "time": "4:33 AM"
     }
     ],
@@ -4681,16 +4996,19 @@ var data = [{
     {
         "name": "Nena Tozloski",
         "date": "4/13/2015",
+        "action": "Approved",
         "time": "4:05 AM"
     },
     {
         "name": "Letty Mccraight",
         "date": "5/21/2015",
+        "action": "Comment Added",
         "time": "3:39 PM"
     },
     {
         "name": "Jinny Cluckey",
         "date": "1/28/2016",
+        "action": "Field Added",
         "time": "10:48 PM"
     }
     ],
@@ -4728,16 +5046,20 @@ var data = [{
     {
         "name": "Matt Griswald",
         "date": "2/25/2015",
+        "action": "Email Opened",
+
         "time": "11:07 PM"
     },
     {
         "name": "Judson Meidlinger",
         "date": "5/21/2015",
+        "action": "Field Changed",
         "time": "11:28 PM"
     },
     {
         "name": "Peggy Vandeveer",
         "date": "1/16/2016",
+        "action": "Email Sent",
         "time": "11:42 PM"
     }
     ],
@@ -4781,16 +5103,19 @@ var data = [{
     {
         "name": "Karl Schneidtmille",
         "date": "4/15/2015",
+        "action": "Request Modified",
         "time": "11:15 PM"
     },
     {
         "name": "Emilee Daffron",
         "date": "8/20/2015",
+        "action": "Comment Added",
         "time": "3:52 PM"
     },
     {
         "name": "Deloris Bertschy",
         "date": "1/16/2016",
+        "action": "Viewed",
         "time": "1:44 AM"
     }
     ],
@@ -4834,16 +5159,19 @@ var data = [{
     {
         "name": "Ouida Wygal",
         "date": "2/9/2015",
+        "action": "Request Modified",
         "time": "5:53 AM"
     },
     {
         "name": "Coletta Lavezzo",
         "date": "9/11/2015",
+        "action": "Email Opened",
         "time": "11:43 PM"
     },
     {
         "name": "Neida Scace",
         "date": "11/19/2015",
+        "action": "Viewed",
         "time": "1:42 AM"
     }
     ],
@@ -4885,16 +5213,19 @@ var data = [{
     {
         "name": "Santiago Barcroft",
         "date": "3/2/2015",
+        "action": "Field Changed",
         "time": "5:18 AM"
     },
     {
         "name": "Particia Villaire",
         "date": "10/2/2015",
+        "action": "Viewed",
         "time": "11:04 AM"
     },
     {
         "name": "Marcellus Cotto",
         "date": "2/7/2016",
+        "action": "Approved",
         "time": "7:45 PM"
     }
     ],
@@ -4932,16 +5263,19 @@ var data = [{
     {
         "name": "Maurine Keiter",
         "date": "3/3/2015",
+        "action": "Field Added",
         "time": "12:07 AM"
     },
     {
         "name": "Yi Tako",
         "date": "8/11/2015",
+        "action": "Request Modified",
         "time": "2:24 AM"
     },
     {
         "name": "Kasandra Carback",
         "date": "1/22/2016",
+        "action": "Email Sent",
         "time": "10:29 PM"
     }
     ],
@@ -4984,16 +5318,20 @@ var data = [{
     {
         "name": "Thomasina Aini",
         "date": "2/20/2015",
+        "action": "Viewed",
         "time": "12:26 PM"
     },
     {
         "name": "Bertie Lynk",
         "date": "5/27/2015",
+        "action": "Request Modified",
         "time": "12:38 AM"
     },
     {
         "name": "Delia Bisaillon",
         "date": "1/14/2016",
+        "action": "Email Opened",
+
         "time": "9:55 AM"
     }
     ],
@@ -5031,16 +5369,20 @@ var data = [{
     {
         "name": "Kera Veteto",
         "date": "4/14/2015",
+        "action": "Email Opened",
+
         "time": "2:33 AM"
     },
     {
         "name": "Shawanna Pieri",
         "date": "9/28/2015",
+        "action": "Email Sent",
         "time": "5:40 AM"
     },
     {
         "name": "Tess Gillick",
         "date": "12/8/2015",
+        "action": "Comment",
         "time": "10:42 AM"
     }
     ],
@@ -5078,16 +5420,19 @@ var data = [{
     {
         "name": "Ruby Malas",
         "date": "4/4/2015",
+        "action": "Email Sent",
         "time": "11:02 PM"
     },
     {
         "name": "Tory Rickard",
         "date": "9/3/2015",
+        "action": "Field Added",
         "time": "3:08 PM"
     },
     {
         "name": "Petra Shed",
         "date": "12/1/2015",
+        "action": "Email Sent",
         "time": "7:56 PM"
     }
     ],
@@ -5131,16 +5476,19 @@ var data = [{
     {
         "name": "Jared Razzano",
         "date": "4/17/2015",
+        "action": "Approved",
         "time": "8:44 PM"
     },
     {
         "name": "Marianna Whiteley",
         "date": "6/18/2015",
+        "action": "Request Modified",
         "time": "9:46 AM"
     },
     {
         "name": "Voncile Rumsey",
         "date": "1/19/2016",
+        "action": "Comment Added",
         "time": "7:06 PM"
     }
     ],
@@ -5185,16 +5533,19 @@ var data = [{
     {
         "name": "Danny Khemmanivong",
         "date": "3/27/2015",
+        "action": "Approved",
         "time": "2:06 AM"
     },
     {
         "name": "Lucius Treichler",
         "date": "10/2/2015",
+        "action": "Field Added",
         "time": "7:10 AM"
     },
     {
         "name": "Tessa Hamernik",
         "date": "1/22/2016",
+        "action": "Request Modified",
         "time": "7:41 PM"
     }
     ],
@@ -5239,16 +5590,19 @@ var data = [{
     {
         "name": "Rosaline Stelle",
         "date": "2/22/2015",
+        "action": "Email Opened",
         "time": "1:19 AM"
     },
     {
         "name": "Kerrie Roddam",
         "date": "9/21/2015",
+        "action": "Email Opened",
         "time": "4:39 AM"
     },
     {
         "name": "Roxy Leija",
         "date": "10/20/2015",
+        "action": "Email Sent",
         "time": "10:41 AM"
     }
     ],
@@ -5292,16 +5646,19 @@ var data = [{
     {
         "name": "Ashlea Turnipseed",
         "date": "3/4/2015",
+        "action": "Email Opened",
         "time": "6:43 PM"
     },
     {
         "name": "Pearly Quan",
         "date": "7/22/2015",
+        "action": "Field Added",
         "time": "6:21 PM"
     },
     {
         "name": "Audrey Jandris",
         "date": "1/3/2016",
+        "action": "Viewed",
         "time": "11:24 AM"
     }
     ],
@@ -5340,16 +5697,20 @@ var data = [{
     {
         "name": "Catherin Zahm",
         "date": "2/12/2015",
+        "action": "Email Opened",
+
         "time": "6:49 AM"
     },
     {
         "name": "Tanika Drobot",
         "date": "7/7/2015",
+        "action": "Email Sent",
         "time": "10:00 AM"
     },
     {
         "name": "Xiomara Rocha",
         "date": "1/6/2016",
+        "action": "Request Modified",
         "time": "4:00 AM"
     }
     ],
@@ -5393,11 +5754,14 @@ var data = [{
     {
         "name": "Tequila Celeya",
         "date": "3/28/2015",
+        "action": "Email Sent",
         "time": "10:25 PM"
     },
     {
         "name": "Samuel Mcgillis",
         "date": "6/19/2015",
+        "action": "Email Opened",
+
         "time": "7:00 AM"
     },
     ],
@@ -5436,16 +5800,20 @@ var data = [{
     {
         "name": "Frederick Bernardon",
         "date": "3/28/2015",
+        "action": "Email Opened",
+
         "time": "5:46 PM"
     },
     {
         "name": "Kareem Correl",
         "date": "7/27/2015",
+        "action": "Comment",
         "time": "2:46 PM"
     },
     {
         "name": "Valerie Drummer",
         "date": "12/11/2015",
+        "action": "Viewed",
         "time": "3:34 AM"
     }
     ],

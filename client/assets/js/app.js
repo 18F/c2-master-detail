@@ -51,22 +51,6 @@
     setup_filter_utilities($scope, debounce, $filter);
 
     setup_view($scope, $state);
-
-    // THIS IS BAD. CHANGE ASAP
-    $scope.view_all_activity = function(){
-      console.log('$scope.view_all_activity = function(){');
-      if(!$('.status-comment').hasClass('open')){
-        $('.status-comment').addClass('open');
-        $('.activity-item.single').addClass('first');
-        $('.activity-item').removeClass('single').addClass('visible');
-        $('.activity-visible-button span').text('Hide All');
-      } else {
-        $('.status-comment').removeClass('open');
-        $('.activity-item').removeClass('visible');
-        $('.activity-item.first').addClass('visible');
-        $('.activity-visible-button span').text('View All');
-      }
-    } // THIS IS BAD. CHANGE ASAP
   }
 
   function setup_excel($scope){
@@ -321,8 +305,32 @@
       $scope.setup_single_clone();
     }
 
+    $scope.view_all_activity = function(){
+      if($scope.single.activity == false){
+        $scope.single.activity = true;
+        for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
+          $scope.single.comments[i]['visible'] = true;
+        }
+      } else {
+        $scope.single.activity = false;
+        for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
+          $scope.single.comments[i]['visible'] = false;
+        }
+      }
+    }
+
     $scope.setup_single_clone = function(){
       $scope.single = angular.copy($scope.items[$scope.focusIndex]);
+      $scope.single.activity = false;
+      for (var i = $scope.single.comments.length - 1; i >= 0; i--) {
+        if(i == 0 ){
+          $scope.single.comments[i]['visible'] = true;
+          $scope.single.comments[i]['first']   = true;
+        } else {
+          $scope.single.comments[i]['visible'] = false;
+          $scope.single.comments[i]['first']   = false;
+        }
+      }
     }
 
     $scope.submit_comment = function(){

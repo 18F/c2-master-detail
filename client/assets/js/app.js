@@ -281,6 +281,14 @@
       $scope.$apply();
     }
 
+    $scope.approve_single = function(){
+      $scope.single.inbox_status = "Approved";
+      $scope.items[$scope.focusIndex] = $scope.single;
+      $scope.setIndex($scope.items);
+      $scope.trigger_single_change();
+      $scope.setup_single_clone();
+    }
+
     $scope.reconcile_single = function(){
       $scope.single.inbox_status = "Completed";
       $scope.items[$scope.focusIndex] = $scope.single;

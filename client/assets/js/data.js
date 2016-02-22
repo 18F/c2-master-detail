@@ -4528,7 +4528,7 @@ var data = [{
     "amount_scope": "2",
     "product_company": "Realbuzz",
     "product_type": "service",
-    "product_name": "Realbuzz Pantastomina service",
+    "product_name": "External Hard drive",
     "person_name": "Karen Scott",
     "name": "Deetta Scurry",
     "date": "5/19/2015",

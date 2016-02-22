@@ -16,8 +16,8 @@
           <label style="width: 100%;">
             Expense Type
             <select name="" id="" style="margin-top: 0.5rem;" ng-model="single.product_type" ng-disabled="single.inbox_status == 'Completed'" ng-class="{'changed': singleChanges.diff.indexOf('product_type') != -1}">
-              <option value="{{items[focusIndex]['product_type']}}">{{items[focusIndex]['product_type'] | capitalize}}</option>
-              <option value="widget">Equiptment</option>
+              <option value="{{single.product_type}}">{{single.product_type | capitalize}}</option>
+              <option value="widget">Equipment</option>
               <option value="services">Services</option>
               <option value="product">Software</option>
               <option value="*">Other</option>

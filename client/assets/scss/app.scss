@@ -11,6 +11,23 @@
   z-index: 1000;
 }
 
+.sidebar {
+  .block-list li > a:hover, .block-list li > label:hover, .block-list li select:hover{
+      background: lighten($primary-color, 5%);
+    }
+}
+
+.label{
+  svg.iconic.iconic-sm:not(.iconic-size-md):not(.iconic-size-lg), svg.iconic.iconic-size-sm{
+    margin-top: -5px;
+    margin-bottom: -2px;
+  }
+}
+
+.label-wrapper{
+  text-align: right;
+}
+
 .menu-bar{
   a.button{
     width: 100%;
@@ -703,6 +720,25 @@ aside.modal{
   }
 }
 
+.vertical-center{
+  align-items: center;
+  justify-content: center;
+}
+
+.hoverable-el{
+  width: 100%;
+  max-width: 100%;
+  background-color: #eee;
+  &:hover{
+    background: #fff;
+  }
+
+}
+
+.large-text{
+
+}
+
 .tabs .tab-item{
   &.is-active.is-active{
     background: #fff;
@@ -715,6 +751,9 @@ aside.modal{
 .message-header{
   padding-bottom: 15px;
   padding-top: 10px;
+  h3{
+    margin-bottom: .7em;
+  }
   @media only screen and (min-width: 40em){
     h3 {
         font-size: 1.8875rem;

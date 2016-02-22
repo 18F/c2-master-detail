@@ -3,10 +3,22 @@ name: start
 url: /
 ---
 
-<div>
-  <p>Choose a prototype style:</p>
-  <ul>
-    <li><a ui-sref="inbox">Master-Detail style</a></li>
-    <li><a ui-sref="xc-home">Excel style</a></li>
-  </ul>
+<div class="grid-block">
+  <div class="grid-block vertical">
+    <a ui-sref="inbox" class="grid-block grid-container hoverable-el md">
+      <div class="grid-block vertical-center ">
+        <h1 class="large-text">
+          Master-Detail style
+        </h1>
+      </div>
+    </a>
+    <a ui-sref="xc-home" class="grid-block grid-container hoverable-el xc">
+      <div class="grid-block vertical-center ">
+        <h1 class="large-text">
+          Excel style
+        </h1>
+      </div>
+    </a>
+  </div>
 </div>
+

@@ -1,7 +1,7 @@
 <ul class="menu-bar align-justify" style="background: #ccc;">
   <li class="small-4">
       <a ng-if="!findOne(singleChanges.diff, ['comment', 'amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) && single.inbox_status!='Completed'" zf-open="delete-modal" class="align-left" style="float: left; background: none !important;">Cancel Request</a>
-      <a ng-if="!findOne(singleChanges.diff, ['comment', 'amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) && single.inbox_status=='Completed'" zf-open="delete-modal" class="align-left" style="float: left; background: none !important;">Archive Request</a>
+      <a ng-if="!findOne(singleChanges.diff, ['comment', 'amount_scope', 'product_type', 'org_code', 'building_number', 'amount', 'direct_pay', 'org_code','object_field','cl_number','function_code']) && single.inbox_status=='Completed'" ng-click="unreconcile_request()" class="align-left" style="float: left; background: none !important;">Unreconcile Request</a>
   </li>
   <li ng-include="'partials/content/action-buttons.html'" class="small-3 text-right"></li>
 </ul>

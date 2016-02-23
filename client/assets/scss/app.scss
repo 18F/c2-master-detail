@@ -355,60 +355,70 @@ strong, b {
 }
 
 .control-current-status{
-  .block-list.approval-list li,
+
+  ol {
+    list-style-type: none;
+  }
+
+  li + li:before {
+    content:"";
+    position: absolute;
+    left: 26px; /* adjust manually */
+    border-left: 1px solid black;
+    height: 1.8rem;
+    bottom: 26px;
+    width: 1px;
+  }
+
   .block-list.approval-list li{
     border-top: 0px;
     border-bottom: 0px;
+    counter-increment: approval-counter;
   }
-  .block-list li > input[type="checkbox"]:checked + label::before,
-  .block-list li > input[type="radio"]:checked + label::before{
-    // background-image: none;
-    // background: white;
+
+  .block-list li label::before{
     float: left;
-    content: '';
+    content: counter(approval-counter);
+    text-align: center;
+    font-weight: bold;
     background-size: 100% 100%;
     color: #1b2b7a;
     pointer-events: none;
     border-radius: 40px;
+    border: 2px solid #1b2b7a;
     width: 21px;
     padding: 0px;
+    padding-top: 1px;
     display: block;
     height: 21px;
     margin-right: 1em;
   }
+
+  .block-list li.done label::before{
+    float: left;
+    text-align: center;
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" viewBox="0 0 32 32"><path fill="#1b2b7a" d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zm6.906 8.875l2.219 2.031-12.063 13.281-6.188-6.188 2.125-2.125 3.938 3.938 9.969-10.938z"/></svg>');
+    background-size: 100% 100%;
+    color: #1b2b7a;
+    pointer-events: none;
+    border: none;
+    width: 22px;
+    height: 22px;
+    padding: 0px;
+    display: block;
+    margin-right: 1em;
+  }
+
   .block-list li{
     opacity: .5;
-    input[type="checkbox"]:checked + label::before,
-    input[type="radio"]:checked + label::before{
-      border: 2px solid $primary-color;
-    }
-    &.done > input[type="radio"]:checked + label::before{
-      border: none;
-    }
   }
+
   .block-list li.next,
   .block-list li.done{
     opacity: 1;
-    input[type="checkbox"]:checked + label::before,
-    input[type="radio"]:checked + label::before{
-      opacity: 1;
-    }
   }
-  .block-list li.next{
-    input[type="checkbox"]:checked + label::before,
-    input[type="radio"]:checked + label::before{
-      background-image: none;
-    }
-  }
-  .block-list li > input[type="checkbox"]:checked + label::before,
-  .block-list li > input[type="radio"]:checked + label::before{
-    opacity: 0;
-  }
-  .block-list li.done > input[type="checkbox"]:checked + label::before,
-  .block-list li.done > input[type="radio"]:checked + label::before{
-    opacity: 1;
-    background-color: white !important;
-  }
+
   label{
     width: 100%;
     input[type="text"]{

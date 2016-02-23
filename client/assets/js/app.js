@@ -375,6 +375,9 @@
           $scope.single.comments[i]['first']   = false;
         }
       }
+      $(".large-correct").animate({
+        scrollTop:0
+      }, 150);
     }
 
     $scope.submit_comment = function(){

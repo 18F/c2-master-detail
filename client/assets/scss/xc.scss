@@ -13,6 +13,15 @@
   }
 }
 
+.activity-filter svg{
+  float: right;
+}
+
+.xc-inbox thead th.activity-filter .arrow{
+  right: 135px;
+}
+
+
 .view-container{
   display: none;
   &.visible{

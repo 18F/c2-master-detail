@@ -96,9 +96,9 @@
       }
     }
     $scope.activityIcon = function(item) {
-      if (item.message_status == 'Request approved' || item.message_status == 'Comment added')
+      if ($scope.has_comments(item.comments))
         return 'comment';
-      if (item.has_attachment == 'true')
+      if ($scope.has_attachment(item.comments))
         return 'attachment';
       return false;
     }

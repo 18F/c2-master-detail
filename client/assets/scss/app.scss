@@ -64,7 +64,7 @@ textarea, input, select{
 }
 .request-popup{
   top: 13px;
-  display: none;    
+  display: none;
   position: absolute;
   background: #eee;
   border: 1px solid #333;
@@ -72,7 +72,7 @@ textarea, input, select{
   margin-left: 29px;
 }
 
-.search-fields-result{ 
+.search-fields-result{
   position: relative;
   z-index: 1;
   display: inline-block;
@@ -382,14 +382,14 @@ strong, b {
     content: counter(approval-counter);
     text-align: center;
     font-weight: bold;
+    font-size: 14px;
     background-size: 100% 100%;
     color: #1b2b7a;
     pointer-events: none;
     border-radius: 40px;
     border: 2px solid #1b2b7a;
     width: 21px;
-    padding: 0px;
-    padding-top: 1px;
+    padding: 1px 0 0 1px;
     display: block;
     height: 21px;
     margin-right: 1em;
@@ -404,8 +404,8 @@ strong, b {
     color: #1b2b7a;
     pointer-events: none;
     border: none;
-    width: 22px;
-    height: 22px;
+    width: 21px;
+    height: 21px;
     padding: 0px;
     display: block;
     margin-right: 1em;

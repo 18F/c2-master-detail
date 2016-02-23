@@ -93,11 +93,12 @@
       return false;
     }
     $scope.enableRecentActivityFilter = function() {
-      $scope.reset_filter();
-      window.setTimeout(function(){
-        $scope.active_filter = 'recent';
-        $scope.dateFilter = '01/16/2016 - 02/16/2016';
-      }, 100);
+      $scope.resetLink();
+      $scope.recentActivityFilter = "";
+      $scope.query.inbox_status = '';
+      $scope.setQuery = $scope.query;
+      $scope.active_filter = 'recent';
+      $scope.dateFilter = '01/16/2016 - 02/16/2016';
     }
   }
 

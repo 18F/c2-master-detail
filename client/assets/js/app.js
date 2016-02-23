@@ -120,13 +120,10 @@
       }, 30);
     };
     $scope.filter_by = function(param){
-      if(param != $scope.query.inbox_status){
-        $scope.resetLink();
-        $scope.recentActivityFilter = "";
-        $scope.query.inbox_status = param;
-        $scope.active_filter = param;
-        $scope.setQuery = $scope.query;
-      }
+      $scope.resetLink();
+      $scope.recentActivityFilter = "";
+      $scope.query.inbox_status = param;
+      $scope.active_filter = param;
     }
     $scope.processFilter = function(){
       console.log("$scope.query: ", $scope.query);

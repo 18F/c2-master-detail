@@ -11,6 +11,27 @@
   z-index: 1000;
 }
 
+.advanced-notice.advanced-notice.advanced-notice{
+  background: #eee;
+  top: 42px;
+  border: 2px solid #ddd;
+  right: 34px; 
+  display: none;
+}
+
+.hide-completely{
+  display: none !important;
+}
+
+.form-advanced{
+  &:hover{
+    .advanced-notice.advanced-notice.advanced-notice{
+      display: block;
+    }
+  }
+}
+
+
 .sidebar {
   .block-list li > a:hover, .block-list li > label:hover, .block-list li select:hover{
       background: lighten($primary-color, 5%);

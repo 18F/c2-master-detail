@@ -1,5 +1,5 @@
 
-  <form ng-submit="processFilter()">
+  <form ng-submit="processFilter()" class="form-advanced">
     <label class="search-field">
       <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
       <a ng-click="processFilter()" class="">
@@ -9,7 +9,7 @@
         <img zf-iconic="" class="" icon="chevron" data-direction="bottom" size="small">
       </a>
     </label>
-    <div class="static-notification  top-right is-active">Detail Search <p>Click the arrow to narrow your search terms. You can specify card holders, vendors, purchase amounts and dates</p></div>
+    <div id="" class="advanced-notice static-notification top-right is-active" ng-class="{'hide-completely': show_advanced_search == true}"><p style="color: #000"><span style="font-size: 1.4em;">Advanced Search</span> <br>Click the <b>blue arrow</b> to narrow your search terms. You can specify card holders, vendors, purchase amounts and dates</p></div>
   </form>
   <div class="advanced-search" ng-class="{'active': show_advanced_search == true}">
     <form ng-submit="processFilterButton()">

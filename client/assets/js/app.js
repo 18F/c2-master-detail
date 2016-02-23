@@ -93,12 +93,14 @@
       return false;
     }
     $scope.enableRecentActivityFilter = function() {
-      $scope.resetLink();
-      $scope.recentActivityFilter = "";
-      $scope.query.inbox_status = '';
-      $scope.setQuery = $scope.query;
-      $scope.active_filter = 'recent';
-      $scope.dateFilter = '01/16/2016 - 02/16/2016';
+      if($scope.active_filter != "recent"){
+        $scope.resetLink();
+        $scope.recentActivityFilter = "";
+        $scope.query.inbox_status = '';
+        $scope.setQuery = $scope.query;
+        $scope.active_filter = 'recent';
+        $scope.dateFilter = '01/16/2016 - 02/16/2016';
+      }
     }
   }
 
@@ -118,11 +120,13 @@
       }, 30);
     };
     $scope.filter_by = function(param){
-      $scope.resetLink();
-      $scope.recentActivityFilter = "";
-      $scope.query.inbox_status = param;
-      $scope.active_filter = param;
-      $scope.setQuery = $scope.query;
+      if(param != $scope.query.inbox_status){
+        $scope.resetLink();
+        $scope.recentActivityFilter = "";
+        $scope.query.inbox_status = param;
+        $scope.active_filter = param;
+        $scope.setQuery = $scope.query;
+      }
     }
     $scope.processFilter = function(){
       console.log("$scope.query: ", $scope.query);

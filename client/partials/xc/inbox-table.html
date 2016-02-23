@@ -12,7 +12,7 @@
   <tbody class="">
     <tr class="" ng-class="{'active': item.navIndex == focusIndex}"
         data-itemid="{{item.id}}" ng-repeat="item in items"
-        ng-click="update_detail(item.navIndex)">
+        ng-click="view_request_index(item.navIndex)">
       <td class=""><span class="xc-status-indicator {{item.inbox_status}}">{{item.inbox_status}}</span></td>
       <td class="" data-sort-value="{{unixdate(item.date)}}">{{item.date}}</td>
       <td class="">{{item.person_name}}</td>

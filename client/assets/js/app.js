@@ -24,6 +24,9 @@
       $scope.$on('$viewContentLoaded', function(event) {
         $scope.view_type = "master";
         blast_off_messages($scope, $state, $http, $filter, hotkeys, debounce);
+        if ($state.params.request_index !== "") {
+          $scope.update_detail(parseInt($state.params.request_index));
+        }
       });
   }])
   .filter('capitalize', function() {
@@ -46,17 +49,17 @@
     setup_hotkeys($scope, hotkeys);
     setup_date_range_picker($scope);
     setup_advanced_search($scope);
-    setup_single_page($scope, debounce);
+    setup_single_page($scope, $state, debounce);
     setup_keyboard_navigation($scope);
     setup_utility_functions($scope);
-    setup_excel($scope);
+    setup_excel($scope, $state);
     setup_filter_utilities($scope, debounce, $filter);
 
     setup_view($scope, $state);
     window.current_scope = $scope;
   }
 
-  function setup_excel($scope){
+  function setup_excel($scope, $state){
     $scope.resettohome = function(){
 
     }
@@ -69,6 +72,7 @@
     }
     $scope.close_detail = function() {
       $scope.view_type = "master";
+      $state.go($state.current, {request_index: ""},{notify:false,reload:$state.current});
     }
 
     $scope.unixdate = function(date_string) {
@@ -287,7 +291,7 @@
     };
   }
 
-  function setup_single_page($scope, debounce){
+  function setup_single_page($scope, $state, debounce){
 
     $scope.remove_subscriber = function(subscriber_email){
       var index = $scope.single.subscribers.indexOf(subscriber_email);
@@ -423,8 +427,25 @@
         detail: {}
       };
     }
+
+    $scope.view_request_index = function(request_index) {
+      $scope.update_detail(request_index);
+      $state.go($state.current, {request_index: request_index},{notify:false,reload:$state.current});
+    }
+    $scope.view_previous_request = function() {
+      if($scope.items.length >= $scope.focusIndex && $scope.focusIndex > 0){
+        $scope.view_request_index($scope.focusIndex - 1);
+        $scope.correctScroll();
+      }
+    };
+    $scope.view_next_request = function() {
+      if($scope.items.length > $scope.focusIndex+1 && $scope.focusIndex >= 0){
+        $scope.view_request_index($scope.focusIndex + 1);
+        $scope.correctScroll();
+      }
+    };
+
     $scope.update_detail = function(selectedIndex){
-      console.log('$scope.update_detail = function(selectedIndex){');
       $scope.view_type = "detail";
       console.log('$scope.update_detail = function(selectedIndex){');
       $scope.focusIndex = selectedIndex;

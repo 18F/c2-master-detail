@@ -10,6 +10,7 @@
     </div>
 
     <div class="grid-block small-6 overflow-visible align-right">
+      <a ng-click="resetLink(); filter_by(''); processFilter();" class="reset-link" style="margin-right: 15px; line-height: 53px; color: white;">Reset Search</a>
       <div class="search-bar overflow-visible" ng-include="'partials/global/advanced-search.html'"></div>
     </div>
   </div>

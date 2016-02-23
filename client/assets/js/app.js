@@ -57,6 +57,9 @@
   }
 
   function setup_excel($scope){
+    $scope.resettohome = function(){
+
+    }
     $scope.getRecentActivityDateTime = function(item) {
       var date = $scope.items[i].comments.slice(-1)[0].date;
       var time = $scope.items[i].comments.slice(-1)[0].time;
@@ -124,6 +127,10 @@
 
       $scope.processRecentActivityFilter();
       console.log('$scope.processRecentActivityFilter();');
+
+      window.setTimeout(function(){ 
+        $('#view-master .submitted-filter').stupidsort('desc');
+      }, 30);
     };
     $scope.filter_by = function(param){
       $scope.resetLink();

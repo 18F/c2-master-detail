@@ -64,7 +64,18 @@
       <div class="grid-block">
           <div class="small-12 medium-6 grid-content">
               <label>
-                  Has Attachment
+                  Inbox Status
+                  <select name="" id="" ng-model="query.inbox_status">
+                    <option value=""></option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="completed">Completed</option>
+                  </select>
+              </label>
+          </div>
+          <div class="small-12 medium-6 grid-content">
+              <label>
+                  <br> Has Attachment 
                   <input type='checkbox' ng-model='query.has_attachment'></input>
               </label>
           </div>

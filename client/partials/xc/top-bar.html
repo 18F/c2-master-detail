@@ -1,13 +1,16 @@
 <div class="overflow-visible" ng-class="view_type == 'master' ? 'xc-top-bar' : 'xc-top-detail'">
-  <div class="grid-block medium-10 small-12 grid-container overflow-visible">
+  <div class="grid-block medium-11 small-12 grid-container overflow-visible">
     <div class="grid-block small-6 logo-wrapper">
       <div class="grid-content">
-        <img src="/assets/img/carticon.png" style="height:25px">
-        <img src="/assets/img/img-logo-c2-portal.png">
+        <a  ng-click="close_detail()">
+          <img src="/assets/img/carticon.png" style="height:25px">
+          <img src="/assets/img/img-logo-c2-portal.png">
+        </a>
       </div>
     </div>
 
     <div class="grid-block small-6 overflow-visible align-right">
+      <a ng-click="resetLink(); filter_by(''); processFilter();" class="reset-link" style="margin-right: 15px; line-height: 53px; color: white;">Reset Search</a>
       <div class="search-bar overflow-visible" ng-include="'partials/global/advanced-search.html'"></div>
     </div>
   </div>

@@ -13,18 +13,30 @@
                 done : single.inbox_status == 'Completed' || single.inbox_status == 'Approved'
               , next : single.inbox_status == 'Pending'
               }">
-              <label for="role1"><b>Approver:</b> {{single.approver}}</label>
+              <label for="role1">
+                <b>Approver:</b> {{single.approver}}<br>
+                <i ng-if="single.inbox_status == 'Pending'">Pending</i>
+                <i ng-if="single.inbox_status != 'Pending'">Approved</i>
+              </label>
             </li>
             <li ng-class="{
                 done : single.inbox_status == 'Completed'
               , next : single.inbox_status == 'Approved'
               }">
-              <label for="role2"><b>Purchaser:</b> {{single.person_name}}</label>
+              <label for="role2">
+                <b>Budget Tier 1:</b> {{single.name}}<br>
+                <i ng-if="single.inbox_status == 'Pending' || single.inbox_status == 'Approved'">Pending</i>
+                <i ng-if="single.inbox_status == 'Completed'">Approved</i>
+              </label>
             </li>
             <li ng-class="{
                 done : single.inbox_status == 'Completed'
               }">
-              <label for="role2"><b>Reconciler:</b> {{single.reconciler}}</label>
+              <label for="role2">
+                <b>Reconciler:</b> {{single.reconciler}}<br>
+                <i ng-if="single.inbox_status != 'Completed'">Pending</i>
+                <i ng-if="single.inbox_status == 'Completed'">Approved</i>
+              </label>
             </li>
           </ol>
         </section>

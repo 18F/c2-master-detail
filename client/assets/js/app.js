@@ -57,25 +57,15 @@
   }
 
   function setup_excel($scope){
+    $scope.resettohome = function(){
+
+    }
     $scope.getRecentActivityDateTime = function(item) {
       var date = $scope.items[i].comments.slice(-1)[0].date;
       var time = $scope.items[i].comments.slice(-1)[0].time;
       return date + " " + time;
     }
     $scope.processRecentActivityFilter = function(){
-      if($scope.recentActivityFilter !== ""){
-        var range = moment.range(moment("2016-01-16"), moment("2016-02-16"));
-        var newItems = []
-        for (var i = $scope.items.length - 1; i >= 0; i--) {
-          var comment_date = $scope.items[i].comments.slice(-1)[0].date;
-          if( range.contains(moment(comment_date, 'MM/DD/YYYY')) ){
-            newItems.push($scope.items[i]);
-          }
-        }
-        $scope.setup_new_item_list(newItems);
-      } else {
-        $scope.recentActivityFilter = "";
-      }
     }
     $scope.close_detail = function() {
       $scope.view_type = "master";
@@ -103,11 +93,14 @@
       return false;
     }
     $scope.enableRecentActivityFilter = function() {
-      $scope.reset_filter();
-      $scope.recentActivityFilter = "true";
-      $scope.active_filter = 'recent';
-      //$("#thActivity").stupidsort("desc");
-      $scope.processRecentActivityFilter();
+      if($scope.active_filter != "recent"){
+        $scope.resetLink();
+        $scope.recentActivityFilter = "";
+        $scope.query.inbox_status = '';
+        $scope.setQuery = $scope.query;
+        $scope.active_filter = 'recent';
+        $scope.dateFilter = '01/16/2016 - 02/16/2016';
+      }
     }
   }
 
@@ -122,15 +115,15 @@
       $scope.processAmountFilter();
       console.log('$scope.processAmountFilter();');
 
-      $scope.processRecentActivityFilter();
-      console.log('$scope.processRecentActivityFilter();');
+      window.setTimeout(function(){ 
+        $('#view-master .submitted-filter').stupidsort('desc');
+      }, 30);
     };
     $scope.filter_by = function(param){
       $scope.resetLink();
       $scope.recentActivityFilter = "";
       $scope.query.inbox_status = param;
       $scope.active_filter = param;
-      $scope.setQuery = $scope.query;
     }
     $scope.processFilter = function(){
       console.log("$scope.query: ", $scope.query);
@@ -337,7 +330,9 @@
       $scope.single.comments.push({
         "name": "You",
         "date": moment().format("MM//DD/YYYY"),
-        "time": moment().format('h:mm a')
+        "time": moment().format('h:mm a'),
+        "message": $scope.single.comment,
+        "action": "Comment Added"
       });
       $scope.single.comment = "";
     }

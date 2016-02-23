@@ -66,19 +66,6 @@
       return date + " " + time;
     }
     $scope.processRecentActivityFilter = function(){
-      if($scope.recentActivityFilter !== ""){
-        var range = moment.range(moment("2016-01-16"), moment("2016-02-16"));
-        var newItems = []
-        for (var i = $scope.items.length - 1; i >= 0; i--) {
-          var comment_date = $scope.items[i].comments.slice(-1)[0].date;
-          if( range.contains(moment(comment_date, 'MM/DD/YYYY')) ){
-            newItems.push($scope.items[i]);
-          }
-        }
-        $scope.setup_new_item_list(newItems);
-      } else {
-        $scope.recentActivityFilter = "";
-      }
     }
     $scope.close_detail = function() {
       $scope.view_type = "master";
@@ -107,10 +94,10 @@
     }
     $scope.enableRecentActivityFilter = function() {
       $scope.reset_filter();
-      $scope.recentActivityFilter = "true";
-      $scope.active_filter = 'recent';
-      //$("#thActivity").stupidsort("desc");
-      $scope.processRecentActivityFilter();
+      window.setTimeout(function(){
+        $scope.active_filter = 'recent';
+        $scope.dateFilter = '01/16/2016 - 02/16/2016';
+      }, 100);
     }
   }
 
@@ -124,9 +111,6 @@
 
       $scope.processAmountFilter();
       console.log('$scope.processAmountFilter();');
-
-      $scope.processRecentActivityFilter();
-      console.log('$scope.processRecentActivityFilter();');
 
       window.setTimeout(function(){ 
         $('#view-master .submitted-filter').stupidsort('desc');

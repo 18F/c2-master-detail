@@ -119,7 +119,7 @@
       $scope.processAmountFilter();
       console.log('$scope.processAmountFilter();');
 
-      window.setTimeout(function(){ 
+      window.setTimeout(function(){
         $('#view-master .submitted-filter').stupidsort('desc');
       }, 30);
     };
@@ -750,6 +750,13 @@
       console.log('---------------------');
       console.log('---view_type-----');
       console.log('$scope.view_type: ', $scope.view_type);
+    });
+    $scope.$watch('query.$', function(newValue, oldValue) {
+      $scope.show_advanced_search = false;
+      $scope.reset_filter();
+      $scope.setQuery = $scope.query;
+      $scope.query.$ = newValue;
+
     });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('---------------------');

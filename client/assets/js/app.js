@@ -756,7 +756,6 @@
       $scope.reset_filter();
       $scope.setQuery = $scope.query;
       $scope.query.$ = newValue;
-
     });
     $scope.$watch('query', function(newValue, oldValue) {
       console.log('---------------------');

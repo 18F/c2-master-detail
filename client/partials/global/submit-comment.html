@@ -4,9 +4,10 @@
   <div style="padding: 10px; background: #eee; margin-bottom: 20px;">
     <p>{{single.comment}}</p>
   </div>
-  <p>The following subscribers will receive your comment: 
+  <p>The following subscribers will receive your comment:
   <ul style="list-style: none;"><li ng-repeat="subscriber in single.subscriber"><input type="checkbox" checked="true"> {{subscriber}} </li></ul></p>
   <a zf-close="" class="secondary button">Go back</a>
 
   <a zf-close="" ng-click="send_comment()" class="button" title="Notification" content="Your comment has been sent." color="success" autoclose="3000" zf-notify="comment-sent-notification">Send</a>
 </div>
+

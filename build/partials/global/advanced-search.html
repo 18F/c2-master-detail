@@ -1,0 +1,93 @@
+
+  <form ng-submit="processFilter()" class="form-advanced">
+    <label class="search-field">
+      <input type="text" style="margin-bottom: 0px;" ng-model="query.$" class="search-field-input">
+      <a ng-click="processFilter()" class="">
+        <img zf-iconic="" icon="magnifying-glass" size="small">
+      </a>
+      <a ng-click="toggle_advanced_search()" class="iconic-chevron">
+        <img zf-iconic="" class="" icon="chevron" data-direction="bottom" size="small">
+      </a>
+    </label>
+    <div id="" class="advanced-notice static-notification top-right is-active" ng-class="{'hide-completely': show_advanced_search == true}"><p style="color: #000"><span style="font-size: 1.4em;">Advanced Search</span> <br>Click the <b style="    width: 25px;
+    display: inline-block;
+    padding-bottom: 11px;
+    padding-left: 4px;"><img zf-iconic="" icon="chevron" data-direction="bottom" size="small"></b> to narrow your search terms. You can specify card holders, vendors, purchase amounts and dates</p></div>
+  </form>
+  <div class="advanced-search" ng-class="{'active': show_advanced_search == true}">
+    <form ng-submit="processFilterButton()">
+      <label class="close-search text-right">
+          <a ng-click="toggle_advanced_search()">Close</a>
+      </label>
+      <label>
+          Card Holder Name
+          <input type="text" class="small-12" ng-model="query.person_name">
+      </label>
+      <label>
+          Vendor Name
+          <input type="text" class="small-12" ng-model="query.product_name">
+      </label>
+      <div class="grid-block">
+          <div class="small-12 medium-6 grid-content">
+              <label>
+                  Date Submitted
+                  <input type='text' ng-model='dateFilter' datepicker='' class="date-picker"></input>
+              </label>
+          </div>
+          <div class="small-12 medium-6 grid-content">
+              <label>Expense Type</label>
+              <select name="" id="" ng-model="query.product_type">
+                <option value=""></option>
+                <option value="widget">Equiptment</option>
+                <option value="service">Services</option>
+                <option value="product">Software</option>
+                <option value="*">Other</option>
+              </select>
+          </div>
+      </div>
+      <div class="grid-block">
+          <div class="small-3 medium-3 grid-content">
+            <label class="small-12">
+              Amount
+              <input type="number" class="small-12" ng-model="slider.min">
+            </label>
+          </div>
+          <div class="small-3 medium-3 grid-content">
+            <label class="small-12">
+              <span style="opacity: 0;">.</span>
+            <input type="number" class="small-12" ng-model="slider.max">
+            </label>
+          </div>
+          <div class="small-6 medium-6 grid-content">
+            <rzslider
+            rz-slider-model="slider.min"
+            rz-slider-high="slider.max"
+            rz-slider-options="slider.options"></rzslider>
+          </div>
+      </div>
+      <div class="grid-block">
+          <div class="small-12 medium-6 grid-content">
+              <label>
+                  Inbox Status
+                  <select name="" id="" ng-model="query.inbox_status">
+                    <option value=""></option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="completed">Completed</option>
+                  </select>
+              </label>
+          </div>
+          <div class="small-12 medium-6 grid-content">
+              <label>
+                  <br> Has Attachment 
+                  <input type='checkbox' ng-model='query.has_attachment'></input>
+              </label>
+          </div>
+      </div>
+      <div class="grid-block">
+          <div class="small-12 medium-12 text-right">
+              <button ng-click="processFilterButton()" class="small-4 button">New Search</button>
+          </div>
+      </div>
+    </form>
+  </div>

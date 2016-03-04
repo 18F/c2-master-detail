@@ -1,0 +1,28 @@
+
+  <thead class="">
+    <tr class="">
+      <th class="status-filter" data-sort="string">Status</th>
+      <th class="submitted-filter" data-sort="int">Submitted</th>
+      <th class="requester-filter" data-sort="string"><div>Requester</div></th>
+      <th class="title-filter" data-sort="string"><div>Title</div></th>
+      <th class="amount-filter" data-sort="float">Amount</th>
+      <th class="activity-filter" id="thActivity" data-sort="int">Activity <img zf-iconic="" class="iconic-color-secondary cog-icon-wrapper" icon="cog" size="small" ></th>
+    </tr>
+  </thead>
+  <tbody class="">
+    <tr class="" ng-class="{'active': item.navIndex == focusIndex}"
+        data-itemid="{{item.id}}" ng-repeat="item in items"
+        ng-click="view_request_index(item.navIndex)">
+      <td class=""><span class="xc-status-indicator {{item.inbox_status}}">{{item.inbox_status}}</span></td>
+      <td class="" data-sort-value="{{unixdate(item.date)}}">{{item.date}}</td>
+      <td class="">{{item.person_name}}</td>
+      <td class="">{{item.product_name}}</td>
+      <td class="" data-sort-value="{{item.amount}}">${{item.amount}}</td>
+      <td data-sort-value="{{unixdate(item.comments.slice(-1)[0].date + ' ' + item.comments.slice(-1)[0].date)}}" class="activity">
+        <img ng-if="activityIcon(item)" src="assets/img/{{activityIcon(item)}}.png" align="right">
+        <span class="actor">{{item.purchaser}}</span>
+        <br/>commented<br/>
+        {{relativeTime(item.comments.slice(-1)[0].date + ' ' + item.comments.slice(-1)[0].date)}}
+      </td>
+    </tr>
+  </tbody>

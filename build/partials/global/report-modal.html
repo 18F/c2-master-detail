@@ -1,0 +1,29 @@
+
+<div zf-modal="" id="downloadCsvModal">
+  <a zf-close="" class="close-button">×</a>
+  <h3>Download .csv</h3>
+  <form>
+    <div class="grid-block horizontal">
+      <div class="grid-content small-6 medium-6">
+        <label>
+          Report
+          <select name="report" multiple size=3>
+            <option>Current Results</option>
+            <option>All My Requests</option>
+            <option>Missing CL#s</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid-block vertical align-right small-6 medium-6">
+        <div class="grid-content">
+          <label>
+            Start Date
+            <input type='text' ng-model='' datepicker='' class="date-picker">
+          </label>
+        </div>
+        <div class="grid-content shrink xc-csv-download-button">
+          <span class="button" zf-close>Download</span>
+        </div>
+    </div>
+  </form>
+</div>

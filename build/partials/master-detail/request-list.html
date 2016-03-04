@@ -1,0 +1,23 @@
+<li class="inbox-item" ng-show="!items.length">
+  <a>No Requests</a>
+</li>
+<li class="inbox-item" ng-class="{'active': item.navIndex == focusIndex}" data-itemid="{{item.id}}" ng-repeat="item in items">
+  <a ng-click="update_detail(item.navIndex)">
+    <p class="meta-wrap status-{{item.inbox_status}}"><span class="person_name">{{item.person_name}}</span>
+      <span class="date_wrapper">Submitted <span class="date">{{item.date}}</span></span>
+    </p>
+    <h5 class="product_name">{{item.product_name}}</h5>
+    <div class="align-right label-wrapper">
+      <div class="icon-box" ng-if="has_attachment(item.comments)">
+        <span class="label">
+          <img zf-iconic="" icon="document" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">File Attached</span>
+        </span>
+      </div>
+      <div class="icon-box" ng-if="has_comments(item.comments)">
+        <span class="label">
+          <img zf-iconic="" icon="Comment-square" size="small" class="iconic-color-primary"> <span class="show-for-large-inline">Has Comments</span>
+        </span>
+      </div>
+    </div>
+  </a>
+</li>

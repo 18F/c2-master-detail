@@ -1,0 +1,27 @@
+<section class="block-list">
+  <div class="grid-content">
+    <a  ng-click="resetLink()" style='text-align: center;'>
+      <img src="/assets/img/carticon.png" style="height: 40px; margin: 0px auto 10px; display: block;">
+      <img src="/assets/img/img-logo-c2-portal.png" style='margin: 0px auto 20px; display: block;'>
+    </a>
+  </div>
+  <ul class="block-list menu-items grid-content">
+    <li>
+      <ul class="drop-container">
+        <li class="lead-drop">
+          <a ui-sref="inbox" ng-click="filter_by('')"><b>My Request</b></a>
+        </li>
+        <li class="dropdown-item"><a ng-click="filter_by('')">All</a></li>
+        <li class="dropdown-item"><a ng-click="filter_by('pending')">Pending</a></li>
+        <li class="dropdown-item"><a ng-click="filter_by('approved')">Approved</a></li>
+        <li class="dropdown-item"><a ng-click="filter_by('completed')">Completed</a></li>
+      </ul>
+    </li>
+    <li>
+      <a zf-open="compose"><b>New Request</b></a>
+    </li>
+    <li>
+      <a zf-open="downloadCsvModal"><b>Reports</b></a>
+    </li>
+  </ul>
+</section>

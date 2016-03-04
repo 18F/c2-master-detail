@@ -1,0 +1,21 @@
+<div class="card grid-block vertical" ng-class="{'changed': singleChanges.diff.indexOf('comment') != -1}">
+  <div class="card-title grid-block" >
+    <div class="small-12 grid-content">
+      <h4>Activity</h4>
+    </div>
+  </div>
+  <div class="grid-block">
+    <div class="grid-block small-6 vertical status-comment" ng-include="'partials/content/status-update.html'"></div>
+    <div class="grid-block small-6 ">
+      <div class="grid-content">
+        <label>
+          <textarea name="" ng-model="single.comment" id="" cols="30" class="" rows="5" placeholder="Add a comment..."  ng-class="{'changed': singleChanges.diff.indexOf('comment') != -1}"></textarea>
+        </label>
+        <label class="file-wrapper">
+          Add an attachment
+          <input type="file" value="Attach Document" style="opacity: 0;">
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

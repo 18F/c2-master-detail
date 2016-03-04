@@ -1,0 +1,52 @@
+<div class="card grid-block">
+  <div class="small-12 grid-block vertical">
+    <div class="card-title grid-block">
+      <div class="grid-content">
+        <h4>Purchase Details</h4>
+      </div>
+    </div>
+    <div class="grid-block">
+      <div class="grid-content small-5 vendor-field">
+        <label>
+          Vendor
+          <input type="text" ng-model="single.product_company">
+        </label>
+      </div>
+      <div class="grid-content small-6 vendor-field">
+        <label>
+          Link
+          <input type="text" ng-model="single.vendor">
+        </label>
+      </div>
+      <div class="grid-content small-1 vendor-field vendor-delete">
+        <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+      </div>
+    </div>
+    <div class="grid-block">
+      <div class="grid-content small-5 vendor-field">
+        <label>
+          Vendor
+          <input type="text">
+        </label>
+      </div>
+      <div class="grid-content small-6 vendor-field">
+        <label>
+          Link
+          <input type="text">
+        </label>
+      </div>
+      <div class="grid-content small-1 vendor-field vendor-delete">
+        <a href="" class="align-right"><img zf-iconic="" class="iconic-color-secondary" icon="circle-x" size="small"></a>
+      </div>
+    </div>
+    <div class="grid-block new-vendor">
+      <div class="grid-content" style="padding-bottom:0px;">
+        <p class="">
+          <a ng-click="add_new_vendor()" class="vendor-button">
+            Add Vendor
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

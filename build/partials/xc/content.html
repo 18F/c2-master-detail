@@ -1,0 +1,13 @@
+<div class="grid-block" ng-include="'partials/content/head.html'"></div>
+<div class="grid-block horizontal">
+  <div class="grid-block small-12 medium-6 large-6 message-content vertical detail-left-column">
+    <div class="grid-block control-current-status card-parent"  ng-class="{'changed': '' == ''}" ng-include="'partials/content/activity.html'"></div>
+    <div class="grid-block control-current-status card-parent" ng-include="'partials/content/approval.html'" ng-class="{'changed': '' == ''}"></div>
+    <div class="grid-block control-current-subscriber card-parent" ng-include="'partials/content/subscriber.html'" ></div>
+  </div>
+
+  <div class="grid-block small-12 medium-6 large-6 message-content vertical">
+    <div class="grid-block control-current-status card-parent"  ng-include="'partials/content/request-details.html'" ng-class="{'changed': '' == ''}"></div>
+    <div class="grid-block control-current-status card-parent"  ng-include="'partials/content/purchase-details.html'" ng-class="{'changed': '' == ''}"></div>
+  </div>
+</div>

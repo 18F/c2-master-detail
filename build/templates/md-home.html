@@ -1,0 +1,44 @@
+
+<div class="grid-block vertical" id="messages">
+  <div class="grid-block">
+    <div class="sidebar shrink medium-2 large-1" ng-include="'partials/master-detail/sidebar.html'" ></div>
+
+    <div class="grid-block medium-10 large-11">
+      <div class="grid-block vertical">
+        <div class="shrink grid-block large-correct">
+          <div class="title-bar grid-content grid-justify" style="width: 100%; position: relative;">
+            <span class="title align-right medium-12 grid-block ">
+              <div class="search-fields-result medium-8" ng-include="'partials/global/search-filter-result.html'"></div>
+              <div class="search-bar medium-4" ng-include="'partials/global/advanced-search.html'"></div>
+              <div class="" ng-include="'partials/global/advanced-search-helper.html'"></div>
+            </span>
+          </div>
+        </div>
+        <div class="grid-block main-content-wrapper">
+          <div class="vertical grid-block inbox-list medium-4">
+            <div class="grid-block">
+              <div class="grid-content">
+                <!-- start repeat -->
+                <section class="block-list inbox-list active" ng-include="'partials/master-detail/request-list.html'"></section>
+                <!-- end repeat -->
+              </div>
+            </div>
+          </div>
+          <div class="grid-block medium-8">
+            <div class="grid-block vertical">
+              <div class="grid-block large-correct">
+                <div ng-include="'partials/master-detail/content.html'" id="message" position="right" class=""></div>
+              </div>
+              <div ng-include="'partials/global/action-footer.html'" class="grid-block footer-menu-wrapper shrink wrap large-correct"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-include="'partials/master-detail/new-request.html'"></div>
+<div ng-include="'partials/global/report-modal.html'"></div>
+<div ng-include="'partials/global/submit-comment.html'"></div>
+<div ng-include="'partials/global/notification-comment.html'"></div>
+<div ng-include="'partials/master-detail/detail-modal.html'"></div>

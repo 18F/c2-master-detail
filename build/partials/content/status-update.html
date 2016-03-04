@@ -1,0 +1,22 @@
+<div class="grid-block shrink activity-item" ng-repeat="comment in single.comments" ng-class="{'visible': comment.visible == true || comment.first == true}">
+  <div class="small-2 text-center">
+    <img zf-iconic="" icon="comment-square" size="medium" class="iconic-color-secondary" ng-if="comment.action == 'Comment Added'">
+    <img zf-iconic="" icon="cog" size="medium" class="iconic-color-secondary" ng-if="comment.action == 'Field Changed'">
+    <img zf-iconic="" icon="circle-check" size="medium" class="iconic-color-secondary" ng-if="comment.action == 'Approved'">
+    <img zf-iconic="" icon="document" size="medium" class="iconic-color-secondary" ng-if="comment.action == 'File Uploaded'">
+    <img zf-iconic="" icon="action" size="medium" class="iconic-color-secondary" ng-if="comment.action == 'Field Added'">
+    <img zf-iconic="" icon="magnifying-glass" size="medium" class="iconic-color-secondary" ng-if="comment.action == 'Viewed'">
+  </div>
+  <div class="small-10 grid-content">
+    <p><b>{{comment.action}}</b> by <u>{{comment.name}}</u>. {{comment.date}} at {{comment.time}}</p>
+    <p ng-if="comment.message"><br>{{comment.message}}</p>
+    <p ng-if="comment.action == 'File Uploaded'"><a zf-open="advancedModal">Click to View</a></p>
+  </div>
+</div>
+<div class="grid-block activity-visible-button">
+  <div ng-show="single.comments.length > 1">
+    <p>
+      <a ng-click="view_all_activity()" ng-show="single.comments.activity != false"><span>Click to Show All/Hide</span></a>
+    </p>
+  </div>
+</div>
